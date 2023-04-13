@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="zh-cn">
+
+<head>
+  <meta charset="utf-8">
+  <title>home2</title>
+  <meta name="keywords" content="">
+  <meta name="description" content="">
+  <style>
+    /* div a[target] {
+      color: red;
+    }
+    div *[class] {
+      color: green;
+    } */
+    div p[class*="page"] {
+      color: red;
+    }
+    div p[class^="page"] {
+      color: green;
+    }
+    div p[class$="2"] {
+      color: yellow;
+    }
+    div a[target="_self"] {
+      color: red;
+    }
+    div a[target="_blank"] {
+      color: cyan;
+    }
+    div p[id="page"] {
+      font-size: 30px;
+    }
+  </style>
+</head>
+
+<body>
+  <div>
+    <a href="#" target="_self" title="link">link1</a>
+    <br>
+    <a href="http://baidu.com/" class="link" target="_blank">link2</a>
+    <p class="page1">我是page1</p>
+    <p class="page2" id="page">我是page2</p>
+    <p class="page3">我是page3</p>
+    <span class="sp">我是span1</span>
+    <span>我是span2</span>
+  </div>
+</body>
+
+</html>

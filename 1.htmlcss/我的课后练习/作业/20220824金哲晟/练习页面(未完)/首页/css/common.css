@@ -1,0 +1,39 @@
+a {
+  color: #c8c8c8;
+}
+
+.header a:hover {
+  text-decoration: none;
+  color: #fff;
+}
+
+.text-hidden {
+  display: inline-block;
+  text-indent: -9999px;
+  height: 0;
+  visibility: hidden;
+}
+
+.cfff {
+  color: #fff;
+}
+
+dd {
+  margin: 0;
+}
+
+.cce {
+  color: #cecece;
+}
+
+.fz14 {
+  font-size: 14px;
+}
+
+.fz12 {
+  font-size: 12px;
+}
+
+.align-center {
+  text-align: center;
+}

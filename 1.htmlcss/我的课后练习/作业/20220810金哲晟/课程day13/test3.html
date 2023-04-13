@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>test</title>
+  <meta name="keywords" content="">
+  <meta name="description" content="">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      width: 900px;
+    }
+
+    /* .box {
+      display: inline-block;
+      width: 200px;
+      height: 100px;
+      background-color: #368;
+    } */
+    p {
+      /* display: inline-block; */
+      width: 200px;
+      height: 100px;
+      background-color: red;
+      -webkit-line-clamp: 3;
+      /* 控制在第几行的结尾进行显示 ...*/
+      overflow: hidden;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+    }
+
+    img {
+      vertical-align: middle;
+    }
+
+    div {
+      width: 800px;
+    }
+  </style>
+</head>
+
+<body>
+  <div>
+    <img src="./images/pic.jpeg" width="500" height="268" alt="!">
+    <p>fsfdasfsafasfdasfdasfs
+      dsfdasfsafasfdsfdasfsafasfd
+      sfdasfsafasfdfasafasf
+      fdasfsafasfdfasaf
+    </p>
+  </div>
+
+</body>
+
+</html>

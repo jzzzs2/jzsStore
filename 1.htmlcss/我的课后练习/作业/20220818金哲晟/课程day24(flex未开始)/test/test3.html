@@ -1,0 +1,49 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    a {
+      position: relative;
+      color: #999;
+      text-decoration: none;
+    }
+    a:after {
+      transition: 1s;
+    }
+    .box {
+      width: 400px;
+      margin: 100px auto;
+    }
+    a:after {
+      content: "";
+      position: absolute;
+      /* left: 0; */
+      right: 0;
+      bottom: 0;
+      background-color: cyan;
+      width: 0px;
+      height: 2px;
+    }
+    a:hover:after{
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <a href="#">信息1</a>
+    <a href="#">信息2</a>
+    <a href="#">信息3</a>
+    <a href="#">信息4</a>
+    <a href="#">信息5</a>
+    <a href="#">信息6</a>
+  </div>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="zh-cn">
+
+<head>
+  <meta charset="utf-8">
+  <title>home2</title>
+  <meta name="keywords" content="">
+  <meta name="description" content="">
+  <style>
+    /* div p:not(.page-one):not(.page-two) {
+      color: cyan;
+    } */
+    /* 先获得一个集合再使用这个伪类选择器 */
+    /* div span:not(#sp) {
+      color: red;
+    } */
+    div h3:not(.title) {
+      color: yellow;
+    }
+  </style>
+</head>
+
+<body>
+  <div>
+    <p class="page-one">p1</p>
+    <p class="page-two">p2</p>
+    <span id="sp">sp1</span>
+    <h3 class="title">w1s1H3</h3>
+    <span id="sp2">span2</span>
+    <p class="page-three">p3</p>
+    <h3 class="title-two">wosiH4</h3>
+  </div>
+</body>
+
+</html>

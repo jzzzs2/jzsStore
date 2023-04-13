@@ -1,0 +1,197 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>eat</title>
+  <link rel="stylesheet" href="./css/reset.css">
+  <style>
+    @font-face {
+      font-family: "iconfont";
+      /* Project id 3599739 */
+      src: url('fonts/iconfont.woff2?t=1660900242255') format('woff2'),
+        url('fonts/iconfont.woff?t=1660900242255') format('woff'),
+        url('fonts/iconfont.ttf?t=1660900242255') format('truetype');
+    }
+    body,html {
+      height: 100%;
+    }
+    .flex {
+      display: flex;
+    }
+    .flex-center {
+      justify-content: center;
+      align-items: center;
+    }
+    .flex-direction {
+      flex-direction: column;
+    }
+    .wrap {
+      flex-wrap: wrap;
+    }
+    .container {
+      box-sizing: border-box;
+      max-width: 1000px;
+      min-width: 600px;
+      border: 1px solid #999;
+      padding: 10px;
+    }
+    .container ul {
+      overflow: hidden;
+      justify-content: space-between;
+      border-radius: 4px;
+    }
+    .container ul li {
+      position: relative;
+      width: 230px;
+      margin-bottom: 8px;
+    }
+    .container ul li img {
+      width: 100%;
+      height: auto;
+    }
+    .container ul li:hover .mask {
+      transform: scale(1);
+    }
+    .mask {
+      transform: scale(0);
+      box-sizing: border-box;
+      justify-content: space-evenly;
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      padding: 15px 10px 0;
+      background-color: rgba(0,0,0,.5);
+      transition: .2s linear;
+    }
+    .mask p {
+      /* width: 80%; */
+      font-size: 14px;
+      color: #fff;
+      line-height: 24px;
+    }
+    .mask p:nth-of-type(2) {
+      justify-content: space-between;
+    }
+    .mask p:nth-of-type(3) {
+      justify-content: space-between;
+    }
+    .iconfont {
+      font-family: "iconfont";
+      font-size: 14px;
+      font-style: normal;
+      color: #fff;
+    }
+    i {
+      vertical-align: middle;
+    }
+  </style>
+</head>
+
+<body class="flex flex-center">
+  <div class="container">
+    <ul class="flex wrap">
+      <li class="flex flex-center">
+        <img src="./images/taobao/food1.webp" alt="food" width="230" height="230">
+        <div class="mask flex flex-direction">
+          <p><i class="iconfont">&#xe790;</i>【N上新口味】稻香村绿豆冰糕桂花味网红零食抹茶</p>
+          <p class="flex"><i class="iconfont">&#xe63e;天猫超市</i><span>北京</span></p>
+          <p class="flex"><span>¥39.90</span><span>69人付款</span></p>
+        </div>
+      </li>
+      <li class="flex flex-center">
+        <img src="./images/taobao/food2.webp" alt="food" width="230" height="230">
+        <div class="mask flex flex-direction">
+          <p><i class="iconfont">&#xe790;</i>【N上新口味】稻香村绿豆冰糕桂花味网红零食抹茶</p>
+          <p class="flex"><i class="iconfont">&#xe63e;天猫超市</i><span>北京</span></p>
+          <p class="flex"><span>¥39.90</span><span>69人付款</span></p>
+        </div>
+      </li>
+      <li class="flex flex-center">
+        <img src="./images/taobao/food3.webp" alt="food" width="230" height="230">
+        <div class="mask flex flex-direction">
+          <p><i class="iconfont">&#xe790;</i>【N上新口味】稻香村绿豆冰糕桂花味网红零食抹茶</p>
+          <p class="flex"><i class="iconfont">&#xe63e;天猫超市</i><span>北京</span></p>
+          <p class="flex"><span>¥39.90</span><span>69人付款</span></p>
+        </div>
+      </li>
+      <li class="flex flex-center">
+        <img src="./images/taobao/food4.webp" alt="food" width="230" height="230">
+        <div class="mask flex flex-direction">
+          <p><i class="iconfont">&#xe790;</i>【N上新口味】稻香村绿豆冰糕桂花味网红零食抹茶</p>
+          <p class="flex"><i class="iconfont">&#xe63e;天猫超市</i><span>北京</span></p>
+          <p class="flex"><span>¥39.90</span><span>69人付款</span></p>
+        </div>
+      </li>
+      <li class="flex flex-center">
+        <img src="./images/taobao/food1.webp" alt="food" width="230" height="230">
+        <div class="mask flex flex-direction">
+          <p><i class="iconfont">&#xe790;</i>【N上新口味】稻香村绿豆冰糕桂花味网红零食抹茶</p>
+          <p class="flex"><i class="iconfont">&#xe63e;天猫超市</i><span>北京</span></p>
+          <p class="flex"><span>¥39.90</span><span>69人付款</span></p>
+        </div>
+      </li>
+      <li class="flex flex-center">
+        <img src="./images/taobao/food2.webp" alt="food" width="230" height="230">
+        <div class="mask flex flex-direction">
+          <p><i class="iconfont">&#xe790;</i>【N上新口味】稻香村绿豆冰糕桂花味网红零食抹茶</p>
+          <p class="flex"><i class="iconfont">&#xe63e;天猫超市</i><span>北京</span></p>
+          <p class="flex"><span>¥39.90</span><span>69人付款</span></p>
+        </div>
+      </li>
+      <li class="flex flex-center">
+        <img src="./images/taobao/food3.webp" alt="food" width="230" height="230">
+        <div class="mask flex flex-direction">
+          <p><i class="iconfont">&#xe790;</i>【N上新口味】稻香村绿豆冰糕桂花味网红零食抹茶</p>
+          <p class="flex"><i class="iconfont">&#xe63e;天猫超市</i><span>北京</span></p>
+          <p class="flex"><span>¥39.90</span><span>69人付款</span></p>
+        </div>
+      </li>
+      <li class="flex flex-center">
+        <img src="./images/taobao/food4.webp" alt="food" width="230" height="230">
+        <div class="mask flex flex-direction">
+          <p><i class="iconfont">&#xe790;</i>【N上新口味】稻香村绿豆冰糕桂花味网红零食抹茶</p>
+          <p class="flex"><i class="iconfont">&#xe63e;天猫超市</i><span>北京</span></p>
+          <p class="flex"><span>¥39.90</span><span>69人付款</span></p>
+        </div>
+      </li>
+      <li class="flex flex-center">
+        <img src="./images/taobao/food1.webp" alt="food" width="230" height="230">
+        <div class="mask flex flex-direction">
+          <p><i class="iconfont">&#xe790;</i>【N上新口味】稻香村绿豆冰糕桂花味网红零食抹茶</p>
+          <p class="flex"><i class="iconfont">&#xe63e;天猫超市</i><span>北京</span></p>
+          <p class="flex"><span>¥39.90</span><span>69人付款</span></p>
+        </div>
+      </li>
+      <li class="flex flex-center">
+        <img src="./images/taobao/food2.webp" alt="food" width="230" height="230">
+        <div class="mask flex flex-direction">
+          <p><i class="iconfont">&#xe790;</i>【N上新口味】稻香村绿豆冰糕桂花味网红零食抹茶</p>
+          <p class="flex"><i class="iconfont">&#xe63e;天猫超市</i><span>北京</span></p>
+          <p class="flex"><span>¥39.90</span><span>69人付款</span></p>
+        </div>
+      </li>
+      <li class="flex flex-center">
+        <img src="./images/taobao/food3.webp" alt="food" width="230" height="230">
+        <div class="mask flex flex-direction">
+          <p><i class="iconfont">&#xe790;</i>【N上新口味】稻香村绿豆冰糕桂花味网红零食抹茶</p>
+          <p class="flex"><i class="iconfont">&#xe63e;天猫超市</i><span>北京</span></p>
+          <p class="flex"><span>¥39.90</span><span>69人付款</span></p>
+        </div>
+      </li>
+      <li class="flex flex-center">
+        <img src="./images/taobao/food4.webp" alt="food" width="230" height="230">
+        <div class="mask flex flex-direction">
+          <p><i class="iconfont">&#xe790;</i>【N上新口味】稻香村绿豆冰糕桂花味网红零食抹茶</p>
+          <p class="flex"><i class="iconfont">&#xe63e;天猫超市</i><span>北京</span></p>
+          <p class="flex"><span>¥39.90</span><span>69人付款</span></p>
+        </div>
+      </li>
+    </ul>
+  </div>
+</body>
+
+</html>

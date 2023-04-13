@@ -1,0 +1,104 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>margin捏</title>
+  <meta name="keywords" content="">
+  <meta name="description" content="">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+    }
+    .all-margin {
+      display: inline-block;
+      width: 200px;
+      height: 200px;
+      background-color: red;
+      margin-left: 600px;
+      margin-right: 600px;
+      margin-top: 200px;
+    }
+    .inline-block-test {
+      /* display: inline-block; */
+      width: 500px;
+      height: 200px;
+      margin: 0 auto;
+      background-color: cyan;
+    }
+    .left {
+      display: inline-block;
+      width: 200px;
+      height: 200px;
+      background: red;
+      margin-right: 50px;
+    }
+    .right {
+      display: inline-block;
+      width: 200px;
+      height: 200px;
+      background: green;
+      margin-left: 150px;
+    }
+    .page {
+      width: 200px;
+      background-color: red;
+      /* margin: 0 auto; */
+      /* margin-top: auto; */
+      /* margin-bottom: auto; */
+    }
+    .son {
+      width: 200px;
+      margin: 10px auto;
+      background-color: red;
+    }
+    .son2 {
+      margin-top: 10px;
+      background-color: red;
+    }
+  </style>
+</head>
+<body>
+  <div class="inline-block-test">
+    
+  </div>
+  <div class="all-margin">
+
+  </div>
+  <hr>
+  <div style="height:200px;background-color:red;margin-bottom:100px;">
+
+  </div>
+  <div style="height:200px;background-color:green;margin-top:200px;">
+
+  </div>
+  <hr>
+  <div class="left">
+
+  </div>
+  <div class="right">
+
+  </div>
+  <p class="page">哈哈</p>
+  <hr>
+  <div style="width:300px;margin:0 auto;background-color:green;">
+    <ul style="list-style:none;">
+      <li class="son">2323</li>
+      <li class="son">2323</li>
+      <li class="son">2323</li>
+      <li class="son">2323</li>
+      <li class="son">2323</li>
+    </ul>
+  </div>
+  <hr>
+  <div style="width:300px;margin:0 auto;background-color:green;">
+    <ul style="list-style:none;width:200px;padding:0 50px;">
+      <li class="son2">2323</li>
+      <li class="son2">2323</li>
+      <li class="son2">2323</li>
+      <li class="son2">2323</li>
+      <li class="son2">2323</li>
+    </ul>
+  </div>
+</body>
+</html>

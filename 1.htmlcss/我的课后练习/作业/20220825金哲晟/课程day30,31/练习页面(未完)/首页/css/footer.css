@@ -1,0 +1,91 @@
+/* footer */
+.footer {
+  position: relative;
+  background-color: #191629;
+}
+
+.footer .content {
+  display: flex;
+  justify-content: space-between;
+  width: 1056px;
+  margin: 0 auto;
+  padding: 60px 0 25px 0;
+}
+
+.footer .content:after {
+  position: absolute;
+  top: 325px;
+  left: 320px;
+  content: "";
+  width: 1400px;
+  height: 1px;
+  text-align: center;
+  background-image: linear-gradient(to right, rgba(0, 0, 0, .1), #4c4f5f, rgba(0, 0, 0, .1));
+}
+
+.footer .content .phone {
+  position: relative;
+  box-sizing: border-box;
+  width: 292px;
+  border-right: 1px solid rgba(255,255,255,.3);
+}
+
+.phone .service img {
+  float: left;
+}
+
+.phone>img {
+  padding-left: 34px;
+}
+
+.phone>p {
+  padding: 15px 0 0 34px;
+  line-height: 1;
+}
+
+.phone .service span {
+  padding-left: 6px;
+  font-size: 22px;
+  color: #fff;
+}
+
+.phone .service p {
+  display: inline-block;
+  width: 150px;
+  padding: 6px 0 21px 6px;
+  font-size: 14px;
+  line-height: 14px;
+  color: #d2d2d2;
+}
+
+
+/* joinus */
+.footer .joinus {
+  display: flex;
+  justify-content: flex-start;
+  flex-grow: 1;
+}
+.footer dl:not(.last) {
+  width: 187px;
+}
+.footer dl:first-of-type {
+  padding-left: 92px;
+}
+.footer .joinus dt{
+  font-size: 16px;
+  padding: 0 0 42px 0;
+}
+
+.footer .joinus dd {
+  font-size: 14px;
+  padding-bottom: 20px;
+}
+.footer>p {
+  width: 397px;
+  margin: 0 auto;
+  padding: 12px 0 25px 0;
+  font-size: 14px;
+  line-height: 14px;
+  white-space: pre;
+  color: #7e8088;
+}

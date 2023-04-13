@@ -1,0 +1,48 @@
+<html lang="zh-cn">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>z-index fixed和relative和absolute</title>
+  <style>
+    .father {
+      position: relative;
+      width: 600px;
+      height: 600px;
+      margin: 20px;
+      padding: 40px;
+      background-color: cyan;
+    }
+    .same {
+      position: absolute;
+      width: 200px;
+      height: 200px;
+    }
+    .one {
+      z-index: 5;
+      top: 10px;
+      left: 10px;
+      background-color: red;
+    }
+    .two {
+      z-index: 6;
+      top: 30px;
+      left: 40px;
+      background-color: green;
+    }
+    .three {
+      z-index: 10;
+      top: 50px;
+      left: 60px;
+      background-color: blue;
+    }
+  </style>
+</head>
+<body>
+  <div class="father">
+    <div class="one same"></div>
+    <div class="two same"></div>
+    <div class="three same"></div>
+  </div>
+</body>
+</html>

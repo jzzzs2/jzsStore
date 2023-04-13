@@ -1,0 +1,35 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>attr(属性名)</title>
+  <style>
+    html,
+    body {
+      padding: 10px;
+      height: 100%;
+    }
+    .box {
+      margin: 100px auto;
+      width: 2px;
+      height: 2px;
+      background-color: red;
+      transition: 1s linear;
+    }
+    body:hover .box {
+      width: 400px;
+    }
+    .content:after {
+      content: attr(index);
+    }
+  </style>
+</head>
+<body>
+  <div class="box"></div>
+  <br>
+  <br>
+  <br>
+  <div class="content" index="div捏">我是</div>
+</body>
+</html>

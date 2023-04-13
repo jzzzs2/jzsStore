@@ -1,0 +1,81 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>元素存在方式</title>
+  <meta name="keywords" content="">
+  <meta name="description" content="">
+  <style>
+    body {
+      margin: 0;
+    }
+    div {
+      background-color: #368;
+      width: 200px;
+      /* line-height: 40px; */
+      margin-top: 50px;
+      margin-left: 50px;
+      padding: 20px;
+    }
+    p {
+      margin: 0;
+    }
+    hr {
+      margin: 0;
+    }
+    span {
+      /* width: 200px; */
+      color: #fff;
+      background-color: cyan;
+    }
+    .instant-left {
+      margin-left: 20px;
+    }
+    .instant-right {
+      margin-right: 20px;
+    }
+    .instant-top {
+      margin-top: 20px;
+    }
+    .spec {
+      display: inline-block;
+      width: 100px;
+      height: 100px;
+      background-color: red;
+      margin: 0;
+      padding: 0;
+      margin-top: 20px;
+      padding: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div>
+    <!-- 块级元素: 宽度默认百分百 可以设置宽高 独占一行 可以容纳其他元素 -->
+    <span style="background-color:red;">我是span捏</span>
+    <p>哈哈哈哈</p>
+    <hr>
+    <span class="instant-left instant-right instant-top">pop1</span>
+    <span>pop1</span>
+    <span>pop1</span>
+    <hr>
+
+    <p>
+      22
+      <!-- <div>222</div> -->
+    </p>
+    <h2>
+      <!-- <p>222</p> -->
+      <!-- <div>22</div> -->
+      <ul>
+        <!-- <li>22</li> -->
+      </ul>
+    </h2>
+    <br>
+    <br>
+    <hr>
+    <div class="spec">22</div>
+    <span>22</span>
+  </div>
+</body>
+</html>

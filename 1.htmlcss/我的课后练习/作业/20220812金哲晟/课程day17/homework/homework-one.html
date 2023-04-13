@@ -1,0 +1,90 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>test</title>
+  <meta name="keywords" content="">
+  <meta name="description" content="">
+  <style>
+    .box {
+      width: 100%;
+    }
+    .top {
+      width: 100%;
+      height: 40px;
+      background-color: #333;
+    }
+    .top-cont {
+      width: 1000px;
+      height: 100px;
+      margin: 0 auto;
+      background-color: cyan;
+      color: pink;
+      text-align: center;
+    }
+    .mb20 {
+      margin-bottom: 20px;
+    }
+    .banner {
+      width: 1000px;
+      height: 300px;
+      margin: 10px auto;
+      background-color: pink;
+    }
+    .main {
+      width: 1000px;
+      margin: 10px auto;
+      background-color: skyblue;
+    }
+    .left {
+      float: left;
+      width: 200px;
+      height: 200px;
+      background-color: orange;
+    }
+    .right {
+      float: right;
+      width: 300px;
+      height: 300px;
+      background-color: red;
+    }
+    .clear {
+      /* clear: right; */
+      /* clear: left; */
+      clear: both;
+    }
+    .main:after {
+      content: "";
+      display: block;
+      height: 0;
+      clear: both;
+      visibility: hidden;
+    }
+    .footer {
+      width: 1000px;
+      height: 200px;
+      margin: 20px auto;
+      background-color: purple;
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <!-- <div class="top"> -->
+      <div class="top-cont">我是TOP</div>
+    <!-- </div> -->
+    <div class="banner">
+
+    </div>
+    <div class="main">
+      <div class="left"></div>
+      <div class="right"></div>
+      <!-- <div class="clear"></div> -->
+      <!-- <br class="clear"> -->
+    </div>
+    <div class="footer">
+
+    </div>
+  </div>
+</body>
+</html>

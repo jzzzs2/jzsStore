@@ -1,0 +1,67 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>标签和css</title>
+  <meta name="keywords" content="none">
+  <meta name="description" content="none">
+  <link href="./css/my.css" rel="stylesheet">
+  <style>
+    /* span {
+      color: red;
+      font-size: 40px;
+      font-weight: 700;
+      font-family: "宋体";
+      font-style: italic;
+    } */
+    #my-fav {
+      font-size: 30px;
+      color: black;
+    }
+    * {
+      font-size: 50px;
+    }
+    .para-one {
+      color: pink;
+      font-size: 50px;
+      text-indent: 2em;
+    }
+    .current {
+      color: skyblue;
+    }
+    #watermelon {
+      font-size:150px;
+    }
+    .fruit {
+      font-size: 100px;
+    }
+    .melon-winter {
+      color: green;
+    }
+    .melon-sourth {
+      color: orange;
+    }
+    .melon-west {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <div>
+    <!-- div非语义标签 作用主要是分割内容,形成区域 -->
+    <!-- <span style="color:red;font-size:30px;">我是span捏</span> -->
+    <span style="color: cyan;">我是span捏</span>
+    <p class="para-one">我是段落1</p>
+    <p class="current">我是段落2</p>
+    <p id="my-fav">我是段落3(我喜欢的)</p>
+    <p>我是段落4</p>
+    <!-- <p id="my-fav">我是段落4</p> -->
+    <!-- span标签也是非语义标签,主要作用是对部分文字进行样式修改 -->
+    <!-- css书写三种方式:内联样式 内部样式 外部样式(最多) -->
+    <br><br>
+    <span class="fruit melon-west" id="watermelon">西瓜</span>
+    <span class="fruit melon-winter">冬瓜</span>
+    <span class="fruit melon-sourth">南瓜</span>
+  </div>
+</body>
+</html>

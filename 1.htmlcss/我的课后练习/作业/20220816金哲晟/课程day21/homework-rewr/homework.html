@@ -1,0 +1,365 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./css/reset.css">
+  <style>
+    .c666 {
+      color: #666;
+    }
+    .c333 {
+      color: #333;
+    }
+    .cccc {
+      color: #ccc;
+    }
+    .fz14 {
+      font-size: 14px;
+    }
+    .fz18 {
+      font-size: 18px;
+    }
+    .lh24 {
+      line-height: 24px;
+    }
+    .c2288f6 {
+      color: #2288f6;
+    }
+    .fl {
+      float: left;
+    }
+    .fr {
+      float: right;
+    }
+    .txalign {
+      text-align: center;
+    }
+    a {
+      color: #333;
+    }
+    .head-cont {
+      width: 1200px;
+      margin: 0 auto;
+    }
+    .head-cont ul {
+      width: 612px;
+    }
+    .head-cont ul li {
+      float: left;
+      line-height: 100px;
+    }
+    .head-cont ul li:hover a{
+      color: #2288f6;
+      text-decoration: underline;
+    }
+    .head-cont ul li:nth-of-type(-n+5) {
+      margin-right: 40px;
+    }
+    /* banner */
+    .banner {
+      height: 610px;
+      background: url(./img/bg-banner.jpg) no-repeat center/cover;
+    }
+    /* main */
+    .main {
+      width: 1054px;
+      margin: 0 auto;
+    }
+    .service .service-title{
+      padding: 64px 0 0;
+    }
+    .service .service-title:before,
+    .service .service-title:after {
+      content: "";
+      display: inline-block;
+      position: relative;
+      top: -14px;
+      height: 1px;
+      width: 415px;
+      background-color: #ccc;
+    }
+    
+    .service>p {
+      padding: 23px 105px 45px;
+    }
+    .service ul li {
+      float: left;
+      box-sizing: border-box;
+      width: 320px;
+      height: 510px;
+      padding: 41px 0 0 0;
+      border: 1px solid #e7e8e9;
+      text-align: center;
+    }
+    .service ul li:nth-of-type(2) {
+      margin: 0 47px;
+    }
+    .service ul li h3 {
+      line-height: 54px;
+      padding: 28px 0 0;
+      font-size: 24px;
+	    font-weight: normal;
+    }
+    .service ul li p {
+      padding: 0 43px 40px;
+      text-align: justify;
+    }
+    .service ul li a {
+      display: inline-block;
+      width: 150px;
+      line-height: 38px;
+      background-color: #ff9412;
+      color: #fff;
+    }
+    /* case */
+    .case .case-title:before,
+    .case .case-title:after {
+      content: "";
+      display: inline-block;
+      position: relative;
+      top: -14px;
+      height: 1px;
+      width: 415px;
+      background-color: #ccc;
+    }
+    .case-title {
+      padding: 124px 0 50px;
+    }
+    .case ul {
+      position: relative;
+    }
+    .case ul:before,
+    .case ul:after {
+      content: "<";
+      position: absolute;
+      top: 0;
+      width: 60px;
+      height: 60px;
+      margin: 75px 0;
+      text-align: center;
+      line-height: 54px;
+      font-size: 53px;
+      border-radius: 50%;
+      background-color: #e6e6e6;
+      color: #fbfbfb;
+    }
+    .case ul:before {
+      left: -90px;
+    }
+    .case ul:after {
+      content: ">";
+      right: -90px;
+      visibility: visible;
+    }
+    .case ul li {
+      position: relative;
+      float: left;
+      width: 322px;
+      height: 211px;
+    }
+    .case ul li:nth-of-type(2) {
+      margin: 0 44px;
+    }
+    .case ul li:hover .mask {
+      display: block;
+    }
+    .case ul li p {
+      position: relative;
+      top: -46px;
+      line-height: 46px;
+      color: #FFF;
+      background-color: rgba(0,0,0,.3);
+    }
+    .mask {
+      position: absolute;
+      display: none;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.5) url(./img/fdj.png) no-repeat center;
+    }
+    /* media */
+    .media .media-title:before,
+    .media .media-title:after {
+      content: "";
+      display: inline-block;
+      position: relative;
+      top: -14px;
+      height: 1px;
+      width: 415px;
+      background-color: #ccc;
+    }
+    .media-title{
+      padding: 125px 0 50px;
+    }
+    /* taobao */
+    .wrap {
+      overflow: hidden;
+      width: 1106px;
+      margin: 0 auto;
+    }
+    .wrap .content {
+      position: relative;
+      left: -50px;
+      top: -10px;
+      width: 1152px;
+    }
+    .wrap .content ul {
+      border: 1px dashed #ccc;
+    }
+    .wrap .content li {
+      float: left;
+      box-sizing: border-box;
+      width: 230px;
+      height: 82px;
+      padding: 23px 0 0;
+      border-right: 1px dashed #ccc;
+      border-bottom: 1px dashed #ccc;
+      text-align: center;
+    }
+    /* footer */
+    .footer {
+      margin-top: 50px;
+      height: 170px;
+      background-color: #212425;
+      text-align: center;
+      font-size: 14px;
+    }
+    .footer a {
+      color: #f0f1f1;
+    }
+    .footer a:hover {
+      color: #2288f6;
+    }
+    .footer p span {
+      padding: 0 15px;
+    }
+    .footer p:first-of-type {
+      line-height: 19px;
+      padding: 48px 0 0;
+    }
+    .footer p:last-of-type {
+      line-height: 31px;
+      padding: 23px 0 0;
+      color: #888;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div class="head-cont clearfix">
+      <h1 class="fl">
+        <a href="#"><img src="./img/logo.png" alt="logo" width="223" height="100"></a>
+      </h1>
+      <ul class="fz18 fr clearfix">
+        <li><a href="#">首页</a></li>
+        <li><a href="#">云云商城</a></li>
+        <li><a href="#">智慧门店</a></li>
+        <li><a href="#">营销平台</a></li>
+        <li><a href="#">媒体联盟</a></li>
+        <li><a href="#">关于云道</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="banner"></div>
+  <div class="main">
+    <div class="service">
+      <div class="service-title txalign">
+        <img src="./img/ser.png" alt="service" width="167" height="46">
+      </div>
+      <p class="txalign fz14 lh24 c666">shopcmd云道，国内领先的独立电商解决方案及全渠道营销平台。完整的产品体系，简约的系统，个性化前端，全覆盖多渠道营销体系...
+        我们致力于打造一个服务于品牌商城/独立电商的完整生态，让企业的独立电商之路变得更简单，也更有价值！</p>
+      <ul class="clearfix">
+        <li>
+          <img src="./img/icon1.png" alt="建站" width="248" height="132">
+          <h3 class="c333">我是卖家</h3>
+          <p class="fz14 lh24 c666">shopcmd云电商解决方案，我们不仅
+            仅是领先的独立商城建站系统。我们
+            从互联网时代品牌建设和品牌营销的全
+            新视角，赋予了品牌商城及独立电商更
+            大的生存空间和存在价值！</p>
+          <a href="#" class="txalign fz14">我要建站</a>
+        </li>
+        <li>
+          <img src="./img/icon1.png" alt="建站" width="248" height="132">
+          <h3 class="c333">我是卖家</h3>
+          <p class="fz14 lh24 c666">shopcmd云电商解决方案，我们不仅
+            仅是领先的独立商城建站系统。我们
+            从互联网时代品牌建设和品牌营销的全
+            新视角，赋予了品牌商城及独立电商更
+            大的生存空间和存在价值！</p>
+          <a href="#" class="txalign fz14">我要建站</a>
+        </li>
+        <li>
+          <img src="./img/icon1.png" alt="建站" width="248" height="132">
+          <h3 class="c333">我是卖家</h3>
+          <p class="fz14 lh24 c666">shopcmd云电商解决方案，我们不仅
+            仅是领先的独立商城建站系统。我们
+            从互联网时代品牌建设和品牌营销的全
+            新视角，赋予了品牌商城及独立电商更
+            大的生存空间和存在价值！</p>
+          <a href="#" class="txalign fz14">我要建站</a>
+        </li>
+      </ul>
+    </div>
+    <div class="case clearfix">
+      <div class="case-title txalign">
+        <img src="./img/case.png" alt="case" width="167" height="45">
+      </div>
+      <ul class="clearfix">
+        <li>
+          <img src="./img/pro1.png" alt="person" width="322" height="211">
+          <p class="fz14 txalign">帮助中小企业快速开启阿萨德打撒电子...</p>
+          <div class="mask"></div>
+        </li>
+        <li>
+          <img src="./img/pro1.png" alt="person" width="322" height="211">
+          <p class="fz14 txalign">帮助中小企业快速开启阿萨德打撒电子...</p>
+          <div class="mask"></div>
+        </li>
+        <li>
+          <img src="./img/pro1.png" alt="person" width="322" height="211">
+          <p class="fz14 txalign">帮助中小企业快速开启阿萨德打撒电子...</p>
+          <div class="mask"></div>
+        </li>
+        <!-- <div class="clearfix"></div> -->
+      </ul>
+    </div>
+    <div class="media">
+      <div class="media-title txalign">
+        <img src="./img/media.png" alt="case" width="167" height="46">
+      </div>
+      <div class="wrap">
+        <div class="content">
+          <ul class="clearfix">
+            <li><a href="#"><img src="./img/tb.png" alt="淘宝" width="103" height="40"></a></li>
+            <li><a href="#"><img src="./img/tb.png" alt="淘宝" width="103" height="40"></a></li>
+            <li><a href="#"><img src="./img/tb.png" alt="淘宝" width="103" height="40"></a></li>
+            <li><a href="#"><img src="./img/tb.png" alt="淘宝" width="103" height="40"></a></li>
+            <li><a href="#"><img src="./img/tb.png" alt="淘宝" width="103" height="40"></a></li>
+            <li><a href="#"><img src="./img/tb.png" alt="淘宝" width="103" height="40"></a></li>
+            <li><a href="#"><img src="./img/tb.png" alt="淘宝" width="103" height="40"></a></li>
+            <li><a href="#"><img src="./img/tb.png" alt="淘宝" width="103" height="40"></a></li>
+            <li><a href="#"><img src="./img/tb.png" alt="淘宝" width="103" height="40"></a></li>
+            <li><a href="#"><img src="./img/tb.png" alt="淘宝" width="103" height="40"></a></li>
+            <li><a href="#"><img src="./img/tb.png" alt="淘宝" width="103" height="40"></a></li>
+            <li><a href="#"><img src="./img/tb.png" alt="淘宝" width="103" height="40"></a></li>
+            <li><a href="#"><img src="./img/tb.png" alt="淘宝" width="103" height="40"></a></li>
+            <li><a href="#"><img src="./img/tb.png" alt="淘宝" width="103" height="40"></a></li>
+            <li><a href="#"><img src="./img/tb.png" alt="淘宝" width="103" height="40"></a></li>
+          </ul>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  <div class="footer">
+    <p><a href="#">shopcmd</a><span>|</span><a href="#">首页</a><span>|</span><a href="#">官网云商城</a><span>|</span><a href="#">智慧门店</a><span>|</span><a href="#">营销平台</a><span>|</span><a href="#">媒体联盟</a><span>|</span><a href="#">关于我们</a></p>
+    <p>©Copyright 2015 苏州海云网络科技有限公司版权所有 | 苏ICP备15038170号-3
+    </p>
+  </div>
+</body>
+</html>

@@ -1,0 +1,394 @@
+<html lang="zh-cn">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./css/reset.css">
+  <style>
+    a {
+      color: #333;
+    }
+    a:hover {
+      color: #2288f6;
+      text-decoration: none;
+    }
+    .c2288f6 {
+      color: #2288f6;
+    }
+    .c333 {
+      color: #333;
+    }
+    .c666 {
+      color: #666;
+    }
+    .c888 {
+      color: #888;
+    }
+    .cccc {
+      color: #ccc;
+    }
+    .cfff {
+      color: #fff;
+    }
+    .fz14 {
+      font-size: 14px;
+    }
+    .fz18 {
+      font-size: 18px;
+    }
+    .fz24 {
+      font-size: 24px;
+    }
+    .fw400 {
+      font-weight: normal;
+    }
+    .lh24 {
+      line-height: 24px;
+    }
+    .mr {
+      margin-right: 40px;
+    }
+    /* head开始 */
+    .head-cont {
+      width: 1200px;
+      margin: 0 auto;
+    }
+    .fl {
+      float: left;
+    }
+    .fr {
+      float: right;
+    }
+    .mlr47 {
+      margin: 0 47px;
+    }
+    .mlr44 {
+      margin: 0 44px;
+    }
+    .head-cont ul {
+      width: 640px;
+    }
+    .head-cont ul li {
+      float: left;
+      line-height: 100px;
+      padding: 0 20px;
+      font-size: 18px;
+      color: #333;
+    }
+    /* banner */
+    .banner {
+      height: 610px;
+      background: #252f53 url(./img/banner.jpg) no-repeat center/cover;
+    }
+    /* container */
+    .container {
+      width: 1054px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .service{
+      padding-top: 64px;
+    }
+    .service:before {
+      position: relative;
+      top: -13px;
+      content: "";
+      display: inline-block;
+      width: 415px;
+      height: 1px;
+      background-color: #ccc;
+    }
+    .service:after {
+      position: relative;
+      top: -13px;
+      content: "";
+      display: inline-block;
+      width: 415px;
+      height: 1px;
+      background-color: #ccc;
+    }
+    .container>p {
+      padding: 20px 105px;
+    }
+    .service-list {
+      padding: 25px  0 0;
+    }
+    .service-list li {
+      float: left;
+      box-sizing: border-box;
+      width: 320px;
+      height: 510px;
+      padding: 36px;
+      border: 1px solid #e7e8e9;
+    }
+    .service-list p {
+      /* text-align: left; */
+      text-align: justify;
+    }
+    .sail {
+      line-height: 54px;
+      padding: 30px 0 0;
+    }
+    .service-list li a {
+      display: block;
+      margin: 35px auto;
+      width: 150px;
+      line-height: 38px;
+      font-size: 14px;
+      color: #fff;
+      background-color: #ff9412;
+      border-radius: 4px;
+    }
+    /* case */
+    .case:before {
+      position: relative;
+      top: -13px;
+      content: "";
+      display: inline-block;
+      width: 415px;
+      height: 1px;
+      background-color: #ccc;
+    }
+    .case {
+      margin: 124px 0 50px;
+    }
+    .case:after {
+      position: relative;
+      top: -13px;
+      content: "";
+      display: inline-block;
+      width: 415px;
+      height: 1px;
+      background-color: #ccc;
+    }
+    .case-list {
+      position: relative;
+    }
+    .case-cont {
+      position: relative;
+    }
+    .case-list li {
+      float: left;
+      position: relative;
+      width: 322px;
+      height: 211px;
+    }
+    .case-list li p {
+      position: absolute;
+      width: 100%;
+      bottom: 0;
+      line-height: 46px;
+      background-color: rgba(0, 0, 0, .3)
+    }
+    .mask {
+      display: none;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, .5) url(./img/fdj.png) no-repeat center;
+    }
+    .case-list li:hover .mask {
+      display: block;
+    }
+    .case-cont:after,.case-cont:before {
+      content: "<";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      margin: auto;
+      width: 60px;
+      height: 60px;
+      font-size: 36px;
+      color: #fdfdfd;
+      background-color: skyblue;
+      border-radius: 50%;
+      /* z-index: 2; */
+    }
+    .case-cont:before {
+      left: -90px;
+    } 
+    .case-cont:after {
+      content: ">";
+      right: -90px;
+    }
+    /* media */
+    .media:before {
+      position: relative;
+      top: -13px;
+      content: "";
+      display: inline-block;
+      width: 415px;
+      height: 1px;
+      background-color: #ccc;
+    }
+    .media {
+      margin: 125px 0 50px;
+    }
+    .media:after {
+      position: relative;
+      top: -13px;
+      content: "";
+      display: inline-block;
+      width: 415px;
+      height: 1px;
+      background-color: #ccc;
+    }
+    /* tb */
+    .media-list li {
+      float: left;
+      box-sizing: border-box;
+      width: 210px;
+      height: 82px;
+      border-right: 1px dashed #ccc;
+      border-bottom: 1px dashed #ccc;
+    }
+    .media-list li:nth-of-type(5n) {
+      border-right: 0;
+    }
+    .media-list li:nth-of-type(11) {
+      border-bottom: 0;
+    }
+    .media-list li:nth-of-type(12) {
+      border-bottom: 0;
+    }
+    .media-list li:nth-of-type(13) {
+      border-bottom: 0;
+    }
+    .media-list li:nth-of-type(14) {
+      border-bottom: 0;
+    }
+    .media-list li:nth-of-type(15) {
+      border-bottom: 0;
+    }
+    .media-list li img {
+      display: inline-block;
+      margin-top: 23px;
+    }
+    /* footer */
+    .footer {
+      height: 170px;
+      background-color: #212425;
+      margin-top: 200px;
+      font-size: 14px;
+      line-height: 19px;
+      text-align: center;
+    }
+    .footer a {
+      color: #f0f1f1;
+      line-height: 19px;
+    }
+    .footer a:hover {
+      color: #2288f6;
+      text-decoration: underline;
+    }
+    .footer span {
+      color: #7e7e7e;
+      height: 11px;
+      padding: 0 15px;
+    }
+    .footer p {
+      line-height: 31px;
+      padding: 23px 0 0;
+    }
+    .footer>div {
+      padding: 47px 0 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="head">
+    <div class="head-cont clearfix">
+      <h1 class="logo fl">
+        <a href="#">
+          <img src="./img/logo.png" alt="logo" width="223" height="100">
+        </a>
+      </h1>
+      <ul class="fr clearfix">
+        <li><a href="#">首页</a></li>
+        <li><a href="#">云云商城</a></li>
+        <li><a href="#">智慧门店</a></li>
+        <li><a href="#">营销平台</a></li>
+        <li><a href="#">媒体联盟</a></li>
+        <li><a href="#">关于云道</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="banner"></div>
+  <div class="container">
+    <div class="service">
+      <img src="./img/ser.png" alt="service" width="167" height="46">
+    </div>
+    <p class="fz14 lh24 c666">shopcmd云道，国内领先的独立电商解决方案及全渠道营销平台。完整的产品体系，简约的系统，个性化前端，全覆盖多渠道营销体系...我们致力于打造一个服务于品牌商城/独立电商的完整生态，让企业的独立电商之路变得更简单，也更有价值！</p>
+    <ul class="service-list clearfix">
+        <li>
+          <img src="./img/icon1.png" alt="service" width="248" height="132">
+          <h3 class="fz24 c333 fw400 sail">我是卖家</h3>
+          <p class="fz14 lh24 c666">shopcmd云电商解决方案,我们不仅仅是领先的独立商城建站系统。我们从互联网时代品牌建设和品牌营销的全新视角,赋予了品牌商城及独立电商更大的生存空间和存在价值！</p>
+          <a href="#">我要建站</a>
+        </li>
+        <li class="mlr47">
+          <img src="./img/icon1.png" alt="service" width="248" height="132">
+          <h3 class="fz24 c333 fw400 sail">我要营销</h3></h3>
+          <p class="fz14 lh24 c666">shopcmd云电商解决方案,我们不仅仅是领先的独立商城建站系统。我们从互联网时代品牌建设和品牌营销的全新视角,赋予了品牌商城及独立电商更大的生存空间和存在价值！</p>
+          <a href="#">我要推广</a>
+        </li>
+        <li>
+          <img src="./img/icon1.png" alt="service" width="248" height="132">
+          <h3 class="fz24 c333 fw400 sail">媒体合作</h3>
+          <p class="fz14 lh24 c666">shopcmd云电商解决方案,我们不仅仅是领先的独立商城建站系统。我们从互联网时代品牌建设和品牌营销的全新视角,赋予了品牌商城及独立电商更大的生存空间和存在价值！</p>
+          <a href="#">我要合作</a>
+        </li>
+    </ul>
+    <div class="case">
+      <img src="./img/case.png" alt="case" width="167" height="45">
+    </div>
+    <div class="case-cont">
+      <ul class="case-list clearfix">
+        <li>
+          <img src="./img/pro1.png" alt="person" width="322" height="211">
+          <p class="fz14 cfff">帮助中小企业快速开启阿萨德打撒电子...</p>
+          <div class="mask"></div>
+        </li>
+        <li class="mlr44">
+          <img src="./img/pro1.png" alt="person" width="322" height="211">
+          <p class="fz14 cfff">帮助中小企业快速开启阿萨德打撒电子...</p>
+          <div class="mask"></div>
+        </li>
+        <li>
+          <img src="./img/pro1.png" alt="person" width="322" height="211">
+          <p class="fz14 cfff">帮助中小企业快速开启阿萨德打撒电子...</p>
+          <div class="mask"></div>
+        </li>
+      </ul>
+    </div>
+    
+    <div class="media">
+      <img src="./img/media.png" alt="media" width="167" height="46">
+    </div>
+    <ul class="clearfix media-list">
+      <li><img src="./img/tb.png" alt="tb" width="103" height="40"></li>
+      <li><img src="./img/tb.png" alt="tb" width="103" height="40"></li>
+      <li><img src="./img/tb.png" alt="tb" width="103" height="40"></li>
+      <li><img src="./img/tb.png" alt="tb" width="103" height="40"></li>
+      <li><img src="./img/tb.png" alt="tb" width="103" height="40"></li>
+      <li><img src="./img/tb.png" alt="tb" width="103" height="40"></li>
+      <li><img src="./img/tb.png" alt="tb" width="103" height="40"></li>
+      <li><img src="./img/tb.png" alt="tb" width="103" height="40"></li>
+      <li><img src="./img/tb.png" alt="tb" width="103" height="40"></li>
+      <li><img src="./img/tb.png" alt="tb" width="103" height="40"></li>
+      <li><img src="./img/tb.png" alt="tb" width="103" height="40"></li>
+      <li><img src="./img/tb.png" alt="tb" width="103" height="40"></li>
+      <li><img src="./img/tb.png" alt="tb" width="103" height="40"></li>
+      <li><img src="./img/tb.png" alt="tb" width="103" height="40"></li>
+      <li><img src="./img/tb.png" alt="tb" width="103" height="40"></li>
+    </ul>
+  </div>
+  <div class="footer">
+    <p><a href="#">shopcmd</a><span>|</span><a href="#">首页</a><span>|</span><a href="#">官网云商城</a><span>|</span><a href="#">智慧门店</a><span>|</span><a href="#">媒体联盟</a><span>|</span><a href="#">营销平台</a><span>|</span><a href="#">关于我们</a></p>
+    <p class="c888">©Copyright 2015 苏州海云网络科技有限公司版权所有 | 苏ICP备15038170号-3</p>
+  </div>
+</body>
+</html>

@@ -1,0 +1,121 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>导航</title>
+  <link rel="stylesheet" href="./fonts/iconfont.css">
+  <link rel="stylesheet" href="../css/reset.css">
+  <style>
+    ul {
+      list-style: none;
+    }
+    .c333 {
+      color: #333;
+    }
+
+    a {
+      text-decoration: none;
+      color: #fff;
+    }
+    a:hover {
+      color: skyblue;
+    }
+
+    .container {
+      background-image: linear-gradient(to top,#000,#797979);
+    }
+
+    .nav {
+      width: 640px;
+      margin: 0 auto;
+    }
+
+    .nav ul {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .nav li {
+      line-height: 80px;
+      font-size: 14px;
+    }
+
+    .nav li:nth-of-type(2) {
+      position: relative;
+    }
+
+    .nav li:nth-of-type(2):hover span{
+      transform: rotate(180deg);
+    }
+
+    .nav .type {
+      visibility: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: absolute;
+      left: -38px;
+      top: 78px;
+      width: 106px;
+      height: 0;
+      border: 1px solid rgba(0,0,0,.5);
+      text-align: center;
+      border-radius: 4px;
+      transition: all .5s linear;
+    }
+
+    /* .nav .type {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-content: space-between;
+      background-color: #fafafa;
+    } */
+    .nav .type li {
+      flex-grow: 1;
+      width: 80px;
+      /* height: 40px; */
+      line-height: 50px;
+    }
+
+    .nav li:nth-of-type(2):hover .type {
+      visibility: visible;
+      height: 150px;
+    }
+
+    /* .nav .type a {
+      font-size: 14px;
+      line-height: 40px;
+    } */
+
+
+    .icon {
+      display: inline-block;
+      width: 13px;
+      height: 6px;
+      padding: 0 6px;
+      background: url(./images/arrows-down.png) no-repeat center;
+      transition: .1s linear;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="nav">
+      <ul>
+        <li><a href="#">首页</a></li>
+        <li><a href="#">产品<span class="icon"></span></a>
+          <ul class="type">
+            <li><a href="#" class="c333">手机</a></li>
+            <li><a href="#" class="c333">宽带</a></li>
+            <li><a href="#" class="c333">机顶盒</a></li>
+          </ul>
+        </li>
+        <li><a href="#">商城</a></li>
+        <li><a href="#">联系方式</a></li>
+      </ul>
+    </div>
+  </div>
+</body>
+</html>

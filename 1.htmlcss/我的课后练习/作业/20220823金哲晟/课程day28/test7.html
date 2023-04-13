@@ -1,0 +1,47 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>bgc-3.inline-block能够消除内部浮动影响,外边距穿透</title>
+  <style>
+    html {
+      background-color: #fff;
+    }
+    body {
+      /* margin-top: 100px; */
+      background-color: blue;
+    }
+    .box {
+      /* display: inline-block; */
+      float: left;
+      width: 400px;
+      height: 200px;
+      /* margin-top: 100px; */
+      /* margin: 100px; */
+      background-color: red;
+    }
+    /* .items:nth-of-type(1) {
+      float: left;
+      margin-top: 50px;
+      width: 200px;
+      height: 200px;
+      background-color: cyan;
+    } */
+    /* .items:nth-of-type(2) {
+      float: left;
+      width: 200px;
+      height: 200px;
+      background-color: blue;
+    } */
+  </style>
+</head>
+<body>
+  <div class="box">
+    <!-- <div class="items"></div> -->
+    <!-- <div class="items"></div> -->
+    <!-- <p>我是P</p> -->
+  </div>
+  <!-- <p>我是p</p> -->
+</body>
+</html>

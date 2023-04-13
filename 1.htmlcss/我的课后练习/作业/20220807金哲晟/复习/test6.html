@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>外边距合并</title>
+  <meta name="keywords" content="">
+  <meta name="description" content="">
+  <style>
+    .margin-bottom {
+      margin-bottom: 150px;
+    }
+    .margin-top {
+      margin-top: 100px;
+    }
+    .inline-block {
+      display: inline-block;
+    }
+    div {
+      width: 200px;
+      height: 200px;
+      background-color: cyan;
+    }
+    .margin-left {
+      margin-left: 100px;
+    }
+    .margin-right {
+      margin-right: 100px;
+    }
+  </style>
+</head>
+<body>
+  <p class="margin-bottom">我是段落1捏</p>
+  <p class="margin-top">我是段落2捏</p>
+  <hr>
+  <div class="inline-block margin-right">2</div>
+  <div class="inline-block margin-left">3</div>
+  <hr>
+  <div style="padding-top:10px;">
+    <p class="margin-top">我是段落3</p>
+  </div>
+  <hr>
+  <div style="border-top:10px solid transparent;">
+    <p class="margin-top">我是段落3</p>
+  </div>
+</body>
+</html>

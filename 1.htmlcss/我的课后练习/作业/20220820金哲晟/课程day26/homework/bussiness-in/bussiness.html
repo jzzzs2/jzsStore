@@ -1,0 +1,398 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>入驻捏</title>
+  <link rel="stylesheet" href="../../css/reset.css">
+  <link rel="stylesheet" href="./fonts/iconfont.css">
+  <style>
+    .align-center {
+      text-align: center;
+    }
+
+    .c333 {
+      color: #333;
+    }
+
+    body .header a {
+      color: #fff;
+      font-size: 16px;
+      text-decoration: none;
+    }
+
+    .header a:hover {
+      color: cyan;
+    }
+
+    i {
+      padding: 0 10px;
+    }
+
+    .content {
+      padding: 0 493px 0 378px;
+      margin: 0 auto;
+      line-height: 80px;
+    }
+
+    .header {
+      background-color: #051232;
+    }
+
+    .content h1 {
+      float: left;
+      padding: 15px 0;
+    }
+
+    .content ul {
+      float: right;
+    }
+
+    .content ul li {
+      float: right;
+    }
+
+    .content ul li:nth-of-type(2) {
+      padding-right: 47px;
+    }
+
+    .content ul li:nth-of-type(3) {
+      padding-right: 46px;
+    }
+
+    .content ul li:nth-of-type(4) {
+      padding-right: 49px;
+    }
+
+    .content ul li:nth-of-type(5) {
+      padding-right: 30px;
+    }
+
+    .content ul li:nth-of-type(6) {
+      padding-right: 56px;
+    }
+
+    /* banner */
+    .banner {
+      height: 380px;
+      background-image: url(./images/组-4.jpg);
+    }
+
+    .banner {
+      color: #fff;
+    }
+
+    .banner h2 {
+      padding: 96px 0 0 0;
+      font-size: 44px;
+      line-height: 86px;
+      font-weight: normal;
+    }
+
+    .banner p {
+      margin: 0 auto;
+      width: 571px;
+      font-size: 22px;
+      line-height: 36px;
+    }
+
+    /* content */
+    .main .come-in {
+      margin: 0 auto;
+      width: 920px;
+    }
+
+    .main .come-in {
+      width: 920px;
+      margin: 0 auto;
+    }
+
+    .main .come-in>p {
+      padding: 88px 0 75px 0;
+      font-size: 30px;
+      line-height: 30px;
+      color: #333;
+    }
+
+    .procedure {
+      position: relative;
+      padding-bottom: 122px;
+    }
+
+    .main .come-in .procedure {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .procedure>div p {
+      padding: 24px 0 0 0;
+      font-size: 20px;
+      line-height: 30px;
+    }
+
+    .procedure>img {
+      position: absolute;
+    }
+
+    .procedure>img:nth-of-type(1) {
+      top: 55px;
+      left: 172px;
+    }
+
+    .procedure>img:nth-of-type(2) {
+      top: 55px;
+      left: 435px;
+    }
+
+    .procedure>img:nth-of-type(3) {
+      top: 55px;
+      left: 698px;
+    }
+
+    /* apply */
+    .apply {
+      height: 582px;
+      background-image: url(./images/组-5.jpg);
+    }
+
+    .apply .all-info {
+      width: 493px;
+      padding-left: 442px;
+    }
+
+    .apply .all-info>p {
+      padding: 64px 0 42px;
+    }
+
+    .apply .all-info>p span:first-of-type {
+      display: inline-block;
+      width: 2px;
+      height: 36px;
+      background-color: #333333;
+      vertical-align: middle;
+    }
+
+    .apply .all-info>p span:nth-of-type(2) {
+      padding-left: 20px;
+      font-size: 30px;
+      color: #333333;
+      vertical-align: middle;
+    }
+
+    .apply .all-info .user input {
+      display: inline-block;
+      box-sizing: border-box;
+      padding-left: 20px;
+      width: 493px;
+      height: 60px;
+      background-color: #ffffff;
+      border-radius: 2px;
+      border: solid 1px #d3d3d3;
+      color: #999;
+      font-size: 16px;
+    }
+
+    .all-info .user li {
+      margin-bottom: 30px;
+    }
+
+    .all-info>a {
+      display: inline-block;
+      width: 150px;
+      height: 40px;
+      background-color: #ff7200;
+      text-align: center;
+      line-height: 40px;
+      color: #fff;
+      font-size: 16px;
+      border-radius: 20px;
+    }
+    /* footer */
+    .footer {
+      /* height: 382px; */
+      background-color: #22212f;
+    }
+
+    .service {
+      display: flex;
+      width: 1038px;
+      padding: 85px 0  20px 0;
+      margin: 0 auto;
+    }
+    .phone {
+      margin-top: -16px;
+    }
+    .phone i {
+      padding: 0;
+      font-size: 40px;
+      font-style: normal;
+      color: #fff;
+      vertical-align: middle;
+    }
+
+    .phone>img {
+      vertical-align: middle;
+    }
+
+    .info {
+      width: 214px;
+      padding-right: 70px;
+      border-right: 1px solid #4c4f5f;
+      text-align: center;
+      font-size: 12px;
+    }
+
+    .info>img {
+      padding-left: 30px;
+    }
+
+    .info>p {
+      padding: 15px 0 0 30px;
+      color: #cecece;
+    }
+    /*  */
+    .type  {
+      display: flex;
+      justify-content: space-between;
+      width: 654px;
+      padding: 0 0 0 94px;
+    }
+
+    .type ul li {
+      padding-bottom: 21px;
+      color: #aeaeae;
+      font-size: 12px;
+    }
+    .type ul:nth-of-type(1) {
+      padding-right: 16px;
+    }
+    .type ul li:nth-of-type(1) {
+      padding-bottom: 42px;
+      padding-right: 50px;
+      font-size: 14px;
+      color: #fff;
+    }
+    /* .type ul li:nth-of-type(4) {
+      padding-right: 20px;
+    } */
+    .footer>p {
+      text-align: center;
+    }
+
+    .footer>p span{
+      padding-right: 16px;
+      font-size: 12px;
+      color: #cecece;
+      line-height: 6;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="header">
+    <div class="content clearfix">
+      <h1>
+        <a href="#"><img src="./images/logo.png" alt="logo" width="110" height="51"></a>
+      </h1>
+      <ul class="nav clearfix">
+        <li><a href="#">关于我们</a></li>
+        <li><a href="#">新闻动态</a></li>
+        <li><a href="#">行业案例</a></li>
+        <li><a href="#">橙权益</a></li>
+        <li><a href="#">橙品牌<i class="iconfont icon-xiajiantou"></i></a></li>
+        <li><a href="#">首页</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="banner align-center">
+    <h2>供应商合作</h2>
+    </h2>
+    <p>橙券诚邀您的加入，更高效的合作方式，更尖端的技术接入
+      我们期待与您携手前行共创未来</p>
+  </div>
+  <div class="main">
+    <div class="come-in">
+      <p class="align-center">入驻流程</p>
+      <div class="procedure align-center">
+        <div>
+          <img src="./images/组 7.png" alt="!" width="130" height="130">
+          <p class="c333">填写信息</p>
+        </div>
+        <img src="./images/组 8.png" alt="!" width="52" height="24">
+        <div>
+          <img src="./images/组 9.png" alt="!" width="130" height="130">
+          <p class="c333">商务联系</p>
+        </div>
+        <img src="./images/组 8.png" alt="!" width="52" height="24">
+        <div>
+          <img src="./images/组 10.png" alt="!" width="130" height="130">
+          <p class="c333">洽谈资源</p>
+        </div>
+        <img src="./images/组 8.png" alt="!" width="52" height="24">
+        <div>
+          <img src="./images/组 11.png" alt="!" width="130" height="130">
+          <p class="c333">签约合作</p>
+        </div>
+      </div>
+    </div>
+    <div class="apply">
+      <div class="all-info">
+        <p><span>|</span><span>入驻申请</span></p>
+        <ul class="user">
+          <li><input type="text" placeholder="您的姓名"></li>
+          <li><input type="text" placeholder="您的手机号码"></li>
+          <li><input type="text" placeholder="您要供应的资源"></li>
+        </ul>
+        <a href="#">提交信息</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    <div class="service">
+      <div class="info">
+        <div class="phone">
+          <i class="icon-kefu iconfont"></i>
+          <img src="./images/service.png" alt="serive" width="168" height="46">
+        </div>
+        <img src="./images/qrcode.png" alt="qrcode" width="160" height="160">
+        <p>微信扫描二维码,关注~橙券</p>
+      </div>
+      <div class="type">
+        <ul>
+          <li>橙品牌</li>
+          <li>橙运营</li>
+          <li>橙积分</li>
+          <li>橙金融</li>
+          <li>橙福利</li>
+        </ul>
+        <ul>
+          <li>快速入口</li>
+          <li>权益平台</li>
+          <li>开放平台</li>
+          <li>供应商入驻</li>
+        </ul>
+        <ul>
+          <li>网站链接</li>
+          <li>首页</li>
+          <li>橙权益</li>
+          <li>行业案例</li>
+          <li>新闻动态</li>
+          <li>关于我们</li>
+        </ul>
+        <ul>
+          <li>友情链接</li>
+          <li>Decent鼎信</li>
+          <li>中国银联</li>
+          <li>中国农业银行</li>
+          <li>中国移动</li>
+          <li>中国联通</li>
+        </ul>
+      </div>
+    </div>
+    <p><span>@2019</span><span>山东鼎信网络科技有限公司</span><span>鲁ICP备13023321号-25</span></p>
+  </div>
+</body>
+
+</html>

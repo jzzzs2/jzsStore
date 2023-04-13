@@ -1,0 +1,61 @@
+<html lang="zh-cn">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>子元素属性flex-grow 默认0 按数值比例分类剩余空间</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    body,html {
+      height: 100%;
+    }
+    .box {
+      display: flex;
+      flex-wrap: wrap;
+      margin: 0 auto;
+      width: 600px;
+      height: 600px;
+      background-color: red;
+    }
+    .test {
+      width: 160px;
+      height: 150px;
+      background-color: green;
+      flex-grow: 2;
+    }
+    .test:nth-of-type(2) {
+      background-color: blue;
+      flex-grow: 2;
+    }
+    .test:nth-of-type(3) {
+      background-color: cyan;
+      flex-grow: 2;
+    }
+    .test:nth-of-type(4) {
+      background-color: pink;
+      flex-grow: 1;
+    }
+    .test:nth-of-type(5) {
+      background-color: skyblue;
+      flex-grow: 40;
+    }
+    .test:nth-of-type(6) {
+      background-color: purple;
+      flex-grow: 1;
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <div class="test"></div>
+    <div class="test"></div>
+    <div class="test"></div>
+    <div class="test"></div>
+    <div class="test"></div>
+    <div class="test"></div>
+  </div>
+</body>
+</html>

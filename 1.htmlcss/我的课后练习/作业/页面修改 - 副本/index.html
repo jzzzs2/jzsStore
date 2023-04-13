@@ -1,0 +1,492 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>index</title>
+  <link rel="stylesheet" href="./css/reset.css">
+  <link rel="stylesheet" href="./css/header.css">
+  <link rel="stylesheet" href="./css/banner.css">
+  <link rel="stylesheet" href="./css/footer.css">
+  <link rel="stylesheet" href="./fonts/iconfont.css">
+  <link rel="stylesheet" href="./css/common.css">
+  <style>
+    /* container */
+    .container {
+      /* width: 1160px; */
+      /* margin: 0 auto;  */
+      min-width: 1160px;
+      padding-top: 240px;
+      text-align: center;
+    }
+
+    .container .brand {
+      margin: 0 auto;
+      padding-bottom: 148px;
+    }
+
+    .container .brand ul {
+      display: flex;
+      justify-content: space-between;
+      padding-top: 64px;
+    }
+
+    .container .brand ul li {
+      /* flex-grow: 1; */
+      box-sizing: border-box;
+      width: 280px;
+      height: 400px;
+      font-weight: 200;
+      background: url(./img/marketing.jpg) no-repeat center/cover;
+      transition: all .2s linear;
+    }
+
+    .container .brand li:hover {
+
+      padding: 8px 7px;
+      transform: scale(1.13);
+      box-shadow: 0 0 8px rgba(88, 88, 88, .9) inset;
+    }
+
+    .container .brand li:hover .know-me {
+      display: inline-block;
+    }
+
+    .container .brand li:hover .mask {
+      border: 1px solid #fff;
+      color: #fff;
+      background-color: rgba(0, 0, 0, 0);
+    }
+
+    .container .brand li:hover .mask p {
+      color: #fff;
+    }
+
+    .container .brand ul li:nth-of-type(2) {
+      background: url(./img/integral.jpg) no-repeat center/cover;
+    }
+
+
+    .container .brand ul li:nth-of-type(3) {
+      background: url(./img/financial.jpg) no-repeat center/cover;
+    }
+
+
+    .container .brand ul li:nth-of-type(4) {
+      background: url(./img/welfare.png) no-repeat center/cover;
+    }
+
+
+    .container .brand ul li .mask {
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      background-color: rgba(0, 0, 0, .4);
+    }
+
+    .container .brand .mask img {
+      padding: 108px 0 37px;
+    }
+
+    .container .brand .mask p:nth-of-type(1) {
+      padding-bottom: 5px;
+      font-size: 28px;
+      line-height: 30px;
+      color: #fff;
+    }
+
+    .mask p:nth-of-type(2) {
+      font-size: 16px;
+      line-height: 30px;
+      color: #dadada;
+    }
+
+    /* tech */
+    .tech {
+      height: 912px;
+      margin: 0 auto;
+      background-image: url(./img/bg-tech.png);
+    }
+
+    .tech h2 {
+      padding: 82px 0 69px 0;
+      margin: 0 auto;
+    }
+
+    .tech h2 span {
+      overflow: hidden;
+      display: inline-block;
+      text-indent: -999px;
+      height: 0;
+    }
+
+    .tech-content {
+      width: 1160px;
+      margin: 0 auto;
+    }
+
+    .tech-slider {
+      display: flex;
+      justify-content: space-between;
+      padding-bottom: 68px;
+    }
+
+    .tech-slider>a {
+      width: 181px;
+      height: 50px;
+      background-color: #fff;
+      color: #333;
+      text-align: center;
+      font-size: 18px;
+      line-height: 50px;
+      box-shadow: 0px -1px 21px 0px rgba(192, 192, 192, 0.35);
+      border-radius: 25px;
+    }
+
+    .tech-slider>a:hover {
+      color: #fff;
+      background-color: #ff7200;
+    }
+
+    .tech-swiper {
+      position: relative;
+      height: 564px;
+    }
+
+    .tech-swiper ul li {
+      position: absolute;
+      top: 30px;
+      left: 0;
+      width: 500px;
+      height: 391px;
+      padding: 0 45px;
+      background-color: #fff;
+      box-shadow: 0px -1px 21px 0px rgba(192, 192, 192, 0.35);
+    }
+
+    .tech-swiper ul li p {
+      font-size: 14px;
+      line-height: 30px;
+      color: #666666;
+      text-align: justify;
+      text-indent: 2em;
+    }
+
+    .tech-swiper ul li:nth-of-type(1) {
+      text-align: left;
+    }
+
+
+    .tech-swiper ul li:nth-of-type(2) {
+      z-index: 5;
+      top: 0;
+      left: 280px;
+      height: 452px;
+      box-shadow: 0px -1px 21px 0px rgba(114, 113, 113, 0.3);
+    }
+
+    .tech-swiper ul li:nth-of-type(3) {
+      left: 560px;
+      text-align: right;
+    }
+
+    .tech-swiper ul li:nth-of-type(1) img {
+      padding: 93px 0 58px 39px;
+      width: 169px;
+      height: auto;
+    }
+
+    .tech-swiper ul li:nth-of-type(2) img {
+      padding: 86px 0 60px 0px;
+    }
+
+    .tech-swiper ul li:nth-of-type(3) img {
+      width: 160px;
+      height: auto;
+      padding: 102px 60px 62px 0;
+    }
+
+    .current:after {
+      content: "";
+      position: absolute;
+      left: 256px;
+      bottom: 0;
+      width: 80px;
+      height: 2px;
+      background-color: #ff7200;
+    }
+
+    /* pre next */
+    .btn-swiper {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: auto;
+      width: 54px;
+      height: 54px;
+      background-color: #cbccce;
+      border-radius: 50%;
+    }
+
+    .btn-swiper.pre {
+      left: -70px;
+      transform: rotate(90deg);
+    }
+
+    .btn-swiper.next {
+      right: -70px;
+      transform: rotate(-90deg);
+    }
+
+    .btn-swiper:after {
+      content: "\e61f";
+      font-family: "iconfont";
+      color: #fcfcfc;
+      font-size: 20px;
+      cursor: pointer;
+    }
+
+    .btn-swiper:hover {
+      opacity: .7;
+    }
+
+    .know-me {
+      display: none;
+      box-sizing: border-box;
+      width: 150px;
+      height: 40px;
+      padding: 12px 0;
+      margin-top: 16px;
+      border: solid 1px rgba(255, 255, 255, .5);
+      color: #fff;
+      background-color: rgba(255, 255, 255, .6);
+      text-align: center;
+      font-size: 16px;
+      line-height: 16px;
+      vertical-align: middle;
+      border-radius: 20px;
+    }
+
+    .footer-banner {
+      /* height: 330px; */
+      padding-bottom: 67px;
+      min-width: 1160px;
+      background: url(./img/bg-banner-footer.png) no-repeat center/cover;
+      text-align: center;
+
+    }
+
+    .footer-banner h2 {
+      padding-top: 102px;
+      font-family: "宋体";
+      font-size: 48px;
+      letter-spacing: -4px;
+      color: #ffffff;
+    }
+
+    .footer-banner p {
+      padding-top: 18px;
+      font-size: 20px;
+      line-height: 30px;
+      letter-spacing: 0px;
+      color: #ffffff;
+    }
+
+    .footer-banner p span {
+      padding: 0 17px;
+    }
+
+    .footer-banner>a {
+      display: inline-block;
+      background: none;
+      margin-top: 31px;
+      /* padding-bottom: 67px; */
+    }
+
+    .footer-banner>a i {
+      padding-left: 2px;
+      font-size: 14px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="header">
+    <div class="nav w1160 clearfix">
+      <h1>
+        <span class="text-hidden">橙子</span>
+        <a href="#">
+          <img src="./img/logo反白.png" alt="orange" width="92" height="36">
+        </a>
+      </h1>
+      <ul class="list clearfix">
+        <li><a href="#">关于我们</a></li>
+        <li><a href="#">新闻动态</a></li>
+        <li><a href="#">行业案例</a></li>
+        <li><a href="#">橙权益</a></li>
+        <li><a href="#">橙品牌</a>
+          <!-- <i class="iconfont  icon-xiangxia"></i> -->
+          <ul class="list-brands">
+            <li><a href="#">橙金融</a></li>
+            <li><a href="#">橙营销</a></li>
+            <li><a href="#">橙福利</a></li>
+            <li><a href="#">橙积分</a></li>
+          </ul>
+        </li>
+        <li><a href="#" class="cfff">首页</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="banner">
+    <div class="w1160">
+      <div class="line-one"></div>
+      <div class="line-two"></div>
+      <div class="intro">
+        <img src="./img/1.png" alt="orange" width="76" height="70">
+        <span>橙券，是权益营销方案提供商，为实现品牌-市场-用户的紧密互联提供强有力的智慧支持。</span>
+        <a href="#">了解更多<i class="iconfont icon-xiangyoujiantou"></i></a>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="w1160">
+      <div class="brand">
+        <img src="./img/橙品牌.png" alt="!" width="391" height="86">
+        <ul class="orange">
+          <li>
+            <div class="mask">
+              <img src="./img/cyx.png" alt="orange" width="90" height="90">
+              <p>橙营销</p>
+              <p>营销助力品牌升级</p>
+              <a href="#" class="know-me">了解更多<i class="iconfont icon-xiangyoujiantou"></i></a>
+            </div>
+          </li>
+          <li>
+            <div class="mask">
+              <img src="./img/cjf.png" alt="orange" width="90" height="90">
+              <p>橙积分</p>
+              <p>让积分发挥更大价值</p>
+              <a href="#" class="know-me">了解更多<i class="iconfont icon-xiangyoujiantou"></i></a>
+            </div>
+          </li>
+          <li>
+            <div class="mask">
+              <img src="./img/cjr.png" alt="orange" width="90" height="90">
+              <p>橙金融</p>
+              <p>智慧金融解决方案服务商</p>
+              <a href="#" class="know-me">了解更多<i class="iconfont icon-xiangyoujiantou"></i></a>
+            </div>
+          </li>
+          <li>
+            <div class="mask">
+              <img src="./img/cfl.png" alt="orange" width="90" height="90">
+              <p>橙福利</p>
+              <p>开创员工福利新时代</p>
+              <a href="#" class="know-me">了解更多<i class="iconfont icon-xiangyoujiantou"></i></a>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="tech">
+        <h2>
+          <span>为企业赋能</span><img src="./img/tech.png" alt="!" width="302" height="79">
+        </h2>
+        <div class="tech-content">
+          <div class="tech-slider">
+            <a href="#">金融行业</a>
+            <a href="#">互联网行业</a>
+            <a href="#">保险行业</a>
+            <a href="#">汽车行业</a>
+            <a href="#">传媒行业 </a>
+            <a href="#">通信行业 </a>
+          </div>
+          <div class="tech-swiper">
+            <ul>
+              <li>
+                <img src="./img/unicom.png" alt="!" width="218" height="55">
+                <p>
+                  作为中国的银行卡联合组织，中国银联处于我国银行卡产业的核心和枢纽地位，对我国银行卡产业发展发挥着基础性作用，各银行通过银联跨行交易清算系统，实现了系统间的互联互通，进而使银行卡得以跨银行、跨地区和跨境使用。
+                </p>
+                <span class="pre btn-swiper"></span>
+              </li>
+              <li class="current">
+                <img src="./img/unionpay.png" alt="!" width="218" height="55">
+                <p>
+                  作为中国的银行卡联合组织，中国银联处于我国银行卡产业的核心和枢纽地位，对我国银行卡产业发展发挥着基础性作用，各银行通过银联跨行交易清算系统。实现了系统间的互联互通，进而使银行卡得以跨银行、跨地区和跨境使用。
+                </p>
+              </li>
+              <li>
+                <img src="./img/tencent.png" alt="!" width="218" height="55">
+                <p>
+                  作为中国的银行卡联合组织，中国银联处于我国银行卡产业的核心和枢纽地位，对我国银行卡产业发展发挥着基础性作用，各银行通过银联跨行交易清算系统，实现了系统间的互联互通，进而使银行卡得以跨银行、跨地区和跨境使用。
+                </p>
+                <span class="next btn-swiper"></span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <div class="footer-banner">
+    <div class="w1160">
+      <h2>依托橙券，聚焦权益，全面合作</h2>
+      <p>全国服务热线：400-096-0828<span class="separate">|</span>商务合作专线：156-6806-1789</p>
+      <a href="#" class="know-me">了解更多<i class="iconfont icon-xiangyoujiantou"></i></a>
+    </div>
+  </div>
+  <div class="footer">
+    <div class="content">
+      <div class="phone">
+        <div class="service">
+          <img src="./img/service.png" alt="!" width="43" height="43">
+          <div>
+            <span>400-096-0828</span>
+            <p>7*24小时客服为您服务</p>
+          </div>
+        </div>
+        <img src="./img/qrcode.png" alt="!">
+        <p class="cce fz12">微信扫描二维码，关注【橙券】</p>
+      </div>
+      <div class="joinus">
+        <dl class="cce">
+          <dt>橙品牌</dt>
+          <dd>橙运营</dd>
+          <dd>橙积分</dd>
+          <dd>橙金融</dd>
+          <dd>橙福利</dd>
+        </dl>
+        <dl class="cce">
+          <dt>快速入口</dt>
+          <dd>权益平台</dd>
+          <dd>开放平台</dd>
+          <dd>供应商入驻</dd>
+        </dl>
+        <dl class="cce">
+          <dt>网站链接</dt>
+          <dd>首页</dd>
+          <dd>橙权益</dd>
+          <dd>行业案例</dd>
+          <dd>新闻动态</dd>
+          <dd>关于我们</dd>
+        </dl>
+        <dl class="cce last">
+          <dt>友情链接</dt>
+          <dd>Decent鼎信</dd>
+          <dd>中国银联</dd>
+          <dd>中国农业银行</dd>
+          <dd>中国移动</dd>
+          <dd>中国联通</dd>
+        </dl>
+      </div>
+    </div>
+    <p>©2019 山东鼎信网络科技有限公司 鲁ICP备13023321号-25</p>
+  </div>
+</body>
+
+</html>

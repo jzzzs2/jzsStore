@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="zh-cn">
+
+<head>
+  <meta charset="utf-8">
+  <title>home2</title>
+  <meta name="keywords" content="">
+  <meta name="description" content="">
+  <style>
+    /* div p:first-of-type {
+      color: red;
+    }
+    div span:first-of-type {
+      color: green;
+    }
+    div p:last-of-type {
+      color: pink;
+    }
+    div span:last-of-type {
+      color: yellow;
+    } */
+    /* div :first-of-type {
+      color: red;
+    }
+    div :last-of-type {
+      color: cyan;
+    } */
+    div p:nth-of-type(1) {
+      color: red;
+    }
+    div p:nth-of-type(3) {
+      color: blue;
+    }
+    div p:nth-of-type(2n) {
+      color: pink;
+    }
+    div p:nth-of-type(even) {
+      /* color: #368; */
+      color: yellow;
+    }
+    div p:nth-of-type(odd) {
+      color: skyblue;
+    }
+    div :only-of-type {
+      color: purple;
+    }
+  </style>
+</head>
+
+<body>
+  <div>
+    <p>p1</p>
+    <p>p2</p>
+    <span>sp1</span>
+    <p>p3</p>
+    <h3>w1s1H3</h3>
+    <span>span2</span>
+    <span>span3</span>
+    <span>span4</span>
+    <p>p4</p>
+    <p>p5</p>
+    <h4>wosiH4</h4>
+  </div>
+</body>
+
+</html>

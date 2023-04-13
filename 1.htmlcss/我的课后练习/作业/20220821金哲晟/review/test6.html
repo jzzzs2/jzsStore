@@ -1,0 +1,24 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>transform</title>
+  <style>
+    .box {
+      width: 200px;
+      height: 200px;
+      background-color: red;
+      transition: transform 1s linear 2s,height 2s linear;
+      /* transform-origin: 500px 500px; */
+    }
+    body:hover .box {
+      height: 500px;
+      transform: translate(200px,60px) rotate(90deg) scale(2,2);
+    }
+  </style>
+</head>
+<body>
+  <div class="box"></div>
+</body>
+</html>

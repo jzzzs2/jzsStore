@@ -1,0 +1,38 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>bgc-2.绝对定位和固定定位能够消除内部浮动影响,外边距穿透</title>
+  <style>
+    .box {
+      position: absolute;
+      /* position:  fixed; */
+      width: 400px;
+      /* height: 300px; */
+      background-color: red;
+    }
+    .items:nth-of-type(1) {
+      float: left;
+      /* margin-bottom: 50px; */
+      /* margin-top: 50px; */
+      width: 200px;
+      height: 200px;
+      background-color: cyan;
+    }
+    .items:nth-of-type(2) {
+      /* margin-top: 100px; */
+      width: 200px;
+      height: 200px;
+      background-color: blue;
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <div class="items"></div>
+    <!-- <div class="items"></div> -->
+    <p>我是P</p>
+  </div>
+</body>
+</html>

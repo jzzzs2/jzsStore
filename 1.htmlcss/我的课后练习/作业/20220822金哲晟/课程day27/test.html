@@ -1,0 +1,32 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>3dtransform</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transform-style: preserve-3d;
+      perspective: 200px;
+      -webkit-perspective: 200px;
+      perspective-origin: 50% 60%;
+    }
+    .box {
+      width: 100px;
+      height: 100px;
+      background-color: red;
+      border: 3px solid blue;
+      /* transform: translateZ(200px) rotateX(20deg); */
+      transform: rotateX(60deg) rotateY(30deg);
+      -webkit-transform: rotateX(60deg) rotateY(30deg);
+      
+    }
+  </style>
+</head>
+<body>
+  <div class="box"></div>
+</body>
+</html>

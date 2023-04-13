@@ -1,0 +1,11 @@
+span {
+  font-style: italic;
+  font-weight: 700;
+  font-size: 50px;
+  font-family: "\5b8b\4f53";
+  color: red;
+  /* font: italic 700 20px "宋体"; */
+  /* font: italic 700 20px "\5b8b\4f53"; */
+  /* font: italic 700 20px; */
+  /* font: italic 700 "宋体"; */
+}

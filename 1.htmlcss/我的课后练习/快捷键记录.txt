@@ -1,0 +1,1 @@
+day01. ctrl+shift+p 切换vscode语言

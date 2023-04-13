@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>定位 层级</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    html,
+    body {
+      height: 100%;
+    }
+
+    .clearfix {
+      zoom: 1;
+    }
+
+    .clearfix:after,
+    .clearfix:before {
+      content: "";
+      display: table;
+    }
+
+    .clearfix:after {
+      clear: both;
+      visibility: hidden;
+      font-size: 0;
+      height: 0;
+    }
+
+    .box1,
+    .box2 {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100px;
+      height: 100px;
+      background-color: #ccc;
+    }
+
+    .box1 {
+      z-index: 3;
+    }
+
+    .box2 {
+      z-index: 2;
+    }
+
+    .child1,
+    .child2 {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100px;
+      height: 100px;
+      background-color: #ccc;
+    }
+
+    .child1 {
+      z-index: 9;
+      background-color: blue;
+    }
+
+    .child2 {
+      z-index: 99;
+      background-color: red;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box1">
+    <div class="child1"></div>
+  </div>
+
+  <div class="box2">
+    <div class="child2"></div>
+  </div>
+
+
+
+
+
+</body>
+
+</html>

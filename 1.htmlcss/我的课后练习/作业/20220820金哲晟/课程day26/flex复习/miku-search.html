@@ -1,0 +1,87 @@
+<html lang="zh-cn">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="../css/reset.css">
+  <style>
+    img {
+      width: 82px;
+      height: 82px;
+      border-radius: 4px;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      width: 300px;
+      padding: 5px;
+      margin: 100px auto;
+      border: 1px solid #999;
+    }
+
+    .title {
+      display: flex;
+      justify-content: space-between;
+      line-height: 22px;
+    }
+
+    .title a {
+      color: #333;
+    }
+    /* content */
+    .content {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    ul.content li {
+      width: 82px;
+      margin-bottom: 10px;
+    }
+    ul li a {
+      display: inline-block;
+      width: 82px;
+      color: #368;
+      font-size: 12px;
+      text-align: justify;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="title">
+      <span>相关歌曲</span>
+      <a href="#">展开</a>
+    </div>
+    <ul class="content">
+      <li>
+        <img src="./images/1.JPG" alt="miku">
+        <a href="#">初音未来的分裂→破坏</a>
+      </li>
+      <li>
+        <img src="./images/2.webp" alt="miku">
+        <a href="#">天朝文科生战歌</a>
+      </li>
+      <li>
+        <img src="./images/3.png" alt="miku">
+        <a href="#">随便～随便～随便～</a>
+      </li>
+      <li>
+        <img src="./images/4.JPG" alt="miku">
+        <a href="#">目隐Code</a>
+      </li>
+      <li>
+        <img src="./images/5.webp" alt="miku">
+        <a href="#">跨越无数的夜晚</a>
+      </li>
+      <li>
+        <img src="./images/6.PNG" alt="miku">
+        <a href="#">迷途的星光</a>
+      </li>
+    </ul>
+  </div>
+</body>
+</html>

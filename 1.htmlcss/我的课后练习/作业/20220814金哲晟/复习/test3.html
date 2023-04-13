@@ -1,0 +1,70 @@
+<html lang="zh-cn">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>选择器</title>
+  <style>
+    .box {
+      width: 200px;
+      /* height: 200px; */
+      background-color: orange;
+    }
+    /* ul li:first-child {
+      color: red;
+    }
+    ul li:last-child {
+      color: blue;
+    }
+    div p:nth-child(2n) {
+      color: #999;
+    }
+    div p:nth-child(2) {
+      color: black;
+    }
+    div p:nth-child(even):not(.p2) {
+      color: yellow;
+    } */
+    /* ul li:nth-of-type(1) {
+      color: gold;
+    }
+    div p:nth-of-type(2) {
+      color: gold;
+    }
+    ul li:first-of-type {
+      color: blue;
+    }
+    ul li:last-of-type {
+      color: cyan;
+    } */
+    ul[class="list"] {
+      color: red;
+    }
+    a[href*="#"] {
+      color: gold;
+    }
+    p[class$="2"] {
+      color: blue;
+    }
+    ul[class^="li"] {
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+  <!-- 结构伪类 -->
+  <div class="box">
+    <ul class="list">
+      <li>li1</li>
+      <li>li2</li>
+      <li>li3</li>
+      <li>li4</li>
+      <li>li5</li>
+    </ul>
+    <p>我是p1</p>
+    <a href="#">我是a捏</a></a>
+    <span>我是span捏</span>
+    <p class="p2">我是p2</p>
+  </div>
+</body>
+</html>

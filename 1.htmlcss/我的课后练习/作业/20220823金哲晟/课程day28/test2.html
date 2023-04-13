@@ -1,0 +1,55 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>css变量基本使用</title>
+  <style>
+    /* * {
+      color: var(--color);
+    } */
+
+    div {
+      --color: red;
+      --mv: 40px 0;
+      color: var(--color);
+      margin: var(--mv);
+    }
+
+    p {
+      color: var(--color);
+    }
+    div p {
+      color: var(--color);
+    }
+    /* .box {
+      --color: blue;
+      --fz20: 20px;
+      font-size: var(--fz20);
+    }
+
+    html {
+      --bgc: pink;
+    }
+
+    body {
+      --mt30: 30px;
+    }
+
+    p {
+      font-size: 20px;
+      margin-top: var(--mt30);
+      background-color: var(--bgc);
+    } */
+  </style>
+</head>
+<body>
+  <div class="box">我是div1
+    <p>我是div中的p</p>
+  </div>
+  <div class="box">我是div2</div>
+  <hr>
+  <p>我是P1捏</p>
+  <p class="page">我是P2捏</p>
+</body>
+</html>

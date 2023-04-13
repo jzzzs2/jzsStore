@@ -1,0 +1,60 @@
+<html lang="zh-cn">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>flex-wrap align-content</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    body,html {
+      height: 100%;
+    }
+    .box {
+      display: flex;
+      justify-content: space-between;
+      /* align-items: flex-end; */
+      align-content: flex-end;
+      flex-wrap: wrap;
+      margin: 0 auto;
+      width: 600px;
+      height: 600px;
+      background-color: red;
+    }
+    .test {
+      width: 160px;
+      height: 150px;
+      background-color: green;
+    }
+    .test:nth-of-type(2) {
+      background-color: blue;
+    }
+    .test:nth-of-type(3) {
+      background-color: cyan;
+    }
+    .test:nth-of-type(4) {
+      /* align-self: flex-start; */
+      background-color: pink;
+    }
+    .test:nth-of-type(5) {
+      /* align-self: center; */
+      background-color: skyblue;
+    }
+    .test:nth-of-type(6) {
+      background-color: purple;
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <div class="test"></div>
+    <div class="test"></div>
+    <div class="test"></div>
+    <div class="test"></div>
+    <div class="test"></div>
+    <div class="test"></div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link href="./css/my.css" rel="stylesheet">
+  <style>
+    div {
+      width: 100px;
+      height: 100px;
+      background-color: black;
+      /* background: no-repeat; */
+    }
+    /* .box {
+      background-color: blue;
+    } */
+    div.box {
+      /* 0,0,1,1 */
+      background-color: skyblue;
+    }
+    #box {
+      /* 0,1,0,1 */
+      background-color: green;
+    }
+    /* body #box {
+      background-color: yellow;
+    } */
+    #box {
+      /* 0,1,0,0 */
+      background-color: black;
+    }
+    /* body .box#box {
+      background-color: purple;
+    } */
+    div div div div {
+      color: red;
+    }
+    .son {
+      color: #fff;
+    }
+    /*  */
+    /* #son {
+      color: cyan;
+    } */
+    .content>.box .son {
+      color: brown;
+      /* 0 ,0 ,3 ,0 */
+    }
+    
+  </style>
+</head>
+<body class="content">
+  <div class="box" id="box">
+    <div>
+      <div>
+        <div>
+          <div>
+            <div class="son sonic" id="son">222</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p class="page-one">我是d1</p>
+    <p class="page-one sonic">我是d2</p>
+    <p id="only" class="page-one">我是d3</p>
+  </div>
+
+</body>
+
+</html>

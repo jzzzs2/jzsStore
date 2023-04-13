@@ -1,0 +1,104 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>test</title>
+  <meta name="keywords" content="">
+  <meta name="description" conetent="">
+  <style>
+    /* div { */
+      /* 设置文本颜色三种方式 预设,#6位16进制 rgb(XX,XX,XX)*/
+      /* color: red; */
+      /* color: #000; */
+      /* color: #f5f5f5; */
+      /* color: rgb(0,222,222); */
+      /* color: rgba(2,255,254,1); */
+      /* text-indent: 2em; */
+      /* text-indent: -9999px; */
+      /* text-align: center; */
+    /* } */
+    .inner-ele {
+      display: inline-block;
+      width: 200px;
+      height: 200px;
+      background-color: pink;
+    }
+    p {
+      /* 前人经验 在字体大小上加8px 默认字体大小是16px */
+      /* line-height: 24px; */
+      /* 行高代表内容区域高度 文本会居中 */
+      /* line-height: 80px; */
+      /* line-height: 300%; */
+      line-height: 3em;
+      /* text-align: center; */
+      /* text-align: left; */
+      text-align: right;
+      background-color: #f5f5f5;
+    }
+    img {
+      width: 300px;
+      height: 500px;
+    }
+    /* span {
+      background-color: yellow;
+    } */
+    .inner-block {
+      display: inline;
+      width: 100px;
+      height: 100px;
+      background-color: cyan;
+    }
+    .test {
+      display: inline-block;
+      width: 100px;
+      height: 100px;
+      background-color: red;
+    }
+    .constant {
+      margin-left: 200px;
+    }
+    .block-test {
+      line-height: 60px;
+    }
+  </style>
+</head>
+<body>
+  <dl>
+    <dt>2</dt>
+    <dd>3</dd>
+    <dd>3</dd>
+    <dd>3</dd>
+  </dl>
+  <div>
+    我是什么色
+  </div>
+  <hr>
+  <p>行高测试捏</p>
+  <hr>
+  <div class="test">
+    <img src="../images/88.png" alt="初音未来" width="1000" height="1200">
+  </div>
+  <hr>
+  <!-- 测试行内(行内级元素间隙) -->
+  <span>11</span>
+  <span>22</span>
+  <hr>
+  <div class="inner-ele">
+
+  </div><div class="inner-ele">
+
+  </div><span>好耶</span>
+  <hr>
+  <div class="inner-block">
+    ruarua
+  </div>
+  <hr>
+  <hr>
+  <span><span class="test">1</span></span>
+  <hr>
+  <span class="constant">haoye</span>
+  <hr>
+  <hr>
+  <span class="block-test">22</span>
+</body>
+</html>
