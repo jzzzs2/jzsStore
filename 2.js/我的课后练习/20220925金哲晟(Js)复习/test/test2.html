@@ -1,0 +1,52 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-09-25 12:57:39
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-09-25 14:00:21
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>对象属性</title>
+  <style>
+    ul {
+      font-size: 20px;
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <ul class="list" style="font-size: 20px; color: red;">
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+  </ul>
+  <script>
+    console.log(document.querySelector(".list").innerHTML);
+    console.log(document.querySelector(".list").className);
+    console.log(document.querySelector(".list").tagName);
+    console.log(document.querySelector(".list").innerText);
+    console.log(document.querySelector(".list").textContent);
+    console.log(document.querySelector(".list").length);
+    console.log(document.querySelector(".list").attributes);
+    console.log([document.querySelector(".list")]);
+    console.log(document.querySelector(".list"));
+    console.log(document.querySelector(".list").hasAttribute("style"));
+    console.log(document.querySelector(".list").hasAttribute("id"));
+    console.log(document.querySelector(".list").setAttribute("id", 2));
+    console.log(document.querySelector(".list").getAttribute("id"));
+    var ele = document.querySelector(".list");
+    console.log(window.getComputedStyle(ele, null)["color"]);
+    console.log([window.getComputedStyle(ele, null)]);
+    console.log(ele.style);
+    ele.setAttribute("index", 2);
+    console.log(ele.style.index);
+    console.log(ele.getAttribute("index"));
+  </script>
+</body>
+</html>

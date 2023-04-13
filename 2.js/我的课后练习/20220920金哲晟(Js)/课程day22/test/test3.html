@@ -1,0 +1,30 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-09-20 18:25:17
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-09-20 18:40:37
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>parent.replaceChild(target, replaced)</title>
+  <script src="../common.js"></script>
+</head>
+<body>
+  <div id="nav">
+    <p>我是要被替换掉的P捏</p>
+    <p>我是要替换别人的P捏</p>
+  </div>
+  <script>
+    var oNav = $("#nav");
+    // oNav.replaceChild(oNav.lastElementChild, oNav.firstElementChild);
+    var oH2 = document.createElement("h2");
+    oH2.innerText = "我是标题捏";
+    oNav.replaceChild(oH2, oNav.firstElementChild);
+  </script>
+</body>
+</html>

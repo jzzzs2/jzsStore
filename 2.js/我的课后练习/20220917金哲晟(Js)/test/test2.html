@@ -1,0 +1,40 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-09-17 14:40:29
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-09-17 14:56:05
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>API 数据输出输入的通道 函数 ...</title>
+</head>
+<body>
+  <div id="nav">
+    <ul class="list">
+      <li class="one two">1</li>
+      <li>2</li>
+    </ul>
+  </div>
+  <script>
+    console.log(document);
+    console.log(document.nodeType); //9
+    var oDiv = document.getElementById("nav");
+    console.log(oDiv);
+    console.log(oDiv.nodeType); //1
+    console.log(oDiv.nodeName); //DIV
+    console.log(oDiv.tagName);
+    console.log(oDiv.parentNode);
+    var aLi = document.querySelector(".one.two");
+    console.log(aLi);
+    console.log(aLi.childNodes[0]);
+    console.log(aLi.childNodes[0].nodeType); //3
+    console.log(aLi.childNodes[0].nodeValue);
+
+  </script>
+</body>
+</html>

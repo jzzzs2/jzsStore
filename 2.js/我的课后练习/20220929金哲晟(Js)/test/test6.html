@@ -1,0 +1,62 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-09-29 17:59:03
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-09-29 18:06:01
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>束流</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    html,
+    body {
+      height: 100%;
+    }
+
+    div {
+      position: absolute;
+      left: 0;
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+    }
+
+    .red {
+      top: 100px;
+      background-color: red;
+    }
+
+    .blue {
+      background-color: blue;
+    }
+  </style>
+</head>
+<body>
+  <div class="red"></div>
+  <div class="blue"></div>
+  <script src="./my.js"></script>
+  <script>
+    var oRed = $(".red");
+    var oBlue = $(".blue");
+    var speed = 1;
+    var counter = 0;
+    setInterval(function () {
+      counter++;
+      oRed.style.left = (oRed.offsetLeft + speed) + "px";
+      if (counter % 3 === 0) {
+        oBlue.style.left = (oBlue.offsetLeft + speed) + "px";
+      }
+    }, 10)
+  </script>
+</body>
+</html>

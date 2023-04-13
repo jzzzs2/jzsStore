@@ -1,0 +1,42 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-10-26 17:21:36
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-10-26 20:57:53
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>img</title>
+</head>
+<body>
+  <script>
+    // let url = "./images/1.png";
+    // function getImg (url) {
+    //   let img = document.createElement("img");
+    //   img.src = url;
+    //   document.body.appendChild(img);
+    // }
+    // getImg(url);
+    // console.log(document.querySelector("img"));
+    // document.querySelector("img").src = url;
+    // let arr = [2, 5, 1];
+    // for (let key in arr) {
+    //   // console.log(key);
+    // }
+    let promise = new Promise(function (resolve, reject) {
+      // resolve("SUCCESS");
+      reject("fail")
+    })
+    let a = promise.then(function (str) {
+      console.log(str);
+    }).finally(function () {
+      console.log("结束了捏");
+    })
+  </script>
+</body>
+</html>

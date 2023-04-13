@@ -1,0 +1,67 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-09-29 17:06:05
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-09-29 19:39:45
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>scroll</title>
+  <script src="./my.js"></script>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      height: 10000px;
+    }
+
+    .wrap {
+      overflow: auto;
+      width: 200px;
+      height: 300px;
+      padding: 10px;
+      margin: 100px auto;
+      border: 5px solid red;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    miku可爱捏miku可爱捏
+    miku可爱捏miku可爱捏
+    miku可爱捏miku可爱捏
+    miku可爱捏miku可爱捏
+    miku可爱捏miku可爱捏
+    miku可爱捏miku可爱捏
+    miku可爱捏miku可爱捏
+    miku可爱捏miku可爱捏
+    miku可爱捏miku可爱捏
+    miku可爱捏miku可爱捏
+    miku可爱捏miku可爱捏
+    miku可爱捏miku可爱捏
+    miku可爱捏miku可爱捏
+    miku可爱捏miku可爱捏
+    miku可爱捏miku可爱捏
+    miku可爱捏miku可爱捏
+    miku可爱捏miku可爱捏
+    miku可爱捏miku可爱捏
+  </div>
+  <script>
+    var oWrap = $(".wrap");
+    console.log(document.documentElement.scrollHeight);
+    console.log(document.documentElement.scrollWidth);
+    console.log(document.body.scrollHeight);
+    console.log(document.body.scrollWidth);
+    console.log(oWrap.scrollHeight);
+    console.log(oWrap.scrollWidth);
+  </script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-10-23 20:48:52
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-10-23 20:57:12
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>属性</title>
+</head>
+<body>
+  <script>
+    function Person (name, age) {
+      this.name = name;
+      this.age = age;
+    }
+    Person.prototype.sex = "big";
+    let p = (new Person("jzs",22));
+    Object.defineProperty(p, "age", {
+      enumerable: false
+    })
+    // console.log(Object.keys(p));
+    // console.log(Object.getOwnPropertyNames(p));
+    // console.log(Object.getOwnPropertyNames([2,4,6]));
+    console.log(Object.getOwnPropertyDescriptor(p,"age"));
+    console.log(Object.getOwnPropertyDescriptors(p));
+  </script>
+</body>
+</html>

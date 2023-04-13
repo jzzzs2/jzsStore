@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DOM 获取标签节点</title>
+  <style>
+    img {
+      width: 200px;
+      height: 200px;
+      border: 1px solid red;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="header" class='header'>
+    <p>hahahah</p>
+    123
+  </div>
+  <div id="header">2</div>
+  <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consequatur, harum!</p>
+  <p>Voluptatem reiciendis laudantium quas facere iste nemo asperiores sapiente eveniet.</p>
+  <p>Totam fugiat tenetur corporis sequi assumenda quasi ut iste beatae!</p>
+  <p>Exercitationem aliquid quo officia sed eaque non architecto tempora voluptatibus?</p>
+  <p class="des">Architecto perferendis quas sed, ipsum tenetur nulla eum sequi incidunt.</p>
+  <p>Iusto praesentium laboriosam dolore adipisci doloremque nam rerum, architecto omnis.</p>
+  <p>Maxime voluptatem necessitatibus placeat repudiandae minima modi? Veritatis, dicta nostrum?</p>
+  <p class="des">AQuisquam aliquid consequatur magni ad facilis architecto non veniam repellat.</p>
+
+  <img src="images/bird.png" style="outline:none;" width="100" height="100" alt="brid">
+
+  <script>
+    var oHeader = document.getElementById('header');
+
+    var aP = document.getElementsByTagName('p');
+
+    var aDes = document.getElementsByClassName('dews');
+
+    var aImg = document.querySelector('img');
+
+
+    console.log(aImg.src);
+    console.log(aImg.getAttribute('src'));
+
+    console.log(aImg.hasAttribute('src'));
+
+    console.log(window.getComputedStyle(aImg, null)['border']);
+
+    // console.log(aImg.currentStyle['border']);
+    console.log(aImg.style.cssText);
+
+    console.log(aImg.style.outline);
+
+    console.log(oHeader.innerHTML);
+    console.log(oHeader.innerText);  //设置标签中间的文本内容，应该使用innerText属性,谷歌火狐支持，ie8支持
+    console.log(oHeader.textContent); //设置标签中间的文本内容，应该使用textContent属性,谷歌火狐支持，ie8不支持
+
+
+    console.log(oHeader.children); //获取子元素 只有标签
+
+    console.log(oHeader.childNodes); //获取子节点 包含文本节点与标签节点
+
+    console.log(oHeader.firstChild); //获取第一个子节点(包含文本)
+    console.log(oHeader.firstElementChild); //获取第一个子标签节点
+
+    console.log(aP);
+    console.log(aDes);
+    console.log(oHeader);
+    console.log(oHeader.attributes);
+
+    console.log(aP[0].parentElement); //父元素节点
+    console.log(aP[0].parentNode); //父元素节点
+
+
+    console.log(aP[1].nextElementSibling); //下一个兄弟标签节点
+    console.log(aP[1].nextSibling); //下一个兄弟节点(计算文本节点)
+
+    
+    console.log(oHeader.lastChild); //获取最后一个子节点(包含文本)
+    console.log(oHeader.lastElementChild); //获取最后一个子标签节点
+  </script>
+</body>
+
+</html>

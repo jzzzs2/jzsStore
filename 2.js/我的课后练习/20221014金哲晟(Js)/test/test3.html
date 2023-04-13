@@ -1,0 +1,32 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-10-14 17:33:12
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-10-14 17:39:29
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>垃圾GC和闭包</title>
+</head>
+<body>
+  <script>
+    //在函数执行完毕之后(n出栈),内部局部变量内存地址会被回收 GC回收机制
+    function n () {
+      let i = 12;
+      console.log(i);
+    }
+    n();
+    //如何在函数外部访问函数内部变量 可以通过函数返回值 但是只是访问函数结果,是一个值,没有办法对变量进行修改和存储.
+    function test () {
+      let num = 2;
+      return num;
+    }
+    console.log(test());
+  </script>
+</body>
+</html>

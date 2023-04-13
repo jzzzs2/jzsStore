@@ -1,0 +1,69 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-09-21 19:50:51
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-09-21 20:02:34
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>实现隐藏和出现</title>
+  <style>
+    .nav {
+      width: 200px;
+      height: 200px;
+      background-color: #268;
+    }
+
+    #btn {
+      position: absolute;
+      left: 300px;
+      top: 300px;
+      width: 80px;
+      height: 80px;
+      font-size: 30px;
+    }
+  </style>
+</head>
+<body>
+  <div class="nav">
+
+  </div>
+  <input type="button" value="隐藏" id="btn">
+  <script>
+    var oNav = document.querySelector(".nav");
+    var oBtn = document.querySelector("#btn");
+    var toggle = true;
+    // oBtn.onclick = function (e) {
+    //   if (toggle) {
+    //     oNav.style.display = "none";
+    //     oBtn.value = "显示";
+    //   } else {
+    //     oNav.style.display = "block";
+    //     oBtn.value = "隐藏";
+    //   }
+    //   toggle = !toggle;
+    // }
+    // oBtn.onclick = function (e) {
+    //   var val = "隐藏";
+    //   var show = "block";
+    //   if (toggle) {
+    //     val = "显示";
+    //     show = "none";
+    //   }
+    //   oNav.style.display = show;
+    //   oBtn.value = val;
+    //   toggle = !toggle;
+    // }
+    oBtn.onclick = function (e) {
+      oNav.style.display = toggle?"none":"block";
+      oBtn.value = toggle?"显示":"隐藏";
+      toggle = !toggle;
+    }
+  </script>
+</body>
+</html>

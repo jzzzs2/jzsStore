@@ -1,0 +1,40 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-09-12 20:29:56
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-09-12 20:35:07
+-->
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>filter</title>
+</head>
+
+<body>
+  <script>
+    var arr = [
+      { id: 15 },
+      { id: -1 },
+      { id: 0 },
+      { id: 3 },
+      { id: 12.2 },
+      {},
+      { id: null },
+      { id: NaN },
+      { id: 'undefined' }
+    ];
+    function isNum(num) {
+      return typeof num === "number" && !isNaN(num);
+    }
+    console.log(arr.filter(function (curr, index, arr) {
+      return isNum(curr.id);
+    }));
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,59 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-10-30 15:39:36
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-10-30 15:48:23
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>画圆</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    .center {
+      position: absolute;
+      top: 400px;
+      left: 500px;
+      width: 5px;
+      height: 5px;
+      background-color: skyblue;
+    }
+
+    .point {
+      position: absolute;
+      width: 5px;
+      height: 5px;
+      background-color: skyblue;
+    }
+  </style>
+</head>
+<body>
+  <div class="center"></div>
+  <script>
+    let r = 100;
+    let l = 500;
+    let t = 400;
+    let angle = 0;
+    let timer;
+    timer = setInterval(function () {
+      if (angle >= 360) {
+        clearInterval(timer);
+      }
+      let dom = document.createElement("div");
+      dom.classList.add("point");
+      dom.style.left = l + Math.cos(angle / 180 * Math.PI) * r;
+      dom.style.top = t + Math.sin(angle / 180 * Math.PI) * r;
+      document.body.appendChild(dom);
+      angle++;
+    }, 1)
+  </script>
+</body>
+</html>

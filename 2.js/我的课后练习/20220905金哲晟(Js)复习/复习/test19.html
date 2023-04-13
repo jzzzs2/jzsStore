@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>隐式转换</title>
+</head>
+<body>
+  <script>
+    //1. 递增递减运算符
+    var num = true;
+    // var num = false;
+    // var num = "2";
+    // var num = "4";
+    // var num = "2a";
+    // var num = "pop";
+    // num = undefined;
+    num = null;
+    console.log(++num); //2
+    console.log(--num); //-1
+    console.log(++num); //3
+    console.log(--num); //3
+    console.log(++num); //NaN
+    console.log(--num); //NaN
+    console.log(++num); //NaN
+    console.log(++num); //1
+  </script>
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-09-19 15:58:57
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-09-19 17:20:47
+-->
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>以下列虚拟对象添加对应的标签到页面上</title>
+</head>
+
+<body>
+
+
+  <script>
+
+    /* 
+      将这个虚拟节点数据 具象化成实际标签 
+    */
+    var element = {
+      tagName: 'div',
+      id: 'header',
+      className: 'title fw400 c666 fz28',
+      contentText: '我是一个header标签',
+      children: [
+        {
+          tagName: 'h1',
+          id: '',
+          className: 'logo',
+          contentText: '我是logo',
+          children: []
+        },
+        {
+          tagName: 'ul',
+          id: '',
+          className: 'nav',
+          contentText: '',
+          children: [
+            {
+              tagName: 'li',
+              id: '',
+              className: 'list',
+              contentText: '导航1',
+              children: []
+            },
+            {
+              tagName: 'li',
+              id: '',
+              className: 'list',
+              contentText: '导航2',
+              children: []
+            },
+          ]
+        }
+      ]
+    }
+    var oHeader = document.createElement("div");
+    oHeader.id = "header";
+    oHeader.className = "title fw400 c666 fz28";
+    oHeader.innerText = "我是一个header标签";
+    // console.log(oHeader);
+    var oH1 = document.createElement("h1");
+    //console.log([oH1]); //默认有id
+    oH1.className = "logo";
+    oH1.innerText = "我是logo";
+    // console.log(oH1);
+    var oUl = document.createElement("ul");
+    oUl.className = "nav";
+    var oFirstLi = document.createElement("li");
+    var oSecLi = document.createElement("li");
+    oFirstLi.className = "list";
+    oFirstLi.innerText = "导航1";
+    oSecLi.className = "list";
+    oSecLi.innerText = "导航2";
+    //
+    oUl.appendChild(oFirstLi);
+    oUl.appendChild(oSecLi);
+    oHeader.appendChild(oH1);
+    oHeader.appendChild(oUl);
+    document.body.appendChild(oHeader);
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,26 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-10-08 16:17:18
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-10-08 21:32:09
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>正则</title>
+</head>
+<body>
+  <script>
+    console.log(/海(?=牙)/.test("海22牙22"));
+    console.log(/(?<=海)牙/.test("海2牙22"));
+    console.log("海牙海牙海牙".match(/(?<=海)牙/));
+    console.log(/\d{3}$/.test("abc222"));
+    console.log(/(\.\d*)$/.test("ab.c.22"));
+    console.log(/\d{2,}$/.test("ab.c.2"));
+  </script>
+</body>
+</html>

@@ -1,0 +1,203 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-09-22 18:46:36
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-09-24 17:05:54
+-->
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>快正常的轮播图</title>
+  <script src="./my.js"></script>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    .content {
+      position: relative;
+      width: 400px;
+      height: 600px;
+      margin: 100px auto;
+      box-shadow: 0 0 10px #333;
+    }
+
+    img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: none;
+      width: 400px;
+      height: 600px;
+    }
+
+    .slide {
+      display: flex;
+      justify-content: space-around;
+      position: absolute;
+      bottom: 10px;
+      left: 0;
+      right: 0;
+      width: 200px;
+      margin: 0 auto;
+    }
+
+    .slide span {
+      box-sizing: border-box;
+      width: 40px;
+      height: 40px;
+      padding-left: 12px;
+      background-color: orange;
+      line-height: 40px;
+      font-size: 20px;
+      color: #fff;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+
+    .btn span {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      height: 100px;
+      padding: 0 14px;
+      margin: auto;
+      background-color: rgba(200, 200, 200, .7);
+      line-height: 100px;
+      font-size: 20px;
+      color: #fff;
+      cursor: pointer;
+    }
+    
+    .fz20 {
+      font-size: 20px;
+    }
+
+    .pre {
+      left: 0;
+    }
+
+    .next {
+      right: 0;
+    }
+
+    .btn span:hover {
+      background-color: rgba(200, 200, 200, 1);
+    }
+
+    body .active {
+      background-color: pink;
+      color: #333;
+    }
+
+    .normal {
+      background-color: orange;
+      color: #fff;
+    }
+
+    .on {
+      display: block;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="content">
+    <img src="./images/1.jpg" alt="miku" class="on">
+    <img src="./images/2.jpg" alt="miku">
+    <img src="./images/3.jpg" alt="miku">
+    <img src="./images/4.jpg" alt="miku">
+    <div class="slide">
+      <!-- 动态生成 -->
+    </div>
+    <div class="btn">
+      <span class="pre">&lt;</span>
+      <span class="next">&gt;</span>
+    </div>
+  </div>
+  <script>
+    // 1. 需要的元素
+    var aImg = $$("img");
+    var oSlide = $(".slide");
+    var oPre = $(".pre");
+    var oNext = $(".next");
+    var oBtn = $(".btn");
+    var len = aImg.length;
+    var slideIndex = 0;
+    //2. 用户交互事件
+    var obj = {
+      "pre": function() {
+      slideIndex--;
+      slideIndex = (slideIndex + len) % len;
+    },
+      "next": function() {
+      slideIndex++;
+      slideIndex = slideIndex % len;
+    }
+    }
+    oBtn.addEventListener("click", function (e) {
+      if (obj[e.target.className] && typeof obj[e.target.className] === "function")  {
+        sliderOperate(obj[e.target.className]);
+      }
+    })
+
+    oSlide.addEventListener("mouseover", function (e) {
+      if (e.target.tagName === "SPAN") {
+        sliderOperate(function() {
+        slideIndex = getIndexInParent(e.target);
+    });
+      }
+    })
+
+    oSlide.addEventListener("mouseout", function (e) {
+      if (e.target.tagName === "SPAN") {
+
+      }
+    })
+    //3. 操作封装
+    function add() {
+      slideIndex++;
+      slideIndex = slideIndex % len;
+    }
+
+    function decre() {
+      slideIndex--;
+      slideIndex = (slideIndex + len) % len;
+    }
+    //得到当前index
+    function getCurrentIndex(ele) {
+      slideIndex = getIndexInParent(ele);
+    }
+
+    function sliderOperate (callback) {
+      aImg[slideIndex].classList.remove("on");
+      oSlide.children[slideIndex].classList.remove("active");
+      callback();
+      aImg[slideIndex].classList.add("on");
+      oSlide.children[slideIndex].classList.add("active");
+    }
+    
+    //4.生成动态元素
+    function createSpans() {
+      var fragment = document.createDocumentFragment();
+      for (var i = 0; i < len; i++) {
+        var span = document.createElement("span");
+        span.innerText = i + 1;
+        if(i === 0) {
+          span.classList.add("active");
+        }
+        fragment.appendChild(span);
+      }
+      oSlide.appendChild(fragment);
+    }
+    createSpans();
+  </script>
+</body>
+
+</html>

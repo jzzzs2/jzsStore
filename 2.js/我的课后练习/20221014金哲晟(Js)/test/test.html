@@ -1,0 +1,55 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-10-14 17:12:58
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-10-14 17:23:25
+-->
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>回顾</title>
+</head>
+
+<body>
+  <script>
+    const DATA = {
+      num: 1,
+      show: function () {
+        console.log(this.num)
+      },
+      count: function () {
+        return function () {
+          console.log(this)
+          console.log(3 + this.num);
+        }
+      }
+    }
+    const OTHER = {
+      num: 55
+    }
+    // DATA.show.call(OTHER); //55
+
+    function fn() {
+      let args = [].slice.call(arguments);
+      console.log(args);
+    }
+    fn(2, 6, 9, 12);
+    //实现参数求和
+    function fn1 (callback) {
+      let args = [].slice.call(arguments, 1);
+      console.log(callback.apply(null, args));
+    }
+    fn1(function () {
+      return [].reduce.call(arguments, function (acc, item) {
+        return acc + item;
+      })
+    }, 8, 9, 11);
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,26 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-10-05 17:39:51
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-10-05 17:42:36
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>history3</title>
+</head>
+<body>
+  <input type="button" value="jump back">
+  <script>
+    document.querySelector("input").addEventListener("click", function (e) {
+      history.back();
+    })
+    console.log(history);
+    console.log(history.length);
+  </script>
+</body>
+</html>

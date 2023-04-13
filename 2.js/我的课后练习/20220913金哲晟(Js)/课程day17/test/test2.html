@@ -1,0 +1,32 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-09-13 20:45:32
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-09-13 20:52:00
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>数组方法</title>
+</head>
+<body>
+  <script>
+    var arr = [5, 2, 1, 9, 12, 2];
+    //lastIndexOf()
+    console.log(arr.indexOf(2)); //1
+    console.log(arr.lastIndexOf(2)); //5
+    console.log(arr.lastIndexOf(2,99)); //5
+    console.log(arr.lastIndexOf(2, 3)); //1
+    console.log(arr.lastIndexOf(2, -3)); //1
+    console.log(arr.lastIndexOf(2, -66)); // -1
+    console.log(arr);
+    //reverse()
+    console.log(arr.reverse());
+    console.log(arr);
+  </script>
+</body>
+</html>

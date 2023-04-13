@@ -1,0 +1,68 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-10-10 15:25:35
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-10-10 15:37:40
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>防抖节流</title>
+  <style>
+    div {
+      height: 300px;
+      background-color: #888;
+      border: 1px solid #999;
+    }
+
+    span {
+      display: inline-block;
+      width: 100px;
+      height: 100px;
+      background-color: #999;
+      line-height: 100px;
+      font-size: 40px;
+      text-align: center;
+      
+    }
+  </style>
+</head>
+<body>
+  <textarea name="cont" id="" cols="30" rows="10"></textarea>
+  <div></div>
+  <br>
+  <br>
+  <br>
+  <br>
+  <span>0</span>
+  <script>
+    var oInput = document.querySelector("textarea");
+    var oDiv = document.querySelector("div");
+    var oSpan = document.querySelector("span");
+    var timeOut;
+    var num = 0;
+    var lock = false;
+    oInput.addEventListener("input", function (e) {
+      clearTimeout(timeOut);
+      timeOut = setTimeout(function () {
+        var value = oInput.value;
+        oDiv.innerText = value;
+      }, 500);
+    })
+    oSpan.addEventListener("mousemove",function (e) {
+      if (!lock) {
+        lock = true;
+        num++;
+        e.target.innerText = num;
+        setTimeout(function () {
+          lock = false;
+        }, 500)
+      }
+    })
+  </script>
+</body>
+</html>

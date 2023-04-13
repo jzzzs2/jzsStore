@@ -1,0 +1,148 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-10-10 19:20:11
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-10-10 19:48:41
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>电梯导航</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    .box {
+      position: relative;
+    }
+    
+    .item {
+      height: 300px;
+      margin: 20px 0;
+      text-align: center;
+    }
+
+    .item:nth-of-type(1) {
+      background-color: red;
+    }
+
+    .item:nth-of-type(2) {
+      background-color: blue;
+    }
+
+    .item:nth-of-type(3) {
+      background-color: skyblue;
+    }
+
+    .item:nth-of-type(4) {
+      background-color: green;
+    }
+
+    .item:nth-of-type(5) {
+      background-color: yellow;
+    }
+    
+    .slider {
+      position: absolute;
+      right: 20px;
+      top: 300px;
+    }
+
+    ul {
+      width: 60px;
+      background-color: rgba(50,50,50,.7);
+      text-align: center;
+      list-style: none;
+    }
+
+    ul li {
+      color: skyblue;
+      font-size: 20px;
+      line-height: 40px;
+      cursor: pointer;
+    }
+
+    .fix {
+      position: fixed;
+      top: 0;
+      right: 20px;
+    }
+  </style>
+  <script src="../轮播/js/my.js"></script>
+</head>
+<body>
+  <div class="box">
+    <div class="item">1</div>
+    <div class="item">2</div>
+    <div class="item">3</div>
+    <div class="item">4</div>
+    <div class="item">5</div>
+    <ul class="slider">
+      <li>1</li>
+      <li>2</li>
+      <li>3</li>
+      <li>4</li>
+      <li>5</li>
+    </ul>
+  </div>
+  <script>
+    var aItem = $$(".item");
+    var oBox = $(".box");
+    var oSlider = $(".slider");
+    oSlider.addEventListener("click", function (e) {
+      if (e.target.tagName.toLowerCase() === "li") {
+        var index = getIndexInParent(e.target);
+        var top = getPosition(oBox.children[index]).top;
+        document.body.scrollTop = top;
+      }
+    })
+    document.addEventListener("scroll", function (e) {
+      var top = getPosition(oSlider).top;
+      if (document.body.scrollTop > top) {
+        oSlider.classList.add("fix");
+      }  else {
+        oSlider.classList.remove("fix");
+      }
+    })
+    function getPosition (ele) {
+      var position = {
+        top: 0,
+        left: 0
+      };
+      while (ele.offsetParent) {
+        position.left += ele.offsetLeft;
+        position.top += ele.offsetTop;
+        ele = ele.offsetParent;
+      }
+      return position;
+    }
+    function animate(ele, json) {
+      var finished = false;
+      var timeOut;
+      timeOut = setInterval(function () {
+        finished = true;
+        for (var key in json) {
+          var target = json[key];
+          var current = parseInt(getComputedStyle(ele, null)[key]);
+          var speed = (target - current) / 10;
+          speed = speed > 0 ? Math.ceil(speed) : Math.floor(speed);
+          ele.style[key] = current + speed + "px";
+          var newResult = parseInt(getComputedStyle(ele, null)[key]);
+          if (target !== newResult) {
+            finished = false;
+          }
+        }
+        if (finished) {
+          clearInterval(timeOut);
+        }
+      }, 1000 / 60)
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-09-26 20:32:45
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-09-26 20:41:02
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>元素属性</title>
+  <style>
+    .box {
+      overflow: auto;
+      width: 200px;
+      height: 200px;
+      border: 10px solid #222;
+      border-left-width: 20px;
+      border-top-width: 30px;
+      background-color: skyblue;
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <p>可爱捏2222222222222222222</p>
+    <p>可爱捏222222222222222222222222222</p>
+    <p>可爱捏2222222222222222222</p>
+    <p>可爱捏2222222222222222</p>
+    <p>可爱捏2222222222222222222</p>
+    <p>可爱捏22222</p>
+    <p>可爱捏22222</p>
+    <p>可爱捏22222</p>
+    <p>可爱捏22222</p>
+    <p>可爱捏22222</p>
+  </div>
+  <script>
+    var oBox = document.querySelector(".box");
+    console.log(oBox.clientWidth);
+    console.log(oBox.clientHeight);
+    console.log(oBox.offsetWidth);
+    console.log(oBox.offsetHeight);
+    console.log(oBox.clientTop);
+    console.log(oBox.clientLeft);
+  </script>
+</body>
+</html>

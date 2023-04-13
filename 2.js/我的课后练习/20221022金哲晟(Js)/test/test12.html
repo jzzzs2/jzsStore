@@ -1,0 +1,65 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-10-22 20:05:01
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-10-22 20:19:17
+-->
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>属性的修饰对象</title>
+</head>
+
+<body>
+  <script>
+    let obj = {
+      p: 2
+    }
+    Object.defineProperty(obj, 'p', {
+      value: 1,
+      writable: false,
+      enumerable: false,
+      configurable: false
+    });
+    Object.defineProperty(obj, 'p', { configurable: true })
+    // TypeError: Cannot redefine property: p
+    // Object.defineProperty(obj, 'p', { writable: true })
+    // TypeError: Cannot redefine property: p
+
+    // Object.defineProperty(obj, 'p', { enumerable: true })
+    // TypeError: Cannot redefine property: p
+
+    // Object.defineProperty(obj, 'p', { configurable: true })
+    // TypeError: Cannot redefine property: p
+
+    // Object.defineProperty(obj, 'p', { value: 2 })
+    // TypeError: Cannot redefine propert
+    // 在configuration为false情况下, 可以修改wriable从true变为false。 只要writable和configuration中有一个为true,就可以通过defineProperty修改value。对象.属性修改方式必须是writable才行。
+    // let obj = {
+    //   p: 2
+    // }
+    // Object.defineProperty(obj, 'p', {
+    //   value: 1,
+    //   writable: true,
+    //   // writable: false,
+    //   enumerable: false,
+    //   // configurable: true,
+    //   configurable: false
+    // });
+    // // Object.defineProperty(obj, "p", {
+    // //   writable: false
+    // // })
+    // // obj.p = 22;
+    // Object.defineProperty(obj, 'p', {
+    //   value: 999,
+    // });
+    // console.log(obj);
+  </script>
+</body>
+
+</html>

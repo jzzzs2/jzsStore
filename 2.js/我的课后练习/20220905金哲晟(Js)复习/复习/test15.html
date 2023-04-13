@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>运算符的优先级</title>
+</head>
+<body>
+  <script>
+      //  1.（） 2.一元运算符 ++ -- ! 3. 计算运算符 4. 关系运算符 5. 相等运算符 6.逻辑运算符 7.赋值运算符 
+      var a = 6;
+      console.log(1 - a ++ ); //-5
+      console.log("1" + !false); //"1true"
+      var num = 22;
+      console.log(5 + 2 >= 6); //true
+      console.log(7 >= 6 === 6 ); //false
+      console.log(7 >= true); //true
+      console.log(6 == "6" && "haoye"); //"haoye"
+      var num = 2 || false; //2
+      console.log(num);
+  </script>
+</body>
+</html>

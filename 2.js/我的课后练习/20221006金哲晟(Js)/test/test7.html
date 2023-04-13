@@ -1,0 +1,29 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-10-06 22:39:34
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-10-06 22:44:59
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>修饰符</title>
+</head>
+<body>
+  <script>
+    //i 匹配串可以自由变换
+    // var str = "22helloworld";
+    var str = "22helloWoRld";
+    console.log(str.match(/helloWorLd/i));
+    console.log(str.match(/helloWorLd/));
+    // console.log(str.match(/helloworld/));
+    //g 表示全局匹配
+    str = "abcorabcorabc";
+    console.log(str.match(/abc/g));
+  </script>
+</body>
+</html>

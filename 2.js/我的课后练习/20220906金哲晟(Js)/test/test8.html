@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>练习</title>
+</head>
+<body>
+  <script>
+    // 求输入数值的二次方
+    function getPow(num, pow) {
+      if (Number(num) === num && num !== 0) {
+        return num ** pow;
+      }
+      return 0;
+    }
+    //返回数组中最小值的平方
+    var arr = [2, 9, 12, 14, 19];
+    function getMinPower(arr,num) {
+      var newArr = arguments[0];
+      var min = arguments[0][0];
+      for(var i = 0; i < newArr.length; i++) {
+        if (newArr[i] < min) {
+          min = newArr[i];
+        }
+      }
+      return min ** num;
+    }
+    console.log(getMinPower(arr,3)); //8
+  </script>
+</body>
+</html>

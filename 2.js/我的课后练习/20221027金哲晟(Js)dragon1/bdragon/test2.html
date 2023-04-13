@@ -1,0 +1,305 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-10-27 19:40:03
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-10-28 23:42:49
+-->
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>泡泡龙</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .dragon {
+      display: flex;
+      justify-content: space-between;
+      width: 660px;
+      height: 640px;
+      border: 4px solid #999;
+    }
+
+    .game-area {
+      width: 440px;
+      height: 640px;
+      border-right: 2px solid #999;
+    }
+
+    .score {
+      position: relative;
+      width: 220px;
+      height: 640px;
+    }
+
+    .ball-area {
+      position: relative;
+      width: 440px;
+      height: 550px;
+    }
+
+    .control-area {
+      height: 90px;
+      border-top: 2px solid #999;
+    }
+
+    .start {
+      position: absolute;
+      top: 200px;
+      left: 0;
+      right: 0;
+      width: 120px;
+      height: 60px;
+      margin: auto;
+      border-bottom: 4px solid rgba(80, 120, 160);
+      text-align: center;
+      color: #fff;
+      font-size: 20px;
+      line-height: 60px;
+      background-color: #6698cb;
+      border-radius: 8px;
+
+      /* box-shadow: 0 2px 4px #6698cb; */
+    }
+
+    .score p {
+      position: absolute;
+      left: 0;
+      right: 0;
+      margin: 280px auto;
+      text-align: center;
+    }
+
+    .score span:nth-of-type(2) {
+      position: absolute;
+      top: 320px;
+      left: 0;
+      right: 0;
+      margin: auto;
+      font-size: 20px;
+      text-align: center;
+    }
+
+    .blue {
+      color: #6698cb;
+    }
+
+    .green {
+      color: #72B08E;
+    }
+
+    .ball {
+      position: absolute;
+      width: 44px;
+      height: 44px;
+      font-size: 10px;
+      color: #fff;
+      line-height: 44px;
+      text-align: center;
+      border-radius: 50%;
+    }
+  </style>
+  <script src="./my.js"></script>
+</head>
+
+<body>
+  <div class="dragon">
+    <div class="game-area">
+      <div class="ball-area"></div>
+      <div class="control-area"></div>
+    </div>
+    <div class="score">
+      <span class="start">开始游戏</span>
+      <p class="blue">当前分数</p>
+      <span class="green">0</span>
+    </div>
+  </div>
+  <script>
+    const ballArea = $(".ball-area");
+    const ballRadius = 44;
+    const diff = {
+      tl: -1,
+      tr: -1,
+      ml: 0,
+      mr: 0,
+      bl: 1,
+      br: 1
+    }
+    const COLORS = ["#fa5a5a", "#f0d264", "#82c8a0", "#7fccde", "#6698cb", "#cb99c5"];
+    let ballArr = [];
+    function init() {
+      let column = ~~(ballArea.offsetWidth / ballRadius);
+      let row = ~~(ballArea.offsetHeight / ballRadius);
+      let count = 0;
+      for (let i = 0; i < row; i++) {
+        let fragment = document.createDocumentFragment();
+        let columns = (i % 2 === 0) ? column : (column - 1);
+        for (let j = 0; j < columns; j++) {
+          let dom = document.createElement("div");
+          let index = ~~(Math.random() * COLORS.length);
+          let obj = {};
+          dom.classList.add("ball");
+          dom.style.backgroundColor = COLORS[index];
+          dom.innerText = count;
+          if (i % 2 === 0) {
+            dom.style.left = j * ballRadius + "px";
+            dom.style.top = i * (ballRadius - 6) + "px";
+          } else {
+            dom.style.left = (j + 0.5) * ballRadius + "px";
+            dom.style.top = i * (ballRadius - 6) + "px";
+          }
+          //小球信息对象
+          obj.color = COLORS[index];
+          obj.ele = dom;
+          obj.idx = count;
+          obj.top = dom.offsetTop;
+          obj.left = dom.offsetLeft;
+          obj.row = i;
+          obj.column = j;
+          obj.connect = true;
+          ballArr.push(obj);
+          fragment.appendChild(dom);
+          count++;
+        }
+        ballArea.appendChild(fragment);
+      }
+    }
+    init();
+    ballArea.addEventListener("click", function (e) {
+      if (e.target.className === "ball") {
+        let idx = Number(e.target.innerText);
+        let connectIdxArr = getConnectBall(idx);
+        connectIdxArr.forEach(function (item, i, arr) {
+          if (item) {
+            ballArr[item].connect = false;
+            ballArr[item].ele.style.backgroundColor = "black";
+            getDropBalls();
+          }
+        })
+      }
+    })
+
+    function getAroundBallIdx(idx) {
+      let ballAim = ballArr[idx];
+      return {
+        tl: idx - 10,
+        tr: idx - 9,
+        ml: idx - 1,
+        mr: idx + 1,
+        bl: idx + 9,
+        br: idx + 10
+      }
+    }
+    function getRightAroundIdx(obj, idx) {
+      return Object.entries(obj).reduce(function (acc, item, i, arr) {
+        if (diff[item[0]] === (ballArr[item[1]]?.row - ballArr[idx]?.row) && isSameColor(idx, item[1])) {
+          acc[item[0]] = item[1];
+        } else {
+          acc[item[0]] = null;
+        }
+        return acc;
+      }, {})
+    }
+    function getConnectIdx(obj, idx) {
+      return Object.entries(obj).reduce(function (acc, item, i, arr) {
+        if (diff[item[0]] === (ballArr[item[1]]?.row - ballArr[idx]?.row) && ballArr[item[1]].connect) {
+          acc[item[0]] = item[1];
+        } else {
+          acc[item[0]] = null;
+        }
+        return acc;
+      }, {})
+    }
+    function isSameColor(idx, itemIdx) {
+      if (ballArr[idx].color !== ballArr[itemIdx].color) {
+        return false;
+      }
+      return true;
+    }
+    //
+    function getDropBalls() {
+      for (let i = 0; i < ballArr.length; i++) {
+        if (ballArr[i].connect) {
+          //得到所有被黑球框住的球
+          //如果有0到9 就不掉落
+          let balls = getWrapBall(i);
+          console.log(balls);
+          let isDrop = balls.some(function (item, i) {
+            return item < 10;
+          })
+          if (!isDrop) {
+            balls.forEach(function (item, i) {
+              if (item) {
+                ballArr[item].ele.style.backgroundColor = "#999";
+                ballArr[item].connect = false;
+              }
+
+            })
+          }
+        }
+      }
+    }
+    function getWrapBall(idx) {
+      let allArr = [idx];
+      addIdx(idx);
+      function addIdx(idx) {
+        let obj = getAroundBallIdx(idx);
+        obj = getConnectIdx(obj, idx);
+        let connectArr = Object.entries(obj).map(function (item, i) {
+          if (item[1]) {
+            return item[1];
+          }
+        })
+        connectArr = connectArr.filter(function (item, i) {
+          return !allArr.includes(item);
+        })
+        if (connectArr.length > 0) {
+          allArr = allArr.concat(connectArr);
+          for (let i = 0; i < connectArr.length; i++) {
+            addIdx(connectArr[i]);
+          }
+        }
+      }
+      return allArr;
+    }
+    function getConnectBall(idx) {
+      let allArr = [idx];
+      addIdx(idx);
+      //返回周围同色的球的idx
+      function addIdx(idx) {
+        let obj = getAroundBallIdx(idx);
+        obj = getRightAroundIdx(obj, idx);
+        let connectArr = Object.entries(obj).map(function (item, i) {
+          if (item[1]) {
+            return item[1];
+          }
+        })
+        connectArr = connectArr.filter(function (item, i) {
+          return !allArr.includes(item);
+        })
+        if (connectArr.length > 0) {
+          allArr = allArr.concat(connectArr);
+          for (let i = 0; i < connectArr.length; i++) {
+            addIdx(connectArr[i]);
+          }
+        }
+      }
+      return allArr;
+    }
+  </script>
+</body>
+
+</html>

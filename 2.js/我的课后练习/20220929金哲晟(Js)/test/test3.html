@@ -1,0 +1,72 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-09-29 17:30:00
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-09-29 17:52:47
+-->
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>节流定时器</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    html,
+    body {
+      height: 100%;
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .container {
+      display: flex;
+      justify-content: space-around;
+      width: 800px;
+      height: 400px;
+      padding: 20px;
+      background-color: #ccc;
+      box-shadow: 0 0 8px #222;
+      font-size: 82px;
+      font-weight: 900;
+      text-align: center;
+      line-height: 400px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    0
+  </div>
+  <script src="./my.js"></script>
+  <script>
+    var oCon = $(".container");
+    var num = 0;
+    var toggle = true;
+    oCon.addEventListener("mousemove", function (e) {
+      if (!toggle) {
+        return false;
+      }
+      toggle = false;
+      num++;
+      oCon.innerText = num;
+      setTimeout(function () {
+        toggle = true;
+      }, 500)
+    })
+  </script>
+</body>
+
+</html>

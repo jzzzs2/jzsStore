@@ -1,0 +1,114 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-09-07 17:46:30
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-09-08 12:09:44
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>homework</title>
+</head>
+<body>
+  <script>
+    // 1.
+    var x;
+    function fn() {
+      var x;
+      x = 20;
+      console.log(x); //这里打印值是多少? 20
+      x = 30;
+    }
+    x = 10;
+    x = 30;
+    fn();
+    console.log(x); //这里打印值是多少? 30
+    //
+    // 2.
+    //
+    var x;
+    function x() {
+      x = 40;
+    }
+    console.log(x);//这里打印值是多少? function () {}
+    x = function () {
+      x = 90;
+    }
+
+    x();
+    x = 30;
+
+    console.log(x); //这里打印值是多少? 30
+    //
+    // 3.
+    //
+    var x;
+    function fn1() {
+      console.log(x); //这里打印值是多少? 40
+    }
+    function fn2() {
+      var x;
+      x = 1;
+      fn1();
+    }
+    x = 20
+    x = 30;
+    x = 40;
+    fn2();
+    //
+    // 4.
+    //
+    var x;
+    function fn() {
+      var x;
+      if (x) {
+        x = 30;
+      }
+      console.log(x);//这里打印值是多少? undefined
+    }
+    x = 20;
+    fn();
+    console.log(x);//这里打印值是多少? 20
+    //
+    // 5.
+    //
+    function fun(param) {
+      var param;
+      param = 5;
+      console.log(param);//这里打印值是多少? 5
+      param = function () {
+        console.log(1);
+      }
+      console.log(param);//这里打印值是多少?  function() {}
+    }
+    fun(5);
+    //
+    // 6.
+    //
+    var foo;
+    function bar() {
+      function foo() { }
+      foo = 10;
+      console.log(foo);//这里打印值是多少? 10
+    }
+    foo = 1;
+    bar();
+    console.log(foo);//这里打印值是多少?  1
+    //
+    // 7.
+    //
+    var b;
+    function fn() {
+      var a;
+      b = 3;
+      a = 3;
+    }
+    console.log(b);//这里打印值是多少? 3
+    console.log(a);//这里打印值是多少? 报错
+  </script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-10-16 18:03:52
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-10-16 19:37:40
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>对象无声明解构  对象解构key的第二种书写方式</title>
+</head>
+<body>
+  <script>
+    ({name, age} = {name: "jzs", age: 22});
+    console.log(name);
+    console.log(age);
+    let obj = {
+      name: "jzs",
+      age: 22,
+      address: "jinHua"
+    }
+    let key = "address";
+    let {[key]:value = "none",["prop"]:prop = "none"} = obj;
+    console.log(value,prop); //jinHua none
+  </script>
+</body>
+</html>

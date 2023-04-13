@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    ul {
+      list-style: none;
+      width: 200px;
+      padding: 10px;
+      background-color: #ccc;
+      transition: .5s;
+    }
+
+    li {
+      padding: 5px 20px;
+      margin-bottom: 10px;
+      background-color: #999;
+    }
+  </style>
+</head>
+
+<body>
+  <ul id="list">
+    <li>第1个li</li>
+    <li>第2个li</li>
+    <li>第3个li</li>
+    <li>第4个li</li>
+    <li>第5个li</li>
+    <li>第6个li</li>
+    <li>第7个li</li>
+    <li>第8个li</li>
+    <li>第9个li</li>
+    <li>第10个li</li>
+  </ul>
+  <script>
+    var oList = document.querySelector('#list');
+
+    oList.onclick = function (e) {
+      if (e.target.tagName.toLowerCase() === 'li') {
+        e.target.style.background = '#fff';
+      }
+    }
+
+
+    oList.onmouseover = function (e) {
+      if (e.target.tagName.toLowerCase() === 'li') {
+        e.target.style.background = '#fff';
+      }
+    }
+
+    oList.onmouseout = function (e) {
+      if (e.target.tagName.toLowerCase() === 'li') {
+        e.target.style.background = '#999';
+      }
+    }
+
+  </script>
+</body>
+
+</html>

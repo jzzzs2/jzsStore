@@ -1,0 +1,68 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-10-13 17:36:11
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-10-13 17:51:46
+-->
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>call语法</title>
+</head>
+
+<body>
+  <ul>
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+  </ul>
+  <script>
+    const aLi = document.querySelectorAll("li");
+    let result = [].reduce.call(aLi, function (acc, item) {
+      acc.push(Number(item.innerText) + 10);
+      return acc;
+    },[])
+    console.log(result);
+    let otherMethod = [].map.call(aLi, function (item, i) {
+      return Number(item.innerText) + 10;
+    })
+    console.log(otherMethod);
+    //计算参数和
+    function addParam () {
+      return [].reduce.call(arguments, function (acc, item) {
+        return acc + item;
+      },0)
+    }
+    console.log(addParam(22, 55, 99, 10.5));
+
+    const P1 = {
+      name: "jzs",
+      age: 22
+    }
+
+    const P2 = {
+      name: "zjc",
+      age: 23
+    }
+    
+    function getName () {
+      return this.name;
+    }
+    function getAge () {
+      return this.age;
+    }
+    function getNameAndAge (name, age) {
+      console.log(`我是${name} ${age}岁了捏`);
+    }
+
+    getNameAndAge(getName.call(P1),getAge.call(P2));
+  </script>
+</body>
+
+</html>

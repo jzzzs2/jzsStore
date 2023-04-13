@@ -1,0 +1,30 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-09-13 21:20:41
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-09-13 21:23:42
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>数组方法</title>
+</head>
+<body>
+  <script>
+    //every some
+    var arr = [2, 6, 9, 12, 11];
+    console.log(arr.every(function(curr, i, arr) {
+      return curr > 3;
+    }));
+    //false
+    console.log(arr.some(function(curr, i, arr) {
+      return curr > 11;
+    }));
+    //true
+  </script>
+</body>
+</html>

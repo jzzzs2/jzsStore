@@ -1,0 +1,41 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-10-22 20:23:14
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-10-22 20:23:48
+-->
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>configuration</title>
+</head>
+
+<body>
+  <script>
+    var obj = Object.defineProperty({}, 'p', {
+      value: 1,
+      writable: false,
+      enumerable: false,
+      configurable: false
+    });
+
+    Object.defineProperty(obj, 'p', { writable: true })
+    // TypeError: Cannot redefine property: p
+
+    Object.defineProperty(obj, 'p', { enumerable: true })
+    // TypeError: Cannot redefine property: p
+
+    Object.defineProperty(obj, 'p', { configurable: true })
+    // TypeError: Cannot redefine property: p
+
+    Object.defineProperty(obj, 'p', { value: 2 })
+// TypeError: Cannot redefine propert"
+  </script>
+</body>
+
+</html>

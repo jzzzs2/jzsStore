@@ -1,0 +1,54 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-10-26 16:19:26
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-10-26 16:47:59
+-->
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Promise</title>
+</head>
+
+<body>
+  <script>
+    let promise = new Promise(function (resolve, reject) {
+      setTimeout(() => {
+        resolve("陈宫了")
+      }, 2000);
+    })
+    let str = promise.then((info) => {
+      console.log("好耶" + info);
+    }).then((info) => {
+      console.log("第二次捏" + info);
+    }).then((info) => {
+      console.log("第三次捏" + info);
+    })
+    // console.log(str,promise);
+    // console.log(str === promise);
+    // (function () {
+    //   setTimeout(() => {
+    //     console.log(str === promise);
+    //   }, 4000);
+    // })();
+    // let str = promise.then((info) => {
+    //   console.log("好耶" + info);
+    //   return new Promise(function (resolve, reject) {
+    //     setTimeout(() => {
+    //       resolve("陈宫了")
+    //     }, 2000);
+    //   }).then(function (str) {
+    //     console.log("好耶2" + str);
+    //     return "2";
+    //   })
+    // })
+    // console.log(str);
+  </script>
+</body>
+
+</html>

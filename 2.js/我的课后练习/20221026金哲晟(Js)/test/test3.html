@@ -1,0 +1,74 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-10-26 18:24:56
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-10-26 18:54:45
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Symbol</title>
+</head>
+<body>
+  <script>
+    let s = Symbol("address");
+    let obj = {
+      name: "jzs",
+      age: 22,
+      [s]: "jinhua"
+    }
+    console.log(Object.getOwnPropertySymbols(obj));
+    console.log(Reflect.ownKeys(obj));
+    // //对象的symbolkey值不会被遍历出来 for in
+    // for (let key in obj) {
+    //   console.log(key);
+    // }
+    // console.log(Object.keys(obj));
+    // console.log(Object.getOwnPropertyNames(obj));
+    
+
+    //Symbol.for() 强制性全局注册一个Symbol描述值为name
+    // Symbol.for("name") = 33;
+    // console.log(Symbol.for("name"));
+    // function a () {
+    //   let o = {
+    //     [Symbol.for("name")] : "Jzs"
+    //   }
+    //   return o;
+    // }
+    // let obj = a();
+    // console.log(Symbol.for("name"));
+    // let s = Symbol.for("name");
+    // // console.log(obj[Symbol.for("name")]); // "Jzs"
+    // console.log(Symbol.keyFor(s)); //"name"
+    // let s2 = Symbol("age");
+    // console.log(Symbol.keyFor(s2)); //undefined
+    // let s3 = Symbol.for("xp");
+    // console.log(Symbol.keyFor(s3)); //xp
+    // console.log("================");
+    // console.log(s2.description); // age
+    // console.log(s3.description); //xp
+
+    // //Symbol的一些固定属性
+    // let arr = [3, 5, 6, 7];
+    // let twoArr = [8, 9, 10];
+    // arr[Symbol.isConcatSpreadable] = false;
+    // console.log(arr.concat(twoArr));
+    // console.log(arr);
+    // console.log(twoArr);
+    console.log(!!Symbol("nice")); // true
+    if (Symbol("22")) {
+      console.log("Symbol转化为的逻辑值是true");
+    } else {
+      console.log("不可能");
+    }
+    let s1 = Symbol.for("name");
+    let s2 = Symbol.for("name");
+    console.log(s1 === s2);
+  </script>
+</body>
+</html>

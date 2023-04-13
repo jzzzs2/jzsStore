@@ -1,0 +1,32 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-09-10 17:11:36
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-09-10 17:14:41
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>test</title>
+</head>
+<body>
+  <script>
+    function eat() {
+      console.log(this);
+    }
+    eat();
+    var realName = "name";
+    var obj = {
+      name: "jzs",
+      age: 22
+    }
+    console.log(obj[realName]); //"jzs"
+    console.log(obj.realName); //undefiend
+    console.log(obj.name); //"jzs"
+  </script>
+</body>
+</html>

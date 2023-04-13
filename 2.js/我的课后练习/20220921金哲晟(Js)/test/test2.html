@@ -1,0 +1,55 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-09-21 18:42:02
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-09-21 19:00:02
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>回流和重绘</title>
+  <style>
+    li {
+      display: inline-block;
+      width: 200px;
+      height: 300px;
+      background-color: #368;
+      margin: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="nav">
+    <ul class="list">
+    </ul>
+  </div>
+  <script>
+    var oList = document.querySelector(".list");
+    // createNewElements(oList, "li");
+    createNewElementsByString(oList, "li");
+    function createNewElements (parentEle,tagName) {
+      var eleContainer = document.createDocumentFragment();
+      for(var i = 0; i < 300; i++) {
+        var newEle = document.createElement(tagName);
+        eleContainer.appendChild(newEle);
+        // parentEle.appendChild(newEle); 每次进行追加 都会重新绘制页面,浏览器解析压力大
+      }
+      parentEle.appendChild(eleContainer);
+    }
+    
+
+    function createNewElementsByString (parentEle, tagName) {
+      var eleStr = "";
+      for(var i = 0; i < 300; i++) {
+        // parentEle.innerHTML += "<" + tagName + "></" + tagName +">";
+        eleStr += "<" + tagName + "></" + tagName +">";
+      }
+      parentEle.innerHTML = eleStr;
+    }
+  </script>
+</body>
+</html>

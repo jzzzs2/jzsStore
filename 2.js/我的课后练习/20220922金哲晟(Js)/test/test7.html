@@ -1,0 +1,39 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-09-22 18:11:35
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-09-22 18:17:48
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>阻止默认事件</title>
+  <style>
+    a {
+      text-decoration: none;
+      color: #368;
+      background-color: yellow;
+    }
+  </style>
+</head>
+<body>
+  <div class="content">
+    <!-- <a id="bili" href="" target="_blank">点我跳转到blibili捏</a> -->
+    <a id="bili" href="https://www.bilibili.com/" target="_blank">点我跳转到blibili捏</a>
+    <a id="bili" href="javascript:;" target="_blank">点我跳转到blibili捏</a>
+  </div>
+  <script>
+    var oA = document.querySelector("#bili");
+    oA.onclick = function (e) {
+      // e.preventDefault();
+      return false;
+      console.log("我跳转了捏");
+      // return false;
+    }
+  </script>
+</body>
+</html>

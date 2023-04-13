@@ -1,0 +1,62 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-10-06 20:52:34
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-10-06 21:24:22
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>元字符 代表一类字符 的 标识符</title>
+</head>
+<body>
+  <script>
+    //1. . 任意字符匹配()除了换行符号
+    console.log(/./.test("234"));
+    console.log(/./.test(" "));
+    console.log(/./.test(""));
+    //2. \d 匹配数字 0-9
+    console.log(/\d/.test("222")); //true
+    console.log(/\d/.test("aabb2cc")); //true
+    //3. \D 匹配除数字 0-9 外字符
+    console.log(/\D/.test("23434")); //false
+    console.log(/\D/.test("a22")); //true
+    console.log(/\D/.test("&222")); //true
+    //4.  \w 匹配数字字母_
+    console.log(/\w/.test("&&&#@$#@")); //false
+    console.log(/\w/.test("2")); //true
+    console.log(/\w/.test("_***")); //true
+    console.log(/\w/.test("asb")); //true
+    console.log(/\w/.test("222A")); //true
+    //5. \W 匹配非数字字母下划线
+    console.log(/\W/.test("&&")); //true
+    console.log(/\W/.test("_**")); //true
+    console.log(/\W/.test("33")); //false
+    //6. \s 匹配空字符串 
+    console.log(/\s/.test("s 23")); //true
+    console.log(/\s/.test("22\n22")); //true
+    console.log(/\s/.test("23\t23")); //true
+    console.log(/\s/.test("222")); //false
+    //7. \S 匹配非空字符串
+    console.log(/\S/.test("222")); //true
+    console.log(/\S/.test("  ")); //false
+    //8. \b 匹配字符边界
+    console.log(/ab\b/.test("ab2")); //false
+    console.log(/ab\b/.test("2ab")); // true
+    console.log(/\b/.test("23232 abc  2")); //true
+    console.log(/\b/.test("ab&23_")); //true
+    //9. \n 匹配换行符  \r匹配回车符 \t 匹配制表符
+    console.log(/\n|\d/.test("\nabc")); //true
+    console.log(/\n|\d/.test("22abc")); //true
+    //10. 转义
+    console.log(/\./.test("abc.")); //true
+    console.log(/\\d/.test("d")); //false
+    var exp =  /\./;
+    console.log(exp.test(".2323")); //true
+  </script>
+</body>
+</html>

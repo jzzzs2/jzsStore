@@ -1,0 +1,562 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-10-27 19:40:03
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-10-30 22:38:12
+-->
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>泡泡龙</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      user-select: none;
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .dragon {
+      display: flex;
+      justify-content: space-between;
+      width: 660px;
+      height: 640px;
+      border: 4px solid #999;
+    }
+
+    .game-area {
+      width: 440px;
+      height: 640px;
+      border-right: 2px solid #999;
+    }
+
+    .score {
+      position: relative;
+      width: 226px;
+      height: 640px;
+    }
+
+    .ball-area {
+      position: relative;
+      width: 440px;
+      height: 550px;
+    }
+
+    .control-area {
+      height: 90px;
+      border-top: 2px solid #999;
+    }
+
+    .start {
+      position: absolute;
+      top: 200px;
+      left: 0;
+      right: 0;
+      width: 120px;
+      height: 60px;
+      margin: auto;
+      border-bottom: 4px solid rgba(80, 120, 160);
+      text-align: center;
+      color: #fff;
+      font-size: 20px;
+      line-height: 60px;
+      background-color: #6698cb;
+      border-radius: 8px;
+
+      /* box-shadow: 0 2px 4px #6698cb; */
+    }
+
+    .score p {
+      position: absolute;
+      left: 0;
+      right: 0;
+      margin: 280px auto;
+      text-align: center;
+    }
+
+    .score span:nth-of-type(2) {
+      position: absolute;
+      top: 320px;
+      left: 0;
+      right: 0;
+      margin: auto;
+      font-size: 20px;
+      text-align: center;
+    }
+
+    .blue {
+      color: #6698cb;
+    }
+
+    .green {
+      color: #72B08E;
+    }
+
+    .ball {
+      position: absolute;
+      width: 44px;
+      height: 44px;
+      font-size: 10px;
+      color: #fff;
+      line-height: 44px;
+      text-align: center;
+      border-radius: 50%;
+    }
+
+    .bullet {
+      position: absolute;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      /* background-color: #f0d264; */
+      box-shadow: -2px -2px 12px rgba(100, 100, 100, .7) inset;
+    }
+
+    .arrow {
+      position: absolute;
+      width: 60px;
+      height: 86px;
+      background: url(./arrow.png) no-repeat top/cover;
+      transform-origin: 30px 56px;
+    }
+  </style>
+  <script src="./my.js"></script>
+</head>
+
+<body>
+  <div class="dragon">
+    <div class="game-area">
+      <div class="ball-area">
+        <div class="arrow"></div>
+        <div class="bullet"></div>
+      </div>
+      <div class="control-area"></div>
+    </div>
+    <div class="score">
+      <span class="start">开始游戏</span>
+      <p class="blue">当前分数</p>
+      <span class="green">0</span>
+    </div>
+  </div>
+  <script>
+    const startGame = $(".start");
+    const arrow = $(".arrow");
+    const bullet = $(".bullet");
+    const ballArea = $(".ball-area");
+    const gameArea = $(".game-area");
+    const ballRadius = 44;
+    const score = $(".green");
+    let lock = true;
+    let angle;
+    const diff = {
+      tl: -1,
+      tr: -1,
+      ml: 0,
+      mr: 0,
+      bl: 1,
+      br: 1
+    }
+    const COLORS = ["#fa5a5a", "#f0d264", "#82c8a0", "#7fccde", "#6698cb", "#cb99c5"];
+    let ballArr = [];
+    startGame.onclick = function (e) {
+      lock = false;
+      setTimeout(() => {
+        autoAddBall();
+      }, 50000);
+    }
+    function initArrow() {
+      arrow.style.left = (ballArea.offsetWidth / 2) - (arrow.offsetWidth / 2) + "px";
+      arrow.style.top = (ballArea.offsetHeight - 30) + "px";
+    }
+    function initBullet() {
+      bullet.style.backgroundColor = COLORS[~~(Math.random() * COLORS.length)];
+      bullet.style.left = (ballArea.offsetWidth / 2) - (bullet.offsetWidth / 2) + "px";
+      bullet.style.top = (ballArea.offsetHeight + 5) + "px";
+    }
+    initArrow();
+    initBullet();
+    function init() {
+      let column = ~~(ballArea.offsetWidth / ballRadius);
+      let row = ~~(ballArea.offsetHeight / ballRadius);
+      let count = 0;
+      for (let i = 0; i < row; i++) {
+        let fragment = document.createDocumentFragment();
+        let columns = (i % 2 === 0) ? column : (column - 1);
+        for (let j = 0; j < columns; j++) {
+          let dom = document.createElement("div");
+          let index = ~~(Math.random() * COLORS.length);
+          let obj = {};
+          dom.classList.add("ball");
+          dom.style.backgroundColor = COLORS[index];
+          dom.innerText = count;
+          if (i % 2 === 0) {
+            dom.style.left = j * ballRadius + "px";
+            dom.style.top = i * (ballRadius - 6) + "px";
+          } else {
+            dom.style.left = (j + 0.5) * ballRadius + "px";
+            dom.style.top = i * (ballRadius - 6) + "px";
+          }
+          //小球信息对象
+          // obj.color = COLORS[index];
+          obj.color = "";
+          obj.ele = dom;
+          obj.idx = count;
+          obj.top = parseInt(dom.style.top);
+          obj.left = parseInt(dom.style.left);
+          obj.row = i;
+          obj.column = j;
+          obj.connect = false;
+          dom.style.display = "none";
+          ballArr.push(obj);
+          fragment.appendChild(dom);
+          count++;
+        }
+        ballArea.appendChild(fragment);
+      }
+    }
+    init();
+    let timer;
+    ballArea.addEventListener("click", function (e) {
+      if (!lock) {
+        let speed_x = 16;
+        let speed = 16;
+        // console.log(angle - 90);
+        clearInterval(timer);
+        let timingAngle = angle;
+        timer = setInterval(function () {
+          //球碰墙转向
+          let bulletL = bullet.offsetLeft;
+          let bulletW = bullet.offsetWidth;
+          let ballW = ballArea.offsetWidth;
+          if (bulletL < 0 || bullet.offsetLeft > ballW - bulletW) {
+            speed_x *= -1;
+          }
+          let top = bullet.offsetTop;
+          let left = bullet.offsetLeft;
+          bullet.style.top = top + speed * Math.sin((timingAngle - 90) * Math.PI / 180) + "px";
+          bullet.style.left = left + speed_x * Math.cos((timingAngle - 90) * Math.PI / 180) + "px";
+          //得到发生冲突的球
+          let collBalls = getcollisionBalls();
+          // let nearIdx = getNearest(collBalls);
+          // // console.log(nearIdx);//最近冲突球
+          // let collIdxArr = getCollisionAroundBall(nearIdx); //得到所有冲突球周围空的球
+          // let finalIndex = getCollisionNear(collIdxArr);
+          // console.log(finalIndex);
+          if (collBalls.length === 0 && bullet.offsetTop < 0) {
+            //寻找根部
+            clearInterval(timer);
+            let rootBall = getRootBall();
+            ballArr[rootBall.ele.idx].connect = true;
+            ballArr[rootBall.ele.idx].color = bullet.style.backgroundColor;
+            ballArr[rootBall.ele.idx].ele.style.display = "block";
+            ballArr[rootBall.ele.idx].ele.style.backgroundColor = bullet.style.backgroundColor;
+            initBullet();
+          } else {
+            let nearIdx = getNearest(collBalls);
+            console.log(nearIdx,"最近冲突球");//最近冲突球
+            let collIdxArr = getCollisionAroundBall(nearIdx); //得到所有冲突球周围空的球
+            console.log(collIdxArr,"冲突球周围空的球");
+            let finalIndex = getCollisionNear(collIdxArr);
+            console.log("最近的",finalIndex);
+            if (ballArr[finalIndex]) {
+              clearInterval(timer);
+              ballArr[finalIndex].connect = true;
+              ballArr[finalIndex].color = bullet.style.backgroundColor;
+              ballArr[finalIndex].ele.style.display = "block";
+              ballArr[finalIndex].ele.style.backgroundColor = bullet.style.backgroundColor;
+              // console.log(ballArr[finalIndex],"最后连接上的位置球");
+              //如果有三个以上连接在一起...就掉落
+              let connArr = getConnectBall(finalIndex);
+              connArr = connArr.filter(function (item) {
+                return item !== undefined;
+              })
+              console.log(connArr,"连在一起的球");
+              if (connArr.length >= 3) {
+                console.log(connArr, "要掉落的球");
+                score.innerText = Number(score.innerText) + connArr.length;
+                connArr.forEach(function (item) {
+                  animate(ballArr[item].ele, {
+                    top: ballArr[item].ele.offsetTop + 15,
+                    opacity: 0
+                  }, 500, "linear", function () {
+                    ballArr[item].ele.style.display = "none";
+                    ballArr[item].connect = false;
+                    ballArr[item].color = "";
+                    ballArr[item].ele.style.top = ballArr[item].top;
+                    ballArr[item].ele.style.opacity = "100";
+                  })
+                })
+              }
+              setTimeout(() => {
+                getDropBalls();
+              }, 1000);
+              // getDropBalls();
+              initBullet();
+            }
+          }
+          // let top = bullet.offsetTop;
+          // let left = bullet.offsetLeft;
+          // bullet.style.top = top + speed * Math.sin((timingAngle - 90) * Math.PI / 180) + "px";
+          // bullet.style.left = left + speed_x * Math.cos((timingAngle - 90) * Math.PI / 180) + "px";
+        }, 1000 / 60)
+      }
+    })
+    function getCollisionAroundBall(idx) {
+      let newArr = [];
+      let arr = getNoConnectIdx(getAroundBallIdx(idx), idx);
+      for (let key in arr) {
+        if (arr[key]) {
+          newArr.push(arr[key]);
+        }
+      }
+      return newArr;
+    }
+    function getRootBall() {
+      let near;
+      let arr = ballArr.slice(0, 10);
+      arr = arr.filter(function (item) {
+        return !item.connect;
+      })
+      near = arr.reduce(function (acc, item, i) {
+        let _x = item.left - bullet.offsetLeft;
+        let _y = item.top - bullet.offsetTop;
+        let instance = Math.sqrt(_x * _x + _y * _y);
+        acc.push({
+          ele: item,
+          instance
+        });
+        return acc;
+      }, []);
+      return near.sort(function (n, p) {
+        return n.instance - p.instance;
+      })[0];
+    }
+    function autoAddBall() {
+      let timer;
+      let over;
+      timer = setInterval(function () {
+
+        let count = 8;
+        while (count !== 0) {
+          let ball = ballArr.filter(function (item) {
+            return item.connect === false;
+          })[0];
+          ball.connect = true;
+          ball.ele.style.backgroundColor = COLORS[~~(Math.random() * COLORS.length)];
+          ball.color = ball.ele.style.backgroundColor;
+          // ball.color = COLORS[~~(Math.random() * COLORS.length)];
+          ball.ele.style.display = "block";
+          count--;
+        }
+      }, 10000)
+      over = setInterval(function () {
+        let connectArr = ballArr.filter(function (item) {
+          return !item.connect;
+        })
+        if (connectArr.length === 0) {
+          clearInterval(over);
+          clearInterval(timer);
+          alert("game over");
+        }
+      }, 500)
+    }
+    function getcollisionBalls() {
+      let balls = ballArr.filter(function (item) {
+        return item.connect;
+      })
+      let collisionArr = [];
+      for (let i = 0; i < balls.length; i++) {
+        let result = isCollision(balls[i]);
+        if (result) {
+          collisionArr.push(result);
+        }
+      }
+      return collisionArr;
+    }
+    function getCollisionNear(arr) {
+      let top = bullet.offsetTop;
+      let left = bullet.offsetLeft;
+      let instance = [];
+      arr.forEach(function (item) {
+        let x = ballArr[item].left - left;
+        let y = ballArr[item].top - top;
+        instance.push({ instance: Math.sqrt(x * x + y * y), idx: item }
+        );
+      })
+      return instance.sort(function (n, p) {
+        return n.instance - p.instance;
+      })[0]?.idx;
+    }
+    function getNearest(arr) {
+      return arr.sort(function (n, p) {
+        return n.instance - p.instance;
+      })[0]?.idx;
+    }
+    function isCollision(dom) {
+      let l = bullet.offsetLeft;
+      let t = bullet.offsetTop;
+      let _x = dom.left - l;
+      let _y = dom.top - t;
+      let instance = Math.sqrt(_x * _x + _y * _y);
+      if (instance < bullet.offsetWidth) {
+        return {
+          idx: dom.idx,
+          instance
+        };
+      }
+      return false;
+    }
+    gameArea.addEventListener("mousemove", function (e) {
+      let ex = e.clientX;
+      let ey = e.clientY;
+      let position = getPosition(arrow);
+      let bx = position.left + arrow.offsetWidth / 2;
+      let by = position.top + 56;
+      angle = Math.abs(Math.atan2(ey - by, ex - bx));
+      angle = angle * 180 / Math.PI;
+      angle = Math.min(170, Math.max(angle, 10));
+      angle = -angle + 90;
+      arrow.style.transform = `rotate(${angle}deg)`;
+    })
+    function getAroundBallIdx(idx) {
+      let ballAim = ballArr[idx];
+      return {
+        tl: idx - 10,
+        tr: idx - 9,
+        ml: idx - 1,
+        mr: idx + 1,
+        bl: idx + 9,
+        br: idx + 10
+      }
+    }
+    function getNoConnectIdx(obj, idx) {
+      return Object.entries(obj).reduce(function (acc, item, i, arr) {
+        if (diff[item[0]] === (ballArr[item[1]]?.row - ballArr[idx]?.row) && !ballArr[item[1]].connect) {
+          acc[item[0]] = item[1];
+        } else {
+          acc[item[0]] = null;
+        }
+        return acc;
+      }, {});
+    }
+    function getRightAroundIdx(obj, idx) {
+      return Object.entries(obj).reduce(function (acc, item, i, arr) {
+        if (diff[item[0]] === (ballArr[item[1]]?.row - ballArr[idx]?.row) && isSameColor(idx, item[1])) {
+          acc[item[0]] = item[1];
+        } else {
+          acc[item[0]] = null;
+        }
+        return acc;
+      }, {})
+    }
+    function getConnectIdx(obj, idx) {
+      return Object.entries(obj).reduce(function (acc, item, i, arr) {
+        if (diff[item[0]] === (ballArr[item[1]]?.row - ballArr[idx]?.row) && ballArr[item[1]].connect) {
+          acc[item[0]] = item[1];
+        } else {
+          acc[item[0]] = null;
+        }
+        return acc;
+      }, {})
+    }
+    function isSameColor(idx, itemIdx) {
+      if (ballArr[idx].color !== ballArr[itemIdx].color) {
+        return false;
+      }
+      return true;
+    }
+    function getDropBalls() {
+      for (let i = 0; i < ballArr.length; i++) {
+        if (ballArr[i].connect) {
+          console.log(i);
+          //得到所有被黑球框住的球
+          //如果有0到9 就不掉落
+          let balls = getWrapBall(i);
+          console.log(balls, "allballs",);
+          let isDrop = balls.some(function (item, i) {
+            return item < 10;
+          })
+          console.log(isDrop);
+          if (!isDrop) {
+            balls.forEach(function (item, i) {
+              if (item) {
+                score.innerText = Number(score.innerText) + 1;
+                animate(ballArr[item].ele, {
+                  top: ballArr[item].ele.offsetTop + 15,
+                  opacity: 0
+                }, 500, "linear", function () {
+                  ballArr[item].ele.style.display = "none";
+                  ballArr[item].connect = false;
+                  ballArr[item].color = "";
+                  ballArr[item].ele.style.opacity = "100";
+                  ballArr[item].ele.style.top = ballArr[item].top;
+                })
+              }
+            })
+          }
+        }
+      }
+    }
+    function getWrapBall(idx) {
+      let allArr = [idx];
+      addIdx(idx);
+      function addIdx(idx) {
+        let obj = getAroundBallIdx(idx);
+        obj = getConnectIdx(obj, idx);
+        let connectArr = Object.entries(obj).map(function (item, i) {
+          if (item[1] || item[1] == 0) {
+            return item[1];
+          }
+        })
+        connectArr = connectArr.filter(function (item, i) {
+          return !allArr.includes(item);
+        })
+        if (connectArr.length > 0) {
+          allArr = allArr.concat(connectArr);
+          for (let i = 0; i < connectArr.length; i++) {
+            addIdx(connectArr[i]);
+          }
+        }
+      }
+      return allArr;
+    }
+    function getConnectBall(idx) {
+      console.log("得到连接球,",idx);
+      let allArr = [idx];
+      addIdx(idx);
+      //返回周围同色的球的idx
+      function addIdx(idx) {
+        let obj = getAroundBallIdx(idx);
+        obj = getRightAroundIdx(obj, idx);
+        let connectArr = Object.entries(obj).map(function (item, i) {
+          if (item[1]) {
+            return item[1];
+          }
+        })
+        connectArr = connectArr.filter(function (item, i) {
+          return !allArr.includes(item);
+        })
+        if (connectArr.length > 0) {
+          allArr = allArr.concat(connectArr);
+          for (let i = 0; i < connectArr.length; i++) {
+            addIdx(connectArr[i]);
+          }
+        }
+      }
+      console.log(allArr,"得到所有周围球");
+      return allArr;
+    }
+  </script>
+</body>
+
+</html>

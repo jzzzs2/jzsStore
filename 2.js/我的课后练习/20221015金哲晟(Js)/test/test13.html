@@ -1,0 +1,49 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-10-15 17:58:06
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-10-15 18:08:29
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>解构赋值总结</title>
+</head>
+<body>
+  <script>
+    /*
+    1.数组
+    [x,y] = [1,2]
+    [x,y,...z] = [1,2,3,4,5]
+    [x,y=10] = [2,undefined]
+    //只有值为undefiend的时候,默认值才会生效
+    2.对象
+    let {key1, key2} = {key1: value, key2: value};
+    转义写法
+    let {key1: v2, key2: v2} = {key1: value, key2: value};
+    赋初始值
+    let {key1: v1 = "xx", key2: v2 = "xx"} = {key1: value, key2: value} 同样是属性值undefiend或者没有该属性
+    对象解构数组
+    let {[index]: first, [last]: last} = [1, 2, 3, 4];
+    3.函数参数
+    function ({key: v = "xx"} = {}) {}
+    function ([v1, v2 = "xx"] = []) = {}
+    如果没传参,则参数默认为{}
+    返回值
+    function test() {
+      let a;
+      let b;
+      return {
+        a,
+        b
+      }
+    }
+    let {a, b} = test();
+    */
+  </script>
+</body>
+</html>

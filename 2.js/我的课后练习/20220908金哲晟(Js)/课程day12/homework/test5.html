@@ -1,0 +1,94 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-09-08 16:12:14
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-09-08 17:11:03
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>字符串数组复习</title>
+</head>
+<body>
+  <script>
+    var arr = ["jzs", true, "可爱捏", 99, "miku","jzs"];
+    var str = "hhhundefined";
+    // var str = "abcdefgHIJK";
+    // 1.通过索引获取值 charAt
+    // console.log(arr[1]); //true
+    // console.log(arr[-22]); //undefiend
+    // console.log(arr[99]); //undefined
+    // console.log(str.charAt(2)); //"c"
+    // console.log(str.charAt(99)); // ""
+    // console.log(str.charAt(-88)); //""
+    // 2.通过 值 得到该值的第一个索引,并且设置搜索起始位置 indexOf(值,位置)
+    console.log(str.indexOf("")); //0
+    console.log(str.indexOf("",5)); //5
+    console.log(str.indexOf("",233)); //12
+    // console.log(str.indexOf()); //3
+    // console.log(arr.indexOf("jzs")); //0
+    // console.log(arr.indexOf(true,-4)); //-1
+    // console.log(arr.indexOf(true,-99)); //1
+    // console.log(arr.indexOf("可爱捏")); //2
+    // console.log(arr.indexOf(true,-2)); //-1
+    // console.log(str.indexOf("c")); //2
+    // console.log(arr.indexOf("jzs",2)); //-1
+    // console.log(arr.indexOf(99,-2)); // 3
+    // console.log(arr.indexOf(99, -1)); // -1
+    // console.log(str.indexOf("b",-1)); //1
+    // console.log(str.indexOf("c")); //2
+    // console.log(str.indexOf("e",11)); //-1
+    // console.log(str.indexOf("d",14)); // -1
+    // console.log(str.indexOf("d",-2)); //3
+    // 3. slice 切割一部分 包括起始位置 不包括结束位置.
+    // console.log(arr.slice(99)); //[]
+    // console.log(arr.slice()); //不切割,数值等于原数组
+    // console.log(arr.slice() === arr);//false
+    // console.log(arr.slice(0,2)); // ["jzs", true]
+    // console.log(arr.slice(-3,-1)); //["可爱捏", 99]
+    // console.log(arr.slice(-4, -3)); //[true]
+    // console.log(arr.slice(0,99)); //
+    // console.log(str.slice(0, 2)); //"ab"
+    // console.log(str.slice(2, 3)); //"c"
+    // console.log(str.slice(-4, -1)); // "HIJ"
+    // console.log(str.slice(-3, -1)); // "IJ"
+    // 4. join 数组合并字符串 split(分隔符,数组长度) 字符串分裂为字符串数组
+    // var arr = ["jzs", "haha", "qute", "list", "leng"];
+    // var str = "可爱捏.jzzss.留校学习.数学老师";
+    // console.log(arr.join("*"));
+    // console.log(arr.join()); //默认,连接
+    // console.log(str.split("."));
+    // console.log(str.split());
+    // console.log(str.split("",7));
+    // console.log(str.split(".",2)); //
+    //5.concat() 数组连接
+    // var oneArr = [2, 3, 4];
+    // var twoArr = [5, 6, 7];
+    // var threeArr = [8, 9, 10];
+    // console.log(oneArr.concat(twoArr,threeArr));
+    // console.log(oneArr); 
+    // console.log(twoArr);
+    // console.log(threeArr);
+    //6.trim() 字符串去除两端空格
+    // var str = "  好耶trim  ";
+    // console.log(str.trim());
+    // console.log("可爱捏");
+    //7.数组增删
+    // var arr = [1, 2, 3, 4];
+    // console.log(arr.push("可爱捏","吃饭睡觉")); //尾部插入数据 数组新长度 6
+    // console.log(arr.pop()); //尾部被删除数据 "吃饭睡觉"
+    // console.log(arr.shift()); // 头部被删除数据 1
+    // console.log(arr.unshift("第一")); //头部插入数据 数据最新长度 5
+    // console.log([].pop()); //undefined
+    // console.log([].shift()); //undefined
+    //8.数组判断
+    // var arr = [];
+    // console.log(Array.isArray(arr)); //true
+    // console.log(Array.isArray("222")); //false
+  </script>
+</body>
+</html>

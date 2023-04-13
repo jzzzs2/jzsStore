@@ -1,0 +1,59 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-10-13 17:22:58
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-10-13 17:34:44
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>call</title>
+</head>
+<body>
+  <script>
+    const pig = {
+      name: "ffgz",
+      sex: "women",
+      eat: function () {
+        console.log("my name is" + this.name);
+      }
+    }
+
+    const otherPig = {
+      name: "zzx",
+      sex: "man",
+      eat: function () {
+        console.log("my name is" + this.name);
+      }
+    }
+
+    otherPig.eat.call(pig); //my name is ffgz
+    pig.eat.call(otherPig); // my name is zzx
+
+    function eat (str) {
+      console.log(this);
+      console.log(this.name + str);
+    }
+
+    eat.call(otherPig,"bad"); //zzx bad
+    eat.call(pig,"good"); //ffgz good
+
+    function getName () {
+      console.log("名字是" + this.name);
+      return this;
+    }
+
+    function getSex () {
+      console.log("性别是" + this.sex);
+      return this;
+    }
+
+    console.log(getName.call(pig));
+    console.log(getSex.call(otherPig));
+  </script>
+</body>
+</html>

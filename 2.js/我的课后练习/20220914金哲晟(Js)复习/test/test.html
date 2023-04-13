@@ -1,0 +1,102 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-09-14 14:57:42
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-09-14 17:15:29
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>数组方法</title>
+</head>
+<body>
+  <script>
+    //1.Array.isArray(arr)  判断一个值是不是数组
+    var arr = [2, 6, 8, "9", "1"];
+    var str = "abc";
+    // console.log(Array.isArray(arr)); //true
+    // console.log(Array.isArray(3)); //false
+    // console.log(Array.isArray(str)); //false
+    // //2. arr.join(连接符字符串) 返回字符串
+    // console.log(arr.join("|")); //"2|6|8|9|1"
+    // console.log(arr.join()); //,,
+    // //3.  arr.indexOf(寻找值,起始位置) 返回索引,找不到返回-1.
+    // console.log(arr.indexOf(6)); //1
+    // console.log(arr.indexOf(6, -3)); // -1
+    // console.log(arr.indexOf("1", 99)); // -1
+    // console.log(arr.indexOf(2, -2)); // -1
+    // console.log(arr.indexOf(2, -99)); // 0
+    // //4. arr.slice(起始位置,结束位置) 返回切割的数组,不改变原数组. 包括起始位置,不包括结束位置.
+    // console.log(arr.slice(1, 2)); //[6]
+    // console.log(arr.slice(-4, -1)); //[6, 8, "9"]
+    // console.log(arr.slice());
+    // console.log(arr);
+    //5. arr.splice(操作位置, 删除数量, 添加元素可多个) 返回删除数组 改变原数组
+    // console.log(arr.splice(1, 0, "6", "8"));
+    // console.log(arr);
+
+    //6. arr.reverse();
+    // console.log(arr.reverse());
+    // console.log(arr);
+    // arr = ["a" , "c", "b", "b", "a", "k"];
+    //7. arr.reduce(function(acc,curr,i,arr) { })
+    // console.log(arr.reduce(function (acc, curr, i, arr) {
+    //   if(acc[curr]) {
+    //     acc[curr]++;
+    //   } else {
+    //     acc[curr] = 1;
+    //   }
+    //   return acc;
+    // },{}));
+    // arr = [2, 8, 9, 5, 3];
+    // //8. arr.map(function(curr,i,arr) {return})
+    // console.log(arr.map(function (curr, i, arr) {
+    //   return curr ** 2;
+    // }));
+    // console.log(arr);
+      //9. arr.filter(function(curr, i, arr) {return})
+      // console.log(arr.filter( function (curr, i, arr) {
+      //   return typeof curr === "string";
+      // }));
+      // console.log(arr);
+      //10. arr.forEach(function(curr,i,arr) {return})
+      // console.log(arr.forEach(function(curr, i, arr) {
+      //   console.log(curr,i,arr);
+      // }));
+      arr = [22, 33, 22, 46, 88, 22, 11, 129, 46, 22];
+      //11. push pop  unshift shift
+      // console.log(arr.push("可爱捏", "hehe")); //6
+      // console.log(arr.pop()); //"hehe"
+      // console.log(arr.unshift("可爱捏", "MIKU")); //7
+      // console.log(arr.shift()); //"可爱捏"
+      //12. arr.concat(arr) 合并数组
+      // var newArr = arr.concat(["可爱捏", "呵呵"]);
+      // console.log(newArr);
+      // console.log(arr);
+      //13. arr.sort(function(a, b) {return }); 默认排序是将他们转化为字符串,按编码值排序 不会返回新数组
+      // arr.sort(); 
+      // arr.sort(function (a, b) {
+      //   return b - a;
+      // })
+      // console.log(arr);
+      //14. arr.lastIndexOf()
+      // console.log(arr.lastIndexOf(22, -3)); //5
+      // console.log(arr.lastIndexOf(22, -99)); //-1
+      // console.log(arr.lastIndexOf(22, -6)); //2
+      //15. arr.includes();
+      // arr = [22, 66, 88, 22, 90, 71] 
+      // console.log(arr.includes(22, 4)); //false
+      // console.log(arr.includes(22, 2)); //true
+      // console.log(arr.includes(22, -2)); //false
+      //16. arr.flat(默认为1)
+      arr = [2, 5, 6, [9, 33, [22, 88, 99]]];
+      console.log(arr.flat());
+      console.log(arr.flat(2));
+      console.log(arr);
+  </script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-10-21 20:08:24
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-10-21 20:24:39
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>跨代继承</title>
+</head>
+<body>
+  <script>
+    /*
+    既可以调用父类也可以调用祖类
+    */
+   function Animal (name = "annima") {
+    this.name = name;
+   }
+   Animal.prototype.sayHi = function () {
+    console.log(`我是${this.name} 我是animal的方法`);
+   }
+   function Person (name = "ren", lan = "ZH-cn") {
+    Animal.call(this, name);
+    this.lan = lan;
+   }
+   Person.prototype = Object.create(Animal.prototype);
+   Person.prototype.sayHi = function () {
+    console.log(`wosi ${this.name} 我是person方法`);
+   }
+   function Student (name, lan, grade = 2) {
+    Person.call(this, name, lan);
+    this.grade = grade;
+   }
+   Student.prototype = Object.create(Person.prototype);
+   Student.prototype.parent = Object.create(Animal.prototype);
+   console.log(new Student("JZS", "CHINESE", 3));
+   (new Student("JZS", "CHINESE", 3)).sayHi();
+   let stu = (new Student("JZS", "CHINESE", 3));
+   stu.parent.__proto__.sayHi.call(stu);
+   stu.parent.sayHi.call(stu);
+  </script>
+</body>
+</html>

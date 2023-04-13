@@ -1,0 +1,28 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-10-01 19:26:19
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-10-01 19:35:17
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>图片加载</title>
+</head>
+<body>
+  <img src="./images/45.jpg" alt="miku" width="358" height="304">
+  <script>
+    var oImg = document.querySelector("img");
+    oImg.onerror = function (e) {
+      console.log("图片加载失败捏");
+    }
+    oImg.onload = function (e) {
+      console.log("图片下载成功捏");
+    }
+  </script>
+</body>
+</html>

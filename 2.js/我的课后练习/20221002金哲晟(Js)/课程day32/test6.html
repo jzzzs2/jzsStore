@@ -1,0 +1,39 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-10-02 17:34:17
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-10-02 17:42:16
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>textarea</title>
+</head>
+<body>
+  <textarea name="test" cols="30" rows="10">22</textarea>
+  <input type="button" value="得到内容">
+  <script src="./my.js"></script>
+  <script>
+    var oTx = $("textarea");
+    $("input").addEventListener("click", function (e) {
+      console.log([oTx]);
+      console.log(oTx.innerText);
+      console.log(oTx.innerHTML);
+      console.log(oTx.value);
+    })
+    // oTx.innerHTML = "222";
+    // oTx.innerText = "333";
+    // oTx.value = "444";
+    oTx.addEventListener("input", function (e) {
+      // console.log(e.target.innerText);
+      // console.log(e.target.innerHTML);
+      console.log(e.target.value);
+    })
+  </script>
+</body>
+</html>22

@@ -1,0 +1,310 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-09-27 20:28:14
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-09-28 21:24:29
+-->
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>碰撞检测</title>
+  <script src="my.js"></script>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .box {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-content: space-between;
+      position: relative;
+      width: 960px;
+      height: 500px;
+      padding: 60px;
+      box-shadow: 0 0 8px #222;
+    }
+
+    .child {
+      /* position: absolute; */
+      width: 290px;
+      height: 137px;
+      background-color: pink;
+      cursor: pointer;
+      user-select: none;
+      transition: .4s linear;
+    }
+
+    img {
+      display: block;
+      width: 290px;
+      height: 137px;
+      pointer-events: none;
+      /*禁止鼠标事件默认行为*/
+    }
+
+    .active {
+      transition: none;
+      box-shadow: 0 0 10px #333;
+      z-index: 999;
+    }
+
+    /* .child:nth-of-type(1) {
+      background-color: red;
+    }
+
+    .child:nth-of-type(2) {
+      top: 200px;
+      left: 100px;
+      background-color: green;
+    }
+
+    .child:nth-of-type(3) {
+      top: 400px;
+      left: 100px;
+      background-color: skyblue;
+    }
+
+    .child:nth-of-type(4) {
+      top: 200px;
+      left: 300px;
+      background-color: pink;
+    } */
+  </style>
+</head>
+
+<body>
+  <div class="box">
+    <div class="child"><img src="./images/1.jpg"></div>
+    <div class="child"><img src="./images/2.jpg"></div>
+    <div class="child"><img src="./images/3.jpg"></div>
+    <div class="child"><img src="./images/4.jpg"></div>
+    <div class="child"><img src="./images/5.jpg"></div>
+    <div class="child"><img src="./images/6.jpg"></div>
+    <div class="child"><img src="./images/7.jpg"></div>
+    <div class="child"><img src="./images/8.jpg"></div>
+    <div class="child"><img src="./images/9.jpg"></div>
+  </div>
+  <script>
+    var oBox = $(".box");
+    var eventTypeMap = {
+      isMove: false,
+      vDom: [],
+      target: null,
+      collisionEle: null,
+      instanceArr: [],
+      isDown: false,
+      collisionArr: [],
+      len: oBox.children.length,
+      moveInfo: {
+        mouseLeft: 0,
+        mouseTop: 0,
+        eleLeft: 0,
+        eleTop: 0
+      },
+      "mousedown": function (e) {
+        e.target.classList.add("active");
+        this.target = e.target;
+        this.target.style.zIndex = 99;
+        this.moveInfo.mouseLeft = e.clientX;
+        this.moveInfo.mouseTop = e.clientY;
+        this.moveInfo.eleLeft = e.target.offsetLeft;
+        this.moveInfo.eleTop = e.target.offsetTop;
+        this.isDown = true;
+      },
+      "mousemove": function (e) {
+        if (this.isDown && e.target === this.target) {
+          console.log("111");
+          var _x = e.clientX - this.moveInfo.mouseLeft;
+          var _y = e.clientY - this.moveInfo.mouseTop;
+          var top = this.moveInfo.eleTop + _y;
+          var left = this.moveInfo.eleLeft + _x;
+          top = Math.max(0, top);
+          top = Math.min(top, oBox.offsetHeight - e.target.offsetHeight);
+          left = Math.max(0, left);
+          left = Math.min(left, oBox.offsetWidth - e.target.offsetWidth);
+          this.target.style.top = top + "px";
+          this.target.style.left = left + "px";
+          //
+          var collisionArr = [];
+          for (var i = 0; i < this.len; i++) {
+            oBox.children[i].style.transform = "";
+            oBox.children[i].style.boxShadow = "";
+            if (oBox.children[i] !== this.target) {
+              // if (isCollision(this.target, oBox.children[i])) {
+              if (isTouch(e, oBox.children[i])) {
+                // oBox.children[i].style.transform = "scale(1.1)";
+                // var diffTop = (e.target.offsetTop - oBox.children[i].offsetTop) * (e.target.offsetTop - oBox.children[i].offsetTop);
+                // var diffLeft = (e.target.offsetLeft - oBox.children[i].offsetLeft) * (e.target.offsetLeft - oBox.children[i].offsetLeft); 
+                // var obj = {
+                //   element: oBox.children[i],
+                //   instance:  Math.sqrt(diffTop + diffLeft)
+                // }
+                collisionArr.push(oBox.children[i]);
+              }
+            }
+          }
+          //在冲突的数组选出最近的
+          // console.log(collisionArr);
+          this.collisionArr = collisionArr;
+          if (this.collisionArr.length > 0) {
+          this.collisionEle = getShortOne(this.collisionArr, this.target).element;
+          // var idx = eventTypeMap.vDom.indexOf(this.target);
+          // console.log(this.collisionEle);
+          // console.log(eventTypeMap.vDom[idx].style.left);
+          // console.log(eventTypeMap.vDom[idx].style.top);
+          // this.collisionEle.style.left = this.instanceArr[idx][0] + "px";
+          // this.collisionEle.style.top = this.instanceArr[idx][1] + "px";
+          if (!this.isMove) {
+            translateEle(this.target, this.collisionEle);
+          }
+          
+        }
+        }
+      },
+      "mouseup": function (e) {
+        // if (this.collisionArr.length > 0) {
+          // getShortOne(collisionArr, e.target)
+          // this.collisionEle = getShortOne(this.collisionArr, this.target).element;
+          // this.collisionEle.style.transform = "scale(1.1)";
+          // this.collisionEle.style.boxShadow = " 0 0 10px cyan";
+          // changePosition(this.target, this.collisionEle);
+          // translateEle(this.target, this.collisionEle);
+          var finalIndex = eventTypeMap.vDom.indexOf(this.target);
+          console.log(finalIndex);
+          eventTypeMap.vDom[finalIndex].style.left = eventTypeMap.instanceArr[finalIndex][0] + "px";
+          eventTypeMap.vDom[finalIndex].style.top = eventTypeMap.instanceArr[finalIndex][1] + "px";
+        // }
+        this.isDown = false;
+        this.target = null;
+        e.target.classList.remove("active");
+      }
+    }
+    oBox.addEventListener("mousedown", drag)
+
+    document.addEventListener("mousemove", drag)
+
+    oBox.addEventListener("mouseup", drag)
+
+    function translateEle(target, collision) {
+      eventTypeMap.isMove = true;
+      var tIdx = eventTypeMap.vDom.indexOf(target);
+      var collIdx = eventTypeMap.vDom.indexOf(collision);
+      eventTypeMap.vDom.splice(tIdx, 1);
+      eventTypeMap.vDom.splice(collIdx, 0, target);
+      for (var i = 0; i < eventTypeMap.instanceArr.length; i++) {
+        if (eventTypeMap.vDom[i] !== target) {
+          eventTypeMap.vDom[i].style.left = eventTypeMap.instanceArr[i][0] + "px";
+          eventTypeMap.vDom[i].style.top = eventTypeMap.instanceArr[i][1] + "px";
+        }
+      }
+      setTimeout(function() {
+        eventTypeMap.isMove = false;
+      }, 500)
+    }
+
+    // function changePosition(target, collision) {
+    //   var targetIdx = getIndexInParent(target);
+    //   var collIdx = getIndexInParent(collision);
+    //   // console.log(targetIdx);
+    //   // console.log(collIdx);
+    //   target.style.left = eventTypeMap.instanceArr[collIdx][0] + "px";
+    //   target.style.top = eventTypeMap.instanceArr[collIdx][1] + "px";
+    //   collision.style.left = eventTypeMap.instanceArr[targetIdx][0] + "px";
+    //   collision.style.top = eventTypeMap.instanceArr[targetIdx][1] + "px";
+    //   var temp = eventTypeMap.instanceArr[targetIdx];
+    //   eventTypeMap.instanceArr[targetIdx] = eventTypeMap.instanceArr[collIdx];
+    //   eventTypeMap.instanceArr[collIdx] = temp;
+
+    // }
+
+    function drag(e) {
+      if (eventTypeMap[e.type] && typeof eventTypeMap[e.type] === "function") {
+        eventTypeMap[e.type](e);
+      }
+    }
+
+    function isCollision(ele1, ele2) {
+      var l1 = ele1.offsetLeft;
+      var r1 = l1 + ele1.offsetWidth;
+      var b1 = ele1.offsetTop;
+      var t1 = b1 + ele1.offsetHeight;
+      var l2 = ele2.offsetLeft;
+      var r2 = l2 + ele2.offsetWidth;
+      var b2 = ele2.offsetTop;
+      var t2 = b2 + ele2.offsetHeight;
+      if (l1 > r2 || l2 > r1 || t1 < b2 || b1 > t2) {
+        return false;
+      } else {
+        return true;
+      }
+    }
+
+    function isTouch (e, otherEle) {
+      var positionObj = getPosition(otherEle);
+      var l = positionObj.left;
+      var r = l + otherEle.offsetWidth;
+      var t = positionObj.top;
+      var b = t + otherEle.offsetHeight;
+      if (e.clientX > l && e.clientX < r && e.clientY > t && e.clientY < b) {
+        return true;
+      }
+      return false;
+    }
+
+    function initEle() {
+      for (var i = 0; i < eventTypeMap.len; i++) {
+        var arr = [];
+        arr.push(oBox.children[i].offsetLeft);
+        arr.push(oBox.children[i].offsetTop);
+        eventTypeMap.instanceArr.push(arr);
+        (function (index) {
+          setTimeout(function () {
+            //赋值的时候避免计算
+            oBox.children[index].style.position = "absolute";
+            oBox.children[index].style.left = eventTypeMap.instanceArr[index][0] + "px";
+            oBox.children[index].style.top = eventTypeMap.instanceArr[index][1] + "px";
+          }, 0)
+        })(i);
+      }
+      var vDom = [];
+      for (var i = 0; i < eventTypeMap.len; i++) {
+        vDom.push(oBox.children[i]);
+      }
+      // console.log(vDom);
+      eventTypeMap.vDom = vDom;
+    }
+    initEle();
+
+    function getShortOne(eleArr, e) {
+      var resultArr = [];
+      eleArr.forEach(curr => {
+        var diffTop = (e.offsetTop - curr.offsetTop) * (e.offsetTop - curr.offsetTop);
+        var diffLeft = (e.offsetLeft - curr.offsetLeft) * (e.offsetLeft - curr.offsetLeft);
+        var obj = {
+          element: curr,
+          instance: Math.sqrt(diffTop + diffLeft)
+        }
+        resultArr.push(obj);
+      });
+      // console.log(resultArr);
+      return resultArr.reduce(function (acc, curr, i) {
+        if (acc.instance > curr.instance) {
+          return curr;
+        } else {
+          return acc;
+        }
+      })
+    }
+  </script>
+</body>
+
+</html>

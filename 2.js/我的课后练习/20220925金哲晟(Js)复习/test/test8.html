@@ -1,0 +1,50 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-09-25 18:15:07
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-09-25 18:25:24
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>几种事件</title>
+</head>
+<body>
+  <ul class="list">
+    <li class="two">1</li>
+    <li>2</li>
+    <li class="three">3</li>
+    <li>4</li>
+  </ul>
+  <input type="text" placeholder="输入捏">
+  <script>
+    var oList = document.querySelector(".list");
+    var oIn = document.querySelector("input");
+    oList.onclick = function (e) {
+      if (e.target.tagName.toLowerCase() === "li") {
+        console.log("我是Li捏");
+      }
+    }
+    // oIn.onkeydown = function (e) {
+    //   console.log(e.target.value);
+    // }
+    // oIn.onkeypress = function (e) {
+    //   console.log(e.target.value);
+    // }
+    // oIn.onkeyup = function (e) {
+    //   console.log(e.target.value);
+    // }
+    // oIn.oninput = function (e) {
+    //   console.log(e.target.value);
+    // }
+    oIn.onchange = function (e) {
+      console.log(e.target.value);
+    }
+    // oIn.onchange = null;
+  </script>
+</body>
+</html>

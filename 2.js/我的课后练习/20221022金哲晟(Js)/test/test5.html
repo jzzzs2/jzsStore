@@ -1,0 +1,90 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-10-22 17:30:15
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-10-22 17:54:41
+-->
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ES6 object写法</title>
+</head>
+
+<body>
+  <script>
+    // let name = "jzs";
+    let obj = { name };
+    console.log(obj);
+    //
+    function test(a, b) {
+      a = 2 * a;
+      b = 3 * b;
+      return {
+        a,
+        b
+      }
+    }
+    console.log(test(3, 5));
+    //
+    let obj2 = {
+      name: "jzs",
+      eat() {
+        console.log("我喜欢吃" + this.name);
+      },
+      shout() {
+        console.log(`${this.name} aiijitielu`);
+      }
+    }
+    console.log(obj2.name);
+    obj2.eat();
+    obj2.shout();
+    //在对象内部使用变量key 同在外部使用变量key一样 obj[key] = xx
+    let title = "miku";
+    let age = "year";
+    let obj3 = {
+      [title]: "kawai",
+      food: "大葱",
+      [age]: "22"
+    }
+    console.log(obj3); //{miku: kawai, food: 大葱, year: 22}
+    //案例
+    let mapArr = [
+      {
+        city: '北京', number: '001'
+      }, {
+        city: '上海', number: '002'
+      }, {
+        city: '广州', number: '003'
+      }
+    ];
+    let c = "city";
+    let dataJson = {
+      [mapArr[0]["city"]] : mapArr[0]["number"],
+      [mapArr[1]["city"]] : mapArr[1]["number"],
+      [mapArr[2]["city"]] : mapArr[2]["number"],
+    };
+    console.log(dataJson);
+    let last = "last world";
+    let obj5 = {
+      "first word": "f",
+      [last]: "l"
+    }
+    console.log(obj5);
+    console.log(obj5["first word"]); // f
+    console.log(obj5["last world"]); //l
+    console.log(obj5[last]); //l
+    //对象省略写法和key变量写法不可混用
+    let key = "address";
+    let address = "222";
+    // let obj6 = {
+    //   [key] 
+    // }
+  </script>
+</body>
+
+</html>

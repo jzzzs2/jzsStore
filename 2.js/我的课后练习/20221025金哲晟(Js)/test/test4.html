@@ -1,0 +1,46 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-10-25 20:37:09
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-10-25 20:52:34
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>proxy construc</title>
+</head>
+<body>
+  <script>
+    class Pig {
+      constructor (name) {
+        this.name = name;
+      }
+      showName () {
+        console.log(this.name);
+      }
+    }
+    let proxyPig = new Proxy(Pig, {
+      construct (target, args) {
+        console.log("你想实例化Pig么",args);
+        return new target(...args);
+      }
+    })
+    let pig = new proxyPig("jzs");
+    // console.log(pig);
+    let o = new Proxy(pig, {
+      deleteProperty (target, key) {
+        if (key === "name") {
+          console.log("不能删除捏");
+        } else {
+          delete target[key];
+        }
+      }
+    })
+    delete o.name
+  </script>
+</body>
+</html>

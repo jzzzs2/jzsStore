@@ -1,0 +1,40 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-10-15 11:39:27
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-10-15 14:38:46
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>object</title>
+</head>
+<body>
+  <script>
+    let {
+      name,
+      age,
+      sex
+    } = {name: "jzs", age: "22"};
+    // console.log(name);
+    // console.log(age);
+    // console.log(sex);
+    // function eat(food = "noddle") {
+    //   console.log("我爱吃" +  food);
+    // }
+    // eat(null);
+    // eat("");
+    // eat(undefined);
+    let [a, b, ...z] = [2, 6, 3, 9, 1, 4];
+    // console.log(z);
+    function eat({name  = "jzs"} =  {}) {
+      console.log(name);
+    }
+    eat();
+  </script>
+</body>
+</html>

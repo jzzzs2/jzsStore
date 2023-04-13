@@ -1,0 +1,91 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-10-20 11:01:29
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-10-20 17:21:34
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>prototype  __proto__</title>
+</head>
+<body>
+  <script>
+    let arr = [2, 5, 9];
+    // console.log(arr.constructor === Array.prototype.constructor);
+    function Person () {
+
+    }
+    let p = new Person();
+    // console.log(typeof (Person.prototype));
+    // console.log(typeof (Array.prototype));
+    // console.log({}.prototype);
+    // console.log(["str".__proto__]);
+    // console.log(Object.prototype);
+    // console.log(Function.prototype === Function.__proto__);
+    //
+    function fn () {
+
+    }
+    let f = new fn();
+    // console.log(fn.prototype);    
+    // console.log(fn.prototype.__proto__ === Object.prototype); //true
+    // console.log(f.constructor.prototype === f.__proto__); //true
+    // console.log(f.constructor === fn); //true
+    /*
+    Function
+    Array
+    Object
+    String
+    Boolean
+    Number
+    在javascript中任何一个对象都会指向另一个对象
+    原型链
+    */
+  //  let func = new Function("console.log(222)");
+  //  console.log([func].__proto__ === Array.prototype); //true
+  //  console.log([func].__proto__.__proto__ === Object.prototype); //true
+  //  console.log(func.__proto__ === Function.prototype); //true
+  //  console.log(typeof func);
+  //  func();
+  let arr1 = [1, 2, 3, 4];
+  console.log(arr1.valueOf()); //返回对象的值
+  console.log(arr1);
+  console.log(arr1.valueOf === arr1.__proto__.__proto__.valueOf); //true
+  /*
+  
+  */
+  console.log((new Object()).__proto__ === Object.prototype);
+  console.log((new Object()).__proto__.__proto__ === Object.prototype);
+  console.log((new Object()).__proto__.__proto__ === null);
+  //函数也是对象 比如 构造函数.prototype 也是一个对象
+  console.log(typeof Array.prototype); //object
+  console.log(Array.prototype.__proto__ === Object.prototype); //true
+  /*
+  所有的函数都是Function的实例
+  所以所有函数的__proto__都指向Function.prototype
+  */
+ function Person () {
+
+ }
+ console.log(Person.__proto__ === Function.prototype); //true
+ console.log(Function.__proto__ === Function.prototype); //true
+ //
+ console.log(Function.prototype.__proto__ === Object.prototype); //true
+ console.log(Function.prototype);
+ console.log(Function.prototype.constructor);
+ console.log(Array.prototype.constructor);
+ //Object 是 Function的实例化
+ console.log(Object.__proto__ === Function.prototype); //true
+ console.log(Function.prototype.__proto__ === Object.prototype); //true
+ //Object作为函数 是Function的实例对象 也是js中所有对象的构造函数
+ console.log(Object.prototype);
+ let fn2 = new Function("console.log(222)");
+ console.log(fn2.__proto__ === Function.prototype); //true
+  </script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-10-01 14:37:42
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-10-01 14:54:28
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>获取相关节点</title>
+  <style>
+    .box {
+      width: 1000px;
+      height: 200px;
+      margin: 100px auto;
+    }
+
+    .title {
+      font-size: 20px;
+      color: cyan;
+    }
+
+    
+  </style>
+</head>
+<body>
+  <div class="box">
+    <h3 class="title">title</h3>
+    <p>page one</p>
+    <p class="content">page two</p>
+    <p>page three</p>
+  </div>
+  <script>
+    var oBox = document.querySelector(".box");
+    console.log(oBox.children);
+    console.log(oBox.childNodes);
+    var oH3 = document.querySelector(".title");
+    console.log(oH3.nextSibling);
+    console.log(oH3.previousSibling);
+    console.log(oH3.nextElementSibling);
+    console.log(oH3.previousElementSibling);
+    console.log(oH3.parentNode);
+    console.log(oH3.parentElement);
+    console.log(oBox.firstChild);
+    console.log(oBox.firstElementChild);
+    console.log(oBox.lastChild);
+    console.log(oBox.lastElementChild);
+  </script>
+</body>
+</html>

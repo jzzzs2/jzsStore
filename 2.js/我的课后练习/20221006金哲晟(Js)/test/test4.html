@@ -1,0 +1,31 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-10-06 22:12:34
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-10-06 22:18:35
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>字符簇</title>
+</head>
+<body>
+  <script>
+    //1. 字符簇  [abc] 代表匹配abc中任意一个
+    console.log(/[abc]/.test("a22")); //true
+    //2. [^234] 匹配除了234任意以外的字符
+    console.log(/[^567]/.test("TYOU")); //true
+    console.log(/[^567]/.test("TYOU5")); //true
+    console.log(/[^567]/.test("556677")); //false
+    console.log(/[2-9]/.test("abc")); //false
+    console.log(/[2-9]/.test("2test"));  //true
+    console.log(decodeURI("\u4e00"));
+    console.log(decodeURI("\u9fa5"));
+    console.log(/[\u4e00-\u9fa5]/.test("尅阿尼额")); //true
+  </script>
+</body>
+</html>

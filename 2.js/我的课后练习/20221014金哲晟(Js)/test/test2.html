@@ -1,0 +1,40 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-10-14 17:23:46
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-10-14 17:31:44
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>柯理化函数</title>
+</head>
+<body>
+  <script>
+    //将一个多参数函数转化为 单参数函数
+    function getSum () {
+      return [].reduce.call(arguments, function (acc, item) {
+        return acc + item;
+      })
+    }
+    // console.log(getSum(22, 33, 11));
+    function getSum (x) {
+      return function (y) {
+        y = y + x;
+        return function (z) {
+          z = z + y;
+          return z;
+        };
+      }
+    }
+    // console.log(getSum(2)(3)(4));
+    // let result = getSum(3)(10);
+    // console.log(result(2));
+    
+  </script>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-09-21 19:01:18
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-09-21 19:23:03
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>事件</title>
+  <style>
+    .container {
+      height: 200px;
+      background-color: cyan;
+      font-size: 20px;
+    }
+
+    input {
+      width: 400px;
+      height: 100px;
+      border: 1px solid #999;
+      font-size: 30px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <span>点我触发捏</span>
+  </div>
+  <input type="text" id="test">
+  <script>
+    var oContainer = document.querySelector(".container");
+    oContainer.onclick = function (e) {
+      alert(this.innerText);
+      console.log(e);
+      console.log(e.type); //click
+      console.log(e.target); //div
+      console.log(e.pageX);
+      console.log(e.pageY);
+    }
+    //
+    console.log([oContainer]);
+    var oTest = document.querySelector("#test");
+    // oTest.onkeydown = function (e) {
+    //   console.log(e);
+    //   console.log(e.target); //input
+    //   console.log(e.type); //keydown
+    //   console.log(e.key);
+    // }
+
+    // oTest.onfocus = function (e) {
+    //   console.log(e);
+    //   console.log(e.type); //focus
+    //   console.log(this);
+    //   console.log(this.value);
+    // }
+
+    oTest.onblur = function (e)  {
+      console.log(e);
+      console.log([this]);
+      console.log(this.value);
+      console.log(e.target); //input
+      console.log(e.type); //blur
+    }
+  </script>
+</body>
+</html>

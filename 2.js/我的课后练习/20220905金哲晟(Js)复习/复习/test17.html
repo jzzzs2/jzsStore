@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>转化为数值类型</title>
+</head>
+<body>
+  <script>
+    console.log(Number(undefined)); //NaN
+    console.log(Number(null)); //0
+    console.log(Number("22")); //22
+    console.log(Number("22aa")); //NaN
+    console.log(Number(true)); //1
+    console.log(Number(false)); // 0
+    console.log(parseInt(22.2)); //22
+    console.log(parseInt("22a.3")); //22
+    console.log(parseInt("2a2")); //2
+    console.log(parseInt("abc22")); //NaN
+    console.log(parseFloat(2)); //2
+    console.log(parseFloat("2a.22")); // 2
+    console.log(parseFloat("22.2a2")); //22.2
+    console.log(parseFloat("22.223.2a")); //22.223
+    console.log(parseFloat("22.a3.33")); //22
+    var num = "500";
+    console.log(+ num); //500
+    console.log(- num); // -500
+    console.log(num - 0); //500
+  </script>
+</body>
+</html>

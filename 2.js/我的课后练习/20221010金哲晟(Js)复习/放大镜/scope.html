@@ -1,0 +1,111 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-10-10 13:24:38
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-10-10 15:21:08
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>放大镜</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+
+    .wrap {
+      position: relative;
+      width: 450px;
+      margin-top: 200px;
+      margin-left: 200px;
+      border: 1px solid #999;
+    }
+
+    .mask {
+      display: none;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 200px;
+      height: 200px;
+      background-color: rgba(220, 220, 220, .5);
+      cursor: move;
+    }
+
+    .big {
+      overflow: hidden;
+      display: none;
+      position: absolute;
+      left: 452px;
+      top: 0px;
+      width: 400px;
+      height: 400px;
+    }
+
+    .show {
+      display: block;
+    }
+  </style>
+  <script src="../轮播/js/my.js"></script>
+</head>
+<body>
+  <div class="wrap">
+    <div class="sight">
+      <img src="./images/m30.jpg" alt="phone" width="450" height="450">
+    </div>
+    <div class="mask"></div>
+    <div class="big">
+      <img src="./images/m30-big.jpg" alt="phone" width="800" height="800">
+    </div>
+  </div>
+  <script>
+    var oWrap = $(".wrap");
+    var oMask = $(".mask");
+    var oBig = $(".big");
+    var oImg = $(".big img");
+    var oSight = $(".sight");
+    var ratio;
+    oWrap.addEventListener("mouseover", function (e) {
+      oMask.classList.add("show");
+      oBig.classList.add("show");
+    })
+    oWrap.addEventListener("mousemove", function (e) {
+      //mask初始位置
+      var left = e.clientX - getPosition($(".sight img")).left - (oMask.offsetWidth / 2);
+      var top = e.clientY - getPosition($(".sight img")).top - (oMask.offsetHeight / 2);
+      left = Math.max(0, left);
+      left = Math.min(left, oSight.offsetWidth - oMask.offsetWidth);
+      top = Math.max(0, top);
+      top = Math.min(top, oSight.offsetHeight - oMask.offsetHeight);
+      oMask.style.left = left + "px";
+      oMask.style.top = top + "px";
+      //大图跟随移动
+      ratio = (oImg.offsetWidth - oBig.offsetWidth) / (oSight.offsetWidth - oMask.offsetWidth);
+      oImg.style.marginLeft = (-ratio * left) + "px";
+      oImg.style.marginTop = (-ratio * top) + "px";
+    })
+    oWrap.addEventListener("mouseout", function (e) {
+      oMask.classList.remove("show");
+      oBig.classList.remove("show");
+    })
+    function getPosition (ele) {
+      var position = {
+        left: 0,
+        top: 0
+      }
+      while (ele.offsetParent) {
+        position.left += ele.offsetLeft;
+        position.top += ele.offsetTop;
+        ele = ele.offsetParent;
+      }
+      return position;
+    }
+  </script>
+</body>
+</html>

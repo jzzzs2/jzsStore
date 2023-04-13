@@ -1,0 +1,20 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>作用域预处理复习</title>
+</head>
+<body>
+  <script>
+    var num = 2;
+    function eat(type) {
+      var type = 99;
+      num = 22;
+      console.log(type);
+    }
+    eat(5); // 99
+    console.log(num); //22
+  </script>
+</body>
+</html>

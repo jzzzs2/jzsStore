@@ -1,0 +1,59 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-10-22 20:34:33
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-10-22 21:01:39
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>test</title>
+</head>
+<body>
+  <script>
+    // let arr = [2, 5, 6, 9];
+    // console.log(Object.getOwnPropertyDescriptor(arr, "length"));
+    // let result = Object.getOwnPropertyNames(arr);
+    // result.push(2);
+    // console.log(result);
+    // console.log(result instanceof Array);
+    // console.log(Object.getOwnPropertyDescriptors(arr));
+    // console.log(Array.prototype.isPrototypeOf(arr));
+    // let obj = {
+    //   name: "jzs",
+    //   age: 22
+    // }
+    // // Object.freeze(obj);
+    // console.log(Object.isFrozen(obj));
+    // // console.log(Object.isSealed(obj));
+    // Object.defineProperty(obj, "name", {
+    //   configurable: false
+    // })
+    // console.log(Object.isSealed(obj));
+    let obj = {
+      p: 22
+    }
+    Object.defineProperty(obj, 'p', {
+      value: 1,
+      writable: false,
+      enumerable: false,
+      configurable: true
+    });
+    // Object.defineProperty(obj, 'p', {
+    //   writable: false,
+    // });
+    Object.defineProperty(obj, 'p', {
+      wriable: true,
+      enumerable: true
+    });
+    Object.defineProperty(obj, 'p', {
+      value: 3,
+    });
+    console.log(obj);
+  </script>
+</body>
+</html>

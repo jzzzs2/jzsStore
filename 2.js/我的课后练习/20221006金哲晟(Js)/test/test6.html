@@ -1,0 +1,29 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-10-06 22:25:54
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-10-06 22:38:45
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>子组</title>
+</head>
+<body>
+  <script>
+    //str.match方法
+    var str = "abcdefg";
+    console.log(str.match(/abcd/)); //返回arr
+    console.log(str.match(/(abc)d/)); //返回arr
+    //匹配参数 www.baidu.com?wd=你好&q=1&type=2
+    var str = "www.baidu.com?wd=你好&q=1&type=2";
+    console.log(str.match(/([^?&=]+)=([^?&=]*)/));
+    console.log(str.match(/[^?&=]+=[^?&=]*/g));
+    console.log(str.match(/([^?&=]+)=[^?&=]*/g));
+  </script>
+</body>
+</html>

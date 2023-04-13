@@ -1,0 +1,87 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-10-17 17:18:00
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-10-17 17:54:49
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Function 扩展 es6</title>
+</head>
+<body>
+  <script>
+    //传入对象和要获取的key对应的值 如果没有返回null
+    function getValue (o, key) {
+      return o[key] || null;
+    }
+    // a ?? b   只有左边为null或者undefined时,才表示逻辑值为false,返回右边,不然就返回左边  (a !== null && a !== undefined)?a:b;
+    function add (a, b) {
+      a = a ?? 10;
+      b = b ?? 10;
+      return a + b;
+    }
+    // console.log(add(2, 10)); //12
+    // console.log(add(3)); //13
+    // console.log(add(3, null)); //13
+    // console.log(add(3, 0)); //3
+    // console.log(add(3, false)); //3
+
+    // let arr = [1, 2, 3, 4, 5];
+    // function forEach (arr, cb) {
+    //   if (!cb || !(typeof cb === "function")) {
+    //     cb = function (item, i, arr) {
+    //       console.log(item);
+    //     }
+    //   }
+    //   for (let i = 0; i < arr.length; i++) {
+    //     cb(arr[i], i, arr);
+    //   }
+    // }
+    // forEach(arr,function (item, i, arr) {
+    //   console.log(i);
+    //   //
+      
+    // });
+    //
+    // function add (a = 10, b = 20) {
+    //   // console.log(b);
+    //   return a + b;
+    // }
+    // console.log(add(10, null)); // 10
+    // console.log(add(10)); //30
+    // console.log(add()); //30
+    let arr = [2, 5, 9, 12];
+    function forEach (arr, cb = function (item, i, arr) {
+      console.log(item);
+    }) {
+      for (let i = 0; i < arr.length; i++) {
+        cb && cb(arr[i], i, arr);
+      }
+    }
+    // forEach(arr);
+    let z = 200;
+    function print(z = 10, x = z) {
+      console.log(z, x);
+    }
+    function twoPrint (x = 20, y = z) {
+      console.log(x, y);
+    }
+    print();
+    twoPrint(); // 20 200
+    twoPrint(10); //10 200
+
+    let w = 200;
+    function fn (x = w) {
+      w = 10;
+      return x;
+    }
+    console.log(fn()); //200
+    console.log(w); //10
+  </script>
+</body>
+</html>

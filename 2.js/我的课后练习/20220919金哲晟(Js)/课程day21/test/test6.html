@@ -1,0 +1,37 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-09-19 16:51:11
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-09-19 16:54:43
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>练习</title>
+</head>
+<body>
+  <div class="item">
+    <h3 class="title">龙牌洗发3水</h3>
+    <p class="des">龙的传人真正的洗发水 </p>
+    <p class="price">¥999999</p>
+  </div>
+
+  <div class="item">
+    <h3 class="title">龙牌洗发2水</h3>
+    <p class="des">龙的传人真正的洗发水 </p>
+    <p class="des">龙的传人真正的洗发水 </p>
+    <p class="des">龙的传人真正的洗发水 </p>
+    <p class="des">龙的传人真正的洗发水 </p>
+    <p class="price">¥999999</p>
+  <script>
+    //从第一个item中的p到第二个item中的p
+    var oP = document.querySelector(".item .des");
+    oP.parentElement.nextElementSibling.querySelector("p:nth-of-type(2)").style.color = "red";
+    console.log(oP.parentElement.nextElementSibling.querySelector("p:nth-of-type(2)").innerText);
+  </script>
+</body>
+</html>

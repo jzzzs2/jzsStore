@@ -1,0 +1,23 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-10-08 19:35:43
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-10-08 19:49:30
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RegExp 的 $1 和 分组</title>
+</head>
+<body>
+  <script>
+    console.log("abc 123".replace(/^([abc]+).(\d{3})$/, "$1$2"));
+    console.log(RegExp.$1);
+    console.log(RegExp.$2);
+  </script>
+</body>
+</html>

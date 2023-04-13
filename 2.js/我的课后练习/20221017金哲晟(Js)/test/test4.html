@@ -1,0 +1,69 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-10-17 17:59:55
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-10-17 18:15:50
+-->
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>function的name属性</title>
+</head>
+
+<body>
+  <script>
+    let f1 = function eat() {
+      console.log("我是有名函数捏");
+    }
+    let f2 = function () {
+      console.log("我是有变量的匿名函数捏");
+    }
+    console.log(f1.name); //eat
+    console.log(f2.name); //f2
+    console.log((function () {
+      console.log("我是匿名函数捏");
+    }).name); //""
+    //构造函数
+    console.log((new Function).name); //anonymous
+    //bind => bound + 函数名
+    //IIFE + bind => bound
+    function add() { };
+    console.log(add.bind({}).name); //bound add
+    console.log((function () { }).bind({}).name); //bound
+    //
+    const O = {
+      age: 11
+    }
+
+    const O1 = {
+      age: 1
+    }
+
+    function fn() {
+      console.log(this.age);
+    }
+
+    fn.call(O1); //1
+
+    let fn1 = fn.bind(O);
+
+    fn1.call(O1); //11
+
+    //判断某个函数是否是bind的产物
+    function isBoundFuns (funs) {
+      return /bound/ig.test(funs.name);
+    }
+    function fun () {
+      console.log(11);
+    }
+    fun = fun.bind({});
+    console.log(isBoundFuns(fun));
+  </script>
+</body>
+
+</html>

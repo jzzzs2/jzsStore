@@ -1,0 +1,65 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-10-18 21:00:00
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-10-18 21:50:55
+-->
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>小球案例</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    .ball {
+      position: absolute;
+      top: 1px;
+      left: 1px;
+      width: 60px;
+      height: 60px;
+      background-color: #999;
+      box-shadow: -8px -8px 4px #333 inset;
+      border-radius: 50%;
+    }
+  </style>
+</head>
+
+<body>
+  <script src="./my.js"></script>
+  <div class="ball"></div>
+  <div class="ball"></div>
+  <script>
+    let oBall = $(".ball");
+    let speedX = 5;
+    let speedY = 5;
+    let maxLeft = window.innerWidth - oBall.offsetWidth;
+    let maxTop = window.innerHeight - oBall.offsetHeight;
+    let ballLeft;
+    let ballTop;
+    let timeOut = setInterval(function () {
+      ballLeft = oBall.offsetLeft;
+      ballTop = oBall.offsetTop;
+      if (ballLeft < 0 || ballLeft > maxLeft) {
+        speedX = -speedX;
+      }
+      if (ballTop < 0 || ballTop > maxTop) {
+        speedY = -speedY;
+      }
+      oBall.style.left = oBall.offsetLeft + speedX + "px";
+      oBall.style.top = oBall.offsetTop + speedY + "px";
+    }, 20);
+    
+
+    
+  </script>
+</body>
+
+</html>

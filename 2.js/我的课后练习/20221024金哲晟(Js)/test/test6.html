@@ -1,0 +1,50 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-10-24 18:27:55
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-10-24 18:44:29
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>defineProperty</title>
+</head>
+<body>
+  <script>
+    function defineReactive (obj, pro, value) {
+      Object.defineProperty(obj, pro, {
+        set (newValue) {
+          if (newValue === "18") {
+            value = "你才不是18捏";
+            return;
+          } 
+          value = newValue;
+        },
+        get () {
+          if (value === "你才不是18捏") {
+            console.log("别哭了别哭了 你是18");
+            return value;
+          }
+          return value;
+        }
+      });
+    }
+    let obj = {
+      name: "jzs",
+      age: 0,
+      address: "jinHua"
+    }
+    defineReactive(obj, "age", 22);
+    // console.log(obj); //666
+    // console.log(obj.age); //666
+    obj.age = "18";
+    let result = obj.age;
+    console.log(result);
+    
+  </script>
+</body>
+</html>

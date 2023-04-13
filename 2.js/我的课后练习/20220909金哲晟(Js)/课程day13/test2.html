@@ -1,0 +1,42 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-09-09 12:01:59
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-09-09 12:26:59
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>工厂模式 构造函数</title>
+</head>
+<body>
+  <script>
+    function createPerson(name, age) {
+      var obj = new Object();
+      obj.name = name;
+      obj.age = age;
+      obj.eat = function() {
+        console.log("我吃饭了");
+      }
+      return obj;
+    }
+    console.log(createPerson("jzs",22));
+
+    function Cat(age, sex, food) {
+      this.age = age;
+      this.sex = sex;
+      this.eat = function() {
+        console.log("我喜欢吃" + food);
+      }
+    }
+    var cat = new Cat(22, "man", "fish");
+    console.log(cat);
+    cat.eat();
+    console.log(cat instanceof Cat); //true
+  </script>
+</body>
+</html>

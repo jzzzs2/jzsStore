@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    #box {
+      width: 200px;
+      height: 200px;
+      background-color: #222;
+      transition: .5s;
+    }
+
+    input {
+      width: 80px;
+      height: 35px;
+      font-size: 20px;
+      cursor: pointer;
+
+    }
+  </style>
+</head>
+
+<body>
+  <div id="box"></div>
+  <input id="stretch" type="button" value="拉伸">
+  <input id="discolor" type="button" value="变色">
+  <input id="rotate" type="button" value="旋转">
+  <script>
+    var oBox = document.querySelector('#box');
+
+    var eventMap = {
+      'stretch': function (ele) {
+        ele.style.width = '400px';
+        ele.style.height = '400px';
+      },
+      'discolor': function (ele) {
+        ele.style.backgroundColor = '#368';
+      },
+      'rotate': function (ele) {
+        ele.style.transform = 'rotate(10deg)';
+      }
+    }
+
+    document.onclick = function (e) {
+     
+      if (eventMap[e.target.id.toLowerCase()]) {
+        eventMap[e.target.id.toLowerCase()](oBox);
+      }
+    }
+  </script>
+</body>
+
+</html>

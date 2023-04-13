@@ -1,0 +1,51 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-09-18 10:37:31
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-09-18 10:48:13
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>元素对象属性和标签属性</title>
+</head>
+<body>
+  <div id="footer">
+    <div class="content">
+      <div class="left">
+        <ul>
+          <li>1</li>
+          <li>2</li>
+          <li>3</li>
+        </ul>
+      </div>
+      <div class="middle">
+        <ul>
+          <li>1</li>
+          <li>2</li>
+          <li>3</li>
+        </ul>
+      </div>
+      <div class="right"></div>
+    </div>
+    <img src="images/1.jpg" alt="miku" width="1128px" height="1332px" title="可爱捏" index = 1>
+  </div>
+  <script>
+    var img = document.querySelector("img");
+    console.log(img.getAttribute("width")); //1128px
+    console.log(img.getAttribute("height")); //1332px
+    console.log(img.setAttribute("index", 6));
+    console.log(img.width); //1128
+    console.log(img.height); //1332
+    console.log(img.index); //""
+    console.log(img.hasAttribute("index")); //true
+    console.log(img.attributes.length);
+    console.log(img.attributes);
+    console.log(img.attributes["0"].textContent);
+  </script>
+</body>
+</html>

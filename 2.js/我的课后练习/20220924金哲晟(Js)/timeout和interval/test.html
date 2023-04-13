@@ -1,0 +1,42 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-09-24 17:06:35
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-09-24 17:15:50
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>定时器的两种写法</title>
+</head>
+<body>
+  <script>
+    var time = Date.now();
+    var order = window.setTimeout(function () {
+      console.log("我是Timeout定时器捏");
+      console.log(Date.now() - time);
+      console.log(this);
+      console.log(order); //定时器序号
+      console.log("============");
+    }, 2000)
+
+    var twoOrder = window.setInterval(function sleep() {
+      console.log("我是interval定时器");
+      console.log(this);
+      console.log("sleep");
+      console.log(twoOrder);
+      console.log("==========");
+    }, 1000);
+
+    var threeOrder = window.setTimeout(stop,3000);
+    function stop () {
+      clearInterval(twoOrder);
+      clearTimeout(order);
+    }
+  </script>
+</body>
+</html>

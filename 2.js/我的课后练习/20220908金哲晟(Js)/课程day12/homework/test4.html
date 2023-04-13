@@ -1,0 +1,26 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-09-08 16:05:14
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-09-08 16:07:00
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>作用域和预处理</title>
+</head>
+<body>
+  <script>
+    function getType(all) {
+      function all() {
+      }
+      console.log(all);
+    }
+    getType(3);  //函数体
+  </script>
+</body>
+</html>

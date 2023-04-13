@@ -1,0 +1,50 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-10-02 17:42:57
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-10-02 17:47:13
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>title</title>
+  <style>
+    .wrap {
+      width: 200px;
+      height: 200px;
+      background-color: #368;
+    }
+
+
+    .wrap .child {
+      width: 100px;
+      height: 100px;
+      background-color: pink;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+  </div>
+  <script src="./my.js"></script>
+  <script>
+    var oWrap = $(".wrap");
+    oWrap.addEventListener("click", function (e) {
+      if (!$("#only")) {
+        var oDiv = document.createElement("div");
+        oDiv.classList.add("child");
+        oDiv.id = "only";
+        this.appendChild(oDiv);
+      }
+    })
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,56 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-10-20 17:22:03
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-10-20 17:49:00
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>原型判断</title>
+</head>
+<body>
+  <script>
+    /*
+    不使用 __proto__ 时,获取原型对象信息
+    isPrototypeOf
+    Object.getPrototypeOf(xx)
+    object.hasOwnProperty(key) 判断key是否是object自身属性,而不是原型上继承的属性
+    key in object 判断object中是否存在key这个属性 不区分是自身还是原型属性
+    */
+   let result = Array.prototype.isPrototypeOf([22]);
+   console.log(result); //true
+   let result2 = Object.prototype.isPrototypeOf({name: "jzs"});
+   console.log(result2); //true
+   console.log(Object.getPrototypeOf("22"));
+   console.log(Object.getPrototypeOf([22]));
+   function Person (name = "none", age = 22) {
+    this.name = name;
+    this.age = age;
+   }
+   Person.prototype.sex = "high";
+   let p = new Person("jzs", 18);
+  //  console.log(p.hasOwnProperty("sex")); //false
+  //  console.log(p.hasOwnProperty("name")); //true
+  //  console.log(p.hasOwnProperty("age")); //true
+  //  console.log("sex" in p); //true
+  //  console.log("name" in p); //true
+  //  console.log("age" in p); //true
+
+  //  let obj = {
+  //   name: "jzs",
+  //   age: 22,
+  //   friend: undefined
+  //  }
+  //  console.log("friend" in obj); //true
+  //  console.log(!!obj["friend"]); //false 
+  for (let key in p) {
+    console.log(key,p[key]);
+  }
+  </script>
+</body>
+</html>

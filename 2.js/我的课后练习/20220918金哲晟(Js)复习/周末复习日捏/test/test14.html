@@ -1,0 +1,85 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-09-18 17:28:00
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-09-18 20:22:06
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>数组方法</title>
+</head>
+<body>
+  <script>
+    //1
+    console.log(Array.isArray(23));
+    console.log(Array.isArray([]));
+    //2  arr.join(分隔符)
+    var arr = [2, 3, 5];
+    console.log(arr.join()); //默认是,隔开
+    console.log(arr.join("|")); //2|3|5
+    //3 push unshift pop shift
+    arr = [0];
+    console.log(arr.push(1,2)); //3
+    console.log(arr); 
+    console.log(arr.pop()); //2
+    console.log(arr.unshift(-2, -1)); //4
+    console.log(arr.shift()); // -2
+    //4 slice
+    arr = [2, 4, 8, 9, 12];
+    console.log(arr.slice(0, 2)); // [2, 4]
+    console.log(arr.slice(-3, -1)); // [8, 9]
+    console.log(arr.slice(2)); //[8, 9, 12]
+    console.log(arr.slice()); //[2, 4, 8, 9, 12]
+    //5 concat
+    arr = [6, 7, 8];
+    var twoArr = [2, 3, 5];
+    console.log(arr.concat(twoArr));
+    console.log(arr);
+    console.log(twoArr);
+    //6 indexOf(xx, begin)
+    arr = [9, 6, 9, 12, 7, 14];
+    console.log(arr.indexOf(9, -2)); // -1
+    console.log(arr.indexOf(6, -99)); // 1
+    console.log(arr.indexOf(12)); // 3
+    //7 lastIndexOf(xx,begin)
+    console.log(arr.lastIndexOf(7, -3)); //-1
+    console.log(arr.lastIndexOf(9)); // 2
+    console.log(arr.lastIndexOf(9, -5)); //0
+    console.log(arr.lastIndexOf(6, -99)); // -1
+    //9 includes flat
+    arr = ["A", "b", 1, 2, 3];
+    console.log(arr.includes("b"));
+    arr = [1, 2, [4, 5, 6,[2, 2, 2]], 7];
+    console.log(arr.flat());
+    console.log(arr.flat(2));
+    console.log(arr);
+    // 10 splice(begin,number,newDate)
+    arr = [2, 6, 9, 12, 15, 18];
+    // console.log(arr.splice(2, 2, "9", "12")); //[9, 12]
+    // console.log(arr);
+    //11 reverse()
+    // console.log(arr.reverse());
+    // console.log(arr);
+    //12 forEach sort reduce map filter
+    arr.forEach(function (curr, i, arr) {
+      console.log(curr, i);
+    })
+    console.log(arr.sort(function (next, pre) {
+      console.log(next, pre, "||");
+      return next - pre;
+    }));
+    console.log(arr.filter(function (curr, i, arr) {
+      return curr > 10;
+    }))
+    console.log(arr.reduce(function(acc, curr, i, arr) {
+      acc += curr;
+      return acc;
+    }, 0));
+  </script>
+</body>
+</html>

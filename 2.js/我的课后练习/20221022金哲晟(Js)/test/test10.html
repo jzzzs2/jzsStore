@@ -1,0 +1,65 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-10-22 19:34:38
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-10-22 19:35:31
+-->
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>configurable</title>
+</head>
+
+<body>
+  <script>
+    var obj = Object.defineProperty({}, 'p', {
+      value: 1,
+      writable: false,
+      enumerable: false,
+      configurable: false
+    });
+
+    Object.defineProperty(obj, 'p', { writable: true })
+    // TypeError: Cannot redefine property: p
+
+    Object.defineProperty(obj, 'p', { enumerable: true })
+    // TypeError: Cannot redefine property: p
+
+    Object.defineProperty(obj, 'p', { configurable: true })
+    // TypeError: Cannot redefine property: p
+
+    Object.defineProperty(obj, 'p', { value: 2 })
+    // TypeError: Cannot redefine propert
+    //     var obj = Object.defineProperty({}, 'p', {
+    //       writable: true,
+    //       configurable: false
+    //     });
+
+    //     Object.defineProperty(obj, 'p', { writable: false })
+    // // 修改成功
+//     var o1 = Object.defineProperty({}, 'p', {
+//       value: 1,
+//       writable: true,
+//       configurable: false
+//     });
+
+//     Object.defineProperty(o1, 'p', { value: 2 })
+//     // 修改成功
+
+//     var o2 = Object.defineProperty({}, 'p', {
+//       value: 1,
+//       writable: false,
+//       configurable: true
+//     });
+
+//     Object.defineProperty(o2, 'p', { value: 2 })
+// // 修改成功
+  </script>
+</body>
+
+</html>

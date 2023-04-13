@@ -1,0 +1,42 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-10-14 20:51:52
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-10-14 20:54:38
+-->
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>闭包实例</title>
+  <style>
+    div {
+      width: 90px;
+      height: 40px;
+      margin: 10px;
+      background-color: orange;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="btn">按钮</div>
+  <div class="btn1">按钮1</div>
+  <script>
+    let oBtn = document.querySelector('.btn');
+    let oBtn1 = document.querySelector('.btn1');
+    oBtn.addEventListener("click", function (e) {
+      let num = 0;
+      oBtn1.addEventListener("click", function (e) {
+        num++;
+        console.log(num);
+      })
+    })
+  </script>
+</body>
+
+</html>

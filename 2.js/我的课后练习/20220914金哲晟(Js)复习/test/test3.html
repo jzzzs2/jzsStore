@@ -1,0 +1,58 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-09-14 15:47:10
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-09-14 17:21:43
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>字符串方法</title>
+</head>
+<body>
+  <script>
+    //1. charAt(索引) 从字符串中获取某索引处的字符
+    // console.log("abcde".charAt(3)); //"d"
+    //2. charCodeAt(索引)
+    // console.log("abcde".charCodeAt(0)); //97 从某字符串中获取某索引处字符的unicode码
+    //3. split(分隔符字符串)
+    var str = "可爱捏可爱捏可爱斯哈斯哈";
+    // console.log(str.split()); //["XXX"]
+    // console.log(str.split("")); //["可", "爱", "XX", ....]
+    console.log(str.split("",6));
+    // console.log(str.split("可爱")); //["捏", "捏", "斯哈斯哈"]
+    // 4. str.indexOf(目标字符串,起始位置) 起始位置为负,则默认从0开始查找. 目标字符串默认是"undefined"
+    // var str = "223355undefined00u";
+    // console.log(str.indexOf()); //6
+    // console.log(str.indexOf("u", -3)); //6
+    // console.log(str.indexOf(2,1)); //1
+    // console.log(str.indexOf("u" ,-6)); //6
+    //5. str.slice(起始位置, 结束位置)
+    // console.log(str.slice(2, 6)); //"捏可爱捏"
+    // console.log(str.slice(-3, -1)); //"哈斯"
+    // console.log(str.slice());
+    // console.log(str.slice(-3)); //"哈斯哈"
+    //6.trim()
+    // console.log("  abc ".trim());
+    //7.str.lastIndexOf(目标,起始位置) 从后往前寻找 起始位置小于0,从头开始找
+    // console.log(str.lastIndexOf("可爱",-6)); //0
+    // console.log(str.lastIndexOf("可爱", 6)); //3
+    // console.log(str.replace("可爱","不可爱捏"));
+    // console.log(str);
+    //8. substr(起始位置,截取数量)            str.substring(起始,末尾) 和slice类似
+    console.log(str.substr(2, 5)); //捏可爱捏可
+    console.log(str.substr(-3)); //哈斯哈
+    console.log(str.substring(0,1)); //"可"
+    console.log(str);
+    //9. str.toLowerCase() str.toUpperCase()
+    var str = "hgfgdGHFDSS";
+    console.log(str.toLowerCase());
+    console.log(str.toUpperCase());
+    console.log(str);
+  </script>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-09-26 17:30:45
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-09-26 18:20:19
+-->
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>拖拽框</title>
+  <style>
+    .box {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 400px;
+      height: 400px;
+      background-color: pink;
+      box-shadow: 0 0 12px #222;
+      cursor: move;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box"></div>
+  <script>
+
+    var oBox = document.querySelector(".box");
+    var position = {
+      startMouseX: 0,
+      startMouseY: 0,
+      contX: 0,
+      contY: 0
+    }
+    var isMove = false;
+    oBox.addEventListener("mousedown", function (e) {
+      // console.log(e.clientX,e.clientY);
+      position.startMouseX = e.clientX;
+      position.startMouseY = e.clientY;
+      console.log(getComputedStyle(e.target, null)["top"]);
+      position.contX = parseInt(getComputedStyle(e.target, null)["left"]);
+      position.contY = parseInt(getComputedStyle(e.target, null)["top"]);
+      isMove = true;
+    })
+    document.addEventListener("mousemove", function (e) {
+      if (isMove) {
+        var diffX = 0;
+        var diffY = 0;
+        diffX = e.clientX - position.startMouseX;
+        diffY = e.clientY - position.startMouseY;
+        var left = position.contX + diffX;
+        var top = position.contY + diffY;
+        left = Math.max(0, left);
+        left = Math.min(window.innerWidth - oBox.offsetWidth, left);
+        top = Math.max(0, top);
+        top = Math.min(window.innerHeight - oBox.offsetHeight, top);
+        oBox.style.left = left + "px";
+        oBox.style.top = top + "px";
+        if (e.clientY < 0) {
+          isMove = false;
+        }
+      }
+
+    })
+    oBox.addEventListener("mouseup", function (e) {
+      isMove = false;
+    })
+
+  </script>
+</body>
+
+</html>

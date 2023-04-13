@@ -1,0 +1,37 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-10-30 15:49:45
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-10-30 16:03:33
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>cssText 获取元素行内style中的值</title>
+  <style>
+    .box {
+      width: 400px;
+      height: 400px;
+      background-color: red;
+      font-size: 20px;
+    }
+
+    .good {
+      border: 1px solid #999;
+    }
+  </style>
+</head>
+<body>
+  <div class="box" style="color:blue;"></div>
+  <script>
+    // document.querySelector(".box").classList.add("good");
+    console.log(document.querySelector(".box").style);
+    console.log(document.querySelector(".box").style.cssText);
+    // document.querySelector(".box").style.cssText="border:1px solid #999;"
+  </script>
+</body>
+</html>

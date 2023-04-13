@@ -1,0 +1,33 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-09-21 19:44:25
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-09-21 19:49:13
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>实现图片随机切换</title>
+  <style>
+    img {
+      width: 400px;
+      height: auto;
+    }
+  </style>
+</head>
+<body>
+  <img src="./images/1.JPG" alt="miku">
+  <script>
+    var oImg = document.querySelector("img");
+    oImg.onclick = function (e) {
+      var index = ~~(Math.random() * 4 + 1);
+      // this.src = "./images/" + index + ".JPG";
+      this.src = `./images/${index}.JPG`;
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>柯理化函数 函数返回函数</title>
+</head>
+<body>
+  <script>
+    /**
+     * @description: 
+     * @Param: {number} first 加数
+     * @return {number} 相加和
+     * @Date: 2022-09-06 18:04:04
+     * @param {*} first
+     */    
+    function getSum(first) {
+      return function (single) {
+        return single + first;
+      }
+    }
+    console.log(getSum(4)(4));
+  </script>
+</body>
+</html>

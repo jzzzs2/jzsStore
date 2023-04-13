@@ -1,0 +1,50 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-10-02 17:26:48
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-10-02 17:32:50
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .header .logo-wrap .pic .left .icon p {
+      width: 80px;
+      height: 40px;
+      background-color: #222;
+      color: #fff;
+    }
+  </style>
+</head>
+
+<body>
+  <input id="hum" name='sex' type="radio">
+  <label for="hum">男</label>
+
+  <input id="wom" name='sex' type="radio">
+  <label for="wom">女</label>
+  <p class="show-box">你选中了</p>
+  <script src="./my.js"></script>
+  <script>
+    var oHum = $("#hum");
+    var oWom = $("#wom");
+    var oP = $("p");
+    oHum.addEventListener("click", function (e) {
+      var content = $(`[for=${e.target.id}]`).innerText;
+      oP.innerText = "你选中了 " + content;
+    })
+    oWom.addEventListener("click", function (e) {
+      var content = $(`[for=${e.target.id}]`).innerText;
+      oP.innerText = "你选中了 " + content;
+    })
+  </script>
+</body>
+
+</html>

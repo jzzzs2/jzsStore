@@ -1,0 +1,43 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-10-22 18:37:29
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-10-22 18:48:54
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>对象操作方法 entries fromEntries</title>
+</head>
+<body>
+  <script>
+    let o = {
+      t: 1,
+      b: 2,
+      l: 3,
+      r: 4
+    }
+    
+    /*
+    Object.entries(obj) 将对象转化为二维数组
+    */
+    let arr = Object.entries(o);
+    console.log(arr); //[[t,1], [b,2], [l,3], [r,4]]
+    console.log(Object.getOwnPropertyNames(arr));
+    console.log(Object.fromEntries(arr)); //{t:1,b:2,l:3,r:4}
+    //取出对象中值的数组
+    let twoArr = arr.map(function([key,value]) {
+      return value;
+    });
+    console.log(twoArr); //[1，2，3，4]
+    let keysArr = Object.keys(o);
+    keysArr = twoArr;
+    console.log(JSON.stringify(o)); //string
+    console.log(JSON.parse(JSON.stringify(o))); //object
+  </script>
+</body>
+</html>

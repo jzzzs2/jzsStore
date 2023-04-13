@@ -1,0 +1,67 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-09-22 20:43:16
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-09-22 20:51:28
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>keyboard</title>
+  <style>
+    input {
+      outline: none;
+    }
+  </style>
+</head>
+<body>
+  <input type="text" placeholder="请输入">
+  <script>
+    var oIn = document.querySelector("input");
+    // oIn.onkeydown = function (e) {
+    //   console.log(this.value);
+    //   if(this.value.length > 6) {
+    //     this.style.border = "6px solid red";
+    //   } else {
+    //     this.style.border = "6px solid green";
+    //   }
+    // }
+    // oIn.onkeyup = function (e) {
+    //   console.log(this.value);
+    //   if(this.value.length > 6) {
+    //     this.style.border = "1px solid red";
+    //   } else {
+    //     this.style.border = "1px solid green";
+    //   }
+    // }
+    // oIn.onkeypress = function (e) {
+    //   console.log(this.value);
+    //   if(this.value.length > 6) {
+    //     this.style.border = "6px solid red";
+    //   } else {
+    //     this.style.border = "6px solid green";
+    //   }
+    // }
+    // oIn.oninput = function (e) {
+    //   console.log(this.value);
+    //   if(this.value.length > 6) {
+    //     this.style.border = "6px solid red";
+    //   } else {
+    //     this.style.border = "6px solid green";
+    //   }
+    // }
+    oIn.onchange = function (e) {
+      console.log(this.value);
+      if(this.value.length > 6) {
+        this.style.border = "6px solid red";
+      } else {
+        this.style.border = "6px solid green";
+      }
+    }
+  </script>
+</body>
+</html>

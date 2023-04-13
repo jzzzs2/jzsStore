@@ -1,0 +1,59 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-10-15 17:22:11
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-10-15 17:35:02
+-->
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>解构赋值 对象</title>
+</head>
+
+<body>
+  <script>
+    const product = {
+      UID: "0494783472894",
+      productName: undefined,
+      productPrice: undefined,
+      productCount: 199,
+      colors: ['red', 'yellow', 'blue', '#368']
+    }
+
+    const products = [{
+      UID: "0494783472894",
+      productName: undefined,
+      productPrice: undefined,
+      productCount: 199,
+      colors: ['red', 'yellow', 'blue', '#368']
+    }, {
+      UID: "0494783472894",
+      productName: undefined,
+      productPrice: undefined,
+      productCount: 99,
+      colors: ['red', 'yellow', 'blue', '#368']
+    }]
+
+    //对象中数组 
+    let {colors: [red, yel, bl, rgb]} = product;
+    console.log(red, yel, bl, rgb);
+    let {colors: [,,,__$]} = product;
+    console.log(__$);
+    //数组中对象
+    let [,{productCount: num}] = products;
+    console.log(num); //99
+    let [{colors: [,,,color]}] = products;
+    console.log(color); //#368
+    //用对象解构数组 数组的下标为key
+    let newArr = [4, 2, 29, 55];
+    let {["0"]: first, ["3"]: last} = newArr;
+    console.log(first, last);
+  </script>
+</body>
+
+</html>

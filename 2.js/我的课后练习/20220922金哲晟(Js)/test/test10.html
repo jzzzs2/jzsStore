@@ -1,0 +1,75 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>输入验证</title>
+  <style>
+    .content {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 400px;
+      margin: 100px auto;
+      box-shadow: 0 0 10px #999;
+    }
+
+    input {
+      width: 200px;
+      height: 80px;
+      font-size: 16px;
+      border: 1px solid #222;
+      outline: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="content">
+    <input id="record" type="text" placeholder="输入账号 账号长度在6-10">
+  </div>
+  <script>
+    var oRecord = document.querySelector("#record");
+    // oRecord.onkeydown = function (e) {
+    //   console.log(this.value);
+    //   if (this.value.length >= 6 && this.value.length <= 10) {
+    //     this.style.border = "1px solid green";
+    //   } else {
+    //     this.style.border = "1px solid red";
+    //   }
+    // }
+    // oRecord.onkeypress = function (e) {
+    //   // console.log(1);无法检测中文
+    //   console.log(this.value);
+    //   if (this.value.length >= 6 && this.value.length <= 10) {
+    //     this.style.border = "1px solid green";
+    //   } else {
+    //     this.style.border = "1px solid red";
+    //   }
+    // }
+    // oRecord.oninput = function (e) {
+    //   console.log(this.value);
+    //   if (this.value.length >= 6 && this.value.length <= 10) {
+    //     this.style.border = "1px solid green";
+    //   } else {
+    //     this.style.border = "1px solid red";
+    //   }
+    // }
+    // oRecord.onchange = function (e) {
+    //   console.log(this.value); //当内容改变且焦点失去时执行.
+    //   if (this.value.length >= 6 && this.value.length <= 10) {
+    //     this.style.border = "1px solid green";
+    //   } else {
+    //     this.style.border = "1px solid red";
+    //   }
+    // }
+    oRecord.onkeyup = function (e) {
+      console.log(this.value);
+      var val = "1px solid red";
+      if (this.value.length >= 6 && this.value.length <= 10) {
+        val = "1px solid green";
+      }
+      this.style.border = val;
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-10-23 10:51:11
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-10-23 10:55:54
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>函数name</title>
+</head>
+<body>
+  <script>
+    function eat () {
+      console.log("我喜欢吃捏");
+    }
+    let result = eat.bind(this);
+    console.log([result]);
+    console.log(eat.name);
+    console.log((function (){}).name);
+    console.log([new Function()]); 
+    console.log((new Function()).name); //anonymous
+  </script>
+</body>
+</html>

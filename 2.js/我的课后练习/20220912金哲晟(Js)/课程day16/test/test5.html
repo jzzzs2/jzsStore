@@ -1,0 +1,59 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-09-12 17:49:37
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-09-12 17:58:53
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>question</title>
+</head>
+<body>
+  <script>
+    //
+    /*
+     我们在遗迹里找到了一个数据源 他的记录方式非常原始 他记录了一个班级的学生名字以及性别
+    
+     "张三|男|李四|女|王五|男|赵柳|男|田七|女"
+     
+     领导让你负责整理数据 提取所有同学名称
+
+       {
+      "name": "张三",
+      "age": 12,
+      "sex": "男"
+    }
+
+      name=张三&age=12&sex=男
+
+     */
+    var str = "张三|男|李四|女|王五|男|赵柳|男|田七|女";
+    var arr = str.split("|");
+    console.log(arr);
+    console.log(arr.filter(function(curr, index, arr) {
+      return index % 2 === 0;
+    }));
+
+    var data = {
+      "name": "zangsan",
+      "age": 12,
+      "sex": "man"
+    }
+    var str = "";
+    for(var key in data) {
+      str += key + "=" + data[key] + "&"; 
+    }
+    console.log(str.slice(0,str.length - 1));
+    var newArr = [];
+    for(var key in data) {
+      newArr.push(key + "=" + data[key]);
+    }
+    console.log(newArr.join("&"));
+  </script>
+</body>
+</html>

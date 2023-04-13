@@ -1,0 +1,45 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-10-01 14:55:36
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-10-01 15:15:37
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>创建添加 拷贝 插入 删除 节点</title>
+</head>
+<body>
+  <ul title="2">
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+  </ul>
+  <script>
+    var oBox = document.createElement("div");
+    oBox.style.width = "400px";
+    oBox.style.height = "200px";
+    oBox.style.margin = "20px";
+    oBox.style.backgroundColor = "skyblue";
+    // document.body.append(oBox);
+    // document.body.appendChild(oBox);
+    // var newBox = oBox.cloneNode();
+    // document.body.appendChild(newBox);
+    // var oUl = document.querySelector("ul");
+    // var newUl = oUl.cloneNode(true);
+    // document.body.appendChild(newUl);
+    // document.body.innerHTML = "<p>123</p>";
+    var oH3 = document.createElement("h3");
+    var oUl = document.querySelector("ul");
+    // document.body.insertBefore(oH3, oUl);
+    // document.body.removeChild(oUl);
+    // oUl.remove();
+    console.log(oUl.hasAttribute("id"));
+    console.log(oUl.hasAttributes());
+  </script>
+</body>
+</html>

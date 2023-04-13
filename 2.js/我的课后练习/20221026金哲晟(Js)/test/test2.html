@@ -1,0 +1,106 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-10-26 17:31:49
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-10-26 18:23:57
+-->
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>symbol</title>
+</head>
+
+<body>
+  <script>
+    let person = {
+      name: "person"
+    }
+    let idx = Symbol("index");
+    // let idx2 = Symbol("index");
+    // console.log(idx === idx2); //false
+    // person[idx] = 0;
+    // person[idx2] = 1;
+    person = {
+      [idx] : 333,
+      index: 0,
+      idx: 999
+    }
+    // console.log(person.index,person.idx,person[idx]); //0 999 333
+    // console.log(person);
+    // console.log(person[idx]);
+    // console.log(person[idx2]);
+// let s = Symbol("idx");
+// let obj = {
+//   [s] : 222,
+//   s: 333,
+//   idx: 999
+// }
+// console.log(obj.s);
+// console.log(obj[s]);
+// console.log(obj.idx);
+    let O = {
+      name: "jzs",
+      age: 3,
+      sex: 6,
+      showName () {
+        this.age ++;
+        console.log(`我的名字是${this.name}`);
+      }
+    }
+    let I = {
+      name: "IILll",
+      age: 22,
+      xp: "big",
+      showName () {
+        console.log("瓦塔西no那马诶" + this.name);
+      }
+    }
+    let J = {
+      name: "JJJ",
+      age: 60,
+      showName () {
+        console.log("我是嘤嘤嘤monster");
+      }
+    }
+    // function assign (o1, o2) {
+    //   for (let key in o2) {
+    //     if (o1[key]) {
+    //       o1[Symbol(key)] = o1[key];
+    //     } else {
+    //       o1[key] = o2[key];
+    //     }
+    //   }
+    // }
+    // assign(O, I);
+    // console.log(O);
+    // {xp:big,Symbol(showName),showName}
+    // assign(J, I);
+    //xp: big, Symbol showName
+    // console.log(J);
+    //给对象添加 属性名为symbol,值为函数
+    function multiple (a, b) {
+      return a * b;
+    }
+    function add (a, b) {
+      return a + b;
+    }
+    function addFuncs (obj,...func) {
+      func.reduce(function (acc, curr, i) {
+        // console.log(curr.name);
+        acc[Symbol(curr.name)] = curr;
+        return acc;
+      }, obj);
+    }
+    // addFuncs(I,multiple,add);
+    // console.log(I);
+    addFuncs(J,I.showName,O.showName);
+    console.log(J);
+  </script>
+</body>
+
+</html>

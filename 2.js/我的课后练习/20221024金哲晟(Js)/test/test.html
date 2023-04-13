@@ -1,0 +1,64 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-10-24 15:15:46
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-10-24 19:43:48
+-->
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>深拷贝deepcopy</title>
+</head>
+
+<body>
+  <script>
+    // let obj = {
+    //   name: "jzs",
+    //   children: [2, 4]
+    // }
+    // let obj2 = Object.fromEntries(Object.entries(obj));
+    // console.log(obj2);
+    // obj2.children.push(2);
+    // console.log(obj2);
+    // console.log(obj);
+    //深拷贝
+    const o = {
+      arr: [1, 2, " % E4 % BD % A0 % E5 % A5 % BD", { x: 1, y: [1, 2, 3] }],
+      json: {
+        key: [1, 2, 3, 4],
+        value: {
+          a: null,
+          b: undefined,
+          c: function () {
+            console.log('c');
+          }
+        }
+      },
+      name: 'oooo'
+    }
+    function deepCopy (data) {
+      if (Array.isArray(data)) {
+        return data.map((item) =>{
+          return deepCopy(item);
+        })
+      }
+      if (typeof data === "object" && data !== null) {
+        return Object.fromEntries(Object.entries(data).map(([key,value]) => {
+          return [key, deepCopy(value)];
+        }))
+      }
+      return data;
+    }
+    let result = deepCopy(o);
+    result.json.key.push("555");
+    console.log(result);
+    console.log(o);
+  </script>
+</body>
+
+</html>

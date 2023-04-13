@@ -1,0 +1,44 @@
+<!--
+ * @Author: mikuSama 2803290705@qq.com
+ * @Date: 2022-09-06 19:09:54
+ * @LastEditors: mikuSama 2803290705@qq.com
+ * @LastEditTime: 2022-09-06 19:16:12
+ * @FilePath: \20220906金哲晟(Js)\test\test9.html
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>一个函数一个功能 函数注释</title>
+</head>
+<body>
+  <script>
+    /**
+     * @description: 
+     * @return {*}
+     * @Date: 2022-09-06 19:14:58
+     */    
+    function getSum() {
+      var sum = 0;
+      for(var i = 0; i < arguments.length; i++) {
+        sum += arguments[i];
+      }
+      return sum;
+    }
+    /**
+     * @description: 计算某数的多次方结果
+     * @param {number} num 表示底数
+     * @param {number} pow 表示指数
+     * @return {number} 一个数的几次方
+     * @Date: 2022-09-06 19:15:09
+     */    
+    function getPow(num, pow) {
+      return num ** pow;
+    }
+    console.log(getPow(getSum(2,4,1),2)); //49
+  </script>
+</body>
+</html>

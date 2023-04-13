@@ -1,0 +1,29 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-09-09 14:12:00
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-09-09 14:14:24
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>静态作用域 函数内变量从函数声明时就已经决定了指向</title>
+</head>
+<body>
+  <script>
+    var x = 1;
+    function eat() {
+      var x = 2;
+      function sleep() {
+        console.log(x);
+      }
+      sleep();
+    }
+    eat(); //2
+  </script>
+</body>
+</html>

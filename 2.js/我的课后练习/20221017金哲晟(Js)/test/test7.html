@@ -1,0 +1,38 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-10-17 19:37:48
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-10-17 19:41:22
+-->
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>箭头函数不建议使用情况</title>
+</head>
+
+<body>
+  <div class="btn">点我</div>
+  <script>
+    //对象内部使用
+    let person = {
+      // eat: () => console.log(this.name),
+      eat: function () {console.log(this.name)},
+      name: "jzs"
+    }
+    person.eat(); //""
+
+
+    //绑定事件回调函数内部
+    document.querySelector(".btn").onclick = () => {
+      console.log(this);
+      console.log(this.innerText);
+    }
+  </script>
+</body>
+
+</html>

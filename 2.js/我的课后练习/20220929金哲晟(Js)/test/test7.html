@@ -1,0 +1,83 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-09-29 18:07:13
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-09-29 18:12:22
+-->
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>防抖</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    html,
+    body {
+      height: 100%;
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .container {
+      display: flex;
+      justify-content: space-around;
+      width: 800px;
+      height: 400px;
+      padding: 20px;
+      box-shadow: 0 0 8px #222;
+    }
+
+    .container div {
+      width: 350px;
+      height: 380px;
+      padding: 8px;
+      border: 1px solid #ccc;
+      font-size: 18px;
+      line-height: 20px;
+      word-break: break-all;
+    }
+
+    .input-box {
+      color: #368;
+      outline: none;
+    }
+
+    .show-box {
+      color: orange;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="input-box" contenteditable></div>
+    <div class="show-box"></div>
+  </div>
+  <script src="./my.js"></script>
+  <script>
+    var oInput = $(".input-box");
+    var oShow = $(".show-box");
+    var timeOut;
+    oInput.addEventListener("input", function (e) {
+      clearTimeout(timeOut);
+      timeOut = setTimeout(function () {
+        var con = oInput.innerText;
+        oShow.innerText = con;
+      }, 1000);
+    })
+  </script>
+</body>
+
+</html>

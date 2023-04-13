@@ -1,0 +1,121 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>纯练习</title>
+</head>
+
+<body>
+  <script>
+    function Person(name = "jzs", age = 22, sex) {
+      this.name = name;
+      this.age = age;
+      this.sex = sex;
+    }
+    Person.prototype.eat = function () {
+      console.log(this.name + "什么都爱吃");
+    }
+    function Dog(name, age, sex, color) {
+      this.color = color;
+      Person.call(this, name, age, sex); //属性继承
+    }
+    Dog.prototype = Object.create(Person.prototype);
+    //原型方法继承
+    //Person.prototype.children = [2, 3, 5];
+    //let p = new Person("zjc", 22);
+    //console.log(p.children);
+    let d = new Dog("dahunag", 10, "gong", "green");
+    console.log(d);
+    d.eat(); //dahunag 什么都爱吃
+
+    //
+    function Animal(name = "jzs", age = 22, sex = "1") {
+      this.name = name;
+      this.age = age;
+      this.sex = sex;
+      this.children = [1, 2, 3];
+    }
+    Animal.prototype.eat = function () {
+      console.log("我是" + this.name + this.age + "岁了");
+    }
+    Cat.prototype = new Animal();
+    function Cat(name, age, sex, color) {
+      Animal.call(this, name, age, sex);
+      this.color = color;
+    }
+    let c = new Cat("jzs", 22, "man", "red");
+    console.log(c);
+    console.log(c.constructor); // Animal
+    c.constructor = "Cat";
+    c.eat();
+    //多重继承
+    function Parent1(name) {
+      this.name = name;
+    }
+    Parent1.prototype.showName = function () {
+      console.log(this.name);
+    }
+    function Parent2(age) {
+      this.age = age;
+    }
+    Parent2.prototype.showAge = function () {
+      console.log(this.age);
+    }
+    function Son(name, age, sex) {
+      Parent1.call(this, name);
+      Parent2.call(this, age);
+      this.sex = sex;
+    }
+    //let address = Object.assign(Parent1.prototype,Parent2.prototype);
+    Son.prototype = Parent1.prototype;
+    Object.assign(Son.prototype, Parent2.prototype);
+    let ss = new Son("jzs", 22, "man");
+    console.log(ss);
+    ss.showName();
+    ss.showAge();
+    //
+    function House(name) {
+      this.name = name;
+    }
+    function Flat(name) {
+      this.name = name;
+    }
+    function Underground(name) {
+      this.name = name;
+    }
+    House.prototype.test = "5";
+    House.prototype.children = [1, 2, 3, 4];
+    Flat.prototype = new House();
+    Underground.prototype = new House();
+    let f = new Flat("gongyu");
+    let u = new Underground("dixiashi");
+    console.log(f.children);
+    console.log(u.children);
+    f.children.push(2);
+    u.children.push(3);
+    console.log(u.test);
+    console.log(f.test);
+    u.test = 10;
+    f.test = 8;
+    console.log(u);
+    console.log(f);
+    console.log(House.prototype.test);
+    console.log(u.children);
+    console.log(f.children);
+    //Son.prototype = new Animal();
+    //console.log(ss.children);
+    let obj = {
+      name: "jzs"
+    };
+    let twoObj = {
+      age: 22
+    };
+    Object.assign(obj, twoObj);
+    console.log(obj);
+    console.log(twoObj);
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,36 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-09-10 17:08:23
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-09-10 17:10:31
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>json序列化和反序列化</title>
+</head>
+<body>
+  <script>
+    var obj = [
+      {
+        name: "jzs",
+        age: 22
+      },
+      {
+        name: "hee",
+        age: 44
+      },
+      {
+        name: "pop",
+        age: 99
+      }
+    ];
+    console.log(JSON.stringify(obj)); //字符串
+    console.log(JSON.parse(JSON.stringify(obj))); //对象数组
+  </script>
+</body>
+</html>

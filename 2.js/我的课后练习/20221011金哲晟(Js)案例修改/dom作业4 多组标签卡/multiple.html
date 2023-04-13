@@ -1,0 +1,170 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-10-08 08:51:04
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-10-08 10:46:51
+-->
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>selector</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    .box {
+      position: relative;
+      width: 326px;
+      height: 204px;
+    }
+
+    .type {
+      position: absolute;
+      top: 0;
+      left: -60px;
+      width: 60px;
+    }
+
+    .type li {
+      font-size: 16px;
+      line-height: 40px;
+      text-align: center;
+      margin-bottom: 1px;
+      background-color: #999;
+      cursor: pointer;
+    }
+
+    .mask {
+      position: absolute;
+      width: 100%;
+      height: 30px;
+      bottom: 0;
+      background-color: rgba(0, 0, 0, .3);
+    }
+
+    .select {
+      position: absolute;
+      right: 0;
+      width: 220px;
+    }
+
+    .select li {
+      float: right;
+      width: 30px;
+      height: 30px;
+      margin-left: 10px;
+      text-align: center;
+      background-color: #fff;
+      cursor: pointer;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .show {
+      display: block;
+    }
+
+    body .active {
+      background-color: orange;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box">
+    <img src="./images/1.jpg" alt="car" width="326" height="204">
+    <ul class="type">
+      <li class="active">车</li>
+      <li>美食</li>
+      <li>风景</li>
+    </ul>
+    <div class="mask">
+      <ul class="select">
+      </ul>
+    </div>
+  </div>
+  <script>
+    var index = 0;
+    var prefixArr = [{
+      len: 4,
+      pre: ""
+    }, {
+      len: 5,
+      pre: "m"
+    }, {
+      len: 5,
+      pre: "s"
+    }];
+    var prefix = "";
+    var oType = document.querySelector(".type");
+    var oSelect = document.querySelector(".select");
+    var oImg = document.querySelector("img");
+    oType.addEventListener("click", function (e) {
+      if (e.target.tagName === "LI") {
+        oType.children[index].classList.remove("active");
+        index = getIndexInParent(e.target);
+        oType.children[index].classList.add("active");
+        prefix =  prefixArr[index].pre;
+        init(prefixArr[index].len);
+        oImg.setAttribute("src",`./images/${prefix}1.jpg`);
+      }
+    })
+
+    oSelect.addEventListener("click", function (e) {
+      if (e.target.tagName === "LI") {
+        var num = e.target.parentElement.children.length;
+        var currI = getIndexInParent(e.target);
+        for (var i = 0; i < num; i++) {
+          e.target.parentElement.children[i].classList.remove("active");
+        }
+        e.target.parentElement.children[currI].classList.add("active");
+        oImg.setAttribute("src",`./images/${prefix}${e.target.innerText}.jpg`);
+      }
+    })
+    function init(num) {
+      var ele;
+      oSelect.innerHTML = "";
+      for (var i = 0; i < num; i++) {
+        ele = document.createElement("li");
+        if (i === num -1) {
+          ele.classList.add("active");
+        }
+        ele.innerText = num - i;
+        oSelect.appendChild(ele);
+      }
+    }
+    init(4);
+    function getIndexInParent(ele) {
+      var parentEle = ele.parentElement;
+      var len = parentEle.children.length;
+
+      for (var i = 0; i < len; i++) {
+        if (parentEle.children[i] === ele) {
+          return i;
+        }
+      }
+      return -1;
+    }
+  </script>
+</body>
+
+</html>

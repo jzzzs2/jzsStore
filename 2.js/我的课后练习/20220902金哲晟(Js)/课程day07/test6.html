@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>隐式转换</title>
+</head>
+<body>
+  <script>
+    var arr = [2,5];
+    console.log(typeof arr); //object
+    console.log(Number(arr)); //NaN
+    console.log(String(arr)); //2,5
+    console.log(Boolean(arr)); //true
+    console.log(Boolean([])); //true
+    console.log(Array.isArray(arr)); //true
+    console.log(arr + "好耶"); // 2,5好耶
+    console.log(arr + 2); //2,52
+    console.log(arr - 1); //NaN
+    var arr2 = [3,];
+    console.log(arr2 + 1); //"31"
+    console.log(arr2 - 1); //2
+    console.log([] == []); //false
+  </script>
+</body>
+</html>

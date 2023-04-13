@@ -1,0 +1,55 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-10-14 20:42:44
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-10-14 20:43:23
+-->
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>偏函数</title>
+</head>
+
+<body>
+  <script>
+    //test
+    function add() {
+      console.log(this.name);
+    }
+    let person = {
+      name: "Jzs",
+      age: 22
+    }
+    //add.bind(person)();
+    //偏函数. 传入一些固定参数，使得传入参数更少
+    function fn(a, b, c, d) {
+      console.log(a);
+      console.log(b);
+      console.log(c);
+      console.log(d);
+      return [].reduce.call(arguments, function (acc, curr) {
+        return acc + curr;
+      })
+    }
+    //fn(2,4,1，4);
+    let newFunc = fn.bind(null, 5);
+    newFunc(2, 6);
+    console.log("=====");
+    let twoFunc = fn.bind(null, 5, 7, 1);
+    twoFunc(99);
+    console.log("=====");
+    let threeFunc = fn.bind(null, 0, 0, 0, 0);
+    threeFunc(5);
+    //行为 数据 逻辑 分离
+    function setColor(ele, color) {
+      ele.style.backgroundColor = color;
+    }
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    #box {
+      width: 200px;
+      height: 200px;
+      background-color: #222;
+      transition: .5s;
+    }
+
+    #child {
+      width: 100px;
+      height: 100px;
+      background-color: #999;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="box">
+    <div id="child"></div>
+  </div>
+  <script>
+    var oBox = document.querySelector('#box');
+    var oChild = document.querySelector('#child');
+
+    oBox.onclick = function (e) {
+      console.log('box', e.currentTarget, e.eventPhase, e.target);
+    }
+    oChild.onclick = function (e) {
+      e.stopPropagation();//阻止冒泡之后 oBox的click事件不会触发
+      console.log('child', e.currentTarget, e.eventPhase, e.target);
+    }
+  </script>
+</body>
+
+</html>

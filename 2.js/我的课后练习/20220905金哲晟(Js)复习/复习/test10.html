@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>isFinite()</title>
+</head>
+<body>
+  <script>
+    //判断是否数值
+    var num = 2;
+    var secNum = "22";
+    var right = true;
+    var bigNum = Infinity;
+    var moreNum = null;
+    var lessNum = undefined;
+    console.log(isFinite(num)); //true
+    console.log(isFinite(secNum)); //t
+    console.log(isFinite(right)); // t
+    console.log(isFinite(moreNum)); // t
+    console.log(isFinite(lessNum));// f
+    console.log(isFinite(bigNum)); //f
+    console.log(Number(null)); //0
+    console.log(Number(moreNum)); //0
+    console.log(Number(undefined)); //NaN
+  </script>
+</body>
+</html>

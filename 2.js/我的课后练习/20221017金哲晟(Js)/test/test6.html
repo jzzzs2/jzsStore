@@ -1,0 +1,75 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-10-17 19:27:59
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-10-17 19:37:05
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>箭头函数的this问题</title>
+</head>
+<body>
+  <script>
+    //箭头函数内部的this指向是静态的,和箭头函数声明时所处作用域内部this指向相同.
+    //箭头函数内部this指向不会被apply call bind所改变
+    //箭头函数 > bind > call apply
+    const S = {
+      name: "jzs",
+      num: 10
+    }
+
+    const U = {
+      showNum: function () {
+        console.log(this.num);
+      }
+    }
+
+    const O = {
+      num: 0,
+      timer: 0,
+      clock: function () {
+        let that = this;
+        clearInterval(this.timer);
+        this.timer = setInterval(() => {
+          this.num++;
+          console.log(this);//O
+        }, 100);
+      }
+    }
+    // O.clock();
+
+
+
+    let P = {
+      name: 'kyogre',
+      show: function () {
+        // (() => { //IIFE 自调用 this=> window
+        //   console.log(this.name); //kyogre?
+        // }).bind(O)();
+        let fn = () => {
+          console.log(this.name);
+        }
+        // let fn1 = fn.bind(O);
+        // fn1();
+        fn.apply(S);
+        fn.call(S);
+        fn.bind(S);
+        fn.call(S);
+      }
+    }
+
+    // P.show(); //kyogre
+    var name = "zjc";
+    let f1 = () => this.name;
+    console.log(f1.call(S));
+    console.log(f1.apply(S));
+    console.log(f1.bind(S)());
+    console.log(this);
+  </script>
+</body>
+</html>

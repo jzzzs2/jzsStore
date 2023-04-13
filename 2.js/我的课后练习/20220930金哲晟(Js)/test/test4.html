@@ -1,0 +1,95 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-09-30 21:39:28
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-10-01 10:33:53
+-->
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>定时器运动框架 </title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    .box {
+      position: absolute;
+      top: 100px;
+      left: 0px;
+      width: 50px;
+      height: 50px;
+      background-color: #368;
+    }
+
+    .btn {
+      width: 80px;
+      height: 36px;
+      margin: 10px;
+      background-color: orange;
+      line-height: 35px;
+      text-align: center;
+      color: #fff;
+    }
+  </style>
+  <script src="./my.js"></script>
+</head>
+
+<body>
+  <div class="box"></div>
+  <div class="btn">点击</div>
+  <script>
+    var oBox = $(".box");
+    var oBtn = $(".btn");
+    oBtn.addEventListener("click", function (e) {
+      var json = {
+        width: "400px",
+        height: "300px",
+        top: "200px"
+      }
+      // animation(oBox, json, function () {
+      //     console.log("我执行了一次捏");
+      // })
+      animation(oBox, json, function () {
+        animation(oBox, {
+          width: "10px",
+          height: "20px",
+          top: "500px"
+        }, function() {
+          console.log("我执行了一次捏");
+        })
+      })
+    })
+    function animation(ele, json, callback) {
+      // clearInterval(ele.intervalOut);
+      ele.intervalOut = setInterval(function () {
+        var toggle = true;
+        for (var key in json) {
+          var startValue = parseInt(getStyle(ele, key));
+          var endValue = parseInt(json[key]);
+          var speed = (endValue - startValue) / 10;
+          speed = speed > 0 ? Math.ceil(speed) : Math.floor(speed);
+          console.log(speed,"speed");
+          console.log(ele.style[key],"ele");
+          ele.style[key] = startValue + speed + "px";
+          if (parseInt(ele.style[key]) !== endValue) {
+            toggle = false;
+          }
+        }
+        if (toggle) {
+          clearInterval(ele.intervalOut);
+          callback && callback();
+        }
+      }, 1000 / 60)
+
+    }
+  </script>
+</body>
+
+</html>

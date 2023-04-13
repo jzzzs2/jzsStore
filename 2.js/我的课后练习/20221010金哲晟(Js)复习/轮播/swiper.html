@@ -1,0 +1,278 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-10-05 18:36:12
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-10-10 12:58:32
+-->
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>swiper</title>
+  <script src="./js/my.js"></script>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .swiper {
+      overflow: hidden;
+      position: relative;
+      width: 600px;
+      height: 800px;
+    }
+
+    ul {
+      list-style: none;
+      height: 800px;
+    }
+
+    ul li {
+      float: left;
+    }
+
+    ul img {
+      width: 600px;
+      height: 800px;
+    }
+
+    .btn span {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 60px;
+      height: 200px;
+      font-size: 40px;
+      line-height: 200px;
+      margin: auto;
+      text-align: center;
+      background-color: rgba(225, 225, 225, .7);
+      border-radius: 8px;
+    }
+
+    .btn span:hover {
+      background-color: rgba(225, 225, 225, 1);
+      color: #fff;
+    }
+
+    .btn span.pre {
+      left: 0;
+    }
+
+    .btn span.next {
+      right: 0;
+    }
+
+    .slider {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 20px;
+      display: flex;
+      justify-content: space-around;
+      width: 300px;
+      height: 60px;
+      margin: auto;
+    }
+
+    .slider span {
+      width: 40px;
+      height: 40px;
+      background-color: pink;
+      color: #fff;
+      line-height: 40px;
+      text-align: center;
+      border-radius: 20px;
+    }
+
+    body .active {
+      color: #222;
+      background-color: #fff;
+    }
+
+    span {
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="swiper">
+    <ul class="list">
+      <li><img src="./images/1.jpg" alt="miku"></li>
+      <li><img src="./images/2.jpg" alt="miku"></li>
+      <li><img src="./images/3.jpg" alt="miku"></li>
+      <li><img src="./images/4.jpg" alt="miku"></li>
+      <li><img src="./images/1.jpg" alt="miku"></li>
+    </ul>
+    <div class="slider">
+
+    </div>
+    <div class="btn">
+      <span class="pre">&lt;</span>
+      <span class="next">&gt;</span>
+    </div>
+  </div>
+  <script>
+    var oSwiper = $(".swiper");
+    var oUl = $(".list");
+    var aLi = $$("ul li");
+    var oSlider = $(".slider");
+    var oBtn = $(".btn");
+    var len = aLi.length;
+    var lWidth = aLi[0].offsetWidth;
+    var index = 0;
+    var lock = true;
+    var autoTimeout;
+    var methodMap = {
+      pre: function () {
+        if (lock) {
+          lock = false;
+          oSlider.children[index % (len - 1)].classList.remove("active");
+          if (index === 0) {
+            index = len - 1;
+            oUl.style.marginLeft = -index * lWidth + "px";
+          }
+          index--;
+          index = (index + len) % len;
+          animate(oUl, {
+            marginLeft: -index * lWidth
+          })
+          oSlider.children[index].classList.add("active");
+          setTimeout(function () {
+            lock = true;
+          }, 800)
+        }
+      },
+      next: function () {
+        if (lock) {
+          lock = false;
+          oSlider.children[index % (len - 1)].classList.remove("active");
+          if (index === len - 1) {
+            index = 0;
+            oUl.style.marginLeft = "0px";
+          }
+          index++;
+          index = index % len;
+          animate(oUl, {
+            marginLeft: -index * lWidth
+          })
+          oSlider.children[index % (len - 1)].classList.add("active");
+          setTimeout(function () {
+            lock = true;
+          }, 800)
+        }
+      }
+    }
+    oSlider.addEventListener("mouseover", function (e) {
+      if (e.target.tagName.toLowerCase() === "span") {
+        if (lock) {
+          lock = false;
+          oSlider.children[index % (len - 1)].classList.remove("active");
+          var spanIndex = getIndexInParent(e.target);
+          index = spanIndex;
+          oSlider.children[index].classList.add("active");
+          animate(oUl, {
+            marginLeft: -index * lWidth
+          })
+          setTimeout(function () {
+            lock = true;
+          }, 800)
+        }
+
+      }
+    })
+    oSwiper.addEventListener("mouseover", function (e) {
+      clearInterval(autoTimeout);
+    })
+    oSwiper.addEventListener("mouseout", function (e) {
+      console.log(1);
+      autoPlay();
+    })
+    oBtn.addEventListener("click", function (e) {
+      if (e.target.tagName.toLowerCase() === "span") {
+        methodMap[e.target.className]();
+      }
+    })
+    function init() {
+      oUl.style.width = 100 * aLi.length + "%";
+      for (var i = 0; i < len - 1; i++) {
+        var ele = document.createElement("span");
+        ele.innerText = i + 1;
+        if (i === 0) {
+          ele.classList.add("active");
+        }
+        oSlider.appendChild(ele);
+      }
+    }
+    init();
+    function autoPlay() {
+      clearInterval(autoTimeout);
+      autoTimeout = setInterval(function () {
+        if (lock) {
+          lock = false;
+          oSlider.children[index % (len - 1)].classList.remove("active");
+          if (index === len - 1) {
+            index = 0;
+            oUl.style.marginLeft = "0px";
+          }
+          index++;
+          index = index % len;
+          animate(oUl, {
+            marginLeft: -index * lWidth
+          })
+          oSlider.children[index % (len - 1)].classList.add("active");
+          setTimeout(function () {
+            lock = true;
+          }, 800)
+        }
+      }, 2000);
+    }
+    autoPlay();
+    function animate(ele, json) {
+      var finished = false;
+      var timeOut;
+      timeOut = setInterval(function () {
+        finished = true;
+        for (var key in json) {
+          var target = json[key];
+          var current = parseInt(getComputedStyle(ele, null)[key]);
+          var speed = (target - current) / 10;
+          speed = speed > 0 ? Math.ceil(speed) : Math.floor(speed);
+          ele.style[key] = current + speed + "px";
+          var newResult = parseInt(getComputedStyle(ele, null)[key]);
+          if (target !== newResult) {
+            finished = false;
+          }
+        }
+        if (finished) {
+          clearInterval(timeOut);
+        }
+      }, 1000 / 60)
+    }
+
+    function getIndexInParent(ele) {
+      var parentEle = ele.parentElement;
+      var eleArr = parentEle.children;
+      for (var i = 0; i < eleArr.length; i++) {
+        if (ele === parentEle.children[i]) {
+          return i;
+        }
+      }
+      return -1;
+    }
+  </script>
+</body>
+
+</html>

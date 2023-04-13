@@ -1,0 +1,71 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-10-12 18:02:21
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-10-12 18:09:59
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>案例</title>
+  <style>
+    div {
+      width: 400px;
+      height: 180px;
+      margin: 10px 0;
+      background-color: #ccc;
+      color: #fff;
+      font-size: 30px;
+      line-height: 180px;
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="slider">
+
+  </div>
+
+  <div class="other-slider">
+
+  </div>
+  <script>
+    {
+      let index = 0;
+      document.querySelector(".slider").onmouseover = function (e) {
+        index++;
+        e.target.innerText = index;
+      }
+    }
+
+    {
+      let index = 0;
+      document.querySelector(".other-slider").onmouseover = function (e) {
+        index++;
+        e.target.innerText = index;
+      }
+    }
+    //函数的声明 希望默认是let声明规则 但是向浏览器妥协
+    // var a;
+    // if (true) {
+    //   a = function () {
+    //     console.log('我是函数a');
+    //   }
+    // }
+    // a();
+    test();
+    if (true) {
+      function test() {
+        console.log("好吃捏");
+      }
+    }
+    
+  </script>
+</body>
+
+</html>

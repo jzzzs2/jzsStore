@@ -1,0 +1,36 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-09-14 14:33:15
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-09-14 14:42:00
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>练习</title>
+</head>
+<body>
+  <script>
+    // var arr = [1, 2, 3, '4', 5];
+    // console.log(arr.some(function (curr, i, arr) {
+    //   return typeof curr === "number";
+    // }));
+    // console.log(arr.every(function (curr, i, arr) {
+    //   return typeof curr === "number";
+    // }));
+    var str = "miku可爱捏可爱捏";
+    // console.log(str.replace("可爱","不可爱"));
+    // console.log(str);
+    var newStr = str;
+    while (newStr.indexOf("可爱") !== -1) {
+      newStr = newStr.replace("可爱","可恶");
+    }
+    console.log(newStr);
+    console.log(("00" + 2).substr(1,2));
+  </script>
+</body>
+</html>

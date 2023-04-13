@@ -1,0 +1,43 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-10-02 17:09:34
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-10-02 17:21:17
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>开关属性</title>
+</head>
+<body>
+  <input type="checkbox" id="more">
+  <br>
+  <input type="radio" id="less">男
+  <input type="radio">女
+  <script src="./my.js"></script>
+  <script>
+    var oSingle = $("#less");
+    // oSingle.setAttribute("checked", true);
+    // oSingle.setAttribute("checked", false);
+    // oSingle.setAttribute("checked", null);
+    // oSingle.setAttribute("checked", NaN);
+    // oSingle.checked = false;
+    // oSingle.checked = true;
+    // oSingle.checked = null;
+    // oSingle.checked = undefined;
+    // oSingle.checked = NaN;
+    // oSingle.checked = 0;
+    // oSingle.checked = "";
+    // oSingle.disabled = true;
+    // oSingle.disabled = false;
+    oSingle.setAttribute("disabled", true);
+    oSingle.setAttribute("disabled", false);
+    oSingle.setAttribute("disabled", "true");
+  </script>
+</body>
+</html>

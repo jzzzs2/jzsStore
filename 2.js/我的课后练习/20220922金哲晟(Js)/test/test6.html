@@ -1,0 +1,58 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-09-22 17:56:02
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-09-22 18:10:35
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>阻止冒泡</title>
+  <style>
+    .content {
+      display: flex;
+      width: 500px;
+      height: 200px;
+      margin: 100px auto;
+      box-shadow: 0 0 8px #333;
+    }
+
+    img {
+      width: 150px;
+      height: 100px;
+    }
+
+    span {
+      display: inline-block;
+      width: 340px;
+      height: 150px;
+      background-color: #368;
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+  <div class="content">
+    <img src="./images/1.jpg" alt="miku">
+    <span>我是聊天信息捏</span>
+  </div>
+  <script>
+    var oCon = document.querySelector(".content");
+    var oImg = document.querySelector("img");
+    oCon.onclick = function (e) {
+      console.log(e.eventPhase);
+      console.log(oCon.lastElementChild.innerText);
+    }
+
+    oImg.onclick = function (e) {
+      e.stopPropagation();
+      console.log(e.eventPhase);
+      console.log("我是通过头像跳转到主页捏");
+    }
+  </script>
+</body>
+</html>

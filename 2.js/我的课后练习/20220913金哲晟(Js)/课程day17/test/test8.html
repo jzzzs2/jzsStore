@@ -1,0 +1,35 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-09-14 13:44:27
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-09-14 13:54:46
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>练习</title>
+</head>
+<body>
+  <script>
+    var arr = [2, 5, 9, 10, 13];
+    // console.log(arr.lastIndexOf(9,-4)); //-1
+    // console.log(arr.lastIndexOf(9)); //2
+    //去重练习
+    var arr = [1, 2, 3, 4, 5, 6, 4, 5, 3, 2, 7];
+    function duplicate() {
+      var newArr = [];
+      for (var i = 0; i < arr.length; i++) {
+        if (arr.indexOf(arr[i]) !== arr.lastIndexOf(arr[i]) && newArr.indexOf(arr[i]) === -1) {
+          newArr.push(arr[i]);
+        }
+      }
+      return newArr;
+    }
+    console.log(duplicate());
+  </script>
+</body>
+</html>

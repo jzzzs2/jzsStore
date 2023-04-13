@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>数组的基础方法</title>
+</head>
+<body>
+  <script>
+    // 1.Array.isArray(数组)
+    var arr = [2, 5, 8, 9, 11];
+    console.log(Array.isArray(arr)); //true
+    // 2.join("分隔符") 返回字符串
+    var str = arr.join("|");
+    console.log(str);
+    // 3.indexOf(数据,起始位置); 
+    var str = ["斯巴拉西", "好耶", "赞内","好卡","四密码色","颇有"];
+    console.log(str.indexOf("好耶",2)); // -1
+    console.log(str.indexOf("好卡",-3)); //3
+    console.log(str.indexOf("好卡",-2)); //-1
+  </script>
+</body>
+</html>

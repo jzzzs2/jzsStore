@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    ul {
+      float: left;
+      list-style: none;
+      width: 200px;
+      height: 800px;
+      padding: 10px;
+      margin-right: 30px;
+      background-color: #ccc;
+      transition: .5s;
+    }
+
+    li {
+      padding: 5px 20px;
+      margin-bottom: 10px;
+      background-color: #999;
+    }
+  </style>
+</head>
+
+<body>
+  <ul id="list">
+    <li>第1个li</li>
+    <li>第2个li</li>
+    <li>第3个li</li>
+    <li>第4个li</li>
+    <li>第5个li</li>
+    <li>第6个li</li>
+    <li>第7个li</li>
+    <li>第8个li</li>
+    <li>第9个li</li>
+    <li>第10个li</li>
+  </ul>
+  <ul id="clone">
+
+  </ul>
+  <script>
+    var oList = document.querySelector('#list');
+    var oClone = document.querySelector('#clone');
+
+
+    oList.onclick = function (e) {
+      if (e.target.tagName.toLowerCase() === 'li') {
+        var target = e.target;
+        oClone.appendChild(target);
+      }
+    }
+
+
+
+
+  </script>
+</body>
+
+</html>

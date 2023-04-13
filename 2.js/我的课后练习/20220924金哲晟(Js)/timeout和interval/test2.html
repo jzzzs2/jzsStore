@@ -1,0 +1,67 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-09-24 17:19:14
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-09-24 17:48:06
+-->
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>timeout替代interval实现每个执行函数之间间隔相等.</title>
+</head>
+
+<body>
+  <script>
+    // var time = Date.now();
+    // function myTimeout () {
+    //   setTimeout(function () {
+    //     console.log("可爱捏");
+    //     console.log(Date.now() - time);
+    //     time = Date.now();
+    //     myTimeout();
+    //   }, 2000)
+    // }
+    // myTimeout();
+    // function setInter(s, fn) {
+    //   function timeOut(s, fn) {
+    //     setTimeout(function () {
+    //       fn();
+    //       timeOut(s, fn);
+    //     }, s)
+    //   }
+    //   timeOut(s, fn);
+    // }
+    function printOne() {
+      console.log("1");
+    }
+
+
+    // function myInterval(t, fn) {
+    //   function setTime() {
+    //     setTimeout(function () {
+    //       fn();
+    //       setTime();
+    //     }, t)
+    //   }
+    //   setTime();
+    // }
+    // myInterval(1000, printOne);
+    function myInterval(t, fn) {
+      function setTime(t, fn) {
+        setTimeout(function () {
+          fn();
+          setTime(t, fn);
+        }, t)
+      }
+      setTime(t, fn);
+    }
+    myInterval(1000, printOne);
+  </script>
+</body>
+
+</html>

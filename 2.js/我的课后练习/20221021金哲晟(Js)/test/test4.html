@@ -1,0 +1,57 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-10-21 19:55:05
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-10-21 20:07:45
+-->
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>多重继承</title>
+</head>
+
+<body>
+  <script>
+    function Parent1(name) {
+      this.name = name;
+    }
+    Parent1.prototype.showName = function () {
+      console.log(this.name)
+    }
+    Parent1.prototype.showAge = function () {
+      console.log(this.age)
+    }
+
+    function Parent2(age) {
+      this.age = age;
+    }
+    Parent2.prototype.showSomething = function () {
+      console.log('something')
+    }
+    function Child(name, age, address) {
+      Parent1.call(this,name);
+      Parent2.call(this,age);
+      this.address = address;
+    }
+    function mixProto(son,parent1,parent2) {
+      son.prototype = Object.create(parent1.prototype);
+      Object.assign(parent1.prototype,parent2.prototype);
+    }
+    console.log(Parent1.prototype);
+    console.log(Parent2.prototype);
+    console.log(Object.assign(Parent1.prototype,Parent2.prototype));
+    mixProto(Child,Parent1,Parent2);
+    let son = new Child("jzs", 22, "jinhua");
+    console.log(son);
+    son.showName();
+    son.showAge();
+    son.showSomething();
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,16 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>数组变量保存的是地址 房子的key</title>
+</head>
+<body>
+  <script>
+    var num = ["好耶", "我的"];
+    var secNum = num;
+    secNum[0] = "enen";
+    console.log(num);
+  </script>
+</body>
+</html>

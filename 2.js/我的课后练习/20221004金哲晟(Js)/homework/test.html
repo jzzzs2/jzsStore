@@ -1,0 +1,90 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-10-04 14:55:51
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-10-04 15:34:41
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>放大镜</title>
+  <style>
+    .wrap {
+      position: relative;
+      width: 450px;
+      margin: 100px 0 0 200px;
+      box-shadow:  0 0 6px #666;
+    }
+    .mask {
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: none;
+      width: 200px;
+      height: 200px;
+      background-color: rgba(114, 179, 108, .3);
+      border: 1px solid #999;
+      cursor: move;
+    }
+
+    .bigger {
+      overflow: hidden;
+      display: none;
+      position: absolute;
+      top: 0px;
+      left: 460px;
+      width: 356px;
+      height: 356px;
+    }
+
+    .active {
+      display: block;
+    }
+  </style>
+  <script src="./js/my.js"></script>
+</head>
+<body>
+  <div class="wrap">
+    <div class="sight">
+      <img src="./images/m30.jpg" alt="miku" width="450" height="450">
+    </div>
+    <div class="mask"></div>
+    <div class="bigger">
+      <img src="./images/m30-big.jpg" alt="miku" width="800" height="800">
+    </div>
+  </div>
+  <script>
+    // 1. 布局 大盒子 wrap  > (预览盒子 > 预览图片 蒙版) + (展示盒子 > 展示图片)
+    //2. 
+    var oWrap = $(".wrap");
+    var oMask = $(".mask");
+    var oBig = $(".bigger");
+    var oImg = $(".bigger img");
+    oWrap.addEventListener("mousemove", function (e) {
+      oMask.classList.add("active");
+      oBig.classList.add("active");
+      var ratio = (oImg.offsetWidth - oBig.offsetWidth) / (oWrap.offsetWidth - oMask.offsetWidth);
+      var position = getPosition(oWrap);
+      var top = (e.clientY - position.top - (oMask.offsetWidth / 2));
+      var left = (e.clientX - position.left - (oMask.offsetWidth / 2));
+      top = Math.max(0, top);
+      top = Math.min(top, oWrap.offsetHeight - oMask.offsetHeight);
+      left = Math.max(0, left);
+      left = Math.min(left, oWrap.offsetWidth - oMask.offsetWidth);
+      oImg.style.marginLeft = (-ratio * left) + "px";
+      oImg.style.marginTop = (-ratio * top) + "px";
+      oMask.style.top = top + "px";
+      oMask.style.left = left + "px";
+    })
+
+    oWrap.addEventListener("mouseleave", function (e) {
+      oMask.classList.remove("active");
+      oBig.classList.remove("active");
+    })
+  </script>
+</body>
+</html>

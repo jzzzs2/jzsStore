@@ -1,0 +1,47 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-10-12 19:19:41
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-10-12 19:25:34
+-->
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>函数</title>
+</head>
+
+<body>
+  <script>
+    // function a() {
+    //   console.log('我是全局作用域内声明的函数a');
+    // }
+
+    // (function () {
+    //   if (true) {
+    //     function a() {
+    //       console.log('我是块级作用域内声明的函数a');
+    //     }
+    //   }
+    //   a();
+    // })();
+    function a() {
+      console.log('我是全局作用域内声明的函数a');
+    }
+    (function () {
+      var a;
+      if (true) {
+        a = function () {
+          console.log('我是块级作用域内声明的函数a');
+        }
+      }
+      a();
+    })();
+  </script>
+</body>
+
+</html>

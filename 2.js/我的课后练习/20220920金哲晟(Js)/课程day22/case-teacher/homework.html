@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>以下列虚拟对象添加对应的标签到页面上</title>
+</head>
+
+<body>
+
+
+  <script>
+
+    /* 
+      将这个虚拟节点数据 具象化成实际标签 
+    */
+    var element = {
+      tagName: 'div',
+      id: 'header',
+      className: 'title fw400 c666 fz28',
+      contentText: '我是一个header标签',
+      children: [
+        {
+          tagName: 'h1',
+          id: '',
+          className: 'logo',
+          contentText: '我是logo',
+          children: []
+        },
+        {
+          tagName: 'ul',
+          id: '',
+          className: 'nav',
+          contentText: '',
+          children: [
+            {
+              tagName: 'li',
+              id: '',
+              className: 'list',
+              contentText: '导航1',
+              children: []
+            },
+            {
+              tagName: 'li',
+              id: '',
+              className: 'list',
+              contentText: '导航2',
+              children: []
+            },
+          ]
+        }
+      ]
+    }
+
+
+    /* 
+      1. 确定自己要做什么  把需求细化拆分
+        1. 创建节点对象 
+        2. 设置对应属性
+        3. 添加到页面上
+        4. 重复上述过程对children下级元素
+
+      2. 根据列出的细化需求 一一选择好实现方案(方法)
+        1. var vDom = document.createELement(tagName); //vDom viewDom
+        2. id => id className => className contentText => innerText
+        3. parentEle.appendChild(vDom)
+        4. 判断并且循环children数组
+      3. 将方法组合 修整  优化
+        1. 属性是一样的 创建和添加方法是一样的  属性设置是一样的
+          // dom.property = value; //property 只能是 dom对象已有的自身属性 class id style title
+
+          header.appendChild(h1)
+          header.appendChild(ul)
+     */
+    //创建一个tagName是element['tagName']的元素对象
+    function drawElement(element, parentEle) {
+      var vDom = document.createElement(element['tagName']); //header h1 ul
+      element['innerText'] = element['contentText'];//header h1 ul
+      for (var key in element) {
+        // vDom[key] = element[key];//header h1 ul
+        element[key] && (vDom[key] = element[key]);
+
+      }
+      parentEle.appendChild(vDom);//header=>body h1=>header ul=>header
+      // loopDraw(element['children'], vDom);//header.children h1.children  ul.children;
+      if (element['children'].length > 0) {
+        for (var i = 0, len = element['children'].length; i < len; i++) {
+          drawElement(element['children'][i], vDom)
+        }
+      }
+    }
+
+    // function loopDraw(children, parentEle) {
+    //   if (children.length > 0) { //false
+    //     for (var i = 0, len = children.length; i < len; i++) {
+    //       drawElement(children[i], parentEle);
+    //     }
+    //   }
+    // }
+
+
+
+    drawElement(element, document.body)
+
+
+
+
+
+    // function drawElement(parentEle, ele) {
+    //   var eleData = ele;
+    //   var vDom = document.createElement(eleData.tagName || 'div');
+    //   eleData['innerText'] = eleData['contentText'];
+    //   for (var key in eleData) {
+    //     if (key !== 'children') {
+    //       eleData[key] && (vDom[key] = eleData[key]);
+    //     }
+    //   }
+    //   parentEle.appendChild(vDom);
+    //   if (Array.isArray(eleData['children']) && eleData['children'].length > 0) {
+    //     for (var i = 0, len = eleData['children'].length; i < len; i++) {
+    //       drawElement(vDom, eleData['children'][i]);
+    //     }
+    //   }
+    // }
+
+    // function innerEle(ele, htmlStr) {
+    //   var eleData = ele;
+    //   var idStr = eleData['id'] ? 'id=' + eleData['id'] : '';
+    //   htmlStr = htmlStr || '';
+    //   htmlStr += '<' + eleData['tagName'] + ' ' + idStr + ' class="' + eleData['className'] + '"> ' + eleData['contentText'] + '';
+    //   if (eleData['children'].length > 0) {
+    //     for (var i = 0, len = eleData['children'].length; i < len; i++) {
+    //       htmlStr += innerEle(eleData['children'][i]);
+    //     }
+    //   }
+    //   htmlStr += ' </' + eleData['tagName'] + '>'
+    //   return htmlStr
+    // }
+
+
+    // document.body.innerHTML += innerEle(element, '')
+    // console.log(innerEle(element, ''))
+  // drawElement(document.body, element)
+  </script>
+</body>
+
+</html>

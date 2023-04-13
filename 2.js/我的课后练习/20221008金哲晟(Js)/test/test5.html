@@ -1,0 +1,42 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-10-08 20:19:10
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-10-08 20:32:37
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>正则案例</title>
+</head>
+<body>
+  <script>
+    var url = 'www.baidu.com?wd=1&age=&name=海牙&sex=男';
+    //url参数转化为对象
+    /*
+    {
+        wd:1,
+        age:19,
+        name:海牙,
+        sex:男
+      }
+    */
+   function getObj (paramStr) {
+    var o = {};
+    var reg = /(\w+)=([a-zA-Z0-9\.\u4e00-\u9fa5]*)/g;
+    paramStr.replace(reg, function (resu1, key, value, i) {
+      if (value && key) {
+        o[key] = value;
+      }
+      // o[key] = value;
+    })
+    return o;
+   }
+   console.log(getObj(url));
+  </script>
+</body>
+</html>

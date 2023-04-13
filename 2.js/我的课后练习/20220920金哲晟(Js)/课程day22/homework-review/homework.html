@@ -1,0 +1,77 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-09-20 18:57:03
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-09-20 19:31:55
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>作业</title>
+  <script src="../common.js"></script>
+</head>
+<body>
+  <script>
+    var element = {
+      tagName: 'div',
+      id: 'header',
+      className: 'title fw400 c666 fz28',
+      contentText: '我是一个header标签',
+      children: [
+        {
+          tagName: 'h1',
+          id: '',
+          className: 'logo',
+          contentText: '我是logo',
+          children: []
+        },
+        {
+          tagName: 'ul',
+          id: '',
+          className: 'nav',
+          contentText: '',
+          children: [
+            {
+              tagName: 'li',
+              id: '',
+              className: 'list',
+              contentText: '导航1',
+              children: []
+            },
+            {
+              tagName: 'li',
+              id: '',
+              className: 'list',
+              contentText: '导航2',
+              children: []
+            },
+          ]
+        }
+      ]
+    }
+    //1. 创建元素对象  2. 循环数据,对对象进行赋值 3. 添加到父节点中 4. 如果有children 继续进行添加
+    function createNewNode (elementDate, parentNode) {
+      var newEle = createElement(elementDate["tagName"]);
+      for(var key in elementDate) {
+        if (elementDate[key]) {
+          newEle[key] = elementDate[key];
+        }
+        if (key === "contentText") {
+          newEle["textContent"] = elementDate[key];
+        }
+      }
+      parentNode.appendChild(newEle);
+      if (elementDate.children.length > 0) {
+        for (var i = 0; i < elementDate.children.length; i++) {
+          createNewNode(elementDate.children[i], newEle)
+        }
+      }
+    }
+    createNewNode(element, document.body);
+  </script>
+</body>
+</html>

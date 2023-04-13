@@ -1,0 +1,39 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-10-15 16:17:01
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-10-15 16:27:34
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>解构赋值 返回值</title>
+</head>
+<body>
+  <script>
+    /*
+      ... 省略
+      ...v作为左查询的时候,将省略的值 集合成一个数组 赋值给 变量
+      ...v作为右查询的时候,将数组解构为多个单一变量
+    */
+   let [a, b, ...c] = [1, 2, 3, 4, 5];
+   console.log(a, b, c);
+   console.log(...c);
+   console.log(c[0], c[1], c[2]);
+   // Math.max() 返回参数中最大的那一项
+   console.log(Math.max(...c));
+
+   function getMaxOfArr(arr) {
+    // return Math.max.apply(Math, arr);
+    return Math.max.apply(null, arr);
+   }
+   console.log(getMaxOfArr([3, 6, 12]));
+   //...rest 必须在参数最后一项,后面不可以再加参数
+   let [num, ...rest] = [2, 5, 2];
+  </script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-09-19 16:33:10
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-09-19 16:49:03
+-->
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>获取相关元素对象</title>
+</head>
+
+<body>
+  <div class="item">
+    <h3 class="title">龙牌洗发水</h3>
+    可
+    爱
+    捏
+    <p class="des">龙的传人真正的洗发水 </p>
+
+    <p class="price">¥999999</p></div>
+
+  <div class="item">
+    <h3 class="title">龙牌洗发水</h3>
+    <p class="des">龙的传人真正的洗发水 </p>
+    <p class="price">¥999999</p></div>
+  <script>
+    var oItem = document.querySelector(".item");
+    //1. 孩子元素节点对象的伪数组
+    // console.log(oItem.children);
+    // console.log(oItem.childNodes);
+    //2. 首尾节点元素对象
+    // console.log(oItem.firstChild);
+    // console.log(oItem.firstElementChild);
+    // console.log(oItem.lastChild);
+    // console.log(oItem.lastElementChild);
+    // //3 父元素对象
+    var oDes = document.querySelector(".des");
+    // console.log([oDes.parentElement]);
+    // console.log(oDes.parentNode);
+    // //4 前后兄弟
+    // console.log(oDes.nextSibling);
+    // console.log(oDes.nextElementSibling);
+    console.log(oDes.previousSibling);
+    console.log(oDes.previousElementSibling);
+    // console.log(document.querySelector("item p:nth-of-type(2)")); // <p class="price"></p>
+  </script>
+</body>
+
+</html>

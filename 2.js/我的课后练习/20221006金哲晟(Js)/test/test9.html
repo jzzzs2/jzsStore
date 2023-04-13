@@ -1,0 +1,31 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-10-06 23:09:27
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-10-07 10:29:19
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>贪婪惰性模式</title>
+</head>
+<body>
+  <script>
+    var str = "可爱2abc捏可2acb爱捏222aaa"
+    // str = "wwww22"
+    // console.log(/^w\w+/.test(str)); //false
+    // console.log(/^w{3}/.test(str)); //true
+    console.log(str.match(/\d[a-zA-Z]+?/g));
+    // 正向预言 负向预言
+    console.log("windows2000 windows10".match(/windows(?=10)/));
+    console.log("windows2000 windows10".match(/windows(?!10)/));
+    var str = "a123bcb123";
+    console.log(str.replace(/(c)|(\d{3})/g, "$1o$2")); //
+    console.log("helloWORLD".match(/helloworld/i));
+  </script>
+</body>
+</html>

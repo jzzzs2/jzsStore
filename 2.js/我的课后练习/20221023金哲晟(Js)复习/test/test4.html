@@ -1,0 +1,43 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-10-23 11:29:41
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-10-23 11:46:20
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>原型</title>
+</head>
+<body>
+  <script>
+    function Person (name, age) {
+      this.name = name;
+      this.age = age;
+    }
+    // Person.prototype.type = "human";
+    // Person.prototype.eat = function () {
+    //   console.log("好吃捏");
+    // };
+    // let p = new Person("jzs", 22);
+    // let p2 = new Person("zjc", 23);
+    // console.log(p.name,p.age,p.type);
+    // console.log(p.eat === p2.eat); //true
+    // 修改原型上的值
+    Person.prototype.children = [2, 5, 7];
+    Person.prototype.type = "human";
+    let p = new Person("jzs", 22);
+    p.type = "moon";
+    // p.children = [999];
+    // console.log(p);
+    // console.log(Person.prototype);
+    p.children[0] = 222;
+    console.log(p);
+    console.log(Person.prototype);
+  </script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-10-19 21:00:05
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-10-19 21:29:09
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>原型</title>
+</head>
+<body>
+  <script>
+    /*实例对象访问属性
+    优先访问自身属性,不存在则访问实例对象对应的构造函数的原型对象上查询该属性
+    即向自身的 __proto__上查询这个属性, 如果没有, 就向再上一级的原型上查找这个属性
+
+    prototype原型上的属性
+    1. 方法 函数 最多
+    2. 非引用固定参数值
+    3. 引用类型 公用集合
+    */
+   //回血
+   function Dog (name = "none", age = 0, weight = 20) {
+    this.name = name;
+    this.age = age;
+    this.weight = weight;
+    this.init();
+   }
+   Dog.prototype.siblings = [];
+   Dog.prototype.init = function () {
+    this.siblings.push(this);
+   }
+  function bloodBack (obj) {
+    console.log("回复了" + 100 * obj.siblings.length);
+  }
+
+  // let d1 = new Dog("zjc", 11, 20);
+  // let d2 = new Dog("jzs", 25, 20);
+  // let d3 = new Dog("HHH", 15, 20);
+  // bloodBack(d1);
+  //肉料比
+  Dog.prototype.feedConversionRatio = 5;
+  let d1 = new Dog("zjc", 11, 20);
+  let d2 = new Dog("jzs", 25, 20);
+  console.log(d1.feedConversionRatio,d1.__proto__.feedConversionRatio); //寻找的时候是原型对象上的值 修改时，修改的是自身的值
+  console.log(d2.feedConversionRatio,d2.__proto__.feedConversionRatio);
+  d1.feedConversionRatio = 3;
+  d2.feedConversionRatio = 4;
+  console.log(d1.feedConversionRatio,d1.__proto__.feedConversionRatio);
+  console.log(d2.feedConversionRatio,d2.__proto__.feedConversionRatio);
+  d1.__proto__.feedConversionRatio = 10;
+  console.log(d1.__proto__.feedConversionRatio,d2.__proto__.feedConversionRatio);
+  </script>
+</body>
+</html>

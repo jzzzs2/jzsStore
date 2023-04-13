@@ -1,0 +1,64 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-10-01 11:16:00
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-10-01 12:20:59
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>复习  获取元素属性 标签属性</title>
+  <style>
+    .box {
+      width: 300px;
+      height: 300px;
+      background-color: skyblue;
+    }
+    
+    img {
+      width: 400px;
+      height: auto;
+    }
+  </style>
+</head>
+<body>
+  <div class="box test red" id="nav" title="head" index = 2 diy = 3>
+    呜呜呜
+    <p id="333">222</p>
+  </div>
+  <div class="box">
+    <img src="./images/4.jpg" alt="miku" width="943" height="1334">
+  </div>
+  <script>
+    var oBox = document.querySelector(".box");
+    oBox = document.getElementById("nav");
+    var oImg = document.querySelector("img");
+    console.log(oImg.src);
+    console.log(oImg.getAttribute("src"));
+    // console.log([oBox]);
+    // console.log(oBox.attributes);
+    // console.log(oBox.attributes["index"].value);
+    // console.log(oBox["index"]);
+    // console.log(oBox.getAttribute("diy"));
+    // oBox.setAttribute("eat", 2);
+    // console.log(oBox.classList);
+    // console.log(oBox.classList["value"]);
+    // var oP = document.querySelector("p");
+    // console.log([oP]);
+    // console.log(oP.id);
+    // console.log(oP.localName);
+    // console.log(oP.attributes); //行内属性
+    // console.log(oP.hasAttribute("id"));  //行内属性
+    // console.log(oBox.title);
+    // console.log(oBox.innerText);
+    // console.log(oBox.textContent);
+    // console.log(oBox.innerHTML);
+    // console.log(oBox.className);
+    // console.log(oBox.tagName); // "DIv"
+  </script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-09-16 15:39:27
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-09-16 15:58:09
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Date</title>
+</head>
+<body>
+  <script>
+    var time = new Date();
+    console.log(time);
+    console.log(time.valueOf()); //ms
+    //1. 构造函数参数
+    var secTime = new Date("2018-8-8");
+    console.log(secTime);
+    console.log(new Date(23242342));
+    console.log(new Date(2002, 9, 1));
+    //2. 获取日期毫秒
+    console.log(time.valueOf());
+    console.log(Date.now());
+    console.log(+ new Date());
+    //3. 日期格式化
+    console.log(time.toString());
+    console.log(time.toDateString());
+    console.log(time.toTimeString());
+    //4. 获取日期的指定部分
+    console.log(time.getTime());
+    console.log(time.getSeconds());
+    console.log(time.getMinutes());
+    console.log(time.getHours());
+    console.log(time.getDate());
+    console.log(time.getMonth()); // +1后得到实际月份
+    console.log(time.getFullYear());
+    console.log(time.getDay()); //周日是0 其他一样
+  </script>
+</body>
+</html>

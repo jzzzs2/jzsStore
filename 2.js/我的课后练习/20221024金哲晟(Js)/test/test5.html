@@ -1,0 +1,77 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-10-24 17:54:53
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-10-24 21:06:31
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>对象class</title>
+</head>
+<body>
+  <script>
+    class Animal {
+      static type = "动物"
+      static showMe = function () {
+        console.log(this);
+      }
+      constructor (name, age, sex) {
+        this.name = name;
+        this.age = age;
+        this.sex = sex;
+      }
+      // showName () {
+      //   console.log("我的名字是" + this.name);
+      // }
+      // showAge () {
+      //   console.log("我的年龄是" + this.age);
+      // }
+      ["showName"]() {
+        console.log("我的名字是" + this.name);
+      }
+      ["showAge"]() {
+        console.log("我的年龄是" + this.age);
+      }
+      get name () {
+        return "获取name属性";
+      }
+      set name (value) {
+        console.log("我设置的name是" + value);
+      }
+    }
+    // Animal();
+    // let ani = new Animal("jzs", "22", "男");
+    // // console.log(Animal.prototype.constructor === Animal); //true
+    // // console.log(ani);
+    // ani.showName();
+    // ani.showAge();
+    // // console.log(Animal.type);
+    // // Animal.showMe();
+    // // console.log(ani.name);
+    // // console.log(ani.name = "jzs");
+    // // console.log(ani);
+    // class Pig extends Animal{
+    //   // constructor (name,age,sex,xp) {
+    //   //   super(name, age, sex);
+    //   //   this.xp = xp;
+    //   // }
+    // }
+    class Pig{
+      // constructor (name,age,sex,xp) {
+      //   super(name, age, sex);
+      //   this.xp = xp;
+      // }
+    }
+    let p = new Pig("zjc", 22, "man", "big");
+    console.log(p);
+    // console.log(ani);
+    // console.log(p);
+    // p.showXp?.();
+  </script>
+</body>
+</html>

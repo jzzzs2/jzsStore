@@ -1,0 +1,78 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-09-26 21:11:36
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-09-26 21:30:03
+-->
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>title</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      height: 100vh;
+      position: relative;
+      background: #fff url('../xiangcai.png');
+    }
+
+    .mask {
+      position: relative;
+      top: 100px;
+      left: 100px;
+      width: 400px;
+      height: 300px;
+      padding: 20px;
+      background-color: #690;
+      box-shadow: 0 0 8px #222;
+      border: 2px solid red;
+      color: #fff;
+      cursor: move;
+    }
+
+    .pos {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      width: 100px;
+      height: 100px;
+      padding: 2px;
+      border: 2px solid red;
+      background-color: #333;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="mask">
+    <div class="pos"></div>
+  </div>
+  <script>
+    function getPosition (element) {
+      var position = {
+        left: 0,
+        top: 0
+      }
+      while (element.offsetParent) {
+        position.left += element.offsetLeft;
+        position.top += element.offsetTop;
+        element = element.offsetParent;
+        position.left += element.clientLeft;
+        position.top += element.clientTop;
+      }
+      return position;
+    }
+    console.log(getPosition(document.querySelector(".pos")));
+  </script>
+</body>
+
+</html>

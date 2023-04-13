@@ -1,0 +1,39 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-09-12 13:37:09
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-09-12 13:45:20
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>map</title>
+</head>
+<body>
+  <script>
+    function Brray(arr) {
+      this.arr = arr;
+      this.map = function(callback) {
+        var newArr = [];
+        for(var i = 0; i < this.arr.length; i++) {
+          newArr.push(callback(this.arr[i], i, this.arr));
+        }
+        return newArr;
+      }
+    }
+    var arr = [3, 5, 9, 10];
+    var arrObj = new Brray(arr);
+    var mapObj = arrObj.map(function (curr, index, arr) {
+      // return curr * index;
+      return curr ** 2;
+    })
+    console.log(mapObj);
+    console.log(arrObj);
+    console.log(arr);
+  </script>
+</body>
+</html>

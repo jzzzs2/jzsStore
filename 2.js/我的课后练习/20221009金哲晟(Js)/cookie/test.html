@@ -1,0 +1,32 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-10-09 16:38:21
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-10-09 17:11:22
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>cookie</title>
+</head>
+<body>
+  <script>
+    // console.log(document.cookie);
+    // // document.cookie = "name=金哲晟;expires=" + date;
+    // document.cookie = "name=金哲晟;expires=" + "2022-10-9T17:03:25.574Z";
+    // // document.cookie = "age=22;expires=" + date;
+    // document.cookie = "age=22;expires=" + "2023-11-13T09:02:25.574Z";
+    // document.cookie = 'name=海牙;expires=9999-12-31T16:00:00.000Z';
+    // document.cookie = 'age=18;expires=9999-12-31T16:00:00.000Z';
+    // document.cookie = 'age=99;expires=9999-12-31T16:00:00. 000Z';
+    // document.cookie = "age=null;expires=0";
+    var date = new Date();
+    date.setTime(date.getTime() + 10000);
+    document.cookie = "name=jzs;expires=" + date.toUTCString();
+  </script>
+</body>
+</html>

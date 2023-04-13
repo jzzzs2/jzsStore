@@ -1,0 +1,212 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-09-30 08:35:47
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-09-30 15:29:46
+-->
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>drag </title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .wrap {
+      position: relative;
+    }
+
+    ul {
+      position: relative;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-evenly;
+      align-content: space-around;
+      width: 800px;
+      height: 550px;
+      list-style: none;
+      box-shadow: 0 0 10px #222;
+    }
+
+    li {
+      user-select: none;
+    }
+
+    img {
+      width: 220px;
+      height: 160px;
+      pointer-events: none;
+    }
+
+    .current {
+      z-index: 999;
+      box-shadow: 0 0 12px cyan;
+    }
+    
+    .collision {
+      /* transform: scale(1.1); */
+      box-shadow: 0 0 12px #222;
+    }
+
+    .slow {
+      transition: .2s linear;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <ul>
+      <li><img src="./images/1.jpg" alt="miku"></li>
+      <li><img src="./images/2.jpg" alt="miku"></li>
+      <li><img src="./images/3.jpg" alt="miku"></li>
+      <li><img src="./images/4.jpg" alt="miku"></li>
+      <li><img src="./images/5.jpg" alt="miku"></li>
+      <li><img src="./images/6.jpg" alt="miku"></li>
+      <li><img src="./images/7.jpg" alt="miku"></li>
+      <li><img src="./images/8.jpg" alt="miku"></li>
+      <li><img src="./images/9.jpg" alt="miku"></li>
+    </ul>
+  </div>
+  <script src="./js/my.js"></script>
+  <script>
+    var oUl = $("ul");
+    var aLi = $$("li");
+    var len = aLi.length;
+    var eleInfoMap = {
+      isMove: false,
+      target: null,
+      isDown: false,
+      vDom: [],
+      collisionEle: null,
+      orderInfoArr: [],
+      dragInfo: {
+        startX: 0,
+        startY: 0,
+        startTop: 0,
+        startLeft: 0
+      },
+      mousedown: function (e) {
+        console.log(e);
+        if (e.target.tagName === "LI") {
+          this.isDown = true;
+          this.target = e.target;
+          this.target.classList.add("current");
+          this.target.classList.remove("slow");
+          this.dragInfo.startX = e.clientX;
+          this.dragInfo.startY = e.clientY;
+          this.dragInfo.startTop = this.target.offsetTop;
+          this.dragInfo.startLeft = this.target.offsetLeft;
+        }
+      },
+      mousemove: function (e) {
+        if (this.isDown && e.target === this.target) {
+          var _x = e.clientX - this.dragInfo.startX;
+          var _y = e.clientY - this.dragInfo.startY;
+          var top = _y + this.dragInfo.startTop;
+          var left = _x + this.dragInfo.startLeft;
+          this.target.style.top = top + "px";
+          this.target.style.left = left + "px";
+          if (this.collisionEle) {
+            this.collisionEle.classList.remove("collision");
+          }
+          
+          //碰撞检测 鼠标落在就是碰撞
+          if (!this.isMove && isCollision(e)) {
+              this.collisionEle.classList.add("collision");
+              translateAll();
+          }
+        }
+      },
+      mouseup: function (e) {
+        var index = this.vDom.indexOf(this.target);
+        console.log(this.orderInfoArr[index][1]);
+        console.log(this.orderInfoArr[index][0]);
+        this.target.style.top = this.orderInfoArr[index][1] + "px";
+        this.target.style.left = this.orderInfoArr[index][0] + "px";
+        this.target.classList.remove("current");
+        this.target = null;
+        this.isDown = false;
+        this.collisionEle = null;
+      }
+    }
+    oUl.addEventListener("mousedown", drag);
+    document.addEventListener("mousemove", drag);
+    oUl.addEventListener("mouseup", drag);
+    function drag(e) {
+      if (eleInfoMap[e.type] && typeof eleInfoMap[e.type] === "function") {
+        eleInfoMap[e.type](e);
+      }
+    }
+
+    function init() {
+      for (var i = 0; i < len; i++) {
+        var arr = [];
+        var left = aLi[i].offsetLeft;
+        var top = aLi[i].offsetTop;
+        arr.push(left);
+        arr.push(top);
+        eleInfoMap.orderInfoArr.push(arr);
+        eleInfoMap.vDom.push(aLi[i]);
+        (function (index) {
+          setTimeout(function () {
+            aLi[index].style.position = "absolute";
+            aLi[index].style.top = eleInfoMap.orderInfoArr[index][1] + "px";
+            aLi[index].style.left = eleInfoMap.orderInfoArr[index][0] + "px";
+          }, 0)
+        })(i);
+      }
+    }
+    function isCollision(e) {
+      for (var i = 0; i < len; i++) {
+        if (eleInfoMap.vDom[i] !== eleInfoMap.target) {
+          var info = getPosition(eleInfoMap.vDom[i]); 
+          var l = info.left;
+          var t = info.top;
+          var r = l + eleInfoMap.vDom[i].offsetWidth;
+          var b = t + eleInfoMap.vDom[i].offsetHeight;
+          if (e.clientX > l && e.clientX < r && e.clientY > t && e.clientY < b) {
+            eleInfoMap.collisionEle = eleInfoMap.vDom[i];
+            return true;
+          }
+        }
+      }
+      return false;
+    }
+
+    function translateAll () {
+      // this.isMove = true;
+      eleInfoMap.isMove = true;
+      var collIndex = eleInfoMap.vDom.indexOf(eleInfoMap.collisionEle);
+      var targetIndex = eleInfoMap.vDom.indexOf(eleInfoMap.target);
+      eleInfoMap.vDom.splice(targetIndex,1);
+      eleInfoMap.vDom.splice(collIndex, 0, eleInfoMap.target);
+      eleInfoMap.vDom.forEach(function (curr, i, arr) {
+        if (curr !== eleInfoMap.target) {
+          curr.classList.add("slow");
+          curr.style.top = eleInfoMap.orderInfoArr[i][1] + "px";
+          curr.style.left = eleInfoMap.orderInfoArr[i][0] + "px";
+        }
+      })
+      setTimeout(function () {
+        eleInfoMap.isMove = false;
+      }, 400)
+    }
+    init();
+  </script>
+</body>
+
+</html>

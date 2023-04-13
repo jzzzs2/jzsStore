@@ -1,0 +1,40 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-10-04 16:16:35
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-10-04 16:27:13
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BOM</title>
+</head>
+<body>
+  <script>
+    // window.alert("22");
+    // var x = 2;
+    // console.log(window.x);
+    // if (x) {
+    //   var x = 4;
+    // }
+    if ("x" in window) {
+      var x = 4;
+    }
+    console.log(window.x); //4
+    //in表达式   属性 in 对象  查看对象内是否有该属性
+    var obj = {
+      name: "jzs",
+      age: 22,
+      number: 1781
+    }
+    console.log("age" in obj); //true
+    console.log("p" in obj); //false
+    console.log(window);
+    console.log(window.document);
+  </script>
+</body>
+</html>

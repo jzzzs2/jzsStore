@@ -1,0 +1,70 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-10-22 18:08:33
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-10-22 18:37:12
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Object的一些方法</title>
+</head>
+<body>
+  <script>
+    let o = {
+      a: 1,
+      b: 2
+    }
+    let b = {
+      x: 1,
+      b: 3
+    }
+    let arr = [1, 2, 3];
+    console.log(arr.__proto__);
+    /*
+    Object.getOwnPropertyNames(obj)  //包括不可枚举属性
+    Object.keys(obj) //只有可枚举属性
+    Object.getPrototypeOf(obj)  得到一个对象的原型对象
+    Object.getOwnPropertyDescriptor(obj,属性名)
+    Object.getOwnPropertyDescriptors(obj) 返回一个对象，包括所有属性和属性的描述对象
+    Object.assign(obj,obj2) 合并对象内容
+    Object.is(o1, o2) 比较o1和o2，和===类似
+    Object.hasOwnProperty(属性名) 自身是否存在该属性(不包括原型)
+    Object.freeze()
+    Object.isSealed()
+    */
+   let arr2 = Object.getOwnPropertyNames(arr);
+  //  console.log(arr2); //返回一个记录属性的数组
+  //  arr2.push(2);
+  //  console.log(arr2); //返回一个记录属性的数组
+  //  console.log(Object.getPrototypeOf([2, 5, 9])); // 得到Array的原型对象
+  //  console.log(o);
+  //  console.log(Object.keys(o));
+  //  console.log(Object.keys(arr)); //没有length
+  //  console.log(Object.getOwnPropertyNames(arr)); //有length
+   console.log(Object.assign(o, b));
+   console.log(o); // {a:1, b:3, x: 1}
+   console.log(b); // {x: 1, b: 3}
+   let result = Object.is([],[]);
+   console.log(result); //false
+   result = ([] === []);
+   console.log(result); //false
+   console.log(Object.getOwnPropertyDescriptor(o,"a"));
+   console.log(Object.getOwnPropertyDescriptor(arr, "length"));
+   console.log(arr.hasOwnProperty("1")); //true
+   console.log(arr.hasOwnProperty("filter")); //false
+   console.log(Object.getOwnPropertyDescriptors(b));
+   console.log(Object.getOwnPropertyDescriptors(arr)); //会计入不可枚举属性
+   console.log(Object.isSealed(arr)); //false
+   Object.freeze(arr);
+   arr["0"] = "222";
+   delete arr["0"];
+   console.log(arr);
+   console.log(Object.isSealed(arr)); //true
+  </script>
+</body>
+</html>

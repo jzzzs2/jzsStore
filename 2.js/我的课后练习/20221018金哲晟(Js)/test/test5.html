@@ -1,0 +1,54 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-10-18 21:31:50
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-10-18 21:42:54
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>原型初见</title>
+</head>
+<body>
+  <script>
+    //原型是一个对象, 是构造函数的prototype属性的内容.
+    //作用是保存 一些方法(刻在DNA中的行为),使得他的实例对象身上虽然没有原型上的方法,但仍然可以使用这些方法.
+    // console.log(Object.prototype);
+    // console.log(Array.prototype);
+    function Ball (ele, s = 1) {
+      this.ele = ele;
+      this.x = s;
+      this.y = s;
+      this.food = "香蕉";
+    }
+    function Unit (ele, s = 1) {
+      this.ele = ele;
+      this.x = s;
+      this.y = s;
+      this.reg = 99;
+    }
+    console.log(Ball.prototype);
+    Ball.prototype.shout = function () {
+      console.log("大声喊叫捏");
+    }
+    console.log(Ball.prototype);
+    Ball.prototype = {
+      eat: function () {
+        console.log("我喜欢吃东西捏比如" + this.food);
+      }
+    }
+    Ball.prototype.sex = function () {
+      console.log("dododo" + this.ele);
+    }
+    console.log(Ball.prototype);
+    (new Ball()).eat();
+    (new Ball("你")).sex();
+    console.log(Ball.prototype);
+    console.log(Unit.prototype);
+  </script>
+</body>
+</html>

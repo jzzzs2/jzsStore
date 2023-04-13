@@ -1,0 +1,63 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-09-18 11:00:52
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-09-18 11:17:04
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>数据类型 基础类型 引用类型</title>
+</head>
+<body>
+  <script>
+    //7种  number string boolean undefiend null object symbol
+    var num =  2.2;
+    var str = "abfdeqfs";
+    var isEat = true;
+    var test = undefined;
+    var result = null;
+    var prop = {
+      name: "jzs",
+      age: 22
+    }
+    console.log(typeof null); //object
+    
+    var addr = prop;
+    addr["name"] = "zjc";
+    console.log(prop);
+    //1.Number
+    console.log([Number]);
+    console.log(Number.MIN_VALUE);
+    console.log(Number.MAX_VALUE);
+    console.log(Infinity > 9999999999999999999999);
+    console.log(-Infinity < -999999999999999999999);
+    console.log(parseInt("fsfsd33"));
+    console.log(Number("342a"));
+    console.log(NaN == NaN);//false
+    console.log(NaN + 3); //NaN
+    console.log(NaN - NaN); //NaN
+    console.log(34.9922 + 21.1122);
+    //2.String
+    var str = "abc可爱捏abc";
+    console.log(str.length);
+    console.log(str[0]);
+    var testStr = "abcd\nedgh\n";
+    console.log(testStr);
+    console.log("\\\"\'");
+    var str = "word1"
+    + "word2"
+    + "word3";
+    console.log(str);
+    str = "word\
+    word2\
+    word3\
+    ";
+    console.log(str);
+  </script>
+</body>
+</html>

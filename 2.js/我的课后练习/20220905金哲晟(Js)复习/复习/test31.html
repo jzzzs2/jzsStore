@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>字符串的方法</title>
+</head>
+<body>
+  <script>
+    // 1.charAt
+    var str = "abcdebcdffg";
+    // console.log(str.charAt(2)); //"c"
+    // console.log(str.charAt(9)); //""
+    //2.indexOf()
+    // console.log(str.indexOf("bcdf")); //5
+    // console.log(str.indexOf("bcd",2)); //5
+    // console.log(str.indexOf("fg",-1)); //从0开启找
+    // console.log(str.indexOf("ff",99)); // -1
+    // console.log("undefined".indexOf()); //0
+    //3.split()
+    // console.log(str.split("b")); // ["a","cde","cdffg"]
+    // console.log(str.split("b",2)); // ["a", "cde"];
+    // console.log(str.split()); //长度为1数组
+    // console.log(str.split("")); //
+    //4.slice()
+    console.log(str.slice(2,3)); //"c"
+    console.log(str.slice(-3,-1)); //"ff"
+    console.log(str.slice(0,2)); //"ab"
+    console.log(str.slice(6)); // "cdffg"
+    console.log(str.slice(-2)); //"fg"
+    // 5.trim()
+    var newArr = " eat ";
+    console.log(newArr);
+    console.log(newArr.trim());
+  </script>
+</body>
+</html>

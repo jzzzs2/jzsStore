@@ -1,0 +1,26 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-10-17 17:56:35
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-10-17 17:59:30
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>reset</title>
+</head>
+<body>
+  <script>
+    function add (acc, ...args) {
+      return args.reduce(function (acc, item) {
+        return acc + item;
+      }, acc);
+    }
+    console.log(add(20, 10, 5, 5));
+  </script>
+</body>
+</html>

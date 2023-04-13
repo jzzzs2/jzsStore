@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>关系操作符的隐式转换 除了两边都是字符串 都转化为数字进行比较</title>
+</head>
+<body>
+  <script>
+    console.log(null <= "2"); //true
+    console.log(null <= "-2"); //false
+    console.log("a22" > "a32" ); //false
+    console.log(undefined >= 2); //false
+    console.log(true >= ""); // true
+    console.log(Number(null)); //0
+  </script>
+</body>
+</html>

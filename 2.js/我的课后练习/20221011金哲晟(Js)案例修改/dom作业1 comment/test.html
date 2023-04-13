@@ -1,0 +1,203 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-10-07 11:01:52
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-10-11 19:16:15
+-->
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>comment</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    span {
+      text-align: center;
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+    }
+
+    .box {
+      width: 500px;
+      border: 1px solid #999;
+    }
+
+    .head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 50px;
+      background-color: #999;
+    }
+
+    .head img {
+      width: 40px;
+      height: 40px;
+      padding-left: 5px;
+      border-radius: 50px;
+      cursor: pointer;
+    }
+
+    .head input {
+      box-sizing: border-box;
+      width: 300px;
+      height: 30px;
+      padding: 8px 0;
+      font-size: 20px;
+      line-height: 40px;
+      outline: none;
+    }
+
+    .send {
+      position: relative;
+      display: none;
+    }
+
+    .head .send span {
+      position: absolute;
+      right: -49px;
+      width: 50px;
+      height: 30px;
+      color: #fff;
+      font-size: 14px;
+      line-height: 30px;
+      background-color: orange;
+    }
+
+    .head .show {
+      display: inline-block;
+      width: 40px;
+      height: 40px;
+      margin-left: 60px;
+      margin-right: 10px;
+      font-size: 30px;
+      color: #000;
+      line-height: 40px;
+      border-radius: 20px;
+      background-color: #fff;
+      cursor: pointer;
+    }
+
+    .active {
+      display: block;
+    }
+
+    .new {
+      width: 50px;
+      height: 50px;
+      padding: 15px;
+      vertical-align: middle;
+      border-radius: 50%;
+    }
+
+    .modif {
+      line-height: 20px;
+      font-size: 20px;
+      text-align: center;
+      vertical-align: middle;
+    }
+
+    .bt {
+      border-bottom: 1px solid #999;
+    }
+
+    .tip {
+      position: fixed;
+      top: -30px;
+      width: 200px;
+      height: 30px;
+      margin: 0 auto;
+      font-size: 20px;
+      color: pink;
+      line-height: 30px;
+      background-color: #fff;
+      box-shadow: 0 0 6px #333;
+      border-radius: 8px;
+    }
+  </style>
+  <script src="../my.js"></script>
+</head>
+
+<body>
+  <div class="box">
+    <div class="head">
+      <img src="./images/0.jpg" alt="person">
+      <div class="send">
+        <input type="text"><span>发表</span>
+      </div>
+      <span class="show">+</span>
+    </div>
+    <div class="content">
+
+    </div>
+  </div>
+  <div class="tip">请不要输入空的内容捏</div>
+  <script>
+    var oImg = document.querySelector("img");
+    var oSend = document.querySelector(".send");
+    var oBtn = document.querySelector(".send>span");
+    var oShow = document.querySelector(".show");
+    var oInput = document.querySelector("input");
+    var oCon = document.querySelector(".content");
+    var oTip = document.querySelector(".tip");
+    var isShow = false;
+    var index = 0;
+    oShow.addEventListener("click", function (e) {
+      if (!isShow) {
+        oSend.style.display = "block";
+        this.innerText = "-";
+        isShow = true;
+      } else {
+        oSend.style.display = "none";
+        this.innerText = "+";
+        isShow = false;
+      }
+    })
+
+    oImg.addEventListener("click", function (e) {
+      index++;
+      index = index % 2;
+      this.setAttribute("src", `./images/${index}.jpg`);
+    })
+
+    oBtn.addEventListener("click", function (e) {
+      var content = oInput.value;
+      var newCon = document.createElement("span");
+      var newEle = document.createElement("div");
+      var nowImg = document.querySelector("img").cloneNode();
+      var reg = /^\s+$/;
+      if (content == "" || reg.test(content)) {
+        animate(oTip,{
+          top: 60
+        });
+        setTimeout(function () {
+          animate(oTip, {
+            top: -30
+          })
+        }, 1500)
+        return false;
+      }
+      newCon.innerText = content;
+      newCon.classList.add("modif");
+      nowImg.classList.add("new");
+      newEle.appendChild(nowImg);
+      newEle.appendChild(newCon);
+      newEle.classList.add("bt");
+      oCon.appendChild(newEle);
+      oInput.value = "";
+    })
+  </script>
+</body>
+
+</html>

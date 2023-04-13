@@ -1,0 +1,37 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-09-16 16:01:24
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-09-16 16:07:18
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>计算时间差</title>
+</head>
+<body>
+  <script>
+    function getInterval(start, end) {
+      var day, hour, minute, second, interval;
+      interval = (end - start) / 1000; 
+      day = ~~(interval / 24 / 60 / 60);
+      hour = ~~(interval / 60 / 60 % 24);
+      minute = ~~(interval / 60 % 60);
+      second = ~~(interval % 60);
+      return {
+        day,
+        hour,
+        minute,
+        second
+      }
+    }
+    var date = new Date("2022-9-15");
+    console.log(getInterval(date.valueOf(), Date.now()));
+    
+  </script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-10-18 21:21:03
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-10-18 21:26:53
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>instanceof</title>
+  <style>
+    .ball {
+      width: 60px;
+      height: 60px;
+      background-color: red;
+    }
+  </style>
+</head>
+<body>
+  <div class="ball"></div>
+  <script>
+    function createBall (ele, s) {
+      let ball = new Object();
+      ball.ele = ele;
+      ball.x = s;
+      ball.y = s;
+      return ball;
+    }
+    function Ball(ele, s = 1) {
+      this.ele = ele;
+      this.x = s;
+      this.y = s;
+    }
+    let ball = createBall(document.querySelector(".ball"), 10);
+    let twoBall = new Ball(document.querySelector(".ball"), 10);
+    console.log(ball instanceof Object); //true
+    console.log(ball instanceof Ball); //false
+    console.log(twoBall instanceof Ball); //true
+    console.log(twoBall instanceof Object); //true
+  </script>
+</body>
+</html>

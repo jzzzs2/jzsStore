@@ -1,0 +1,37 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-09-17 16:03:48
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-09-17 16:10:58
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>补充</title>
+</head>
+<body>
+  <div class="root">
+    <ul class="title">
+      <li>1</li>
+      <li>2</li>
+      <li class="active">3</li>
+      <li>4</li>
+    </ul>
+  </div>
+  <img src="./images/seven.JPG" alt="miku" width="2160px" height="3840px" title="miku">
+  <!-- 宽度高度写法是错误的 -->
+  <script>
+    var oImg = document.querySelector("img");
+    console.log([oImg]);
+    oImg.style.width = 200;
+    oImg.style.height = "auto";
+    console.log(oImg.getAttribute("width"));
+    console.log(oImg.getAttribute("height"));
+    oImg.title = "可爱捏Miku";
+  </script>
+</body>
+</html>

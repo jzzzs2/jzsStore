@@ -1,0 +1,20 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>清除0 生成新数组</title>
+</head>
+<body>
+  <script>
+    var arr = ["哈偶额", 0, "food", "0", "test"];
+    var newArr = [];
+    for(var i = 0,len = arr.length; i < len; i++) {
+      if(arr[i] != 0) {
+        newArr.push(arr[i]);
+      }
+    }
+    console.log(newArr);
+  </script>
+</body>
+</html>

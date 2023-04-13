@@ -1,0 +1,132 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-09-22 16:27:45
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-09-22 17:36:07
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>选项卡 事件委托</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    .box {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      position: relative;
+      width: 600px;
+      box-shadow: 0 0 8px #222;
+    }
+
+    .head {
+      display: flex;
+      justify-content: left;
+      width: 600px;
+      background-color: pink;
+    }
+
+    .head li {
+      width: 100px;
+      height: 30px;
+      line-height: 30px;
+      border: 1px solid #368;
+    }
+
+    .content {
+      display: none;
+      position: absolute;
+      top: 30px;
+      width: 600px;
+      height: 200px;
+      background-color: #368;
+      color: #fff;
+      font-size: 20px;
+      box-shadow: 0 0 8px #222;
+    }
+
+    body .show {
+      display: block;
+    }
+
+    body .current {
+      color: #fff;
+      background-color: #333;
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <ul class="head">
+      <li class="current">图片</li>
+      <li>专栏</li>
+      <li>热点</li>
+    </ul>
+    <span class="content show">我是图片的内容</span>
+    <span class="content">我是专栏的内容</span>
+    <span class="content">我是热点的内容</span>
+  </div>
+  <script>
+    var aLi = document.querySelectorAll("li");
+    var aSpan = document.querySelectorAll("span");
+    var oUl = document.querySelector(".head");
+    var currentIndex = 0;
+    oUl.onclick = function (e) {
+      var target = e.target;
+      var index = findIndexOfSame(aLi, target);
+      //console.log(index);
+      aLi[currentIndex].className = "";
+      aSpan[currentIndex].className = "content";
+      currentIndex = index;
+      aLi[index].className = "current";
+      aSpan[currentIndex].className = "content show";
+    }
+
+    function findIndexOfSame (objArr, obj) {
+      for (var i = 0; i < objArr.length; i++) {
+        if (objArr[i] === obj) {
+          return i;
+        }
+      }
+    }
+    // for(var i = 0; i < aLi.length; i++) {
+    //   var index = 0;
+    //   (function (idx) {
+    //     aLi[idx].onclick = function (e) {
+    //       aLi[index].className = "";
+    //       aSpan[index].className = "content";
+    //       index = idx;
+    //       aLi[idx].className = "current";
+    //       aSpan[idx].className = "content show"
+    //     // for(var j = 0; j < aLi.length; j++) {
+    //     //   aLi[j].className = "";
+    //     // }
+    //     // this.className = "current";
+    //     // for(var j = 0; j < aSpan.length; j++) {
+    //     //   aSpan[j].className = "content";
+    //     // }
+    //     // aSpan[idx].className = "content show";
+    //   }
+    //   })(i);
+    // }
+  </script>
+</body>
+</html>

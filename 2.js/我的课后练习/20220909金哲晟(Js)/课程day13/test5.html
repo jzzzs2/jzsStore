@@ -1,0 +1,36 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-09-09 14:15:03
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-09-09 14:20:43
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>this指向</title>
+</head>
+<body>
+  <script>
+    // 1.全局作用域下的this指向 window  全局变量都是window对象属性
+    // console.log(this);
+    // window.x = 2;
+    // var x = 2;
+    // window.alert("哈哈" + x);
+    // 2. 构造函数属性前this 3.函数内部的this
+    function Person(name, age, food) {
+      this.name = name;
+      this.age = age;
+      this.food = food;
+      this.eat = function() {
+        console.log("我要吃" + this.food);
+      }
+    }
+    var person = new Person("jzs", 22, "fish");
+    person.eat();
+  </script>
+</body>
+</html>

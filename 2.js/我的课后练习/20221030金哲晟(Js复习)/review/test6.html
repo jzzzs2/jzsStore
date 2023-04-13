@@ -1,0 +1,36 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-10-30 18:10:58
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-10-30 18:20:19
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Promise</title>
+</head>
+<body>
+  <script>
+    let promise = new Promise(function (resolve, reject) {
+      reject("fail");
+    }).then(function (succ) {
+      console.log("saigao");
+    }).catch(function (fail) {
+      console.log(fail);
+    }).finally(function () {
+      console.log("over");
+    })
+    // promise.then(function (succ) {
+    //   console.log(succ);
+    // })
+    // promise.catch(function (fail) {
+    //   console.log(fail);
+    // })
+    console.log(promise);
+  </script>
+</body>
+</html>

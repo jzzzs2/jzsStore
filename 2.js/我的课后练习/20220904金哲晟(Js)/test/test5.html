@@ -1,0 +1,24 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>indexOf</title>
+</head>
+<body>
+  <script>
+    var str = "嗯你还好额你还好么你你私密你还好马赛";
+    var target = "你还好么";
+    console.log(str.indexOf(target));
+    console.log(str.indexOf("你哈夫"));
+    console.log(str.indexOf("你还好",2));
+    console.log(str.indexOf("你还好",-199)); //负代表从字符串头部开始寻找
+    console.log(str.indexOf("",1));
+    console.log(str.indexOf("",99)); //返回数组长度 
+    console.log('hello world'.indexOf('o', 12)); //-1
+    console.log("好吃捏吗啊噶地方哈德发货".indexOf("haochi",15)); //-1
+    console.log("undefined".indexOf());
+    console.log("undefine".indexOf());
+  </script>
+</body>
+</html>

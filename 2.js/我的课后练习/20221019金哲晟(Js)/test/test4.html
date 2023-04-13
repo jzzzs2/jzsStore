@@ -1,0 +1,48 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-10-20 09:50:26
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-10-20 10:06:45
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>test</title>
+</head>
+<body>
+  <script>
+    function Person (name, age) {
+      this.name = name;
+      this.age = age;
+    }
+    Person.prototype.children = [1, 2, 3];
+    Person.prototype.type = 1;
+    Person.prototype.arr = [6, 8, 9];
+    let p = new Person("JZS", 22);
+    // p.arr = [1, 3, 5];
+    // console.log(p);
+    // console.log(p.arr);
+    // console.log(p.__proto__.arr);
+    // p.children[0] = 2;
+
+    // p.children = [];
+    // console.log(p);
+    p.children[1] = 3;
+    console.log(p);
+    console.log(p.children);
+    console.log(p.__proto__.children);
+    // console.log(p.children);
+    // console.log(p.__proto__.children);
+    // console.log(p.children);
+    // console.log(p.__proto__.children);
+    // console.log(Person.prototype.children);
+    // p.type = 2;
+    // console.log(p.type);
+    // console.log(p.__proto__.type);
+  </script>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-10-14 20:42:23
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-10-14 20:51:34
+-->
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>bind</title>
+</head>
+
+<body>
+  <script>
+    //bind  与apply和call的区别，返回一个新函数，并绑定新函数的主体对象，无法通过call和apply修改. 在函数声明或者赋值的时候绑定bind
+    function eat() {
+      console.log(this.name);
+      console.log(this.age);
+    }
+    let person = {
+      name: "jzs",
+      age: 22
+    }
+    let dog = {
+      name: "zjc",
+      age: 10
+    }
+    //eat.bind(person)();
+    eat.bind(person).call(dog);
+    eat.bind(person).apply(dog);
+    //
+    const MIMI = {
+      age: 1,
+      add: function () {
+        this.age++;
+        console.log(this.age);
+      }
+    }
+
+    const OUA = {
+      age: 4,
+      add: function () {
+        console.log(this);
+        setInterval(function () {
+          console.log(this.age);
+        }.bind(this), 400);
+      }
+    }
+
+    //let add = MIMI.add.bind(MIMI); //内部永久指向mimi的add函数
+    function add() {
+      setInterval(MIMI.add.bind(OUA), 400);
+    }
+    // add();
+    // add.call(OUA);
+    function fn(cb) {
+      cb && cb.call(MIMI);
+      setInterval(cb.bind(MIMI),100);
+    }
+    fn(function () {
+      console.log(this.age);//1  1  1 1 1 1 1 1 1
+    })
+  </script>
+</body>
+
+</html>

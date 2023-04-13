@@ -1,0 +1,36 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-10-30 18:02:25
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-10-30 18:10:21
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Symbol数据类</title>
+</head>
+<body>
+  <script>
+    let s = Symbol("name");
+    let s2 = Symbol("name");
+    let s3 = Symbol.for("name");
+    console.log(s === s2); //false
+    console.log(s3 == s2); //false
+    let obj = {
+      [s]: "symbolJzs",
+      name: "jzs",
+      [s3]: "s3Jzs"
+    }
+    console.log(obj);
+    console.log(obj[s3]);
+    console.log(obj[Symbol.for("name")]);
+    console.log(s3.description);
+    console.log(Symbol.keyFor(s3));
+    console.log(Symbol.keyFor(s)); //undefined
+  </script>
+</body>
+</html>

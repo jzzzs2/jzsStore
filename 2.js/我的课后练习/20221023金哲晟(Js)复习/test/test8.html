@@ -1,0 +1,51 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-10-23 12:32:07
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-10-23 12:59:18
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>属性修饰对象descriptor</title>
+</head>
+<body>
+  <script>
+    let person = {
+      name: "jzs",
+      age: 22,
+      sex: "男",
+      eat() {
+        console.log("好吃捏");
+      }
+    }
+    let arr = [99, 22, 88];
+    // Object.defineProperty(arr,"length",{
+    //   enumerable: true
+    // })
+    Object.defineProperty(person,"sex", {
+      enumerable: false,
+      value: "women",
+      // writable: false,
+      writable: true,
+      configurable: false
+      // writable: true
+    })
+    // console.log(Object.keys(arr));
+    // person.sex = "wxr";
+    // Object.defineProperty(person,"sex", {
+    //   writable: false,
+    //   value: "xxx",
+    // })
+    // Object.defineProperty(person,"sex", {
+    //   configurable: true
+    // })
+    console.log(person);
+    console.log(Object.keys(person));
+  </script>
+</body>
+</html>

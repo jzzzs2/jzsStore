@@ -1,0 +1,158 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-10-07 15:46:55
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-10-11 20:10:55
+-->
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>tag wall</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-image: linear-gradient(skyblue, rgb(240, 170, 140));
+    }
+
+    .box {
+      width: 820px;
+      height: 520px;
+      box-shadow: 0 0 8px #999;
+    }
+
+    .box>div {
+      float: left;
+      width: 410px;
+      height: 520px;
+    }
+
+    .left {
+      background-color: #fff;
+    }
+
+    .right {
+      box-sizing: border-box;
+      padding: 30px;
+      background-color: rgba(0, 0, 0, .3);
+    }
+
+    .direction {
+      padding: 10px;
+      padding-top: 30px;
+      color: orange;
+    }
+
+    .direction>p>span {
+      padding: 0 4px;
+      color: #999;
+      cursor: pointer;
+    }
+
+    .direction>p>span:hover {
+      color: orange;
+    }
+
+    .cont>div{
+      display: inline-block;
+      padding: 4px;
+      margin-right: 20px;
+      margin-top: 20px;
+      border: 1px solid #999;
+    }
+
+    .cont {
+      padding: 20px;
+      margin-top: 20px;
+    }
+
+    .cont>div>span {
+      cursor: pointer;
+    }
+
+    .cont>div>span:hover {
+      color: orange;
+    }
+
+    .place>div {
+      display: inline-block;
+      color: #fff;
+      padding: 8px;
+      margin-right: 12px;
+      margin-bottom: 8px;
+      border: 1px solid #fff;
+      border-radius: 4px;
+    }
+  </style>
+  <script src="../my.js"></script>
+</head>
+
+<body>
+  <div class="box">
+    <div class="left">
+      <div class="direction">
+        <p>热门目的地:&nbsp;<span>马来西亚</span><span>泰国</span><span>三亚</span><span>新西兰</span><span>云南</span><span>韩国</span></p>
+      </div>
+      <div class="cont">
+
+      </div>
+    </div>
+    <div class="right">
+      <div class="place">
+      </div>
+    </div>
+  </div>
+  <script>
+    var oCont = document.querySelector(".cont");
+    var oPlace = document.querySelector(".place");
+    var aSpan = document.querySelectorAll(".direction span");
+    var oDirect = document.querySelector(".direction");
+    oDirect.addEventListener("click", function (e) {
+      if (e.target.tagName === "SPAN") {
+        createNewPlace(e.target);
+        e.target.dataset.selected = "1";
+      }
+    })
+
+    function createNewPlace(ele) {
+      if (ele.dataset.selected === "0") {
+        var newEle = document.createElement("div");
+        var newConEle = document.createElement("div");
+        newConEle.innerText = ele.innerText;
+        newEle.dataset.parentIndex = getIndexInParent(ele);
+        newEle.innerHTML = `${ele.innerText} | <span>x</span>`
+        oCont.appendChild(newEle);
+        oPlace.appendChild(newConEle);
+      }
+    }
+
+    oCont.addEventListener("click", function (e) {
+      if (e.target.tagName.toLowerCase() === "span") {
+        $(".direction p").children[e.target.parentElement.dataset.parentIndex].dataset.selected = "0";
+        var index = getIndexInParent(e.target.parentElement);
+        oCont.children[index].remove();
+        oPlace.children[index].remove();
+      }
+    })
+
+    function init () {
+      for (var i = 0; i < aSpan.length; i++) {
+        aSpan[i].dataset.selected = "0";
+      }
+    }
+    init();
+  </script>
+</body>
+
+</html>

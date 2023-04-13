@@ -1,0 +1,46 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-09-19 16:21:09
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-09-19 16:31:10
+-->
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>innerHTML使用</title>
+</head>
+
+<body>
+  <div class="nav">
+    <p></p>
+    <h3 class="title">title</h3>
+    <ul>
+      <li>1</li>
+      <li class="active">2</li>
+      <li>3</li>
+    </ul>
+  </div>
+  <div class="test">
+    <p>可爱捏</p>
+  </div>
+  <script>
+    // var oActive = document.querySelector(".active");
+    // oActive.style.color = "red";
+    // oActive.innerHTML += "1";
+    // oActive.style.color = "blue";
+    // var oP = document.querySelector(".test p");
+    // oP.style.color = "red";
+    // document.querySelector(".test").innerHTML += "";
+    // oP = document.querySelector(".test p");
+    // oP.style.color = "blue";
+    console.log(document.querySelector(".nav").innerText);
+    console.log(document.querySelector(".nav").innerHTML);
+  </script>
+</body>
+
+</html>

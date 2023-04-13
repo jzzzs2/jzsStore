@@ -1,0 +1,57 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-10-30 16:17:41
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-10-30 17:19:31
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>链判断运算符 Class</title>
+</head>
+<body>
+  <script>
+    // let obj = {
+    //   name: "jzs",
+    //   age: 22
+    // }
+    // console.log(obj.name);
+    // let obj = null;
+    // let obj = undefined;
+    let obj = null;
+    // console.log(obj.name);
+    console.log(obj?.name);
+    // let arr = null;
+    let arr = undefined;
+    console.log(arr?.[1]);
+    class Animal {
+      constructor (name, age) {
+        this.name = name;
+        this.age = age;
+      }
+    }
+    class Pig extends Animal{
+      constructor (name,age,sex) {
+        super(name,age);
+        this.sex = sex;
+      }
+      static price = 200;
+      eat () {
+        console.log(this.name);
+      }
+      shout () {
+        console.log("mouomoumou" + this.age);
+      }
+    }
+    let p = new Pig ("niu", 22,"nan");
+    console.log(typeof p);
+    console.log(typeof Pig); //function
+    console.log(p);
+    console.log(Pig.price);
+  </script>
+</body>
+</html>

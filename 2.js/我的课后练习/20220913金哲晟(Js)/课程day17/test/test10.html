@@ -1,0 +1,41 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-09-14 14:13:24
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-09-14 14:32:04
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>flat作业</title>
+</head>
+<body>
+  <script>
+    //作业思考 如何把一个 规律 9*9二维降维扁平化的数组 重组为二维 两天时间
+    var arr = [
+      [1, 1, 2, 3, 4, 5, 6, 7, 8],
+      [1, 1, 2, 3, 4, 5, 6, 7, 8],
+      [1, 1, 2, 3, 4, 5, 6, 7, 8],
+      [1, 1, 2, 3, 4, 5, 6, 7, 8],
+      [1, 1, 2, 3, 4, 5, 6, 7, 8],
+      [1, 1, 2, 3, 4, 5, 6, 7, 8],
+      [1, 1, 2, 3, 4, 5, 6, 7, 8],
+      [1, 1, 2, 3, 4, 5, 6, 7, 8]
+    ]
+    var newArr = arr.flat();
+    // console.log(newArr);
+    var result = newArr.reduce( function (acc, curr, i, arr) {
+      acc[Math.floor(i / 9)][i % 9] = curr;
+      return acc;
+    }, [[],[],[],[],[],[],[],[]])
+    console.log(result);
+    var str = "bcv";
+    var obj = new String(str);
+    console.log(obj,"|",obj.valueOf());
+  </script>
+</body>
+</html>

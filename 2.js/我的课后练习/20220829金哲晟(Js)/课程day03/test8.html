@@ -1,0 +1,30 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NaN isNaN()</title>
+</head>
+<body>
+  <script>
+    console.log(222);
+    console.log("222");
+    console.log(typeof "111"); //string在控制台显示为黑色,数值和布尔显示为蓝色
+    console.log([2,3]);
+    console.log(NaN===NaN);
+    console.log(typeof 11 === "string");
+    console.log(typeof 11 === "number");
+    console.log(isNaN("jzs")); //true
+    console.log(isNaN(true)); //false
+    console.log(isNaN(undefined)); //true
+    console.log(isNaN(null)); //false
+    console.log(Number(null)); //0
+    console.log(Number(true)); //1
+    console.log(Number(false)); //0
+    console.log(isNaN("22")); //false
+    console.log(isNaN([]));
+    console.log(isNaN([2]));
+    console.log(isNaN([2,4]));
+  </script>
+</body>
+</html>

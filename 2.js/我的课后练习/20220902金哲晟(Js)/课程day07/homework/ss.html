@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>filter</title>
+</head>
+<body>
+  <script>
+    var arr = ['鸡腿',101,'3','奥利奥',9,false,'33a',1.333,'巧克力'];
+    var sum = 0;
+    for(var i = 0; i < arr.length; i++) {
+      if(typeof arr[i] === "number" && arr[i] === Math.floor(arr[i])) {
+        sum += arr[i];
+      }
+    }
+    console.log(sum);
+  </script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>倒转数组内容</title></title>
+</head>
+<body>
+  <script>
+    var arr = [3, 6, 9, 12, 15];
+    var temp;
+    var length = arr.length;
+    for(var i = 0; i < arr.length / 2; i++) {
+      temp = arr[i];
+      arr[i] = arr[length - 1 - i];
+      arr[length - 1 - i] = temp;
+    }
+    console.log(arr);
+  </script>
+</body>
+</html>

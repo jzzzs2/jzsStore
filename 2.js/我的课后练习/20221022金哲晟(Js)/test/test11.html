@@ -1,0 +1,30 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-10-22 19:38:46
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-10-22 20:02:59
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>preventExtensions 不可拓展</title>
+</head>
+<body>
+  <script>
+    let o = {
+      a: 1,
+      b: 2
+    }
+    // Object.preventExtensions(o);
+    o.a = 3;
+    o.c = "guess";
+    console.log(o);
+    console.log(Object.isExtensible(o)); //false
+    console.log(Object.isExtensible(o)); //true
+  </script>
+</body>
+</html>

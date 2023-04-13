@@ -1,0 +1,32 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-09-11 12:43:22
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-09-11 12:45:48
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Object方法 assign</title>
+</head>
+<body>
+  <script>
+    var obj = {
+      name: "jzs",
+      age: 22
+    }
+    var twoObj = {
+      age: 99,
+      sex: "man"
+    }
+    var newObj = Object.assign(obj, twoObj);
+    console.log(newObj);
+    console.log(obj);
+    console.log(twoObj);
+  </script>
+</body>
+</html>

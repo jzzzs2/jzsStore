@@ -1,0 +1,55 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-10-19 20:29:48
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-10-19 21:04:03
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>原型 prototype __proto__ constructor</title>
+</head>
+<body>
+  <script>
+    /*
+      构造函数
+      constructor构造函数也是function,只是人为的用函数名首字母大写 来区分是否是构造函数
+      原型prototype 原型是对象,用来保存一些公共方法,属性
+      constructor属性 是 构造函数 原型对象身上的属性
+
+      实例对象
+      new 构造函数()
+      __proto__ 属性 [[prototype]]
+      __proto__ 是对象,指向实例对象的构造函数的原型对象
+      new 实例化时,给实例对象添加该属性
+      pg.__proto__ = Pig.prototype
+    */
+    function Person (name = "zjc", age = 22) {
+      this.name = name;
+      this.age = 33;
+    }
+    console.log(Person.prototype.__proto__,222);
+    Person.prototype.eat = function (str) {
+      console.log(this.name + "喜欢吃" + str);
+    }
+    Person.prototype.weight = "60kg";
+    let p1 = new Person("jzs", 23);
+    p1.eat("可乐"); //"jzs喜欢吃可乐"
+    console.log(p1.weight);  //60kg
+    console.log(p1 instanceof Person); //true
+    console.log("==========");
+    console.log(Person.prototype); //
+    console.log(Person.prototype.constructor);
+    console.log(Person.prototype.constructor === Person);
+    console.log(p1.__proto__.constructor === Person);
+    console.log(p1);
+    console.log(p1.__proto__);
+    console.log(p1.__proto__ === Person.prototype);
+
+  </script>
+</body>
+</html>

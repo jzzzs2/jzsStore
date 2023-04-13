@@ -1,0 +1,37 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-10-05 17:16:42
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-10-05 18:08:04
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>location的属性</title>
+</head>
+<body>
+  <input type="button" value="submit">
+  <script>
+    console.log(location.origin);
+    // console.log(location);
+    // console.log(location.host);
+    // console.log(location.port);
+    // console.log(location.hostname);
+    // console.log(location.protocol);
+    // console.log(location.pathname);
+    // location.assign("http:www.baidu.com");
+    // location.replace("http://www.baidu.com");
+    // location.reload();
+
+    document.querySelector("input").addEventListener("click", function (e) {
+      // location.href = "https://www.bilibili.com/";
+      location.reload(true);
+      // location.reload();
+    })
+  </script>
+</body>
+</html>

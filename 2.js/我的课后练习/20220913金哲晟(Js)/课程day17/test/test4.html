@@ -1,0 +1,46 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-09-13 21:09:53
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-09-13 21:51:24
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>数组方法</title>
+</head>
+<body>
+  <script>
+    //flat
+    var arr = [2, 5, [1, 7, 9, 12], 7, 2];
+    // var secArr = [2, 5, [1, 7, [2, 6, 12], 9, 12], 7, 2];
+    console.log(arr.flat());
+    console.log(arr);
+    // console.log(secArr.flat());
+    // console.log(secArr.flat(2));
+    // console.log(secArr);
+    // var newArr = arr.reduce(function(acc, curr) {
+    //   return acc.concat(curr);
+    // },[])
+    // console.log(newArr);
+    //toString() valueOf()
+    // var num = 22;
+    // console.log(num.toString());
+    // console.log({name: "jzs"}.toString());
+    // var str = new String("jzs");
+    // console.log(str.toString());
+    // var arr = [2, 6, 2];
+    // console.log(arr.toString());
+    var str = new String("keainie");
+    console.log(str.valueOf());
+    console.log(str);
+    var obj = {name: "jzs"};
+    console.log(obj.valueOf());
+    console.log(obj);
+  </script>
+</body>
+</html>

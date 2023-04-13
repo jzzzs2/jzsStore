@@ -1,0 +1,43 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>vertical-align和outline和transform</title>
+  <style>
+    .box {
+      min-width: 1100px;
+      background-color: red;
+    }
+
+    .wrap {
+      width: 1100px;
+      height: 300px;
+      margin: 0 auto;
+      background-color: cyan;
+      border: 1px solid #000;
+      outline: 1px solid #999;
+    }
+
+    .wrap>span {
+      /* display: inline-block; */
+      vertical-align: middle;
+      transform: translate(60px,60px);
+    }
+
+    .wrap>img {
+      width: 200px;
+      vertical-align: middle;
+      /* transform: translate(60px,60px); */
+      /* 图片虽然是行内元素但是可以使用transform */
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <div class="wrap">
+      <span>可爱捏</span><img src="./images/bye.JPG" alt="!" width="219" height="240">
+    </div>
+  </div>
+</body>
+</html>

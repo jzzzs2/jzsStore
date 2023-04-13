@@ -1,0 +1,70 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-10-12 17:07:45
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-10-12 17:25:49
+-->
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>let</title>
+</head>
+
+<body>
+  <script>
+    //1. 先声明后调用
+    // console.log(x);
+    // // var x = 10;
+    // let x = 10;
+    // console.log(x);
+    // 2. 一个作用域重复声明
+    // var x = 2;
+    // console.log(x);
+    // var x = 5;
+    // console.log(x);
+    // var x = 10;
+    // let x = 20;
+    // 3. 创建块级作用域 并且作用域内使用该let声明的变量,变量会被绑定,产生死区.
+    // var num = 33;
+    // // eat();
+    // {
+    //   // console.log(num);
+    //   let num = 11;
+    //   console.log(num);
+    //   function eat() {
+    //     console.log(11);
+    //   }
+    // }
+    //for if 没有独立局部作用域
+    var arr = [];
+    for (var i = 0; i < 10; i++) {
+      (
+        function (idx) {
+          arr.push(
+            function () {
+              console.log(idx);
+            }
+          )
+        }
+      )(i);
+    }
+    arr[0]();
+    arr[1]();
+    // console.log(arr[0]());
+    // console.log(arr[2]());
+    let x = 3; //左查询 给ta赋值.
+    let c = x; //右查询 使用ta
+    // while (false) {
+    //   // let age = 22;
+    //   var age = 22;
+    // }
+    // console.log(age);
+  </script>
+</body>
+
+</html>

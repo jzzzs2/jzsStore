@@ -1,0 +1,74 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-09-16 13:45:43
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-09-16 15:37:38
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Math</title>
+</head>
+<body>
+  <script>
+    console.log(Math.E);
+    console.log(Math.PI); //3.14159265357
+    console.log(Math.LOG10E);
+    console.log(Math.LOG2E);
+    console.log(Math.SQRT2);
+    console.log(Math.SQRT1_2);
+    //1. Math.abs(xx)
+    console.log(Math.abs(null)); //0
+    console.log(Math.abs(undefined)); //NaN
+    console.log(Math.abs("abc")); //NaN
+    console.log(Math.abs([])); //0
+    console.log(Math.abs([-1])); //1
+    console.log(Math.abs(["-1"])); //1
+    console.log(Math.abs("-4")); //4
+    console.log(Math.abs()); //NaN
+    console.log(Math.abs(-4)); //4
+    console.log(Math.abs("45afs")); //NaN
+    //2.cos sin tan
+    console.log(Math.sin(Math.PI / 4));
+    console.log(Math.cos(Math.PI / 4));
+    console.log(Math.tan(Math.PI / 4)); //1
+    //3. max(x, x, x)
+    console.log(Math.max(2, 5, 9, 1));
+    console.log(Math.max(5, 9, "11", 5));
+    console.log(Math.min("abc", 2, 5, 0));
+    console.log(Math.max(2, 6, "abc", 9));
+    //一个数最小是0 最大是100
+    // var num = 200;
+    // var num = -20;
+    // num = Math.min(num, 100);
+    // console.log(num);
+    // num = Math.max(num, 0);
+    // console.log(num);
+    //4. pow(基数, 指数)
+    // console.log(Math.pow(2, 3)); //8
+    // console.log(Math.pow(3, 2)); //9
+    //5. random() 返回[0,1)的伪随机数
+    // console.log(Math.random() * 200 - 100);
+    //6. round() 四舍五入
+    console.log(Math.round(2.3)); //2
+    console.log(Math.round(2.7)); //3
+    console.log(Math.round(-20.3)); //-20
+    console.log(Math.round(-20.7)); //-21
+    console.log(Math.round(-20.51)); //-21
+    //7. ceil() 向上取整 floor() 向下取整
+    console.log(Math.ceil(5.1)); //6
+    console.log(Math.ceil(5.001)); //6
+    console.log(Math.ceil(6.2)); //7
+    console.log(Math.ceil(-20.1)); //-20
+    console.log(Math.ceil(-23.2)); //-23
+    console.log(Math.floor(3.2)); //3
+    console.log(Math.floor(-23.2)); //-24
+    console.log(Math.floor(-25.3)); //-26
+
+  </script>
+</body>
+</html>

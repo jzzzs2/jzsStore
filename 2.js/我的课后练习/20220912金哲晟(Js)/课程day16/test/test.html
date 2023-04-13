@@ -1,0 +1,50 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-09-12 12:31:54
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-09-12 13:36:06
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>forEach 和 sort</title>
+</head>
+<body>
+  <script>
+    function Crray(arr) {
+      this.arr = arr;
+      this.forEach = function(callback) {
+        for(var i = 0; i < this.arr.length; i++) {
+          callback(this.arr[i], i, this.arr);
+        }
+      }
+      this.sort = function(callback) {
+        for(var i = 0; i < this.arr.length; i++) {
+          if(callback(this.arr[i],this.arr[i + 1])) {
+            //排序
+          } else {
+            //排序
+          }
+        }
+      }
+    }
+    // 
+    var arr = ["仿写捏", "可可", "note", "surprise", "可爱捏"];
+    var newArr = new Crray(arr);
+    var otherArr = {
+      "name": "jzs"
+    };
+    newArr.forEach(function (curr, index, arr) {
+      console.log(curr, index, arr);
+    });
+    console.log("|||||||||||||||");
+    arr.forEach(function (curr, index, arr) {
+      console.log(curr, index, arr, this.name);
+    },otherArr)
+  </script>
+</body>
+</html>

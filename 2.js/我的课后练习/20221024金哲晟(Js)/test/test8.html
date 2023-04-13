@@ -1,0 +1,27 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-10-24 20:46:43
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-10-24 20:48:06
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    let obj = {
+      name: "jzs",
+      age: 22
+    }
+    let obj2 = Object.fromEntries(Object.entries(obj));
+    obj2.age = 33;
+    console.log(obj2,obj);
+  </script>
+</body>
+</html>

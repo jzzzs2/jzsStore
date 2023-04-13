@@ -1,0 +1,123 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-10-04 15:35:14
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-10-04 16:16:14
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>电梯导航</title>
+  <style>
+    body {
+      background-color: #eee;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    
+    .nav {
+      height: 300px;
+      margin: 20px 0;
+      background-color: cyan;
+      font-size: 30px;
+      text-align: center;
+    }
+
+    .slider {
+      position: fixed;
+      right: 30px;
+      bottom: 200px;
+      width: 40px;
+      height: 240px;
+      font-size: 20px;
+      line-height: 40px;
+      color: red;
+      text-align: center;
+      box-shadow: 0 0 4px #222;
+    }
+
+    .slider li {
+      border-bottom: 1px solid skyblue;
+      cursor: pointer;
+    }
+
+    .slider li:last-of-type {
+      border-bottom-width: 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="nav">1</div>
+  <div class="nav">2</div>
+  <div class="nav">3</div>
+  <div class="nav">4</div>
+  <div class="nav">5</div>
+  <div class="nav">6</div>
+  <ul class="slider">
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+    <li>5</li>
+    <li>6</li>
+  </ul>
+  <script src="./js/my.js"></script>
+  <script>
+    var oSlider = $(".slider");
+    var aNav = $$(".nav");
+    oSlider.addEventListener("click", function (e) {
+      if (e.target.tagName === "LI") {
+        var index = getIndexInParent(e.target);
+        var top = getPosition(aNav[index]).top;
+        // document.body.scrollTop = top;
+        animate(top, false);
+        // aNav[index].scrollIntoView(true);
+        // aNav[index].scrollIntoView(false);
+      }
+    })
+    var timeOut;
+    // function animate (target) {
+    //   clearInterval(timeOut);
+    //   timeOut = setInterval(function () {
+    //     var current = document.body.scrollTop;
+    //     var speed = (target - current) / 10;
+    //     // console.log(current);
+    //     if (Math.abs(current - target) < 10) {
+    //       document.body.scrollTop = target;
+    //       clearInterval(timeOut);
+    //     }
+    //     document.body.scrollTop = current + speed;
+    //     // console.log(document.body.scrollTop);
+    //   }, 50);
+    // }
+    function animate (target, isCenter) {
+      clearInterval(timeOut);
+      if (isCenter === false) {
+        target = target - (window.innerHeight - aNav[0].offsetHeight)/2;
+      }
+      timeOut = setInterval(function () {
+        var current = document.body.scrollTop;
+        var speed = (target - current) / 10;
+        // console.log(current);
+        if (Math.abs(current - target) < 10) {
+          document.body.scrollTop = target;
+          clearInterval(timeOut);
+        }
+        document.body.scrollTop = current + speed;
+        // console.log(document.body.scrollTop);
+      }, 50);
+    }
+  </script>
+</body>
+</html>

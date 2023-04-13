@@ -1,0 +1,22 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>isFinite</title>
+</head>
+<body>
+  <script>
+    console.log(isFinite(Infinity)); //false
+    console.log(isFinite(-Infinity)); //false
+    console.log(isFinite(true)); //true
+    console.log(isFinite(22)); //true
+    console.log(isFinite("22")); //true
+    console.log(isFinite("jzs")); //false
+    console.log(isFinite(undefined)); //false
+    console.log(isFinite(null)); //true
+    console.log(isFinite(NaN)); //false
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>冒泡和选择</title>
+</head>
+<body>
+  <script>
+    var arr = [2, 21, 9, 71, 33, 90,11];
+    var temp;
+    // for(var i = 0; i < arr.length; i++) {
+    //   for(var j = 0; j < arr.length - 1 - i; j++) {
+    //     if(arr[j] > arr[j + 1]) {
+    //       temp = arr[j];
+    //       arr[j] = arr[j + 1];
+    //       arr[j + 1] = temp;
+    //     }
+    //   }
+    // }
+    // console.log(arr);
+    var minIndex;
+    for(var i = 0; i < arr.length; i++) {
+      minIndex = arr.length - 1 - i;
+      for(var j = minIndex - 1; j >= 0; j--) {
+        if(arr[minIndex] > arr[j]) {
+          minIndex = j;
+        }
+      }
+      temp = arr[minIndex];
+      arr[minIndex] = arr[arr.length - 1 -i];
+      arr[arr.length - 1 - i] = temp;
+    }
+    console.log(arr);
+  </script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-09-10 12:22:14
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-09-10 12:27:25
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>对象</title>
+</head>
+<body>
+  <script>
+    var obj = {
+      name: "jzs",
+      age: 22
+    }
+    var age = "age";
+    var goodName = "name";
+    console.log(obj);
+    console.log(obj[age]); //22
+    console.log(obj.name); //"jzs"
+    console.log(obj.goodName); //undefined
+    for(var key in obj) {
+      console.log(key);
+      console.log("---------");
+      console.log(obj[key]);
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-09-18 13:43:41
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-09-18 13:49:53
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>数组</title>
+</head>
+<body>
+  <script>
+    //1.数组创建
+    var arr = new Array(4);
+    console.log(arr);
+    arr = new Array(1, 2, 3, 4);
+    console.log(arr);
+    for(var item of arr) {
+      console.log(item);
+    }
+    //2.数组类型是对象 隐式转换
+    console.log(Number(arr)); //NaN
+    console.log(String(arr)); // 1, 2, 3, 4
+    console.log([] == []); //false
+  </script>
+</body>
+</html>

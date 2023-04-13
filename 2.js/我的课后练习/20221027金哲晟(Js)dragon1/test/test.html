@@ -1,0 +1,34 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-10-27 09:58:17
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-10-27 10:08:28
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title></title>
+</head>
+<body>
+  <script>
+    let promise =  new Promise(function (resolve, reject) {
+      setTimeout(() => {
+        resolve();
+      }, 2000);
+    })
+    let r1 = promise.then(function() {
+      return new Promise(function(resolve, reject) {
+        resolve("可爱捏")
+      }).then(function(str) {
+        console.log(str);
+        return str;
+      });
+    })
+    console.log(r1);
+  </script>
+</body>
+</html>

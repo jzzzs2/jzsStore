@@ -1,0 +1,23 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>作用域和预处理</title>
+</head>
+<body>
+  <script>
+    function eat() {
+      var food = "fish";
+      var hour;
+      function sleep() {
+        hour = "3";
+        console.log("睡觉了");
+      }
+      sleep();
+      console.log(hour); //3
+    }
+    eat();
+  </script>
+</body>
+</html>

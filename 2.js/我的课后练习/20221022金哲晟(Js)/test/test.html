@@ -1,0 +1,46 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-10-22 10:41:28
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-10-22 17:25:02
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>对象Object 可枚举</title>
+</head>
+<body>
+  <script>
+    const O = {
+      name: "kyogre"
+    }
+    let arr = [1, 2, 3, 4, 5];
+    // console.log(O,arr);
+    // console.log(new String("22"));
+    // console.log([2,4,5]["length"]);
+    for (let key in arr) {
+      console.log(key, arr[key]);
+    }
+    for (let key in O) {
+      console.log(key,O[key]);
+    }
+    let str = new String("1234");
+    console.log(str);
+    for (let key in  str) {
+      console.log(key,str[key]);
+    }
+    let s = "33";
+    /*
+    length,__proto__ 不可枚举
+    length可读
+    */
+    console.log(s);
+    arr.length = 10;
+    console.log(arr);
+  </script>
+</body>
+</html>

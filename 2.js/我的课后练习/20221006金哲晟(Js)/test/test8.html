@@ -1,0 +1,43 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-10-06 22:45:29
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-10-07 10:36:38
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>正则相关方法</title>
+</head>
+<body>
+  <script>
+    // console.log("可爱捏可爱捏可爱捏".replace(/可爱捏/g,"不可爱捏"));
+    console.log("可爱捏可爱捏可爱捏".replace(/可爱捏/g, function (item, idx) {
+      console.log(item);
+      console.log(idx);
+      return "不可爱捏"
+    }));
+
+    var str = "1可爱捏23可爱捏333可爱捏4";
+    console.log(str.split(/\d+/));
+    console.log(str.split(/\d+?/));
+    console.log('你3好,我2好,大1家2好'.split(/[\d,]/));
+    console.log(".捏,嘎嘎,gaas.刚发的".split(/[\.,]/));
+    var str = "可爱捏1可爱捏2可爱捏3";
+    console.log(str.search(/[\d]/g));
+    console.log('你3好,我2好,大1家2好'.search(/[\d,]/g)); //返回找到的第一个匹配的位置
+    var regExp = /[\d]/g;
+    str = "你好捏2你好捏1你好捏3";
+    // console.log(/[\d]/g.exec(str));
+    // console.log(/[\d]/g.exec(str));
+    // console.log(/[\d]/g.exec(str));
+    console.log(regExp.exec(str));
+    // console.log(regExp.exec(str).index);
+    console.log(regExp.exec(str));
+  </script>
+</body>
+</html>

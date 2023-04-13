@@ -1,0 +1,38 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-10-01 20:47:22
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-10-01 20:52:16
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>event事件对象</title>
+  <style>
+    .box {
+      width: 1000px;
+      height: 1300px;
+      margin: 100px auto;
+      background-color: skyblue;
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+  </div>
+  <script>
+    document.querySelector(".box").addEventListener("click", function (e) {
+      console.log(e);
+      console.log([e.target]);
+      console.log(e.type);
+      console.log("我是client视口",e.clientX,e.clientY);
+      console.log("我是文档左上",e.pageX,e.pageY);
+      console.log("我是触发元素左上角",e.offsetX,e.offsetY);
+    })
+  </script>
+</body>
+</html>

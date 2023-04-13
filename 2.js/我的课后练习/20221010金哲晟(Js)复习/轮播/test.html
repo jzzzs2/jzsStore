@@ -1,0 +1,63 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-10-10 10:43:43
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-10-10 11:11:35
+-->
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .box {
+      width: 30px;
+      height: 30px;
+      background-color: red;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box">
+
+  </div>
+  <script>
+    function animate(ele, json) {
+      var finished = false;
+      var timeOut;
+      timeOut = setInterval(function () {
+        for (var key in json) {
+          var target = json[key];
+          var current = parseInt(getComputedStyle(ele, null)[key]);
+          console.log(current, "我是current");
+          var speed = (target - current) / 20;
+          speed = speed > 0 ? Math.ceil(speed) : Math.floor(speed);
+          ele.style[key] = current + speed + "px";
+          var newResult = parseInt(getComputedStyle(ele, null)[key]);
+          if (target !== newResult) {
+            finished = false;
+          }
+        }
+        if (finished) {
+          clearInterval(timeOut);
+        }
+      }, 1000 / 60)
+    }
+    var oBox = document.querySelector(".box");
+    var obj = {
+      width: 500,
+      height: 500,
+      marginLeft: 200
+    }
+    oBox.addEventListener("click", function (e) {
+      animate(oBox, obj);
+    })
+  </script>
+</body>
+
+</html>

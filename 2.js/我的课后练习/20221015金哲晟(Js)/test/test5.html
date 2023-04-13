@@ -1,0 +1,45 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-10-15 16:09:40
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-10-15 16:16:14
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>解构赋值 变量交换</title>
+</head>
+<body>
+  <script>
+    // let a = 66, b = 77;
+    // console.log(a, b);
+    // let temp = a;
+    // a = b;
+    // b = temp;
+    // console.log(a, b);
+    // [a, b] = [b, a];
+    // console.log(a, b);
+    // [a, b] = [b, a];
+    // console.log(a, b);
+    /*
+      ['a','b','c','d','e']
+      ['d','e','a','b','c']
+      ['b','c','d','e','a']
+
+      1. 下标顺位位进2
+      2. 下标回环  (index+2)%5
+    */
+   let a = "a", b = "b", c = "c", d = "d", e = "e";
+  //  let num = 2;
+   let num = 1;
+   for (let i = 0; i < num; i++) {
+    [a, b, c, d, e] = [d, e, a, b ,c];
+   }
+   console.log([a,b,c,d,e]);
+  </script>
+</body>
+</html>

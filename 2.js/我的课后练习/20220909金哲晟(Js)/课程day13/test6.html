@@ -1,0 +1,57 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-09-09 14:21:32
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-09-09 14:36:03
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>四种对象生成方式</title>
+</head>
+<body>
+  <script>
+    //1.字面量
+    var obj = {
+      name: "jzs",
+      age: 22,
+      sex: "man"
+    }
+    //2.原生对象实例化
+    var twoObj = new Object();
+    twoObj.name = "jzs";
+    twoObj.age = 22;
+    twoObj.eat = function() {
+      console.log("好吃捏");
+    }
+    //3.工厂模式
+    function createPerson(name, age, sex) {
+      var obj = new Object();
+      obj.name = name;
+      obj.age = age;
+      obj.sex = sex;
+      return obj;
+    }
+    //4.自定义构造函数
+    function Dog(name, age, word) {
+      this.name = name;
+      this.age = age;
+      this.word = word;
+      this.shout = function() {
+        console.log(this.word);
+      }
+    }
+    console.log(obj);
+    console.log(twoObj);
+    console.log(createPerson("jzs",22,"man"));
+    var dog = new Dog("jzs", 22, "wangwang");
+    console.log(dog);
+    dog.shout();
+    console.log(dog instanceof Dog);
+  </script>
+</body>
+</html>

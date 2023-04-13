@@ -1,0 +1,62 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-09-26 18:47:37
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-09-26 21:04:41
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>鼠标事件对象属性</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    .test {
+      position: absolute;
+      margin: 20px;
+      padding: 20px;
+      background-color: cyan;
+    }
+    
+    .wrap {
+      width: 800px;
+      height: 800px;
+      padding: 50px;
+      border: 10px solid orange;
+      margin: 20px;
+      background-color: yellow;
+    }
+
+    .box {
+      width: 400px;
+      height: 400px;
+      padding: 10px;
+      border: 10px solid skyblue;
+      margin: 10px;
+      background-color: red;
+    }
+  </style>
+</head>
+<body>
+  <div class="test">
+    <div class="wrap">
+      <div class="box">
+      </div>
+    </div>
+  </div>
+  <script>
+    var oWrap = document.querySelector(".wrap");
+    oWrap.addEventListener("mousedown", function (e) {
+      console.log(e.target);
+      console.log(e.offsetX, e.offsetY);
+      console.log(e.layerX, e.layerY);
+    })
+  </script>
+</body>
+</html>

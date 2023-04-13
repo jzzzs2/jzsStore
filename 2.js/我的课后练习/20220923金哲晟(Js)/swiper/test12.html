@@ -1,0 +1,34 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-09-23 21:36:03
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-09-23 21:45:47
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>titile</title>
+  <script src="./my.js"></script>
+  <style>
+    .box {
+      width: 300px;
+      height: 300px;
+      background-color: cyan;
+    }
+  </style>
+</head>
+<body>
+  <div class="box"></div>
+  <script>
+    var oBox = document.querySelector(".box");
+    var removeObj = eventListen(oBox, "click", function() {
+      console.log("我是匿名回调捏");
+    }, false);
+    // removeObj.remove();
+  </script>
+</body>
+</html>

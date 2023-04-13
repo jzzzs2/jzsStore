@@ -1,0 +1,51 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-10-24 16:58:59
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-10-24 19:52:33
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>对象的解构</title>
+</head>
+<body>
+  <script>
+    let obj = {
+      name: "jzs",
+      age: 22,
+      children: [2, 3, 5],
+      eat() {
+        console.log("好吃捏");
+      },
+      // show: "222"
+    }
+    let newObj = {...obj};
+    newObj.children.push("new");
+    console.log(obj);
+    console.log(obj.show?.());
+    // obj.show?.()
+    // obj.show();
+    //对象解构  浅拷贝
+    let z = {
+      name: "jzs",
+      age: 22,
+      children: [1, 2, 3]
+    }
+    let z2 = {
+      name: "zjc",
+      age: 33,
+      sex: "女"
+    }
+    let name = {...z};
+    name.children.push("4");
+    console.log(name);
+    console.log(z);
+    console.log({...z,...z2});
+  </script>
+</body>
+</html>

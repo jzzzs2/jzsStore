@@ -1,0 +1,62 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Const</title>
+  <style>
+    body {
+      height: 10000px;
+    }
+
+    div {
+      width: 400px;
+      height: 180px;
+      margin: 10px 0;
+      background-color: #ccc;
+      color: #fff;
+      font-size: 30px;
+      line-height: 180px;
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+  <script>
+    //1. const 常量声明的值不可修改,可以修改引用类型内部的值 声明时必须立即赋值.一般用于存储可读属性  声明一般为大写,多个单词用_隔开. 具有let的所有特性,先声明后使用 不可重复声明 死区 变量不提升
+    const NUM = document.body.offsetWidth;
+    // let NUM;
+    const PERSON = {
+      age: "22",
+      name: "Jzs"
+    }
+    // NUM = document.body.offsetWidth;
+    console.log(PERSON.name);
+    PERSON.name = "zjc";
+    console.log(PERSON.name);
+    // console.log(NUM);
+    const NOR_HEIGHT = "170";
+    if (true) {
+      // console.log(FOOD);
+      const FOOD = "noddle";
+    }
+    document.onscroll = function (e) {
+      let top = document.body.scrollTop;
+      let left = document.body.scrollLeft;
+      const OBJ = {
+        top: top,
+        left: left
+      }
+      // TOP = 22;
+      // LEFT = 33;
+      OBJ.top = 22;
+      OBJ.left = 33;
+      console.log(OBJ.top,"top");
+      console.log(OBJ.left,"left");
+    }
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,43 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-09-18 09:59:23
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-09-18 10:14:10
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DOM API</title>
+</head>
+<body>
+  <div id="nav">
+    <h2>我是H2捏</h2>
+    <ul class="list title">
+      <li>1</li>
+      <li>2</li>
+      <li class="active">3</li>
+      <li>4</li>
+      <li>5</li>
+    </ul>
+  </div>
+  <script>
+    var doc = document;
+    console.log(doc);
+    var aLi = document.querySelectorAll("li");
+    console.log(aLi);
+    aLi = document.querySelectorAll("li.active");
+    console.log(aLi);
+    aLi = document.getElementsByTagName("li");
+    console.log(aLi);
+    aLi = document.getElementsByClassName("list title");
+    console.log(aLi);
+    var oDiv = document.getElementById("nav");
+    console.log(oDiv);
+    
+  </script>
+</body>
+</html>

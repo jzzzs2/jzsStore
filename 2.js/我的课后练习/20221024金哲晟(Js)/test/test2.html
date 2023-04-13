@@ -1,0 +1,70 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-10-24 15:51:06
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-10-24 19:48:00
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>递归</title>
+</head>
+<body>
+  <script>
+    //递归
+    let obj = {
+      c: {
+        c: {
+          c: {
+            c: {
+              c: {
+                c: "恭喜你"
+              }
+            }
+          }
+        }
+      }
+    }
+    function findC (obj) {
+      if (typeof obj["c"] === "object") {
+        return findC(obj["c"]);
+      } else {
+        return obj["c"] + "找到了";
+        // console.log(obj["c"] + "找到了");
+      }
+    }
+    console.log(findC(obj));
+    //递归计算1-100
+    let count = 0;
+    let sum = 0;
+    // function getSum(final) {
+    //   if (count === final) {
+    //     return sum;
+    //   }
+    //   sum += (count + 1);
+    //   count++;
+    //   return getSum(final);
+    // }
+    // console.log(getSum(100));
+    function getSum (final) {
+      if (final === 1) {
+        return 1;
+      }
+      return final * getSum(final - 1);
+    }
+    console.log(getSum(3));
+    //
+    function getSum (final) {
+      if (final === 1) {
+        return 1;
+      }
+      return final + getSum(final - 1);
+    }
+    console.log(getSum(5));
+  </script>
+</body>
+</html>

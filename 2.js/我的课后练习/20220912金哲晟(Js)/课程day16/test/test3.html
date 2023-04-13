@@ -1,0 +1,43 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-09-12 13:46:15
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-09-12 17:38:46
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>filter</title>
+</head>
+<body>
+  <script>
+    function Brray(arr) {
+      this.arr = arr;
+      this.filter = function(callback) {
+        var newArr = [];
+        for(var i = 0; i < this.arr.length; i++) {
+          if(callback(this.arr[i], i, this.arr)) {
+            newArr.push(this.arr[i]);
+          }
+        }
+        return newArr;
+      }
+    }
+    var arr = [3, 6, 9, 12];
+    // var arrObj = new Brray(arr);
+    // var resultArr;
+    // resultArr = arrObj.filter(function (curr, index, arr) {
+    //   return curr > 6;
+    // })
+    // console.log(resultArr);
+    var newArr = arr.filter(function (curr, index, arr) {
+      return curr > 6;
+    })
+    console.log(newArr);
+  </script>
+</body>
+</html>

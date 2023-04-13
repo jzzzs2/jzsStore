@@ -1,0 +1,41 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-10-15 17:00:44
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-10-15 17:09:45
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>解构赋值 对象</title>
+</head>
+<body>
+  <script>
+    // let {x, y, c = "none"} = {x: 22, y: 55};
+    // console.log(x, y, c); 22 55 none
+    let {x: one, y: two, c: three = "none"} = {x: 22, y: 55};
+    console.log(one, two, three); //22 55 none
+    const product = {
+      UID: "0494783472894",
+      productName: undefined,
+      // productName: "手机捏",
+      // productPrice: "$9999",
+      // productPrice: undefined,
+      productPrice: "$888",
+      // productCount: null,
+      productCount: undefined,
+      // productCount: null,
+      colors: ['red', 'yellow', 'blue', '#368']
+    }
+    function formatData (product) {
+      let {productName: name = "未知商品", productPrice: price = "未知价格", productCount: num = "未知数量"} = product;
+      return name + "  " + "价值:" + price + "   剩余:" + num;
+    }
+    console.log(formatData(product));
+  </script>
+</body>
+</html>

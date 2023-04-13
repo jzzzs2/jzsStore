@@ -1,0 +1,68 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-10-21 10:47:23
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-10-21 19:33:43
+-->
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>继承 原型继承 构造函数继承</title>
+</head>
+
+<body>
+  <script>
+    // function Person (name, age) {
+    //   this.name = name;
+    //   this.age = age;
+    // }
+    // let p = new Person("jzs", 22);
+    // console.log(p.constructor.name);
+    function Animal(name = "dongwu", age = 1, sex = "母") {
+      this.name = name;
+      this.age = age;
+      this.sex = sex;
+    }
+    Animal.prototype.children = [1, 2, 3, 4, 5];
+    Animal.prototype.lol = "wow";
+    Animal.prototype.eat = function () {
+      console.log(`${this.constructor.name} ${this.name} 正在吃饭`);
+    }
+    Animal.prototype.sayHi = function () {
+      console.log(`${this.name} 我今年 ${this.age}岁了 我的性别是 ${this.sex} 我属于 ${this.constructor.name}类`);
+    }
+    console.log(Animal.prototype.constructor); //构造函数
+    console.log(Animal.prototype.constructor.name); //构造函数的name
+    let animal = new Animal("jzs", 22, "man");
+    animal.sayHi();
+    animal.eat();
+    //
+    function Cat(name, age, sex, color = "red") {
+      Animal.call(this, name, age, sex);
+      this.color = color;
+    }
+    Cat.prototype = new Animal();
+    Cat.prototype.constructor = Cat;
+    let c = new Cat("xiumao", 22, "women");
+    console.log(c);
+    c.sayHi();
+    c.eat();
+
+    function Pig (name = "peiqi", age = 1, weight = 100, sex = "mother") {
+      Animal.call(this, name, age, sex);
+      this.weight = weight;
+    }
+    Pig.prototype = new Animal();
+    Pig.prototype.constructor = Pig;
+    let p = new Pig();
+    console.log(p.children); //[1,2,3,4,5]
+    console.log(p.lol); //"wow"
+  </script>
+</body>
+
+</html>

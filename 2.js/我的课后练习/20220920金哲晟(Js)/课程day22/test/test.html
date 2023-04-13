@@ -1,0 +1,43 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-09-20 18:03:55
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-09-20 18:17:43
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>insertBefore cloneNode</title>
+</head>
+<body>
+  <div class="nav">
+    <h3>标题</h3>
+    <ul class="list">
+      <li>1</li>
+      <li>2</li>
+      <li>3</li>
+    </ul>
+    <ul class="list">
+      <li>1</li>
+      <li>2</li>
+      <li>3</li>
+    </ul>
+  </div>
+  <script>
+    var oH3 = document.querySelector("h3");
+    var aList = document.querySelectorAll(".list");
+    // for (var i = 0; i < aList.length; i++) {
+    //   aList[i].insertBefore(oH3, aList[i].firstElementChild);
+    // }
+    aList[0].insertBefore(oH3, aList[0].firstElementChild);
+    var newNode = document.createElement("h2");
+    var cloneNode = newNode.cloneNode();
+    cloneNode.innerText = "好吃捏";
+    aList[1].insertBefore(cloneNode, aList[1].firstElementChild);
+  </script>
+</body>
+</html>

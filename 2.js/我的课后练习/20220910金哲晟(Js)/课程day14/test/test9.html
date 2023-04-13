@@ -1,0 +1,66 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-09-10 17:25:06
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-09-10 17:29:47
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>this指向</title>
+</head>
+<body>
+  <script>
+    var name = '李四';
+
+    var obj = {
+      name: '张三',
+      speak: function () {
+        console.log(this.name); //张三
+        showName();
+      }
+    }
+
+    obj.speak();
+
+    function showName() {
+      console.log(this.name); //李四
+    }
+
+    /*
+      window.name = '李四';
+
+      函数内的this指向 调用函数方法的主体对象
+
+      对象.方法(); //方法内的this指向 .之前的对象
+
+      函数(); //this => window
+
+      谁调用的showName? 谁.showName()? 找不到这个谁的时候 谁=>window
+
+
+      在函数调用的时候 是谁调用的 this指向谁 不看作用域 不看函数是谁的
+    */
+
+    var obj1 = {
+      name: '张三',
+      eat: function () {
+        console.log(this.name); //'张三'
+      }
+    }
+
+    var obj2 = {
+      name: '李四',
+      eat: function () {
+        console.log(this.name);
+      }
+    }
+
+    obj1.eat();
+  </script>
+</body>
+</html>

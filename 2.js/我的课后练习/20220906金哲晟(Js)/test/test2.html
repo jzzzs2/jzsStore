@@ -1,0 +1,42 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>arguments 所有实参形成的 伪数组  没有数组方法</title>
+</head>
+<body>
+  <script>
+    function getSum(first,second) {
+      console.log(first);
+      console.log(second);
+      var sum = 0;
+      for(var i = 0; i < arguments.length; i++) {
+        sum += arguments[i];
+      }
+      return sum;
+    }
+    console.log(getSum(2, 9, 11, 18, 20)); //60
+    function getMax() {
+      var max = arguments[0];
+      for(var i = 0; i < arguments.length; i++) {
+        if(arguments[i] > max) {
+          max = arguments[i];
+        }
+      }
+      return max;
+    }
+    console.log(getMax(2, 4, 9, 1, 14, 19)); //19
+    function getMin() {
+      var min = arguments[0];
+      for(var i = 0; i < arguments.length; i++) {
+        if(min > arguments[i]) {
+          min = arguments[i];
+        }
+      }
+      return min;
+    }
+    console.log(getMin(2, 9, 11, 5, 9)); //2
+  </script>
+</body>
+</html>

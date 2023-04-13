@@ -1,0 +1,45 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-09-26 20:45:37
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-09-26 21:43:24
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>元素属性</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    .box {
+      position: absolute;
+      width: 500px;
+      height: 500px;
+      padding: 20px;
+      border: 10px solid #999;
+      background-color: yellow;
+    }
+
+    p {
+      margin: 30px;
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <p>可爱捏</p>
+  </div>
+  <script>
+    var ele = document.querySelector("p");
+    console.log(ele.offsetLeft); // 左上角相对于定位父级的距离
+    console.log(ele.offsetTop);
+  </script>
+</body>
+</html>

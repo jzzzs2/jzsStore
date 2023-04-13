@@ -1,0 +1,32 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>&& ||</title>
+</head>
+<body>
+  <script>
+    console.log(true && "失败了捏"); //失败了捏
+    console.log(5 && 2); //2
+    console.log(false && 2); //false
+    console.log(0 && 1); //0
+    console.log("" && 2); //""
+    console.log(undefined && 2); //undefined
+    console.log(null && 2); //null
+    console.log(1 || "HAHA"); //1
+    console.log(2 || "hehe"); //2
+    console.log(undefined || 2); //2
+    console.log(null  || 3); //3
+    console.log("" || 4); //4
+    console.log(false || 5); //5
+    console.log(0 || 6); //6
+    console.log(!false); //true
+    console.log(!undefined); //true
+    console.log(!0); //true
+    console.log(!null); //true
+    console.log(!""); //true
+    console.log(!55); //false
+  </script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>变量规则</title>
+</head>
+<body>
+  <script>
+    //1.未声明直接使用变量 报错
+    // var n = 22;
+    // console.log(n);
+    //2.变量未声明直接赋值 js解释器进行隐式声明
+    // var p = 20;
+    // p = 10;
+    // console.log(p);
+    //.3.重复声明,只有第一次声明有效,但非第一次声明带有的赋值操作都有效。
+    // var p = 20;
+    // var p = 16;
+    // console.log(p);
+    //4.批量声明
+    // var one, two, three, four, five = "food";
+    // console.log(one);
+    // console.log(two);
+    // console.log(three);
+    // console.log(four);
+    // console.log(five);
+    //5.隐式声明
+    // var a = b = c = d = 5;
+    // console.log(a, b, c, d);
+    // 6.变量提升
+    // console.log(num);
+    // var num = "我是num";
+    // console.log(num);
+  </script>
+</body>
+</html>

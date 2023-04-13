@@ -1,0 +1,51 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-10-23 12:10:09
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-10-23 12:25:33
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>原型继承 多重</title>
+</head>
+<body>
+  <script>
+    function Person (name, age = "22", sex = "man") {
+      this.name = name;
+      this.age = age;
+      this.sex = sex;
+    }
+    function Man (xp, length) {
+      this.xp = xp;
+      this.length = length;
+    }
+    Man.prototype.do = function () {
+      console.log(`${this.name} 喜欢 do`);
+    }
+    Person.prototype.eat = function () {
+      console.log(`${this.name} 爱吃 垃圾food`);
+    }
+    Person.prototype.sleep = function () {
+      console.log(`${this.name} 在睡觉捏`);
+    }
+    function Student (name,grade,xp,length) {
+      Person.call(this,name);
+      Man.call(this,xp,length);
+      //属性继承
+      this.grade = grade;
+    }
+    Student.prototype = Object.create(Person.prototype);
+    Object.assign(Student.prototype, Man.prototype);
+    let s = new Student("jzs", "1班", "bigbr", "18");
+    console.log(s);
+    s.eat();
+    s.sleep();
+    s.do();
+  </script>
+</body>
+</html>

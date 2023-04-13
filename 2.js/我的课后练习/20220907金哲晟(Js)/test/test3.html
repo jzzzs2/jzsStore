@@ -1,0 +1,62 @@
+<!--
+ * @Author: error: git config user.name && git config user.email & please set dead value or install git
+ * @Date: 2022-09-07 17:12:17
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-09-07 17:44:37
+ * @FilePath: \20220907金哲晟(Js)\test\test3.html
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+-->
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>作用域</title>
+</head>
+
+<body>
+  <script>
+    // function getSum(age, name) {
+    //   return age + name;
+    // }
+    // console.log(a);
+    // var a = 2;
+    // function a() {
+    //   console.log("222");
+    // }
+    // ==========================
+    // var num = 10;
+    // fun();
+    // function fun() {
+    //   console.log(num);
+    //   var num = 20;
+    // }
+    //++++++++++++++++++++++++++++++
+    // var a;
+
+    // function f1() {
+    //   var b;
+    //   var a;
+    //   b = 9;
+    //   console.log(a);
+    //   console.log(b);
+    //   a = '123';
+    // }
+    // a = 18
+    // f1();
+    //+++++++++++++++++++++++++++
+    function f1() {
+      var a = b = c = 9;
+      console.log(a);
+      console.log(b);
+      console.log(c);
+    }
+    f1();
+    console.log(c);
+    console.log(b);
+    console.log(a);
+  </script>
+</body>
+
+</html>

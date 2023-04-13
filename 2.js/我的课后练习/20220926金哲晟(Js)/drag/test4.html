@@ -1,0 +1,48 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-09-26 20:22:29
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-09-26 20:44:48
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>视口的属性</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    .box {
+      height: 1200px;
+      background-color: pink;  
+    }
+
+    .cont {
+      height: 400px;
+      background-color: skyblue;
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <div class="cont"></div>
+  </div>
+  <script>
+    console.log([document.documentElement]);
+    console.log([document.body]);
+    console.log(document.documentElement.scrollTop);
+    console.log(document.body.scrollTop,"兼容不好捏");
+    console.log(window.pageYOffset);
+    console.log(window.screenX);
+    console.log(window.screenY);
+    console.log(window.screenTop);
+    console.log(window.screenLeft);
+  </script>
+</body>
+</html>

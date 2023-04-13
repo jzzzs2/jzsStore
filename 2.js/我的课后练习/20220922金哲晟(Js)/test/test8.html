@@ -1,0 +1,87 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-09-22 18:19:22
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-09-22 18:45:32
+-->
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>解绑</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    .content {
+      height: 600px;
+    }
+
+    input {
+      width: 120px;
+      height: 100px;
+      font-size: 26px;
+      cursor: pointer;
+    }
+
+    .operate {
+      display: none;
+      /* display: flex; */
+      justify-content: space-around;
+      width: 400px;
+      height: 400px;
+      margin: 100px auto;
+      box-shadow: 0 0 10px #333;
+    }
+
+    .operate span {
+      height: 60px;
+      padding: 5px 15px;
+      background-color: orange;
+      line-height: 60px;
+      font-size: 18px;
+      cursor: pointer;
+    }
+
+    .operate span:nth-of-type(1) {
+      background-color: #fff;
+      cursor: none;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="content">
+    <input type="button" value="弹出窗口">
+    <div class="operate">
+      <span>我是弹窗</span>
+      <span class="close">点我关闭</span>
+      <span class="print">点我打印您的余额</span>
+    </div>
+  </div>
+  <script>
+    var oBtn = document.querySelector("input");
+    var oWindow = document.querySelector(".operate");
+    var oClose = document.querySelector("span.close");
+    var oPrint = document.querySelector(".print");
+    oBtn.onclick = function (e) {
+      oWindow.style.display = "flex";
+      oClose.onclick = function (e) {
+        oWindow.style.display = "none";
+        oPrint.onclick = null;
+      }
+      oPrint.onclick = function (e) {
+        console.log("我是余额是1000000");
+      }
+    }
+
+  </script>
+</body>
+
+</html>

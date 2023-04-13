@@ -1,0 +1,45 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-09-17 15:16:48
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-09-17 15:35:24
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>dom元素对象属性</title>
+</head>
+<body>
+  <div class="content">
+    <ul class="list">
+      <li class="active good">sdfsdf</li>
+      <li>fsadfs</li>
+      <li>sagadfas</li>
+    </ul>
+    <img src="images/five.JPG" alt="miku" width="716" height="1013" title="mikuSama">
+  </div>
+  <script>
+    var ele = document;
+    var arr = [];
+    arr.push(ele);
+    var aLi = document.querySelectorAll("li");
+    arr.push(aLi);
+    // console.log(arr);
+    var oLi = aLi[0];
+    console.log(oLi.textContent);
+    console.log(oLi.tagName); //LI
+    console.log(oLi.className); //active good
+    console.log(oLi.innerText);
+    console.log(oLi.innerHTML);
+    var oImg = document.querySelector("img");
+    console.log(oImg.title);
+    console.log(oImg.src);
+    console.log(oImg.width);
+    console.log(oImg.alt);
+  </script>
+</body>
+</html>

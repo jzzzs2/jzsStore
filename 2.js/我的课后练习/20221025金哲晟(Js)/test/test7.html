@@ -1,0 +1,44 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-10-25 21:07:23
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-10-25 21:17:55
+-->
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>test</title>
+</head>
+
+<body>
+  <script>
+    // let obj = { name: "jzs" }
+    // let proxyObj = new Proxy(obj, {
+    //   get(target, key, proxy) {
+    //     console.log(target, key, proxy);
+    //   }
+    // })
+    // proxyObj.name;
+    let eat = function (str) {
+      console.log("我喜欢吃" + this.name + str);
+    }
+    let person = {
+      name: "福建人"
+    }
+    let funcProxy = new Proxy(eat, {
+      apply(func, point, args) {
+        //point为undefined
+        console.log(func, point, args);
+        func.call(point, args);
+      }
+    })
+    funcProxy("捏");
+  </script>
+</body>
+
+</html>

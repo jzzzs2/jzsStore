@@ -1,0 +1,131 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-10-18 21:00:00
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-10-18 22:16:27
+-->
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>小球案例</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    .ball {
+      position: absolute;
+      top: 1px;
+      left: 1px;
+      width: 60px;
+      height: 60px;
+      background-color: #999;
+      box-shadow: -8px -8px 4px #333 inset;
+      border-radius: 50%;
+    }
+
+    .ball2 {
+      position: absolute;
+      top: 1px;
+      left: 1px;
+      width: 60px;
+      height: 60px;
+      background-color: #999;
+      box-shadow: -8px -8px 4px #333 inset;
+      border-radius: 50%;
+    }
+
+    .unit {
+      position: absolute;
+      top: 1px;
+      left: 1px;
+      width: 30px;
+      height: 30px;
+      background-color: red;
+      box-shadow: -2px -2px 2px #333 inset;
+    }
+  </style>
+</head>
+
+<body>
+  <script src="./my.js"></script>
+  <div class="ball"></div>
+  <div class="ball"></div>
+  <div class="ball"></div>
+  <div class="ball"></div>
+  <div class="unit"></div>
+  <div class="unit"></div>
+  <div class="unit"></div>
+  <script>
+    let aBall = $$(".ball");
+    let aUnit = $$(".unit");
+    //面向对象版本
+    function Unit(ele, s = 2, deg) {
+      this.ele = ele;
+      this.x = s;
+      this.y = s;
+      this.deg = deg;
+      this.move = function () {
+        if (rowCollision(this.ele)) {
+          this.x = this.x * (-1);
+        }
+        if (coluCollision(this.ele)) {
+          this.y = this.y * (-1);
+        }
+        this.ele.style.left = this.ele.offsetLeft + this.x;
+        this.ele.style.top = this.ele.offsetTop + this.y;
+        this.deg += 2;
+        this.ele.style.transform = `rotate(${this.deg}deg)`;
+      }
+    }
+    function Ball(ele, s = 4) {
+      this.ele = ele;
+      this.x = s;
+      this.y = s;
+      this.move = function () {
+        if (rowCollision(this.ele)) {
+          this.x = this.x * (-1);
+        }
+        if (coluCollision(this.ele)) {
+          this.y = this.y * (-1);
+        }
+        this.ele.style.left = this.ele.offsetLeft + this.x;
+        this.ele.style.top = this.ele.offsetTop + this.y;
+      }
+    }
+    // let ball = new Ball(oBall, 5);
+    // let ball2 = new Ball(twoBall, 3);
+    // let unit = new Unit($(".unit"),2,1);
+    let moveArr;
+    function init () {
+      let ballArr = [].map.call(aBall, item => new Ball(item, ~~(1 + Math.random() * 4)))
+      let utArr = [].map.call(aUnit, item => new Unit(item, ~~(1 + Math.random() * 4), 3))
+      moveArr = ballArr.concat(utArr);
+    }
+    init();
+    let timeOut = setInterval(function () {
+      moveArr.forEach(item => item.move());
+    }, 20);
+    function rowCollision(ele) {
+      if (ele.offsetLeft < 0 || ele.offsetLeft > window.innerWidth - ele.offsetWidth) {
+        return true;
+      }
+      return false;
+    }
+
+    function coluCollision(ele) {
+      if (ele.offsetTop < 0 || ele.offsetTop > window.innerHeight - ele.offsetHeight) {
+        return true;
+      }
+      return false;
+    }
+  </script>
+</body>
+
+</html>

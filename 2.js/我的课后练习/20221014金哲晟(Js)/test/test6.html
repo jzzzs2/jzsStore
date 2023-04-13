@@ -1,0 +1,60 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-10-14 20:43:45
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-10-14 20:44:25
+-->
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>柯理化函数</title>
+</head>
+
+<body>
+  <script>
+    /*function currying(fn) {
+  let args = [].slice.call(arguments,1);
+  console.log(args);
+  
+  let inlay = function () {
+    if (arguments.length === 0) {
+      console.log("here");
+      return fn.apply(this, args);
+    }
+    args.push.apply(args, arguments);
+    return inlay;
+  }
+  
+  return inlay;
+}*/
+    function fn() {
+      return [].reduce.call(arguments, function (acc, curr) {
+        return acc + curr;
+      })
+    }
+    //let result = currying(fn, 4, 6, 12);
+    //console.log(result);
+    //console.log(result(4,5));
+    //console.log(result());
+    function currying(fn) {
+      let args = [].slice.call(arguments, 1);
+      let inlay = function () {
+        if (arguments.length === 0) {
+          return fn.apply(this, args);
+        }
+        args.push.apply(args, arguments);
+        return inlay;
+      }
+      return inlay;
+    }
+    console.log(currying(fn, 2, 5, 6)(8, 5, 4)());
+//currying(fn, 2, 5, 6)(8, 5, 4);
+  </script>
+</body>
+
+</html>

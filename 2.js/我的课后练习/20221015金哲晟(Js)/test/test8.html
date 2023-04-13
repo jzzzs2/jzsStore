@@ -1,0 +1,42 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-10-15 16:31:57
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-10-15 17:00:24
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>解构赋值 多维数组</title>
+</head>
+<body>
+  <script>
+    const colors = ['#FF00FF', [255, 0, 255], 'rgb(255, 0, 255)'];
+    let [color, [red, green, blue], rgb] = colors;
+    console.log(color,red,green,blue,rgb);
+    //
+    let arr = [[1, 2, 3, 4, 5, 6],
+    [1, 2, 3, 4, 5, 6],
+    [1, 2, 3, 4, 5, 6],
+    [1, 2, 3, 4, 5, 6],
+    [1, 2, 3, 4, 5, 6],
+    [1, 2, 3, 4, 5, 6]];
+    // console.log(arr.flat());
+    // console.log(arr);
+    function flatArr (arr) {
+      let newArr = [];
+      // newArr = newArr.concat(...arr);
+      newArr = newArr.concat.apply(newArr,arr);
+      return newArr;
+    }
+    console.log(flatArr(arr));
+    // let otherArr = [2, 3, 5];
+    // console.log(otherArr.concat(2, 5));
+    // console.log(otherArr);
+  </script>
+</body>
+</html>

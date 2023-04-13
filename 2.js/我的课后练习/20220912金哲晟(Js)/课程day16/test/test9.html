@@ -1,0 +1,38 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-09-12 20:13:49
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-09-12 20:27:59
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>note案例</title>
+</head>
+<body>
+  <script>
+    //map 参数为回调,返回一个新数组.
+    // var originArr = [2, 4, 6, 8];
+    // var newArr = originArr.map(function (curr, index, arr) {
+    //   return curr * 2;
+    // })
+    // console.log(newArr);
+    //
+    var kvArray = [{key: 1, value: 10}, 
+               {key: 2, value: 20}, 
+               {key: 3, value: 30}];
+    var result = kvArray.map(function (curr, i, arr) {
+      var obj = {};
+      var key = curr["key"];
+      var value = curr["value"];
+      obj[key] = value;
+      return obj;
+    })
+    console.log(result);
+  </script>
+</body>
+</html>

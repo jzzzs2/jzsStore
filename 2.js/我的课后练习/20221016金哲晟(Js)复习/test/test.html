@@ -1,0 +1,54 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-10-16 12:58:47
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-10-16 13:30:10
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>let const</title>
+</head>
+<body>
+  <script>
+    //let特性 先声明后使用 一个作用域不能重复声明  开启块级作用域,绑定内部声明变量,存在死区
+    // console.log(x);
+    let x;
+    // console.log(x);
+    x = 2;
+    // console.log(x);
+    {
+      // console.log(x);
+      let x = 3;
+      console.log(x);
+    }
+    //const 拥有let的特性以外   声明的同时必须进行赋值  值不能进行修改,当然如果值是对象,对象内部的值是可以修改的   const声明的变量名 一般大写,单词之间用_隔开.
+    const NUM = 22;
+    // NUM = 33;
+    const OBJ = {
+      name: "jzs",
+      age: 22
+    }
+    OBJ.age = 33;
+    OBJ.name = "zjc";
+    console.log(OBJ);
+    //函数在块作用域声明
+    {
+      eat();
+      console.log(eat);
+      function eat() {
+        console.log("keainie");
+      }
+      console.log(eat);
+    }
+    console.log(window.x);
+    console.log(window.y);
+    var z = 222;
+    console.log(window.z);
+  </script>
+</body>
+</html>

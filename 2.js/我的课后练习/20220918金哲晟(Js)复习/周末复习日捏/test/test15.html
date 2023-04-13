@@ -1,0 +1,58 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-09-18 17:56:09
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-09-18 20:12:40
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>字符串方法</title>
+</head>
+<body>
+  <script>
+    var str = "abcdyoy";
+    //1 charAt()
+    console.log(str.charAt(3)); // 'd'
+    console.log(str.charAt()); // 默认是0
+    //2 indexOf()
+    str = "abcdedcba";
+    console.log(str.indexOf("a", -3)); // 0
+    console.log(str.indexOf("abcd", -1)); // 0
+    console.log(str.indexOf("c")); //2
+    // 3 slice()
+    str = "abcdefg";
+    console.log(str.slice(0, 2)); //"ab"
+    console.log(str.slice(-3, -1)); //"ef"
+    console.log(str.slice()); //"abcdefg"
+    // 4 split(分隔符) > arr
+    str = "abcdtabcdtyabcd";
+    console.log(str.split("c"));
+    console.log(str);
+    // 5 lastIndexOf(xx,begin)
+    str = "11abcddefgyopabc";
+    console.log(str.lastIndexOf("a", -1)); // -1
+    console.log(str.lastIndexOf("a", 5)); // 2
+    console.log(str.lastIndexOf("d",-2)); // -1
+    console.log(str.lastIndexOf("1", 2)); // 1
+    //6 substring substr
+    str = "abcdefg";
+    console.log(str.substr(0,3)); //"abc"
+    console.log(str);
+    console.log(str.substring(0,2)); //"ab"
+    console.log(str);
+    //7 replace
+    console.log(str.replace("a", "1"));
+    console.log(str);
+    //8 toUpperCase() toLowerCase()
+    str = "abcABC";
+    console.log(str.toUpperCase());
+    console.log(str.toLowerCase());
+    console.log(str);
+  </script>
+</body>
+</html>

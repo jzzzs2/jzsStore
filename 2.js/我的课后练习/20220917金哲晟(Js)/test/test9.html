@@ -1,0 +1,36 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-09-17 16:16:19
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-09-17 16:39:18
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>自定义属性不在元素对象上 不能通过.属性名方式获取 要通过getAttribute方式 从标签属性获取</title>
+</head>
+<body>
+  <ul id="title" class="ku afa">
+    <li index="0">1</li>
+    <li index="1">2</li>
+    <li index="2">3</li>
+    <li index="3">4</li>
+  </ul>
+  <script>
+    var aLi = document.getElementsByTagName("li");
+    // var oLi = aLi[0];
+    // console.log([oLi]); 
+    // console.log(oLi.getAttribute("index")); //0
+    // console.log(oLi.index); //undefined
+    // console.log(oLi.hasAttribute("index")); //true
+    // console.log(oLi.hasAttribute("top")); //false
+    // console.log(oLi.setAttribute("aa",2));
+    // console.log(document.querySelector("#title").className);
+    console.log(aLi[0].attributes);
+  </script>
+</body>
+</html>

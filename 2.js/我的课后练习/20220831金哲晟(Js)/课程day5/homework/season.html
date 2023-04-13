@@ -1,0 +1,30 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    var month = 1;
+    var season;
+    if (month >= 1 && month <= 12) {
+      if (month >= 3 && month <= 5) {
+        season = "spring";
+      } else if (month >= 6 && month <= 8) {
+        season = "summer";
+      } else if (month >= 9 && month <= 11) {
+        season = "fall";
+      } else {
+        season = "winter";
+      }
+    }
+    console.log(season);
+
+  </script>
+</body>
+
+</html>

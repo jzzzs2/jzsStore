@@ -1,0 +1,45 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-10-08 19:50:49
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-10-08 20:17:34
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>预言模式</title>
+</head>
+<body>
+  <script>
+    //1.先行断言  x(?=y)
+    //2.后行断言  (?<=y)x
+    //3.正向否定  x(?!y)
+    //4.负向否定  (?<!y)x
+    //不返回断言字符 只返回 断言之前字符
+    console.log(/海(?=牙)/.test("海2牙"));
+    console.log("22海牙".match(/海(?=牙)/));
+    console.log(/(?<=\d+\.)\d+/.test("222"));
+    console.log(/(?<=\d+\.)\d+/.test("22.2"));
+    console.log("22.233".match(/(?<=\d+\.)\d+/));
+    console.log("22.233".match(/(?<=\d+)\.\d+/));
+    console.log("10.13".match(/(?<=[1-9]\d*\.)(\d+)/));
+    //正向否定查询
+    console.log("22海2牙可爱捏".match(/\w+海(?!牙)/)); //海
+    console.log(/海(?!牙)/.test("海牙"));
+    console.log(/海(?!牙)/.test("海2牙"));
+    //反向否定查询
+    console.log(/(?<!海)牙/.test("海牙")); //false
+    console.log("海2牙".match(/(?<!海)牙/)); //牙
+    //捕获和非捕获
+    var regExp = /(abc)(?:\d+)/;
+    console.log("abc222".match(regExp));
+    console.log("abc222".replace(regExp,"bbc"));
+    console.log("abc222".replace(regExp,"$1"));
+    console.log("abc222".replace(regExp,"$1$2"));
+  </script>
+</body>
+</html>

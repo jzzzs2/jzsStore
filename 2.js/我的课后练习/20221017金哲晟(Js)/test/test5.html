@@ -1,0 +1,93 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-10-17 18:16:26
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-10-17 19:26:56
+-->
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>箭头函数 =></title>
+</head>
+
+<body>
+  <script>
+    const S = {
+      num: 10
+    }
+
+    const U = {
+      showNum: function () {
+        console.log(this.num);
+      }
+    }
+
+    const O = {
+      num: 0,
+      timer: 0,
+      clock: function () {
+        let that = this;
+        clearInterval(this.timer);
+        this.timer = setInterval(() => {
+          this.num++;
+          U.showNum.call(this);
+        }, 100);
+      }
+    }
+    // O.clock();
+
+    //计算字符串中各个字符出现次数
+    let result = 'fasdfjkljasklfjgaskldjgklajkldgas';
+    // console.log(result.split(""));
+    let newArr = result.split("");
+    // for (let i = 0; i < arr.length; i++) {
+    //   obj[arr[i]]++ || (obj[arr[i]] = 1);
+    // }
+    // console.log(obj);
+    function getTypes(arr) {
+      return arr.reduce(function (acc, curr, i) {
+        // console.log(acc[curr]);
+        // if (acc[curr]) {
+        //   acc[curr]++;
+        // } else {
+        //   acc[curr] = 1;
+        // }
+        acc[curr]++ || (acc[curr] = 1);
+        return acc;
+      }, {})
+    }
+    // console.log(getTypes(newArr));
+    result = [].reduce.call(result,(acc,item) => (acc[item]++ || (acc[item] = 1),acc), {});
+    console.log(result);
+    //箭头函数
+    //单参数 参数 => 函数体
+    //多个参数 (参数1,参数2) => 函数体
+    //返回值 多条语句 {}  必须写return
+    //返回值  多条语句 (表达式1,表达式2,表达式3) 返回小括号中最后一条语句或者变量的值
+    //返回值 单条语句 可以加小括号或者不加小括号
+    //
+    let f1 = (p1, p2) => p1 + p2;
+    console.log(f1(2, 4)); //6
+    f1 = p1 => p1 * 2;
+    console.log(f1(2)); //4
+    f1 = () => 6;
+    console.log(f1()); //6
+    f1 = (p1, p2) => (p1 = p1 * 2, p1 + p2);
+    console.log(f1(2,6)); //10
+    f1 = (p1, p2) => {
+      p1 = p1 * 3;
+      p2 = p2 * 3;
+      return p1 + p2;
+    }
+    console.log(f1(2, 2)); //12
+    f1 = (a, b) => (console.log(a,b),a + b);
+    console.log(f1(99, 1));
+  </script>
+</body>
+
+</html>

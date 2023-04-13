@@ -1,0 +1,44 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-09-25 13:51:13
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-09-25 14:04:40
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>获取相关节点操作</title>
+</head>
+<body>
+  <h2 class="title">可爱捏</h2>
+  <ul class="list">
+    <li class="one">1</li>
+    <li class="two">2</li>
+    <li class="three">3</li>
+  </ul>
+  <div class="wrap">
+    <p class="one"><span>page1</span>2</p>
+    <p class="two">page2</p>
+    <p class="three">page3</p>
+  </div>
+  <script>
+    var oP = document.querySelector("p.one");
+    console.log(oP.childNodes);
+    console.log(oP.parentNode);
+    console.log(oP.firstChild);
+    console.log(oP.lastChild);
+    console.log(oP.nextSibling);
+    console.log(oP.previousSibling);
+    // console.log(oP.children);
+    // console.log(oP.parentElement);
+    // console.log(oP.nextElementSibling);
+    // console.log(oP.previousElementSibling);
+    // console.log(oP.firstElementChild);
+    // console.log(oP.lastElementChild);
+  </script>
+</body>
+</html>

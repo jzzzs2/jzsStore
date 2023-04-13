@@ -1,0 +1,119 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-10-26 18:46:28
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-10-26 20:28:50
+-->
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Promise</title>
+</head>
+
+<body>
+  <script>
+    //Promise对象,异步操作的容器,new一个Promise对象,会立即执行它内部的函数
+    // function createImg(src) {
+    //   return new Promise(function (resolve,reject) {
+    //     let img = document.createElement("img");
+    //     img.src = src;
+    //     let time = Date.now();
+    //     img.onload = function (e) {
+    //       // resolve(src);
+    //       resolve(Date.now() - time);
+    //     }
+    //     img.onerror = function (e) {
+    //       reject(Date.now() - time);
+    //     }
+    //   }).then(function (succ) {
+    //     console.log("成功加载了图片用时" + succ + "ms");
+    //     return "赛高";
+    //   },function (fail) {
+    //     console.log("加载图片失败了用时" + fail + "ms");
+    //     return "赞内";
+    //   })
+    // }
+    function createImg(src) {
+      return new Promise(function (resolve, reject) {
+        let img = document.createElement("img");
+        img.src = src;
+        let time = Date.now();
+        img.onload = function (e) {
+          // resolve(src);
+          resolve(Date.now() - time);
+        }
+        img.onerror = function (e) {
+          reject(Date.now() - time);
+        }
+      })
+    }
+    function getRandow() {
+      return new Promise(function (resolve, reject) {
+        let num = Math.random() * 2;
+        setTimeout(() => {
+          if (num >= 1) {
+            resolve("success");
+          } else {
+            reject("fail");
+          }
+        }, 1000);
+      })
+    }
+    let oneUrl = "https://c-ssl.dtstatic.com/uploads/item/201211/10/20121110131920_jVAJk.thumb.1000_0.jpeg";
+    let twoUrl = "./images/2.jpg";
+    let threeUrl = "./images/1.png";
+    //***
+    let promise = createImg(oneUrl);
+    promise.then(function (succ) {
+      console.log("获取到了图一捏");
+      return createImg(twoUrl);  
+    }).then(function (str) {
+      console.log("获取到了图二捏");
+      return getRandow();
+    }).then(function () {
+      console.log("获取到了1以上的数据捏");
+      console.log("通关了 全部获取到了捏");
+    },function () {
+      console.log("出错了 可惜了捏 没有全部获取到");
+    })
+    //***
+    // let result = createImg(oneUrl);
+    // console.log(result);
+    // getRandow();
+    // function getRandow() {
+    //   return new Promise(function (resolve, reject) {
+    //     let num = Math.random() * 2;
+    //     setTimeout(() => {
+    //       if (num >= 1) {
+    //         resolve("success");
+    //       } else {
+    //         reject("fail");
+    //       }
+    //     }, 2000);
+    //   }).then(function (succ) {
+    //     console.log("500 " + succ);
+    //   }, function (fail) {
+    //     console.log("404 " + fail);
+    //   })
+    // }
+    let p2 = new Promise(function (resolve, reject) {
+      // resolve("sucee");
+      reject("fail");
+    })
+    p2.then(function (succ) {
+      console.log(succ);
+    },function (fail) {
+      console.log(fail);
+    })
+    p2.catch(function (fail) {
+      console.log(fail);
+    })
+  </script>
+</body>
+
+</html>

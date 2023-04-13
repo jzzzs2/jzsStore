@@ -1,0 +1,65 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-10-23 13:00:05
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-10-23 20:48:46
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Object 方法</title>
+</head>
+<body>
+  <script>
+    let obj = {
+      name: "jzs",
+      age: 22,
+      eat() {
+        console.log(`${this.name} 可爱捏`);
+      }
+    }
+    //1.Object.preventExrensions
+    // Object.preventExtensions(obj);
+    // delete obj.age;
+    // obj.name = "zjc";
+    // obj.age = 99;
+    // obj.newPro = "hh";
+    // console.log(obj);
+    // console.log(Object.isExtensible(obj)); //false
+    //2.Object.entries(obj) 对象转为二维数组
+    // let arr = Object.entries(obj);
+    Object.defineProperties(obj, {
+      name: {
+        enumerable: false
+      },
+      eat: {
+        enumerable: false
+      }
+    })
+    let arr = Object.entries(obj);
+    console.log(arr); // [[name,jzs],[age,22],[eat,function(){}]]
+    console.log(Object.fromEntries(arr)); //{name:jzs,age:22,eat:function(){}}
+    for (let key in obj) {
+      console.log(key,"in");
+    }
+    function Person (name, age) {
+      this.name = name;
+      this.age = age;
+    }
+    Person.prototype.type = "555";
+    Object.defineProperty(Person.prototype,"type",{
+      enumerable: false
+    });
+    let p = new Person("jzs", 22);
+    console.log(p);
+    for(let key in p) {
+      console.log(key);
+    }
+    
+  </script>
+</body>
+</html>

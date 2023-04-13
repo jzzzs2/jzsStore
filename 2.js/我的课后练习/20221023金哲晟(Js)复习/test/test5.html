@@ -1,0 +1,32 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-10-23 11:51:05
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-10-23 11:57:06
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>原型方法</title>
+</head>
+<body>
+  <script>
+    function Person (age) {
+      this.age = age;
+    }
+    let p = new Person("22");
+    Person.prototype.name = "wosiyuanxing";
+    console.log(Person.prototype.isPrototypeOf(p)); //true
+    console.log(Object.getPrototypeOf(p)); //
+    console.log(p.hasOwnProperty("name")); //false
+    console.log(p.hasOwnProperty("age")); //true
+    console.log("name" in p);
+    console.log("age" in p);
+    console.log("eat" in p); //false
+  </script>
+</body>
+</html>

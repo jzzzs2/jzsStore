@@ -1,0 +1,57 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-09-22 20:31:33
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-09-22 20:35:59
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>冒泡</title>
+  <style>
+    .content {
+      width: 800px;
+      height: 600px;
+      background-color: red;
+    }
+
+    .one {
+      width: 500px;
+      height: 400px;
+      background-color: blue;
+    }
+
+    .two {
+      width: 300px;
+      height: 200px;
+      background-color: pink;
+    }
+  </style>
+</head>
+<body>
+  <div class="content">
+    <div class="one">
+      <div class="two"></div>
+    </div>
+  </div>
+  <script>
+    var oCon = document.querySelector(".content");
+    var oOne = document.querySelector(".one");
+    var oTwo = document.querySelector(".two");
+    oCon.onclick = function (e) {
+      console.log("Con");
+    }
+    oOne.onclick = function (e) {
+      e.stopPropagation();
+      console.log("One");
+    }
+    oTwo.onclick = function (e) {
+      console.log("Two");
+    }
+  </script>
+</body>
+</html>

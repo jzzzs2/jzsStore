@@ -1,0 +1,53 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-09-17 14:57:28
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-09-17 15:10:43
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>获取元素对象</title>
+</head>
+<body>
+  <div id="nav">
+    <h3>小标题捏</h3>
+  </div>
+  <p class="page">可爱捏Miku</p>
+  <h2 class="title first">我是标题捏</h2>
+  <ul class="list">
+    <li>1</li>
+    <li class="active">2</li>
+    <li>3</li>
+    <li>4</li>
+  </ul>
+  <script>
+    var aP = document.getElementsByClassName("page");
+    console.log(aP[0]);
+    console.log(aP.length);
+    var oDiv = document.getElementById("nav");
+    console.log(oDiv);
+    console.log(oDiv.innerText);
+    console.log(oDiv.textContent);
+    console.log(oDiv.innerHTML);
+    var aLi = document.getElementsByTagName("li");
+    console.log(aLi);
+    var oUl = document.querySelector("ul");
+    console.log(oUl);
+    var aH2 = document.getElementsByClassName("title first");
+    console.log(aH2);
+    console.log(aH2[0].innerText);
+    aH2 = document.querySelectorAll(".title.first");
+    console.log(aH2);
+    console.log(aH2.length);
+    console.log(aH2[0]);
+    console.log(aH2.item(0));
+    var oBody = document.querySelector("body");
+    console.log(oBody);
+  </script>
+</body>
+</html>

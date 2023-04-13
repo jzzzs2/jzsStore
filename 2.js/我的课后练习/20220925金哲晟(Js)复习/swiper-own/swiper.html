@@ -1,0 +1,191 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-09-25 09:50:23
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-09-25 10:41:32
+-->
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>swiper</title>
+  <script src="./my.js"></script>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .swiper {
+      /* display: flex; */
+      /* align-items: center; */
+      position: relative;
+      width: 460px;
+      height: 600px;
+      box-shadow: 0 0 10px #222;
+    }
+
+    img {
+      display: none;
+      width: 460px;
+      height: 600px;
+    }
+
+    .btn span {
+      position: absolute;
+      box-sizing: border-box;
+      width: 80px;
+      height: 160px;
+      padding: 0 30px;
+      background-color: rgba(200, 200, 200, .6);
+      line-height: 160px;
+      font-size: 20px;
+      color: rgb(8, 107, 107);
+      cursor: pointer;
+    }
+
+    .btn span:hover {
+      background-color: rgba(200, 200, 200, .9);
+      color: #fff;
+    }
+
+    .pre {
+      top: 240px;
+      left: 0;
+    }
+
+    .next {
+      top: 240px;
+      right: 0;
+    }
+
+
+    .slider {
+      position: absolute;
+      bottom: 20px;
+      display: flex;
+      justify-content: space-around;
+      width: 460px;
+    }
+
+    .slider span {
+      box-sizing: border-box;
+      width: 40px;
+      height: 40px;
+      background-color: yellowgreen;
+      font-size: 16px;
+      line-height: 40px;
+      color: #222;
+      text-align: center;
+      border-radius: 20px 20px;
+    }
+
+    body .active {
+      background-color: cyan;
+      color: #222;
+    }
+
+    .show {
+      display: block;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="swiper">
+    <img src="./images/1.JPG" alt="miku" class="show">
+    <img src="./images/2.JPG" alt="miku">
+    <img src="./images/3.JPG" alt="miku">
+    <img src="./images/4.png" alt="miku">
+    <img src="./images/5.JPG" alt="miku">
+    <div class="btn">
+      <span class="pre">&lt;</span>
+      <span class="next">&gt;</span>
+    </div>
+    <div class="slider">
+
+    </div>
+  </div>
+  <script>
+    var aImg = $$("img");
+    var oSwiper = $(".swiper");
+    var aBtn = $(".btn");
+    var aSlide = $(".slider");
+    var len = aImg.length;
+    var slideIndex = 0;
+    var obj = {
+      "pre": function () {
+        slideIndex--;
+        slideIndex = (slideIndex + len) % len;
+      },
+      "next": function () {
+        slideIndex++;
+        slideIndex = slideIndex % len;
+      }
+    }
+    aBtn.addEventListener("click", function (e) {
+      if (e.target.tagName === "SPAN") {
+        changeSlide(obj[e.target.className]);
+      }
+    })
+
+    aSlide.addEventListener("mouseover", function (e) {
+      if (e.target.tagName === "SPAN") {
+        changeSlide(function () {
+          slideIndex = getIndexInParent(e.target);
+        })
+      }
+    })
+
+    aSlide.addEventListener("mouseout", function (e) {
+      // aSlide.children[slideIndex].classList.remove("active");
+    })
+
+    function preIndex() {
+      slideIndex--;
+      slideIndex = (slideIndex + len) % len;
+    }
+
+    function nextIndex() {
+      slideIndex++;
+      slideIndex = slideIndex % len;
+    }
+
+    function currIndex(ele) {
+      slideIndex = getIndexInParent(ele);
+    }
+
+    function changeSlide(callback) {
+      aImg[slideIndex].classList.remove("show");
+      aSlide.children[slideIndex].classList.remove("active");
+      callback();
+      aImg[slideIndex].classList.add("show");
+      aSlide.children[slideIndex].classList.add("active");
+    }
+    //
+    function createSlide() {
+      var wrap = document.createDocumentFragment();
+      for (var i = 0; i < len; i++) {
+        var sp = document.createElement("span");
+        if (i === 0) {
+          sp.classList.add("active");
+        }
+        sp.innerText = i + 1;
+        wrap.appendChild(sp);
+      }
+      aSlide.appendChild(wrap);
+    }
+    createSlide();
+  </script>
+</body>
+</html>

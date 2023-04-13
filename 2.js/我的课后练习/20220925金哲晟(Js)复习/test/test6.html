@@ -1,0 +1,29 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-09-25 17:20:05
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-09-25 17:22:19
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>减少重绘 文档片段保持内容 最后一天添加</title>
+</head>
+<body>
+  <ul class="list">
+  </ul>
+  <script>  
+    var fragment = document.createDocumentFragment();
+    fragment.appendChild(document.createElement("li"));
+    fragment.appendChild(document.createElement("li"));
+    fragment.appendChild(document.createElement("li"));
+    fragment.appendChild(document.createElement("li"));
+    var oList = document.querySelector(".list");
+    oList.appendChild(fragment);
+  </script>
+</body>
+</html>

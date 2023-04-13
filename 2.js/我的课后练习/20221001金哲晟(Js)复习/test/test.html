@@ -1,0 +1,58 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-10-01 11:16:00
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-10-01 11:47:19
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>复习  获取元素</title>
+  <style>
+    .box {
+      width: 300px;
+      height: 300px;
+      background-color: skyblue;
+    }
+
+    
+  </style>
+</head>
+<body>
+  <div class="box test red" id="nav">
+  <div class="box">
+  </div>
+  <script>
+    var oBox = document.querySelector(".box");
+    var aBox = document.body.querySelectorAll(".box");
+    console.log(oBox);
+    console.log(aBox);
+    oBox = document.getElementById("nav");
+    aBox = document.getElementsByTagName("div");
+    console.log(oBox);
+    console.log(aBox[0]);
+    console.log(aBox.nav);
+    aBox = document.getElementsByClassName("box");
+    // console.log(aBox);
+    // console.log(aBox.nav);
+    // console.log(oBox.classList);
+    // console.log(oBox.classList[0]);
+    // console.log(oBox.classList.length);
+    // console.log(oBox.classList.value);
+    // console.log(oBox.classList["0"]); // 类对象数组
+    // console.log(oBox.classList[0]);
+    // console.log(oBox.classList[3]);
+    // console.log([document]);
+    // console.log([document.documentElement]);
+    console.log(oBox.classList);
+    for (var key in oBox.classList) {
+      console.log(key,oBox.classList[key]);
+    }
+    oBox.classList.add("active");
+  </script>
+</body>
+</html>

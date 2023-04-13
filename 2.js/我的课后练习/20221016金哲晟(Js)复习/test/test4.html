@@ -1,0 +1,50 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-10-16 14:24:32
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-10-16 17:43:06
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>解构赋值</title>
+</head>
+<body>
+  <script>
+    let {x, y} = {x: 22, y: 66};
+    console.log(x, y);
+    let [, m, n] = [1, 3, 4];
+    console.log(m, n);
+    let obj = {
+      name: "jzs",
+      son: [
+        "lion",
+        "tiger",
+        "bear"
+      ]
+    }
+    let {
+      son: [,,b]
+    } = obj;
+    console.log(b);
+    let objArr = [
+      {
+        name: "jzs",
+        age: 22
+      },
+      {
+        name: "zjc",
+        age: 33
+      }
+    ]
+    let [,{
+      name: na = "none"
+    }] = objArr;
+    console.log(na);
+  </script>
+</body>
+</html>

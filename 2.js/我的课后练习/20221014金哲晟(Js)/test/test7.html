@@ -1,0 +1,42 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-10-14 20:44:34
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-10-14 20:45:18
+-->
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>闭包</title>
+</head>
+
+<body>
+  <script>
+    function fn() {
+      let num = 20;
+      return function () {
+        num++;
+        console.log(num);
+      }
+    }
+    //fn()();
+    //fn()();
+    let func = fn();
+    func();
+    func();
+    func();
+    func();
+    fn()();
+    func();
+    let twoFunc = fn();
+    twoFunc();
+    twoFunc();
+  </script>
+</body>
+
+</html>

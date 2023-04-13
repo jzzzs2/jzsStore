@@ -1,0 +1,213 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-10-10 15:37:58
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-10-10 17:30:23
+-->
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>拖拽</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .wrap {
+      position: relative;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      align-content: space-around;
+      width: 800px;
+      height: 600px;
+      border: 1px solid #999;
+    }
+
+    img {
+      width: 220px;
+      height: 160px;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    .top {
+      z-index: 99;
+    }
+
+    .animate {
+      transition: .5s linear;
+    }
+
+    span {
+      box-shadow: 0 0 6px #333;
+    }
+  </style>
+  <script src="../轮播/js/my.js"></script>
+</head>
+
+<body>
+  <div class="wrap">
+    <span class="item">
+      <img src="./images/1.jpg" alt="miku">
+    </span>
+    <span class="item">
+      <img src="./images/2.jpg" alt="miku">
+    </span>
+    <span class="item">
+      <img src="./images/3.jpg" alt="miku">
+    </span>
+    <span class="item">
+      <img src="./images/4.jpg" alt="miku">
+    </span>
+    <span class="item">
+      <img src="./images/5.jpg" alt="miku">
+    </span>
+    <span class="item">
+      <img src="./images/6.jpg" alt="miku">
+    </span>
+    <span class="item">
+      <img src="./images/7.jpg" alt="miku">
+    </span>
+    <span class="item">
+      <img src="./images/8.jpg" alt="miku">
+    </span>
+    <span class="item">
+      <img src="./images/9.jpg" alt="miku">
+    </span>
+  </div>
+  <script>
+    var aItem = $$(".item");
+    var iWidth = aItem[0].offsetWidth;
+    var iHeight = aItem[0].offsetHeight;
+    var oWrap = $(".wrap");
+    var positionArr = [];
+    var len = aItem.length;
+    var infoMap = {
+      target: null,
+      collision: null,
+      lock: true,
+      isAnimate: false,
+      vDom: [],
+      position: {
+        mouseLeft: 0,
+        mouseTop: 0,
+        eleLeft: 0,
+        eleTop: 0
+      },
+      mousedown: function (e) {
+        this.target = e.target;
+        this.target.classList.add("top");
+        this.target.classList.remove("animate");
+        this.lock = false;
+        this.position.mouseLeft = e.clientX;
+        this.position.mouseTop = e.clientY;
+        this.position.eleLeft = this.target.offsetLeft;
+        this.position.eleTop = this.target.offsetTop;
+      },
+      mousemove: function (e) {
+        if (!this.lock) {
+          var _x = e.clientX - this.position.mouseLeft;
+          var _y = e.clientY - this.position.mouseTop;
+          this.target.style.left = this.position.eleLeft + _x + "px";
+          this.target.style.top = this.position.eleTop + _y + "px";
+          if (isCollision(e) && !this.isAnimate) {
+            translate();
+          }
+        }
+      },
+      mouseup: function (e) {
+        this.target.style.left = positionArr[getFinalIndex()].left + "px";
+        this.target.style.top = positionArr[getFinalIndex()].top + "px";
+        this.target = null;
+        this.collision = null;
+        this.lock = true;
+
+      }
+    }
+    oWrap.addEventListener("mousedown", function (e) {
+      if (e.target.tagName.toLowerCase() === "span") {
+        infoMap[e.type](e);
+      }
+    })
+    oWrap.addEventListener("mousemove", function (e) {
+      if (e.target.tagName.toLowerCase() === "span") {
+        infoMap[e.type](e);
+      }
+    })
+    oWrap.addEventListener("mouseup", function (e) {
+      if (e.target.tagName.toLowerCase() === "span") {
+        infoMap[e.type](e);
+      }
+    })
+    function init() {
+      for (var i = 0; i < len; i++) {
+        var obj = {};
+        obj.top = aItem[i].offsetTop;
+        obj.left = aItem[i].offsetLeft;
+        positionArr.push(obj);
+        infoMap.vDom.push(aItem[i]);
+      }
+      for (var i = 0; i < len; i++) {
+        aItem[i].style.position = "absolute";
+        aItem[i].style.left = positionArr[i].left;
+        aItem[i].style.top = positionArr[i].top;
+      }
+    }
+    init();
+    function isCollision(e) {
+      for (var i = 0; i < len; i++) {
+        if (e.target !== infoMap.vDom[i]) {
+          var mLeft = e.clientX - oWrap.offsetLeft;
+          var mTop = e.clientY - oWrap.offsetTop;
+          var l = infoMap.vDom[i].offsetLeft;
+          var r = l + iWidth;
+          var t = infoMap.vDom[i].offsetTop;
+          var b = t + iHeight;
+          if (mLeft > l && mLeft < r && mTop > t && mTop < b) {
+            infoMap.collision = infoMap.vDom[i];
+            return true;
+          }
+        }
+      }
+      return false;
+    }
+
+    function translate() {
+      infoMap.isAnimate = true;
+      var targetIdx = infoMap.vDom.indexOf(infoMap.target);
+      var collisionIdx = infoMap.vDom.indexOf(infoMap.collision);
+      infoMap.vDom.splice(targetIdx, 1);
+      console.log(infoMap.target);
+      infoMap.vDom.splice(collisionIdx, 0, infoMap.target);
+      for (var i = 0; i < len; i++) {
+        if (infoMap.vDom[i] !== infoMap.target) {
+          infoMap.vDom[i].classList.add("animate");
+          infoMap.vDom[i].style.left = positionArr[i].left + "px";
+          infoMap.vDom[i].style.top = positionArr[i].top + "px";
+        }
+      }
+      setTimeout(function () {
+        infoMap.isAnimate = false;
+      }, 500)
+    }
+
+    function getFinalIndex() {
+      return infoMap.vDom.indexOf(infoMap.target);
+    }
+  </script>
+</body>
+
+</html>

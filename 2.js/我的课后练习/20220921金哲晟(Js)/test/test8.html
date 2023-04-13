@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>事件和渲染 模板</title>
+  <style>
+    body {
+      background-color: #f5f5f5;
+      user-select: none;
+    }
+
+    ul {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      list-style: none;
+      width: 960px;
+    }
+
+    li {
+      width: 234px;
+      height: 300px;
+      margin-left: 20px;
+      padding: 10px;
+      background-color: #fff;
+      text-align: center;
+    }
+
+    .red {
+      color: #ff0084;
+    }
+
+    .pic {
+      width: 160px;
+      height: 160px;
+    }
+
+    .title {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 42px;
+    }
+
+    .desc {
+      width: 180px;
+      height: 18px;
+      font-size: 12px;
+      color: #b0b0b0;
+      text-align: center;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
+
+    }
+
+    .price {
+      font-size: 12px;
+      color: #444;
+      line-height: 28px;
+    }
+  </style>
+</head>
+
+<body>
+  <ul id="list">
+  </ul>
+  <script>
+    /*
+    
+      数据 + 模板 + 渲染行为 = 动态渲染内容
+    
+    */
+
+    var responseData = [
+      {
+        title: '腾讯黑鲨3S',
+        des: '骁龙865处理器，120Hz刷新率',
+        price: '3999',
+        picSrc: './images/1.JPG'
+      },
+      {
+        title: '小米10 青春版 5G',
+        des: '50倍潜望式变焦 / 轻薄5G手机',
+        price: '1899',
+        picSrc: './images/2.JPG'
+      },
+      {
+        title: '小米10',
+        des: '骁龙865/1亿像素相机',
+        price: '3699',
+        picSrc: './images/3.JPG'
+      },
+      {
+        title: 'Redmi 9A',
+        des: '5000mAh长循环大电量，6.53"超大护眼屏幕',
+        price: '499',
+        picSrc: './images/4.JPG'
+      }
+    ];
+    
+    function getAllLi (dataArr) {
+      return dataArr.reduce(function (acc, curr, i, arr) {
+        acc += `<li> 
+                <img class="pic"
+                  src="${curr.picSrc}"
+                  alt="${curr['title']}" width="200" height="200">
+                <h3 class="title">${curr['title']}</h3>
+                <p class="desc">${curr.des}</p>
+                <p class="price"><span class="red">${curr.price}</span>元起</p>
+              </li>`;
+        return acc;
+      },"")
+    }
+    var oUl = document.querySelector("ul");
+    oUl.innerHTML = getAllLi(responseData);
+    //实现点击li 返回index
+    var aLi = document.querySelectorAll("li");
+    for(var i = 0; i < aLi.length; i++) {
+      saveParam(i);
+    }
+    function saveParam (i) {
+      aLi[i].onclick = function (e) {
+        console.log(i);
+      }
+    }
+  </script>
+</body>
+</html>

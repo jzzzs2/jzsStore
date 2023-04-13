@@ -1,0 +1,73 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-10-15 10:43:18
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-10-15 18:47:12
+-->
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>初见</title>
+</head>
+
+<body>
+  <script>
+    // let  [a, b, c, d, e = "88"] = [2, 6, 32, 22]; 
+    // console.log(a,b,c,d,e);
+    // let x = 22;
+    // console.log(x);
+    // [x] = [33];
+    // console.log(x);
+    // let [a, b] = [2, [2,3,4]];
+    // console.log(a);
+    // console.log(b);
+    // let arr = [
+    // [2,4,2],
+    // [4,1,9],
+    // [8,7,5]
+    // ];
+    // let newArr = [];
+    // let result = newArr.concat.apply(newArr,arr);
+    // console.log(result);
+    // console.log(x,y);
+    // var x,y;
+    // ({x, y} = {x: 22, y: 33})
+    // console.log(x,y);
+    // const metadata = {
+    //   title: 'Scratchpad',
+    //   translations: [
+    //     {
+    //       locale: 'de',
+    //       localization_tags: [],
+    //       last_edit: '2014-04-14T08:43:37',
+    //       url: '/de/docs/Tools/Scratchpad',
+    //       title: 'JavaScript-Umgebung',
+    //     },
+    //   ],
+    //   url: '/en-US/docs/Tools/Scratchpad',
+    // };
+    // let { translations: [{ locale }] } = metadata;
+    // console.log(locale);
+    // const props = [
+    //   { id: 1, name: 'Fizz' },
+    //   { id: 2, name: 'Buzz' },
+    //   { id: 3, name: 'FizzBuzz' },
+    // ];
+    // let [, { name, id
+    // }] = props;
+    // console.log(name); // "Buzz"
+    // console.log(id); //2
+    function move({ x = 0, y = 0 } = {}) {
+      return [x, y];
+    }
+    console.log(move({}));
+    console.log(move());
+  </script>
+</body>
+
+</html>

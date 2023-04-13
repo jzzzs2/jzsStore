@@ -1,0 +1,32 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-10-17 19:42:13
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-10-17 19:52:50
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>通道函数 实现传入函数,按顺序调用</title>
+</head>
+<body>
+  <script>
+    const double = a => a * 2;
+    const trible = b => b * 3;
+    const oneOfTwo = c => c / 2;
+    function pipe (...func) {
+      return function (input) {
+        return func.reduce((acc,item) => acc=item(acc), input);
+      }
+    }
+    let fun = pipe(double, oneOfTwo);
+    console.log(fun(6));
+    let fun1 = pipe(trible, oneOfTwo);
+    console.log(fun1(2));
+  </script>
+</body>
+</html>

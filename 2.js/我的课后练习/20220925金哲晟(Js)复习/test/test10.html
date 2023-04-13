@@ -1,0 +1,43 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-09-25 18:45:16
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-09-25 18:56:01
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>事件监听</title>
+</head>
+<body>
+  <ul class="list">
+    <li>1</li>
+    <li class="two">2</li>
+    <li>3</li>
+  </ul>
+  <script>
+    var oL = document.querySelector(".list");
+    var aCon = document.querySelectorAll("li");
+    var len = aCon.length;
+    for (var i = 0; i < len; i++) {
+      aCon[i].addEventListener("click", function (e) {
+        console.log(e.target.tagName + "可爱捏");
+      }, true)
+      aCon[i].addEventListener("click", function (e) {
+        console.log(e.target.tagName + "可爱捏2");
+      }, true)
+    }
+    oL.addEventListener("click", shout, false);
+    // oL.addEventListener("click", shout, true);
+    function shout(e) {
+      console.log(this.tagName + "可爱捏");
+    }
+    oL.removeEventListener("click",shout);
+    //attachEvent detachEvent on事件
+  </script>
+</body>
+</html>

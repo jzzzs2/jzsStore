@@ -1,0 +1,48 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-10-23 10:56:34
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-10-23 11:13:28
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>箭头函数</title>
+</head>
+<body>
+  <script>
+    let add = (a, b) => {
+      return a + b;
+    }
+    console.log(add(2, 8));
+    let obj = (a, b) => ({a,b});
+    console.log(obj(5, 16));
+    let back = a => a + 3;
+    console.log(back(7));
+    let operator = (a, b) => (a+=3, b+=3, a+b);
+    console.log(operator(2, 7)); //15
+    function TimeMachine () {
+      this.num = 1;
+      this.start = function () {
+        setInterval( (() => (this.num++,console.log(this.num))).bind(window), 500);
+      }
+      //箭头函数内this指向为箭头函数所在作用域内的this指向.
+    }
+    let time = new TimeMachine();
+    time.start();
+    function Person (name) {
+      this.name = name;
+    }
+    //箭头函数内this指向是静态指向 不可用bind,call,apply更改
+    var name = "wosiWINDOW name";
+    let test = () => (this.name);
+    console.log(test.bind(new Person("jzs"))());
+    console.log(test.apply(new Person("jzs")));
+    console.log(test.call(new Person("jzs")));
+  </script>
+</body>
+</html>

@@ -1,0 +1,118 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-10-25 09:17:34
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-10-25 18:41:29
+-->
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>递归练习</title>
+</head>
+
+<body>
+  <script>
+    //1. 返回n的k次方
+    // function getNofK(n, k) {
+    //   if (k === 1) {
+    //     return n;
+    //   }
+    //   return n * getNofK(n, k - 1);
+    // }
+    // console.log(getNofK(3, 3));
+    // let count = 0;
+    // function getNum(num) {
+    //   if (num === 1) {
+    //     return count;
+    //   }
+    //   if (num % 2 === 0) {
+    //     num = num / 2;
+    //     count++;
+    //     return getNum(num);
+    //   } else {
+    //     num = 3 * num + 1;
+    //     count++;
+    //     return getNum(num);
+    //   }
+    // }
+    // console.log(getNum(4));
+
+    // function getFinal(final, num) {
+    //   if (num === 1) {
+    //     return (final + 1) * 2;
+    //   } else {
+    //     return getFinal((final + 1) * 2, num - 1);
+    //   }
+    // }
+    // console.log(getFinal(2, 7));
+
+
+    // let arr = [1, 1, 2];
+    // function getIndexNum(index) {
+    //   if (index === 0 || index === 1 || index === 2) {
+    //     return arr[index];
+    //   }
+    //   return getIndexNum(index - 1) + getIndexNum(index - 2) + getIndexNum(index - 3);
+    // }
+    // console.log(getIndexNum(5));
+    /*
+    1 编写一个函数实现n^k (n的k次方)，使用递归实现。
+  2 角谷定理。输入一个自然数，若为偶数，则把它除以2，若为奇数，则把它乘以3加1。经过如此有限次运算后，总可以得到自然数值1。求经过多少次可得到自然数1。
+  3 一个人赶着鸭子去每个村庄卖，每经过一个村子卖去所赶鸭子的一半又一只。这样他经过了7个村子后还剩2鸭子，问他出发时共赶多少只鸭子？经过每个村子卖出多少只鸭子？
+  4 数列1,1,2,4,7,13,24,44,...求数列的第 n项 (找规律) 递归实现
+     */
+    // function getNofK (n, k) {
+    //   if (k === 1) {
+    //     return n;
+    //   }
+    //   return n * getNofK(n,k - 1);
+    // }
+    // console.log(getNofK(3, 4));
+    // function getCount (num, count = 0) {
+    //   if (num === 1) {
+    //     return count;
+    //   }
+    //   if (num % 2 === 0) {
+    //     num = num / 2;
+    //     count++;
+    //     return getCount(num,count);
+    //   } else {
+    //     num = num * 3 + 1;
+    //     count++;
+    //     return getCount(num,count);
+    //   }
+    // }
+    // console.log(getCount(5)); // 5-16-8-4-2-1
+    // n2 = n1 - 0.5*n1 - 1   n1 = 2* (n2 + 1)
+    // function getStartDocks (final, num, arr = []) {
+    //   if (num === 0) {
+    //     return {
+    //       final,
+    //       arr
+    //     };
+    //   }
+    //   num--;
+    //   arr.push(final + 2);
+    //   return getStartDocks(2 * (final + 1), num, arr);
+    // }
+    // console.log(getStartDocks(2, 7));
+    //数列 1,1,2,4,7,13,24,44,
+    function getIndex (idx) {
+      if (idx === 1 || idx === 2) {
+        return 1;
+      }
+      if (idx === 3) {
+        return 2;
+      }
+      return getIndex(idx - 1) + getIndex(idx - 2) + getIndex(idx - 3);
+    }
+    console.log(getIndex(5));
+  </script>
+</body>
+
+</html>

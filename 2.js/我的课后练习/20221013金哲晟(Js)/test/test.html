@@ -1,0 +1,38 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-10-13 10:30:14
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-10-13 11:29:09
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>const let</title>
+</head>
+<body>
+  <script>
+    var talk = "可爱捏";
+    let num = 22;
+    const FOOD = "noddle";
+    console.log(window.talk);
+    console.log(window.num);
+    console.log(window.FOOD);
+    let arr = [2, 9, 11];
+    // console.log(arr.reverse());
+    // console.log(arr);
+    console.log(arr);
+    //计算参数和
+    function add() {
+      return [].reduce.call(arguments, function(acc,item) {
+        acc += item;
+        return acc;
+      })
+    }
+    console.log(add(2, 6, 1));
+  </script>
+</body>
+</html>

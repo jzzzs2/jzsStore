@@ -1,0 +1,48 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-09-25 14:05:43
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-09-25 17:19:16
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>创建节点的方式</title>
+</head>
+<body>
+  <div class="box">
+  </div>
+  <script>
+
+    //1. createElement("li")
+    var oL = document.createElement("li");
+    oL.innerText = "wuwu";
+    var oBox = document.querySelector(".box");
+    oBox.appendChild(oL);
+    //2.innerHTML
+    oBox.innerHTML = "<p>123</p>";
+    //3. insertBefore
+    var oP = document.querySelector(".box p");
+    var ele = document.createElement("h2");
+    oBox.insertBefore(ele, oP);
+    //4. cloneNode()
+    // console.log(oL.cloneNode === oL);
+    // console.log(oL.cloneNode());
+    // console.log(oL.cloneNode(true));
+    //5. replaceChild(x,x)
+    // ele = document.createElement("h3");
+    // oBox.replaceChild(ele, oBox.children[1]);
+    //6. removeChild()
+    // oBox.removeChild(oBox.children[1]);
+    oBox.children[1].remove();
+    // 检查 hasAttribute hasAttributes
+    console.log(oBox.hasAttributes());
+    console.log(oBox.hasAttribute("class"));
+    console.log(oBox.hasAttribute("style"));
+  </script>
+</body>
+</html>

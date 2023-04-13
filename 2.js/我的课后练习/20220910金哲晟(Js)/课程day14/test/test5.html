@@ -1,0 +1,33 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-09-10 16:56:45
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-09-10 17:02:11
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>new 关键字在和构造函数 实例化对象时做的事情</title>
+</head>
+<body>
+  <script>
+    function Person(name, age) {
+      //1. var obj = new Object();
+      //2. this === obj
+      //3. return obj
+      this.name = name;
+      this.age = age;
+      this.eat = function() {
+        console.log("好吃捏");
+      }
+    }
+    var person = new Person("jzs",22);
+    
+    console.log(person);
+  </script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-09-13 20:53:00
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-09-13 21:09:21
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>数组方法</title>
+</head>
+<body>
+  <script>
+    //splice
+    var arr = [66, 3, 12, 9, 22, 3, 9, 22];
+    // var deleteArr = arr.splice(1, 99, "3", "12");
+    // console.log(deleteArr);
+    // console.log(arr);
+    // arr.splice(0, 0, "2", "3");
+    // arr.splice(0, 0);
+    // var deleteArr = arr.splice(-2, 1, "22");
+    // var deleteArr = arr.splice(-2, 0, "22");
+    // var deleteArr = arr.splice(-88, 1, "22");
+    // var deleteArr = arr.splice(88, 1, "22");
+    // var deleteArr = arr.splice(1);
+    // console.log(deleteArr);
+    // console.log(arr);
+    //includes
+    console.log(arr.includes("3")); //false
+    console.log(arr.includes(3)); //true
+    console.log(arr.includes(3, 2)); //false
+    console.log(arr.includes(3, 1)); //true 
+    console.log(arr.includes(3, -3));//true
+    console.log(arr.includes(3, -2)); //false
+    console.log(arr.includes(3, -44));//true
+  </script>
+</body>
+</html>

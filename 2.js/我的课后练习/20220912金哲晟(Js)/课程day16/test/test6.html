@@ -1,0 +1,100 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-09-12 17:59:14
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-09-12 18:50:22
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>归并reduce</title>
+</head>
+<body>
+  <script>
+    function Brray(arr) {
+      this.arr = arr;
+      this.forEach = function (callback) {
+        for(var i = 0; i < this.arr.length; i++) {
+          callback(this.arr[i], i, this.arr);
+        }
+      }
+      this.sort = function (callback) {
+        for(var i = 0; i < this.arr.length; i++) {
+          if(callback(this.arr[i],this.arr[i + 1])) {
+            //排序
+          } else {
+            //排序
+          }
+        }
+      }
+      this.map = function (callback) {
+        var newArr = [];
+        for(var i = 0; i < this.arr.length; i++) {
+          newArr.push(callback(this.arr[i], i, this.arr));
+        }
+        return newArr;
+      }
+      this.filter = function (callback) {
+        var newArr = [];
+        for(var i = 0; i < this.arr.length; i++) {
+          if(callback(this.arr[i], i, this.arr)) {
+            newArr.push(this.arr[i]);
+          }
+        }
+        return newArr;
+      }
+      this.reduce = function (callback) {
+        var result = this.arr[0];
+        for(var i = 1; i < this.arr.length; i++) {
+          result = callback(result, this.arr[i], i, this.arr);
+        }
+        return result;
+      }
+    }
+    //
+    // function reduce(arr, callback, acc) {
+    //   for(var i = 0; i < arr.length; i++) {
+    //     acc = callback(acc, arr[i], i);
+    //   }
+    //   return acc;
+    // }
+
+    //
+    // var arr = [2, 5, 9, 2];
+    // var arrObj = new Brray(arr);
+    // console.log(arrObj.reduce(function(result, curr, index) {
+    //   return result + curr;
+    // }));
+    // console.log(reduce(arr, function(acc, cur, i) {
+    //   return acc + cur;
+    // }, 7));
+    // console.log(arr.reduce(function (acc, curr, index) {
+    //   return acc + curr;
+    // }, 12));
+    /*
+     "fjadskljgklasdfjhgkldafjhklajdsklgfjaklgjdf"
+     统计每个字出现了多少次
+
+     {f:5,j:8,a:3}
+
+    */
+    var str = "fjadskljgklasdfjhgkldafjhklajdsklgfjaklgjdf";
+    var arr = str.split("");
+    console.log(arr);
+    // var empObj = {};
+    var obj = arr.reduce(function (acc, curr, index) {
+      if (acc[curr]) {
+        acc[curr]++;
+      } else {
+        acc[curr] = 1;
+      }
+      return acc;
+    }, {});
+    console.log(obj);
+  </script>
+</body>
+</html>

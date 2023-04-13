@@ -1,0 +1,69 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-10-09 17:32:15
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-10-09 21:12:36
+-->
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>getCookie</title>
+</head>
+
+<body>
+  <script>
+    document.cookie = "name=jzs";
+    document.cookie = "age=22";
+    document.cookie = "address=" + encodeURI("金华");
+    function getCookie() {
+      var obj = {};
+      for (var key of arguments) {
+        obj[key] = 1;
+      }
+      var cookieStr = document.cookie;
+      var cookieReg = /[^=;\s]+=([^=;]+)(?:;?)/g;
+      var cookieArr = cookieStr.match(cookieReg);
+      // console.log(cookieArr);
+      var result = cookieArr.reduce(function (acc, item, i) {
+        item = item.replace(";", "");
+        var arr = item.split("=");
+        console.log(arr[0]);
+        console.log(obj[arr[0]]);
+        if (arr[0] && obj[arr[0]]) {
+          acc[arr[0]] = arr[1];
+        }
+        return acc;
+      }, {})
+
+      return result
+    }
+    // console.log(getCookie("name", "age"));
+    function deleteCookie() {
+      var json = {};
+      for (var i in arguments) {
+        json[arguments[i]] = null;
+      }
+      setCookie(json, -1);
+    }
+    function setCookie(json, t) {
+
+      var date = new Date();
+      date.setTime(date.getTime() + t);
+      var time = date.toUTCString();
+      if (t === Infinity) {
+        time = 'Fri, 31 Dec 9999 13:32:02 GMT';
+      }
+      for (var key in json) {
+        document.cookie = `${key}=${encodeURI(json[key])};expires=${time}`;
+      }
+    }
+    deleteCookie("name", "age");
+  </script>
+</body>
+
+</html>

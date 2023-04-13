@@ -1,0 +1,35 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-09-12 20:37:56
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-09-12 20:45:00
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>reduce</title>
+</head>
+<body>
+  <script>
+    // var originArr = [3, 4, 5, 6, 7, 8];
+    // console.log(originArr.reduce( function (acc, curr, index, arr) {
+    //   return acc + curr;
+    // }, 1)); //34
+    var str = 'jfkldsajgklasjkhlgjefaklhjaerkl';
+    var arr = str.split("");
+    var result = arr.reduce(function (acc, curr, i, arr) {
+      if (acc[curr]) {
+        acc[curr]++;
+      } else {
+        acc[curr] = 1;
+      }
+      return acc;
+    }, {})
+    console.log(result);
+  </script>
+</body>
+</html>

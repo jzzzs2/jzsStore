@@ -1,0 +1,69 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-09-12 17:40:47
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-09-12 18:02:35
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>filter map</title>
+</head>
+<body>
+  <script>
+    function Brray(arr) {
+      this.arr = arr;
+      this.forEach = function(callback) {
+        for(var i = 0; i < this.arr.length; i++) {
+          callback(this.arr[i], i, this.arr);
+        }
+      }
+      this.sort = function(callback) {
+        for(var i = 0; i < this.arr.length; i++) {
+          if(callback(this.arr[i],this.arr[i + 1])) {
+            //排序
+          } else {
+            //排序
+          }
+        }
+      }
+      this.map = function(callback) {
+        var newArr = [];
+        for(var i = 0; i < this.arr.length; i++) {
+          newArr.push(callback(this.arr[i], i, this.arr));
+        }
+        return newArr;
+      }
+      this.filter = function(callback) {
+        var newArr = [];
+        for(var i = 0; i < this.arr.length; i++) {
+          if(callback(this.arr[i], i, this.arr)) {
+            newArr.push(this.arr[i]);
+          }
+        }
+        return newArr;
+      }
+    }
+      
+    var arr = [2, 5, 9, 11, 3];
+    // var arr = [2, 5, 9, 11, "3"];
+    function getNum(num) {
+      return typeof num === "number";
+    }
+
+    function getPow(num, extend) {
+      return num ** extend;
+    }
+    console.log(arr.filter( function(curr, index, arr) {
+      return getNum(curr);
+    }));
+    console.log(arr.map(function (curr, index, arr) {
+      return getPow(curr, index);
+    }));
+  </script>
+</body>
+</html>

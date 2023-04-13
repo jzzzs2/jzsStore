@@ -1,0 +1,45 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-10-16 13:28:09
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-10-16 14:12:15
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>call apply bind</title>
+</head>
+<body>
+  <script>
+    //他们都是函数的方法
+    //call apply 改变调用主体对象,直接调用函数,call参数为(调用主体对象,参1,参2) apply参数为(调用主体对象,参数数组)  
+    //bind 返回一个指定了调用主体对象的函数 参数为 (调用主体对象,固定参数)
+    let arr = [2, 4, 9, 22, 99];
+    // console.log(Math.max.apply(null, arr));
+    // function add () {
+    //   return [].reduce.call(arguments,function (acc, item) {
+    //     return acc + item;
+    //   })
+    // }
+    // console.log(add(...arr));
+    // let newFunc = add.bind(this, 10, 15);
+    // console.log(newFunc(10));
+    function sortUpToDown () {
+      return [].sort.call(arguments,function (next, prev) {
+        return prev - next;
+      })
+    }
+    let newArr = [3, 8, 1, 2, 9];
+    // console.log(sortUpToDown(...newArr));
+    console.log(newArr);
+    console.log(newArr.sort(function (next, prev) {
+      return next - prev;
+    }));
+    console.log(newArr);
+  </script>
+</body>
+</html>

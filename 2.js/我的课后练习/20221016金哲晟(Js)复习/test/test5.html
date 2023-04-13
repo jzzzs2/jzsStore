@@ -1,0 +1,49 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-10-16 17:43:45
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-10-16 17:55:38
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>解构默认值</title>
+</head>
+<body>
+  <script>
+    let arr = [2, 5, null, ""];
+    let [a, b, c, d, e = "none"] = arr;
+    console.log(a,b,c,d,e); //2 5 null "" none
+    let obj = {
+      name: "zjc",
+      age: 22,
+      address: "jinhua"
+    }
+    let {
+      name: nm = "noName",
+      son = "noneSon",
+      dgt: dd = "emodo"
+    } = obj;
+    console.log(nm,son,dd);
+    function showInfo({
+      age = "0",
+      name = "none",
+      year = "0"
+    } = {}) {
+      console.log(age);
+      console.log(name);
+      console.log(year);
+    }
+    showInfo();
+    showInfo({
+      age: 22,
+      name: "jzs",
+      year: 22
+    })
+  </script>
+</body>
+</html>

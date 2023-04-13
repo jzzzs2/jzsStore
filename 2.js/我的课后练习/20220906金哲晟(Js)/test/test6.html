@@ -1,0 +1,51 @@
+<!--
+ * @Author: mikuSama 2803290705@qq.com
+ * @Date: 2022-09-06 18:26:10
+ * @LastEditors: mikuSama 2803290705@qq.com
+ * @LastEditTime: 2022-09-06 18:49:54
+ * @FilePath: \20220906金哲晟(Js)\test\test6.html
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>练习</title>
+</head>
+<body>
+  <script>
+    function getMax(arr) {
+      var max = arguments[0];
+      arguments[3] = 999;
+      for(var i = 0; i < arguments.length; i++) {
+        if(arguments[i] > max) {
+          max = arguments[i];
+        }
+      }
+      return max;
+    }
+    console.log(getMax(2,3,9,2,22)); //999
+    function getLevel(score) {
+      if (score > 90) {
+        return "A";
+      }
+      if (score > 80) {
+        return "B";
+      }
+      if (score > 70) {
+        return "C";
+      }
+      if (score > 60) {
+        return "D";
+      }
+      if (score < 60) {
+        return "E";
+      }
+      return "输入数据非法捏";
+    }
+    console.log(getLevel("22")); //E
+    console.log(getLevel("22aa")); //输入数据非法捏
+  </script>
+</body>
+</html>

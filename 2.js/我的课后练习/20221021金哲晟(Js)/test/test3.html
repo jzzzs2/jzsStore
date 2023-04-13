@@ -1,0 +1,54 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-10-21 19:26:56
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-10-21 19:54:44
+-->
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>组合寄生继承</title>
+</head>
+
+<body>
+  <script>
+    function Animal() {
+      this.name = "animal";
+      this.children = [1, 2, 3, 4, 5];
+    }
+    Animal.prototype.arr = [2, 4, 5];
+    Animal.prototype.sayHi = function () {
+      console.log(this.name);
+    }
+    // Pig.prototype = new Animal();
+    Pig.prototype = Object.create(Animal.prototype);
+
+    function Pig() {
+      Animal.call(this);
+      this.age = 12;
+    }
+    // console.log(Pig.constructor,"xx");
+    // Pig.prototype.sayHi = function () {
+    //   console.log("chongxie");
+    // }
+    let p = new Pig();
+    // console.log(p.__proto__);
+    // p.sayHi();
+    // (new Animal()).sayHi();
+    console.log(p.children);
+    p.children.push(2);
+    console.log(p.children);
+    let p1 = new Pig();
+    console.log(p1.children); //[1,2,3,4,5,2]
+    console.log(p, p1);
+    p.arr.push(5);
+    console.log(p1.arr); //[2,4,5,5]
+  </script>
+</body>
+
+</html>

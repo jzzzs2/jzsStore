@@ -1,0 +1,48 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-09-14 15:37:24
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-09-14 15:46:48
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>排序方法</title>
+</head>
+<body>
+  <script>
+    var arr = [33, 22, 12, 92, 76, 88];
+    //1 冒泡排序
+    // for(var i = 0; i < arr.length; i++) {
+    //   for(var j = 0; j < arr.length - 1 - i; j++) {
+    //     var temp;
+    //     if (arr[j] > arr[j + 1]) {
+    //       temp = arr[j];
+    //       arr[j] = arr[j + 1];
+    //       arr[j + 1] = temp;
+    //     }
+    //   }
+    // }
+    // console.log(arr);
+    //2. 选择排序
+    var minIndex;
+    var temp;
+    for (var i = 0; i < arr.length; i++) {
+      minIndex = i;
+      for (var j = i + 1; j < arr.length; j++) {
+        if (arr[j] < arr[minIndex]) {
+          minIndex = j;
+        }
+      }
+      temp = arr[i];
+      arr[i] = arr[minIndex];
+      arr[minIndex] = temp;
+    }
+    console.log(arr);
+  </script>
+</body>
+</html>

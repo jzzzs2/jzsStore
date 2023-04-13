@@ -1,0 +1,249 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-10-02 18:08:34
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-10-03 12:06:54
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>无缝衔接轮播</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    .swiper {
+      overflow: hidden;
+      position: relative;
+      width: 500px;
+      height: 300px;
+      margin: 200px auto;
+      box-shadow: 0 0 10px cyan;
+    }
+
+    img {
+      width: 500px;
+      height: 300px;
+    }
+
+    ul.list {
+      list-style: none;
+    }
+
+    ul>li {
+      float: left;
+      width: 500px;
+      height: 300px;
+    }
+
+    .slider {
+      position: absolute;
+    }
+
+    .btn {
+      position: absolute;
+      width: 500px;
+      height: 300px;
+    }
+
+    .btn span {
+      user-select: none;
+    }
+
+    .btn span:hover {
+      background-color: #666;
+      color: #fff;
+    }
+
+    .btn .pre {
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 30px;
+      height: 100px;
+      margin: auto;
+      color: #ddd;
+      font-size: 20px;
+      background-color: #999;
+      line-height: 100px;
+      text-align: center;
+    }
+
+    .btn .next {
+      position: absolute;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      width: 30px;
+      height: 100px;
+      margin: auto;
+      color: #ddd;
+      font-size: 20px;
+      background-color: #999;
+      line-height: 100px;
+      text-align: center;
+    }
+
+    .slider {
+      display: flex;
+      justify-content: space-between;
+      position: absolute;
+      z-index: 99;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      width: 260px;
+      height: 50px;
+      margin: 0 auto;
+    }
+
+    .slider span {
+      width: 30px;
+      height: 30px;
+      line-height: 30px;
+      border-radius: 50%;
+      background-color: #999;
+      text-align: center;
+      color: #fff;
+    }
+
+    body .active {
+      background-color: pink;
+      color: #333;
+    }
+
+    span {
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="swiper">
+    <ul class="list">
+      <li><img src="./img/1.jpg" alt="miku"></li>
+      <li><img src="./img/2.jpg" alt="miku"></li>
+      <li><img src="./img/3.jpg" alt="miku"></li>
+      <li><img src="./img/4.jpg" alt="miku"></li>
+      <li><img src="./img/5.jpg" alt="miku"></li>
+    </ul>
+    <div class="slider">
+    </div>
+    <div class="btn">
+      <span class="pre">&lt;</span>
+      <span class="next">&gt;</span>
+    </div>
+  </div>
+  <script src="./my.js"></script>
+  <script>
+    var oUl = $(".list");
+    var len = oUl.children.length;
+    var oSwiper = $(".swiper");
+    var oSlider = $(".slider");
+    var oBtn = $(".btn");
+    var name = "active";
+    var index = 0;
+    var timeOut = null;
+    var liWidth = $("li").offsetWidth;
+    function init() {
+      //
+      var str = "";
+      for (var i = 0; i < len; i++) {
+        if (i === 0) {
+          str += `<span class=${name}>${i + 1}</span>`;
+        } else {
+          str += `<span>${i + 1}</span>`;
+        }
+      }
+      oSlider.innerHTML = str;
+      oUl.appendChild(oUl.children[0].cloneNode(true));
+      len = oUl.children.length;
+      oUl.style.width = len * 100 + "%";
+    }
+    init();
+    var obj = {
+      pre: function () {
+        if (index === 0) {
+          index = len - 1;
+          console.log(oUl.style.transition);
+          oUl.style.marginLeft = (-index * liWidth) + "px";
+        }
+        index--;
+        index = (index + len) % len;
+      },
+      next: function () {
+        if (index === len - 1) {
+          index = 0;
+          console.log(oUl.style.transition);
+          oUl.style.marginLeft = (-index * liWidth) + "px";
+        }
+        index++;
+        index = index % len;
+      }
+    }
+    oSlider.addEventListener("mouseover", function (e) {
+      if (e.target.tagName === "SPAN") {
+        oSlider.children[index].classList.remove("active");
+        index = getIndexInParent(e.target);
+        oSlider.children[index].classList.add("active");
+        animate(oUl, {
+          marginLeft: (-index * (oUl.offsetWidth / len)) + "px"
+        })
+      }
+    })
+    var toggle = true;
+    oBtn.addEventListener("click", function (e) {
+      if (e.target.tagName === "SPAN") {
+        if (toggle) {
+          toggle = false;
+          oSlider.children[index % (len - 1)].classList.remove("active");
+          obj[e.target.className]();
+          oSlider.children[index % (len - 1)].classList.add("active");
+          animate(oUl, {
+            marginLeft: (-index * (oUl.offsetWidth / len)) + "px"
+          })
+          setTimeout(function () {
+            toggle = true;
+          },  700);
+        }
+
+      }
+    })
+
+    oSwiper.addEventListener("mouseover", function (e) {
+      clearInterval(timeOut);
+    })
+
+    oSwiper.addEventListener("mouseout", function (e) {
+      autoPlay();
+    })
+    function autoPlay() {
+      timeOut = setInterval(function () {
+        oSlider.children[index % (len - 1)].classList.remove("active");
+        if (index === len - 1) {
+          oUl.style.transition = "0";
+          index = 0;
+          oUl.style.marginLeft = (-index * liWidth) + "px";
+        }
+        index++;
+        index = index % len;
+        oSlider.children[index % (len - 1)].classList.add("active");
+        animate(oUl, {
+          marginLeft: (-index * (oUl.offsetWidth / len)) + "px"
+        })
+      }, 1500)
+    }
+    autoPlay();
+  </script>
+</body>
+
+</html>

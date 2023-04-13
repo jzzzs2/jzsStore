@@ -1,0 +1,71 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-09-26 18:23:24
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-09-26 18:43:45
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>鼠标事件对象的属性</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+    }
+
+    .box {
+      width: 400px;
+      height: 400px;
+      padding: 20px;
+      margin: 10px;
+      border: 10px solid skyblue;
+      background-color: pink;
+    }
+    
+    .head {
+      height: 1200px;
+      background-color: #368;
+    }
+  </style>
+</head>
+<body>
+  <div class="head">
+  </div>
+  <div class="box">
+
+  </div>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <!-- <input type="text"> -->
+  <script>  
+    var oBox = document.querySelector(".box");
+    // var oInput = document.querySelector("input");
+    oBox.addEventListener("mousedown", function (e) {
+      console.log(e);
+      console.log(e.clientX, e.clientY, "client");
+      console.log(e.layerX, e.layerY, "layer");
+      console.log(e.pageX, e.pageY, "page");
+      console.log(e.offsetX, e.offsetY, "offset");
+      console.log(e.screenX, e.screenY, "screen");
+    })
+    // oInput.addEventListener("keydown", function (e) {
+    //   console.log(e);
+    // })
+  </script>
+</body>
+</html>

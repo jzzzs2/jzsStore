@@ -1,0 +1,101 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-09-29 17:18:27
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-09-29 19:37:55
+-->
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>getBoundingClientRect</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      height: 10000px;
+    }
+
+    .page {
+      position: relative;
+      /* border: 10px solid #999; */
+      margin: 200px;
+      width: 400px;
+      height: 400px;
+      box-shadow: 0 0 4px #222;
+    }
+
+    .wrap {
+      position: absolute;
+      right: 0;
+      overflow: auto;
+      width: 200px;
+      height: 300px;
+      padding: 10px;
+      border: 10px solid #999;
+      margin: 100px auto;
+      border: 1px solid red;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page">
+    <div class="wrap">
+      miku可爱捏
+      miku可爱捏
+      miku可爱捏
+      miku可爱捏
+      miku可爱捏
+      miku可爱捏
+      miku可爱捏
+      miku可爱捏
+      miku可爱捏
+      miku可爱捏
+      miku可爱捏
+      miku可爱捏
+      miku可爱捏
+      miku可爱捏
+      miku可爱捏
+      miku可爱捏
+      miku可爱捏
+      miku可爱捏
+      miku可爱捏
+      miku可爱捏
+      miku可爱捏
+      miku可爱捏
+      miku可爱捏
+      miku可爱捏
+      miku可爱捏
+      miku可爱捏
+      miku可爱捏
+      miku可爱捏
+      miku可爱捏
+      miku可爱捏
+      miku可爱捏
+      miku可爱捏
+      miku可爱捏
+      miku可爱捏
+      miku可爱捏
+      miku可爱捏
+      miku可爱捏
+      miku可爱捏
+      miku可爱捏
+      miku可爱捏
+    </div>
+  </div>
+  <script src="./my.js"></script>
+  <script>
+    var oWrap = $(".wrap");
+    console.log(oWrap.getBoundingClientRect());
+  </script>
+</body>
+
+</html>

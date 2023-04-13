@@ -1,0 +1,99 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-09-29 18:26:50
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-09-29 18:31:11
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>mousewheel事件</title>
+  <style>
+    .box {
+      overflow: auto;
+      width: 300px;
+      height: 300px;
+      margin: 100px auto;
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+    miku可爱捏miku可爱捏
+    miku可爱捏miku可爱捏
+    miku可爱捏miku可爱捏
+    miku可爱捏miku可爱捏
+    miku可爱捏miku可爱捏
+    miku可爱捏miku可爱捏
+    miku可爱捏miku可爱捏
+    miku可爱捏miku可爱捏
+    miku可爱捏miku可爱捏
+    miku可爱捏miku可爱捏
+    miku可爱捏miku可爱捏
+    miku可爱捏miku可爱捏
+    miku可爱捏miku可爱捏
+    miku可爱捏miku可爱捏
+    miku可爱捏miku可爱捏
+    miku可爱捏miku可爱捏
+    miku可爱捏miku可爱捏
+    miku可爱捏miku可爱捏
+    miku可爱捏miku可爱捏
+    miku可爱捏miku可爱捏
+    miku可爱捏miku可爱捏
+    miku可爱捏miku可爱捏
+    miku可爱捏miku可爱捏
+    miku可爱捏miku可爱捏
+    miku可爱捏miku可爱捏
+    miku可爱捏miku可爱捏
+    miku可爱捏miku可爱捏
+    miku可爱捏miku可爱捏
+    miku可爱捏miku可爱捏
+    miku可爱捏miku可爱捏
+  </div>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <script src="./my.js"></script>
+  <script>
+    var oBox = $(".box");
+    oBox.addEventListener("mousewheel",function (e) {
+      console.log(e);
+      console.log(e.wheelDelta);
+      console.log("转动滚轮了捏");
+    })
+    document.addEventListener("mousewheel",function (e) {
+      console.log("冒泡转滚轮捏");
+    })
+  </script>
+</body>
+</html>

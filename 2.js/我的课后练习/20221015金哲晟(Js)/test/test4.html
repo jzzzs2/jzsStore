@@ -1,0 +1,29 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-10-15 16:01:55
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-10-15 16:09:13
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>解构赋值 数组 默认值</title>
+</head>
+<body>
+  <script>
+    let a, b, c;
+    [a, b = 555, ...c] = [1];
+    console.log(a); //1
+    console.log(b); //555
+    console.log(c); //[]
+    // let [one, two = "keainie", ...more] = [2, undefined, undefined, undefined, null];
+    let [one, two = "keainie", ...more] = [2, null, undefined, undefined, null];
+    // let [one, two = "keainie", ...more] = [2, "", undefined, undefined, null];
+    console.log(one, two, more);
+  </script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-10-25 18:41:52
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-10-25 19:46:13
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>不建议重写内置对象原型上的方法</title>
+</head>
+<body>
+  <script>
+    let arr = [1, 2, 3, 4];
+    Array.prototype.map = function () {
+      let array = [];
+      for(let i = 0; i < this.length; i++) {
+        array.push(this[i] * 2);
+      }
+      return array;
+    }
+    let result = arr.map();
+    console.log(result);
+    //自己封装的filter
+    Array.prototype.filter = function(callback) {
+      let arr = [];
+      for (let i = 0; i < this.length; i++) {
+        if (callback(this[i],i,this)) {
+          arr.push(this[i]);
+        }
+      }
+      return arr;
+    }
+    let newArr = arr.filter(function (item, i, arr) {
+      return item > 2;
+    })
+    console.log(newArr);
+  </script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>布尔类型隐式转换</title>
+</head>
+<body>
+  <script>
+    // 控制语句中会把后面的值转化为布尔类型
+    if(0) {
+      console.log("g");
+    }
+    if(null) {
+      console.log("g");
+    }
+    if(NaN) {
+      console.log("g");
+    }
+    if(undefined) {
+      console.log("g");
+    }
+    if(false) {
+      console.log("g");
+    }
+    if("") {
+      console.log("g");
+    }
+    console.log(Number(null)); //0
+    console.log(null == 0); //false
+  </script>
+</body>
+</html>

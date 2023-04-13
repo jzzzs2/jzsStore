@@ -1,0 +1,142 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    /*
+      将下面这个对象转为数组 并实现 一个排序方法 一个筛选方法 
+
+       formattingSort('height');   调用 formattingSort 传参 'height' 就以height属性值为排序属性 升序排序
+
+      [{
+        name: 'Dan',
+        age: 1,
+        sex: 1,
+        weight: '79kg',
+        height: '110cm'
+      },
+      {
+        name: 'meney',
+        age: 4,
+        sex: 1,
+        weight: '69kg',
+        height: '160cm'
+      },
+      {
+        name: 'joker',
+        age: 1,
+        sex: 0,
+        weight: '99kg',
+        height: '190cm'
+      },
+      {
+        name: 'jojo',
+        age: 18,
+        sex: 1,
+        weight: '90kg',
+        height: '195cm'
+      },
+      {
+        name: 'stack',
+        age: 99,
+        sex: 1,
+        weight: '199kg',
+        height: '1190cm'
+      }]
+
+
+
+       formattingFilter('age',function(item){
+         return item > 10;
+       });
+
+       调用 formattingFilter 传参 'age' 和回调函数 
+       以age属性为过滤条件 条件为 function回调函数的return公式
+       */
+       var oData = {
+      'joker': {
+        age: 1,
+        sex: 0,
+        weight: '99kg',
+        height: '190cm'
+      },
+      'meney': {
+        age: 4,
+        sex: 1,
+        weight: '69kg',
+        height: '160cm'
+      },
+      'Dan': {
+        age: 1,
+        sex: 1,
+        weight: '79kg',
+        height: '110cm'
+      },
+      'jojo': {
+        age: 18,
+        sex: 1,
+        weight: '90kg',
+        height: '195cm'
+      },
+      'stack': {
+        age: 99,
+        sex: 1,
+        weight: '199kg',
+        height: '1190cm'
+      }
+    }
+    //1.转化为数组对象
+    function parseData(obj) {
+      var keyArr = Object.keys(obj);
+      var result = [];
+      keyArr.forEach(function (curr, i, arr) {
+        var ele = obj[curr];
+        ele.name = curr;
+        result.push(ele);
+      })
+      return result;
+    }
+    var objArr = parseData(oData);
+
+    function clone(arr){
+      return JSON.parse(JSON.stringify(arr));
+    }
+    //方法1 升序排列
+    console.log("原始数组", clone(objArr));
+    console.log(objArr);
+    function formatSort(pro) {
+      var newArr = objArr.sort(function(next, pre) {
+        if (typeof pre[pro] === "number") {
+          return next[pro] - pre[pro];
+        }
+        if (typeof pre[pro] === "string") {
+          return next[pro].substr(0, next[pro].length - 2) - pre[pro].substr(0, pre[pro].length - 2);
+        }
+      })
+      return newArr;
+    }
+    console.log(clone(formatSort("age")));
+    console.log(clone(formatSort("weight")));
+    // console.log(clone(formatSort("height")));
+    console.log(clone(objArr));
+
+
+    //方法2 按要求筛选
+    function formatFilter(prop, fn) {
+      return objArr.filter(function (item) {
+        return fn(prop, item);
+      });
+    }
+    console.log(formatFilter("age",function (pro, item) {
+        return item[pro] > 50;
+      }));
+      formatFilter("sex",function (pro, item) {
+        return item[pro] == 1;
+      })
+  </script>
+</body>
+</html>

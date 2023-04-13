@@ -1,0 +1,38 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-10-06 20:30:08
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-10-06 20:51:26
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>正则表达式</title>
+</head>
+<body>
+  <script>
+    var reg = new RegExp("[1-9]\d{6, 12}")
+    var reg = /[1-9]\d{6,12}/;
+    var reg = /^[1-9]\d{6,12}$/;
+    // console.log(reg.test("a111222"));
+    // console.log(reg.test("0111222"));
+    // console.log(reg.test("16666666")); //true
+    // console.log(reg.test("11112222222222222")); //false
+    console.log(/海洋/.test("海 洋可爱捏海洋"));
+    console.log(/\d/.test("KEAINIE")); //false
+    console.log(/\d/.test("KEAINIE22")); //true
+    console.log(/[A-z]/.test("23232a")); //true
+    console.log(/[5-9]/.test("尅阿尼额8")); //true
+    console.log(/[Z-t]/.test("A333b")); //true
+    console.log(/abc/.test("234abc")); //true
+    console.log(/you/.test("23you22"));
+    console.log(/abc|def|you/.test("ab2def3tou")); //true
+    console.log(/abc|def|you/.test("ab2de3tou")); //false
+    console.log(/a|y|o/.test("23a4"));
+  </script>
+</body>
+</html>

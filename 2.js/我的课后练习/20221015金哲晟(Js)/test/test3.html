@@ -1,0 +1,25 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-10-15 15:59:01
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-10-15 16:00:45
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>初见解构</title>
+</head>
+<body>
+  <script>
+    let [a, b, ...arr] = [1, 2, 3, 4, 5];
+    console.log(a, b, arr);
+    const array = [1, 2, 3, 4, 5];
+    let [,,,num,] = array;
+    console.log(num);
+  </script>
+</body>
+</html>

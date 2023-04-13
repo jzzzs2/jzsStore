@@ -1,0 +1,46 @@
+<!--
+ * @Author: mikuSama 2803290705@qq.com
+ * @Date: 2022-09-06 18:37:57
+ * @LastEditors: mikuSama 2803290705@qq.com
+ * @LastEditTime: 2022-09-06 18:49:42
+ * @FilePath: \20220906金哲晟(Js)\test\test7.html
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>练习</title>
+</head>
+<body>
+  <script>
+    function isEvenOrOdd(num) {
+      if (typeof num === "number" && !isNaN(num)) {
+        if (num % 2 === 0) {
+          return "偶数捏";
+        } else {
+          return "奇数捏";
+        }
+      }
+      return "数据非法捏";
+    }
+    console.log(isEvenOrOdd("33")); //非法
+    console.log(isEvenOrOdd("abc22"));//非法
+    function isNum(num) {
+      if (typeof num === "number" && !isNaN(num)) {
+        return "是数字";
+      }
+      return "不是数字";
+    }
+    console.log(isNum(22));
+    console.log(isNum("22"));
+    console.log(isNum(NaN));
+    function getNumPower(num, pow) {
+      
+    }
+  </script>
+</body>
+</html>

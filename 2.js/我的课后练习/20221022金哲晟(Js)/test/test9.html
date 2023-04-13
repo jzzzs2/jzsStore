@@ -1,0 +1,83 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-10-22 18:49:13
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-10-22 19:30:29
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>defineProperty</title>
+</head>
+<body>
+  <script>
+    let o = {
+      name: "jzs",
+      age: 22
+    }
+    // Object.defineProperty(o, "name", {
+    //   configurable: false,
+    //   // configurable: true,
+    //   // enumerable: true,
+    //   // enumerable: false,
+    //   value: "electroNIc",
+    //   writable: false
+    // });
+    // Object.defineProperty(o, "age", {
+    //   // configurable: true,
+    //   configurable: false,
+    //   // enumerable: true,
+    //   // enumerable: false,
+    //   value: "24",
+    //   writable: false
+    // })
+    let allAge = 22;
+    Object.defineProperties(o, {
+      name: {
+        configurable: true,
+        enumerable: true,
+        value: "zjc",
+        writable: true
+      },
+      age: {
+        configurable: true,
+        enumerable: true,
+        // value: 44,
+        // writable: false,
+        set(value) {
+          console.log("正在给age属性赋值");
+          allAge = value;
+        },
+        get() {
+          console.log("正在调用age属性");
+          return allAge;
+        }
+      }
+    })
+    // delete o.name;
+    // delete o.age;
+    // o.name = "xixi";
+    // o.age = 38;
+    // o.age = 99;
+    o.age;
+    // delete o.age;
+    o.age = 66;
+    console.log(allAge);
+    console.log(o);
+    
+    // console.log(o);
+    // o.name = "wow";
+    // console.log(o);
+    // console.log(Object.keys(o));
+    //console.log(o);
+    //o.age = 999;
+    //o.name = "turtle";
+    //console.log(o);
+    //set get 作为钩子函数，在对象属性左查询(赋值)，右查询(调用)时，分别调用。
+  </script>
+</body>
+</html>

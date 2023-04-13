@@ -1,0 +1,4 @@
+整理 Event 事件 笔记
+event事件 event属性 
+复习整理 拖拽组合 碰撞检测 边界检测 防抖 节流 等技巧案例
+复习整理 offset系列 client系列 scroll系列 属性

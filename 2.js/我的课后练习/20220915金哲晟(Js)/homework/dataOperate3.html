@@ -1,0 +1,80 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-09-15 20:54:07
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-09-15 21:07:16
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>more练习</title>
+</head>
+<body>
+  <script>
+    var oData = {
+      'joker': {
+        age: 1,
+        sex: 0,
+        weight: '99kg',
+        height: '190cm'
+      },
+      'meney': {
+        age: 4,
+        sex: 1,
+        weight: '69kg',
+        height: '160cm'
+      },
+      'Dan': {
+        age: 1,
+        sex: 1,
+        weight: '79kg',
+        height: '110cm'
+      },
+      'jojo': {
+        age: 18,
+        sex: 1,
+        weight: '90kg',
+        height: '195cm'
+      },
+      'stack': {
+        age: 99,
+        sex: 1,
+        weight: '199kg',
+        height: '1190cm'
+      }
+    }
+    //
+    function parseData(obj) {
+      var keyArr = Object.keys(obj);
+      var result = [];
+      keyArr.forEach(function (curr, i, arr) {
+        var ele = obj[curr];
+        ele.name = curr;
+        result.push(ele);
+      })
+      return result;
+    }
+    var objArr = parseData(oData);
+    // function formatFilter(prop, fn) {
+    //   return objArr.filter(function (curr) {
+    //     return fn(prop, curr);
+    //   })
+    // }
+    // console.log(formatFilter("age",function(prop, curr) {
+    //   return curr[prop] > 70;
+    // }));
+    function formatFilter(prop, fn) {
+      return objArr.filter(function (curr) {
+        return fn(prop, curr);
+      })
+    }
+    console.log(formatFilter("sex",function (prop, curr) {
+      return curr[prop] === 0;
+    }));
+  </script>
+</body>
+</html>

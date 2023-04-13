@@ -1,0 +1,47 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-10-13 19:14:07
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-10-13 19:43:58
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>apply</title>
+</head>
+<body>
+  <ul class="box">你好,我是box</ul>
+  <script>
+    const oBox = document.querySelector('.box');
+    // let arr = [2, 6, 7];
+    // function getMax(arr) {
+    //   return Math.max.apply(null,arr);
+    // }
+    // console.log(getMax(arr));
+    // let arr = [1, 4, 3];
+    // let otherArr = [2, 9, 5];
+    // console.log(arr.push.apply(arr, otherArr));
+    // console.log(arr);
+    const ARRAY = ["你好", "我好", "大家好"];
+    function appendList (ele) {
+      // console.log(arguments);
+      let aCon = [].slice.call(arguments, 1);
+      ele.innerHTML = format.apply(null, aCon);
+    }
+    function format() {
+      let str = "";
+      console.log(arguments[0]);
+      str = [].reduce.call(arguments,function (acc, item) {
+        acc = acc + `<li>${item}</li>`;
+        return acc;
+      },"")
+      return str;
+    }
+    appendList(oBox, "你好", "我好", "大家好", "好耶");
+  </script>
+</body>
+</html>

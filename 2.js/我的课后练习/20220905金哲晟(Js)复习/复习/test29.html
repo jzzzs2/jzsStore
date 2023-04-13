@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>数组方法</title>
+</head>
+<body>
+  <script>
+    var arr = ["eat", "food", "waku", "join", "please"];
+    // 1.push 返回新数组长度
+    // var length = arr.push("us", "you");
+    // console.log(length);
+    // console.log(arr.length === length); //true
+    // 2.unshift() 返回新数组长度
+    // var length = arr.unshift("too","first");
+    // console.log(arr,length);  // ["too", "first", ....] 7
+    // 3.pop() 移除尾部元素
+    // var ele = arr.pop();
+    // console.log(ele); // "please"
+    // arr.pop();
+    // arr.pop();
+    // arr.pop();
+    // arr.pop();
+    // console.log(arr.pop()); //undefined
+    // shift() 移除首部元素
+    // var ele = arr.shift();
+    // console.log(ele); //"eat"
+    // arr.shift();
+    // arr.shift();
+    // arr.shift();
+    // arr.shift();
+    // console.log(arr.shift()); //undefined
+    // 4. slice()
+    // var newArr = arr.slice();
+    // console.log(newArr,newArr == arr);//false
+    // var newArr = arr.slice(2);
+    // var newArr = arr.slice(2, 3);
+    // console.log(newArr);
+    // var newArr = arr.slice(-4, -2);
+    // var newArr = arr.slice(-55);
+    // var newArr = arr.slice(90);
+    // var newArr = arr.slice(0,99);
+    // console.log(newArr);
+    //5. concat()
+    // var secArr = [2, "good", "center", "you"];
+    // var thirdArr = ["too", "okay", "haoye"];
+    // console.log(arr.concat(secArr, thirdArr));
+    // console.log(secArr.concat() == secArr); //false
+    // console.log(secArr.concat());
+    //6. indexOf()
+    var newArr = ["one", "two", "three", "four"];
+    console.log(newArr.indexOf("two", -3)); //1
+    console.log(newArr.indexOf("one",99)); //-1
+  </script>
+</body>
+</html>

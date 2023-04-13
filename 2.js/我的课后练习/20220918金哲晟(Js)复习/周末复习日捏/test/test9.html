@@ -1,0 +1,42 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-09-18 12:02:46
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-09-18 13:21:06
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>数据类型转换</title>
+</head>
+<body>
+  <script>
+    //1.string
+    var num = 22;
+    console.log(num.toString());
+    console.log(num + "");
+    console.log(String(num));
+    //2.number
+    console.log(Number("22a")); //NaN
+    console.log(Number("afsda")); //NaN
+    console.log(Number("22")); //22
+    console.log(parseInt("a123")); //NaN
+    console.log(parseInt("222")); //222
+    console.log(parseFloat("22.2afs")); //22.2
+    console.log(parseFloat("22.2.2")); //22.2
+    console.log(+"22"); //22
+    console.log(+"22a"); //NaN
+    console.log(- "22"); //22
+    console.log("22" - 0); //22
+    console.log("22" + 0); //220
+    console.log(Boolean(undefined));
+    console.log(Boolean(null)); //false
+    console.log(!!null); //false
+    console.log(!!undefined); //false
+  </script>
+</body>
+</html>

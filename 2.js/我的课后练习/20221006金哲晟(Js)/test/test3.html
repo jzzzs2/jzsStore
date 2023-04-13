@@ -1,0 +1,59 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-10-06 21:25:57
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-10-06 22:11:21
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>量词</title>
+</head>
+<body>
+  <script>
+    // n{a, b} {m} {a,}
+    console.log(/\d{2,9}/.test("2222")); //true
+    console.log(/\d{2,9}/.test("0000")); //true
+    console.log(/\d{2,9}/.test("00002")); //true
+    console.log(/\d{2,9}/.test("10000")); //true
+    console.log(/\d{2,9}/.test("0")); //false
+    console.log(/\d{2,5}/.test("999999")); //true
+    console.log(/\d{3,6}/.test("22abc")); //false
+    console.log(/\d{3,6}/.test("222abc")); //true
+    console.log(/\d{6}/.test("23423abc")); //false
+    console.log(/\d{6}/.test("234232abc")); //true
+    console.log(/\d{2,}/.test("abc2")); //false
+    console.log(/\d{2,}/.test("abc22")); //true
+    console.log(/\d{2,}/.test("abc222")); //true
+    // 模糊匹配 n?
+    console.log(/window|windows/.test("window")); //true
+    console.log(/window|windows/.test("windows")); //true
+    console.log(/windows?/.test("22window")); //true
+    console.log(/windows?/.test("22windows")); //true
+    // n+ n*
+    console.log(/abc\d+/.test("abc3")); //true
+    console.log(/abc\d+/.test("abc333")); //true
+    console.log(/abc\d+/.test("abc")); //false
+    console.log(/abc\d*/.test("abc2323")); //true
+    console.log(/abc\d*/.test("abc2")); //true
+    console.log(/abc\d*/.test("abc")); //true
+    //^ 以..开头 $ 以..结尾
+    console.log(/^\d\S*\w$/.test("2sagfad_")); //true
+    console.log(/^\d\S*\w$/.test("a2sagfad_")); //false
+    console.log(/^\d\S*\w$/.test("2sagfad_2")); //true
+    console.log(/^\d\S*\w$/.test("2sagfad_a")); //true
+     //验证 是否符合 www.xxx.com  的格式 xxx 只能是数字或者字母 字符簇
+     console.log(/^www\.[A-Za-z0-9]+\.com$/.test("www.abc.com")); //true
+     console.log(/^www\.[A-Za-z0-9]+\.com$/.test("www.ab_c22.com")); //false
+     console.log(/^www\.[A-Za-z0-9]+\.com$/.test("www.a_bc22.com")); //false
+     console.log(/^www\.[A-z0-9]+\.com$/.test("www.a_bc22.com")); //true
+     console.log(/[A-Za-z0-9]+/.test("2"));
+     console.log(/[A-Za-z0-9]+/.test("222"));
+     console.log(/[A-Za-z0-9]+/.test("2_a22")); //true
+  </script>
+</body>
+</html>

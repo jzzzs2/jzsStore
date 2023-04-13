@@ -1,0 +1,44 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-09-11 14:30:34
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-09-11 14:44:26
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>数组方法</title>
+</head>
+<body>
+  <script>
+    //1. forEach(function(current,index,arr){},函数中this的指向)
+    // var obj = {
+    //   name: "jzs",
+    //   age: 22
+    // }
+    // var arr = ["好气", "课后练习", "可爱捏", "22"];
+    // arr.forEach(function (current,index,arr) {
+    //   console.log(current,index,arr,this.name);
+    // },obj)
+    // console.log(arr);
+    //2.sort(回调函数) 不写回调函数,会转化为字符串按unicode编码排列,回调函数 function(a, b) { return a - b;} 升序排列 return -1;数组倒排  
+    var arr = [2, 6, 1, 0, 11, 81, 100];
+    // arr.sort();
+    // console.log(arr);
+    // arr.sort(function(a, b) {
+    //   return a - b;
+    // })
+    // arr.sort(function(a, b) {
+    //   return b - a;
+    // })
+    // arr.sort(function() {
+    //   return -1;
+    // })
+    // console.log(arr);
+  </script>
+</body>
+</html>

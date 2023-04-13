@@ -1,0 +1,37 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-09-25 18:56:19
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-09-25 18:59:51
+-->
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>事件onload onerror onabort</title>
+</head>
+<script>
+  window.onload = function () {
+    var oImg = document.querySelector("img");
+    oImg.onload = function (e) {
+      console.log("加载成功捏");
+    }
+    oImg.onerror = function (e) {
+      console.log("加载失败了捏");
+    }
+    // console.log(window);  
+  }
+
+</script>
+
+<body>
+  <img src="../swiper-own/images/1.JPG" alt="miku">
+  <!-- <img src="../swiper-own/images/122.JPG" alt="miku"> -->
+
+</body>
+
+</html>

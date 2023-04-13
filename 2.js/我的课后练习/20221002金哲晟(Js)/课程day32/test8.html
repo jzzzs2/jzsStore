@@ -1,0 +1,125 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-10-02 17:48:39
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-10-02 18:08:18
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>吸顶导航</title>
+  </title>
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/public.css">
+  <link rel="stylesheet" href="css/header.css">
+  <style>
+    .cq-header {
+      background-color: #222;
+    }
+
+    .cq-header.fixed {
+      background-color: #fff;
+      position: fixed;
+    }
+
+    .cq-header.fixed .cq-head-nav a {
+      color: #222;
+    }
+
+    .fill-wrap {
+      height: 490px;
+      margin: 10px 0;
+    }
+
+    .bg222 {
+      background-color: pink;
+    }
+
+    .bg960 {
+      background-color: #960;
+    }
+
+    .bg0f5 {
+      background-color: #0f5;
+    }
+
+    .bg368 {
+      background-color: #368;
+    }
+
+    .fill-wrap.h80 {
+      height: 80px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="fill-wrap bg222 h80"></div>
+  <div id="head" class="cq-header">
+    <div class="cq-head-wrap w1160 flex flex-between">
+      <div class="cq-head-logo">
+        <h1>
+          <span class="visib-hid">橙子</span>
+          <a href="#">
+            <img id="logo" src="images/logo-rev.png" width="92" height="36" alt="logo">
+          </a>
+        </h1>
+      </div>
+      <div class="cq-head-nav flex ">
+        <ul class="flex ">
+          <li><a href="#" class="pr10">首页</a></li>
+          <li class="pull-list ">
+            <a href="#" class="icon pr10 icon-arrow-down flex flex-center">橙品牌</a>
+            <ul class="pull-list-item">
+              <li><a href="#">橙金融</a></li>
+              <li><a href="#">橙积分</a></li>
+              <li><a href="#">橙营销</a></li>
+              <li><a href="#">橙福利</a></li>
+            </ul>
+          </li>
+          <li><a href="#">橙权益</a></li>
+          <li><a href="#">行业案例</a></li>
+          <li><a href="#">新闻动态</a></li>
+          <li><a href="#">关于我们</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="fill-wrap bg222"></div>
+  <div class="fill-wrap bg960"></div>
+  <div class="fill-wrap bg0f5"></div>
+  <div class="fill-wrap bg368"></div>
+  <script src="./my.js"></script>
+  <script>
+    var oHead = $("#head");
+    var headTop = getPosition(oHead).top;
+    var oImg = $("#logo");
+    document.addEventListener("scroll", function (e) {
+      // 当剪切高度大于 head到文档顶部的高度时 设置fixed 并且放置一个空盒子在head元素之前位置.
+      var scrollTop = document.documentElement.scrollTop;
+      if (scrollTop > headTop) {
+        if (!$("#box")) {
+          var dom = document.createElement("div");
+          dom.height = oHead.offsetHeight;
+          dom.id = "box"
+          document.body.insertBefore(dom, oHead);
+        }
+        oHead.classList.add("fixed");
+        oImg.src = "images/logo.png";
+      } else {
+        $("#box") && $("#box").remove();
+        oHead.classList.remove("fixed");
+        oImg.src = "images/logo-rev.png";
+        oHead.backgroundColor = "#222";
+      }
+    })
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,101 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-09-22 18:46:36
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-09-23 16:44:33
+-->
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>基础轮播图</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    .content {
+      position: relative;
+      width: 400px;
+      height: 600px;
+      margin: 100px auto;
+      box-shadow: 0 0 10px #333;
+    }
+
+    img {
+      width: 400px;
+      height: 600px;
+    }
+
+    .slide {
+      display: flex;
+      justify-content: space-around;
+      position: absolute;
+      bottom: 10px;
+      left: 0;
+      right: 0;
+      width: 200px;
+      margin: 0 auto;
+    }
+
+    .slide span {
+      box-sizing: border-box;
+      width: 40px;
+      height: 40px;
+      padding-left: 12px;
+      background-color: orange;
+      line-height: 40px;
+      font-size: 20px;
+      color: #fff;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="content">
+    <img src="./images/1.jpg" alt="miku">
+    <div class="slide">
+      <span>1</span>
+      <span>2</span>
+      <span>3</span>
+      <span>4</span>
+    </div>
+  </div>
+  <script>
+    var aSpan = document.querySelectorAll("span");
+    var oImg = document.querySelector("img");
+    var oSlide = document.querySelector(".slide");
+    for (var i = 0; i < aSpan.length; i++) {
+      (
+        function (index) {
+          aSpan[i].onclick = function (e) {
+            var index = this.innerText;
+            oImg.src = `./images/${index}.jpg`;
+          }
+        }
+      )(i);
+    }
+    oSlide.onmouseover = function (e) {
+      if (e.target.tagName === "SPAN") {
+        e.target.style.backgroundColor = "pink";
+        e.target.style.color = "#333";
+      }
+    }
+
+    oSlide.onmouseout = function (e) {
+      if (e.target.tagName === "SPAN") {
+        e.target.style.backgroundColor = "orange";
+        e.target.style.color = "#fff";
+      }
+    }
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,34 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-09-17 15:10:54
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-09-17 15:16:08
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>直接获取的元素对象</title>
+</head>
+<body>
+  <div id="nav">
+    <ul>
+      <li>1</li>
+      <li class="active">2</li>
+      <li>3</li>
+    </ul>
+  </div>
+  <script>
+    console.log(document.body);
+    console.log(document.title);
+    console.log(document.head);
+    //
+    var oUl = document.querySelector("#nav>ul");
+    console.log(oUl);
+    console.log(oUl.querySelector(".active"));
+  </script>
+</body>
+</html>

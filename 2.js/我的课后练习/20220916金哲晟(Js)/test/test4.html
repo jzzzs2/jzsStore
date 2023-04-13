@@ -1,0 +1,40 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-09-16 15:49:25
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-09-16 16:00:21
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>日期封装</title>
+</head>
+<body>
+  <script>
+
+    function formatDate(date) {
+      var arr = ["周日", "周一", "周二", "周三", "周四", "周五", "周六"];
+      if (date instanceof Date) {
+        var year = date.getFullYear();
+        var month = date.getMonth() + 1;
+        var day = date.getDate();
+        var week = arr[date.getDay()];
+        var hour = date.getHours();
+        var min = date.getMinutes();
+        var sec = date.getSeconds();
+        return year + "年" + padLeft(month) + "月" + padLeft(day) + "日" + padLeft(hour) + "时" + padLeft(min) + "分" + padLeft(sec) + "秒" + week
+      } else {
+        console.log("请重新输入");
+      }
+    }
+    function padLeft(num) {
+      return String(num)[1] && String(num) || ("0" + num);
+    }
+    console.log(formatDate(new Date()));
+  </script>
+</body>
+</html>

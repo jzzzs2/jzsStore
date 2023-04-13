@@ -1,0 +1,29 @@
+<!--
+ * @Author: mikuSama 2803290705@qq.com
+ * @Date: 2022-09-06 18:01:02
+ * @LastEditors: mikuSama 2803290705@qq.com
+ * @LastEditTime: 2022-09-06 18:22:30
+ * @FilePath: \20220906金哲晟(Js)\test\test4.html
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>函数中用单if加return 替代 if else if</title>
+</head>
+<body>
+  <script>
+    // 纯函数 非纯函数
+    //相加
+    function getSum(one, two) {
+      return one + two;
+    }
+    function getPow(num, pow) {
+      return num ** pow;
+    }
+    console.log(getPow(getSum(2,1),3));// 27
+  </script>
+</body>
+</html>

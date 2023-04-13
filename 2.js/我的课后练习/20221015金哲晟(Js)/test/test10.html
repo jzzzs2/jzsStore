@@ -1,0 +1,43 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-10-15 17:10:57
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-10-15 17:21:59
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>解构赋值 对象</title>
+</head>
+<body>
+  <script>
+    //对象解构赋值 变量必须声明,或者在最外边加上括号表示是语句,不然js解释器无法解析.
+    ({x, y} = {x : 55, y : 77});
+    // let {x, y} = {x : 55, y : 77};
+    // console.log(x, y);
+    //对象解构 书写的第二种方式
+    let key = 'title';
+
+    const metadata = {
+      title: 'Scratchpad',
+      translations: [
+        {
+          locale: 'de',
+          localization_tags: [],
+          last_edit: '2014-04-14T08:43:37',
+          url: '/de/docs/Tools/Scratchpad',
+          title: 'JavaScript-Umgebung',
+        },
+      ],
+      url: '/en-US/docs/Tools/Scratchpad',
+    };
+
+    let {[key]: englishTitle} = metadata;
+    console.log(key, englishTitle);
+  </script>
+</body>
+</html>

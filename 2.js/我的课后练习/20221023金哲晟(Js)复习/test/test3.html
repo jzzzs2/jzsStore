@@ -1,0 +1,42 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-10-23 11:20:43
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-10-23 11:26:45
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>通道函数</title>
+</head>
+<body>
+  <script>
+    function pipe (...func) {
+      return function (input) {
+        return func.reduce(function (acc,item) {
+          return item(acc);
+        },input)
+      }
+    }
+    function getDouble (item) {
+      return item * 2;
+    }
+    function getTrible (item) {
+      return item * 3;
+    }
+    console.log(pipe(getDouble,getTrible)(3));
+    let a = undefined;
+    let b = null;
+    let c = "";
+    let d = 0;
+    console.log(a ?? 3); // 3
+    console.log(b ?? 3); //3
+    console.log(c ?? 3); //""
+    console.log(d ?? 3); //0
+  </script>
+</body>
+</html>

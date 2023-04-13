@@ -1,0 +1,144 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-09-22 18:46:36
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-09-23 21:29:28
+-->
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>基础轮播图</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    .content {
+      position: relative;
+      width: 400px;
+      height: 600px;
+      margin: 100px auto;
+      box-shadow: 0 0 10px #333;
+    }
+
+    img {
+      width: 400px;
+      height: 600px;
+    }
+
+    .slide {
+      display: flex;
+      justify-content: space-around;
+      position: absolute;
+      bottom: 10px;
+      left: 0;
+      right: 0;
+      width: 200px;
+      margin: 0 auto;
+    }
+
+    .slide span {
+      box-sizing: border-box;
+      width: 40px;
+      height: 40px;
+      padding-left: 12px;
+      background-color: orange;
+      line-height: 40px;
+      font-size: 20px;
+      color: #fff;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+
+    .btn span {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      height: 100px;
+      padding: 0 14px;
+      margin: auto;
+      background-color: rgba(200, 200, 200, .7);
+      line-height: 100px;
+      color: #fff;
+      font-size: 20px;
+      cursor: pointer;
+    }
+
+    .pre {
+      left: 0;
+    }
+
+    body .next {
+      right: 0;
+      /* color: red; */
+    }
+
+    .btn span:hover {
+      background-color: rgba(200, 200, 200, 1);
+    }
+
+    body .active {
+      background-color: pink;
+      color: #333;
+    }
+
+    .normal {
+      background-color: orange;
+      color: #fff;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="content">
+    <img src="./images/1.jpg" alt="miku">
+    <div class="slide">
+      <span class="active">1</span>
+      <span>2</span>
+      <span>3</span>
+      <span>4</span>
+    </div>
+    <div class="btn">
+      <span class="pre">&lt;</span>
+      <span class="next">&gt;</span>
+    </div>
+  </div>
+  <script>
+    var aSpan = document.querySelectorAll(".slide span");
+    var oImg = document.querySelector("img");
+    var oSlide = document.querySelector(".slide");
+    var oPre = document.querySelector(".pre");
+    var oNext = document.querySelector(".next");
+    var oBtn = document.querySelector(".btn");
+    function shout() {
+      console.log("好耶好耶");
+    }
+    oNext.attachEvent("onclick", shout);
+    oNext.detachEvent("onclick", shout);
+    // oNext.addEventListener("click", function(e) {
+    //   console.log("我是后一个捏");
+    // })
+    // oNext.addEventListener("click", twiceBind)
+    // oPre.addEventListener("click", function(e) {
+    //   console.log("我是前一个捏");
+    // })
+    // function shout(e) {
+    //   console.log("我是捕获阶段执行的回调函数捏");
+    // }
+    // function twiceBind(e) {
+    //   console.log("我是next的第二个重复事件绑定捏");
+    // }
+    // oNext.removeEventListener("click",twiceBind);
+    // oNext.removeEventListener("click",function(e) {
+    //   console.log("我是后一个捏");
+    // });
+  </script>
+</body>
+
+</html>
