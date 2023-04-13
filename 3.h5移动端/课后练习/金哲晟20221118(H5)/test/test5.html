@@ -1,0 +1,26 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-11-18 20:49:46
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-11-18 21:02:44
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>正则回顾</title>
+</head>
+<body>
+  <script>
+    let reg = /te(s)t(\S*)/g;
+    // console.log(reg.test("test234"));
+    console.log("2222test234".match(reg));
+    console.log("222test234".replace(reg,"$1"));
+    console.log("222test234".replace(reg,"$2"));
+  </script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-12-11 17:31:18
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-12-11 18:38:24
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>find findIndex fill</title>
+</head>
+<body>
+  <script>
+    let arr = [2, 6, 9,26, 12,9];
+    // console.log(arr.find(function (item,index,arr) {
+    //   console.log(item,index,arr);
+    //   return item === 900;
+    // }));
+    // console.log(arr.findIndex(function (item,index,arr) {
+    //   console.log(item,index,arr);
+    //   return item === 129;
+    // }));
+    let obj = {
+      age:  22
+    }
+    console.log(arr.find(function (item,idx,arr) {
+      console.log(item,this.age);
+      return this.age < item
+    },obj));
+    //NaN
+    // console.log([NaN].indexOf(NaN));
+    // console.log([NaN].findIndex(y => Object.is(y,NaN)));
+    let result = new Array(30).fill("eat")
+    console.log(result);
+    // result = result.fill("yes",2,5); //index [2,5)
+    // console.log(result);
+    let twoObj = {
+      name: "jzs"
+    }
+    // result.fill(twoObj);
+    result.fill({name: "zjc"});
+    console.log(result);
+    result[0].name = "jzs";
+    console.log(result);
+  </script>
+</body>
+</html>

@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--vieport-->
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
+	<!--禁止将数字变为电话号码-->
+	<meta name="format-detection" content="telephone=no" />
+    <title>香港小生活</title>
+    <meta name="keywords" content="香港小生活" />
+    <meta name="description" content="香港小生活" />
+    <!--页面样式格式化-->
+    <link rel="stylesheet" href="static/css/reset.css" />
+    <!--所有页面头部header和底部footer公用样式-->
+    <link rel="stylesheet" href="static/css/public.css" />
+    <script src="static/js/jquery.min.js"></script>
+    <!--[if lt IE 9]> 
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+</head>  	
+<body>
+	<!--当前页面私有样式-->
+	<link rel="stylesheet" href="static/css/swiper.css">
+	<link href="static/css/product_info.css" rel="stylesheet">
+	<script src="static/js/swiper.min.js"></script>
+	
+	<div class="public_back">
+		<a class="back"></a>
+		<h2 class="title">产品详情</h2>
+		<a class="search"></a>
+	</div>		
+	
+	<div class="main_section">
+		<div class="swiper-container product_banner">
+	        <div class="swiper-wrapper">
+	            <div class="swiper-slide">
+	            	<img src="static/picture/product_banner.jpg" />
+	            </div>
+	            <div class="swiper-slide">
+	            	<img src="static/picture/product_banner.jpg" />
+	            </div>
+	            <div class="swiper-slide">
+	            	<img src="static/picture/product_banner.jpg" />
+	            </div>
+	        </div>
+	        <div class="swiper-pagination"></div>
+	    </div>
+	    <script>
+		    var swiper = new Swiper('.swiper-container', {
+		        pagination: '.swiper-pagination',
+		        paginationType: 'fraction',
+		        autoplay: 2500,
+		        loop:true
+		    });
+	    </script>
+	    <div class="section1">
+	    	<div class="top">
+	    		<h2 class="title">40.8度 洋河蓝色经典 梦之蓝M6 500ml</h2>
+	    		<div class="share">
+	    			<img src="static/images/share.jpg" />
+	    			<span>分享</span>
+	    		</div>
+	    	</div>
+	    	<div class="bottom">
+	    		<div class="price">
+	    			<p>
+	    				<span>￥</span>
+	    				<strong>570</strong>
+	    			</p>
+	    			<a>￥688</a>
+	    		</div>
+	    		<div class="info">
+	    			<span>销量：15件</span>
+	    			<span>库存：500件</span>
+	    		</div>
+	    	</div>
+	    </div>
+		
+		<div class="section2">
+			<span>服务内容</span>
+			<a>正品保障</a>
+			<a>极速发货</a>
+		</div>
+		
+		<div class="section3 choose">请选择 <span class="guige">规格</span></div>
+		
+		<div class="blank_10"></div>
+		
+		<div class="section4">
+			<div class="top">
+				<div class="left">
+					<h2>商品评价</h2>
+					<span>（94条）</span>
+				</div>
+				<div class="right">
+					<p>好评率98%</p>
+				</div>
+			</div>
+			<div class="list">
+				<div class="item">
+					<div class="info">
+						<img class="touxiang" src="static/picture/touxiang.jpg" />
+						<div class="xingji">
+							<h3 class="nike">云***8</h3>
+							<ul class="xin">
+								<img src="static/images/xing.jpg" />
+								<img src="static/images/xing.jpg" />
+								<img src="static/images/xing.jpg" />
+								<img src="static/images/xing.jpg" />
+								<img src="static/images/xing.jpg" />
+							</ul>
+						</div>
+					</div>
+					<div class="desc">2019-03-31 规格：65g*2支</div>
+					<div class="content">
+						<p>这个牙膏很好用！</p>
+					</div>
+				</div>
+				<div class="item">
+					<div class="info">
+						<img class="touxiang" src="static/picture/touxiang.jpg" />
+						<div class="xingji">
+							<h3 class="nike">云***8</h3>
+							<ul class="xin">
+								<img src="static/images/xing.jpg" />
+								<img src="static/images/xing.jpg" />
+								<img src="static/images/xing.jpg" />
+								<img src="static/images/xing.jpg" />
+								<img src="static/images/xing.jpg" />
+							</ul>
+						</div>
+					</div>
+					<div class="desc">2019-03-31 规格：65g*2支</div>
+					<div class="content">
+						<p>这个牙膏很好用！</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="blank_10"></div>
+		
+		<div class="section5">
+			<div class="top">图文详情</div>
+			<div class="singlepage">
+				<img src="static/picture/info.jpg" />
+			</div>
+		</div>
+	</div>
+	
+    <div class="bottom_caozuo">
+    	<div class="left">
+    		<a>
+    			<img src="static/images/home.png" />
+    			<span>首页</span>
+    		</a>
+    		<a>
+    			<img src="static/images/shoucang.png" />
+    			<span>收藏</span>
+    		</a>
+    	</div>
+    	<div class="right">
+    		<button class="cart choose">加入购物车</button>
+    		<button class="buy choose">立即购买</button>
+    	</div>
+    </div>
+    
+    <div class="public_mask"></div>
+	<div class="public_up">
+		<div class="public_top">
+			<h2 class="public_title">选择规格</h2>
+			<a class="public_close close"></a>
+		</div>
+		<div class="public_main">
+			<div class="guige_1">
+				<img src="static/picture/cart.jpg" class="pic"/>
+				<div class="content">
+					<div class="price">
+						<a>￥</a>
+						<strong>570</strong>
+					</div>
+					<div class="kucun">库存<span>500</span>件</div>
+				</div>
+			</div>
+			<div class="guige_2">
+				<h2 class="title">规格</h2>
+				<ul class="list">
+					<span class="active">默认</span>
+					<span>750ML*1瓶装</span>
+					<span>750ML*1瓶装</span>
+					<span>750ML*1瓶装</span>
+				</ul>
+			</div>
+			<div class="guige_3">
+				<span class="title">数量</span>
+				<div class="caozuo">
+					<button class="jian">-</button>
+					<input type="text" class="num" value="1" readonly="readonly">
+					<button class="jia">+</button>
+				</div>
+			</div>
+		</div>
+		<div class="public_button">
+			<button class="confirm">确定</button>
+		</div>
+	</div>
+	<script>
+		$('.guige_2 .list span').click(function(){
+			$(this).addClass('active');
+			$(this).siblings('span').removeClass('active');
+			
+			console.log($(this).html())
+		});
+		$('.guige_3 .caozuo button.jian').click(function(){
+    		var num = Number($(this).siblings('input').val());
+    		if (num <= 1) {
+		      	return false;
+		    } else {
+		    	num = num - 1;
+    			$(this).siblings('input').val(num);
+		    }
+    		return false;
+    	});
+    	$('.guige_3 .caozuo button.jia').click(function(){
+    		var num = Number($(this).siblings('input').val());
+    		num = num + 1;
+    		$(this).siblings('input').val(num);
+    		return false;
+    	});
+    	
+    	function getCanshu(){
+    		var guige;
+    		$('.guige_2 .list').each(function(){
+    			guige = '规格：' + $(this).find('.active').html();    			
+    		})
+    		var num = '数量：' + $('.num').val();
+    		val = guige + ';' + num;
+    		console.log(val)
+    	}
+    	
+    	
+		var val;
+		$('.confirm').click(function(){
+			getCanshu();
+			$('.guige').html(val);
+			closeMask();
+		});
+		$('.choose').click(function(){
+			openMask();
+		});
+		$('.public_mask,.close').click(function(){
+			closeMask();
+			$('.yhqInp').val(val);
+		});
+		function openMask(){
+			$('.public_mask').fadeIn(100);
+			$('.public_up').animate({'bottom':'0px'});
+		}
+		function closeMask(){
+			$('.public_mask').fadeOut(100);
+			$('.public_up').animate({'bottom':'-380px'});
+		}
+	</script>
+    
+    
+    <script>
+    	$(function(){
+    		function getHeight(){
+    			var winHeight = $(window).outerHeight(true);
+	    		var topHeight = $('.public_back').outerHeight(true);
+	    		var bottomHeight = $('.bottom_caozuo').outerHeight(true);
+	    		var mainHeight = winHeight - topHeight - bottomHeight;
+	    		$('.main_section').css('height',mainHeight + 'px');
+    		}
+    		getHeight();    		
+    		window.onresize = function(){
+    			getHeight();
+    		}
+    	});
+    </script>
+</body>
+</html>

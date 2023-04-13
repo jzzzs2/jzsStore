@@ -1,0 +1,160 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-11-14 18:48:07
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-11-14 21:09:13
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>jq 事件</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      height: 10000px;
+    }
+
+    #wrap {
+      margin: 100px;
+      position: relative;
+      height: 100px;
+      width: 500px;
+      padding: 20px;
+      background-color: red;
+    }
+
+    .box {
+      position: absolute;
+      top: 100px;
+      left: 100px;
+      width: 50px;
+      height: 50px;
+      margin: 10px;
+      padding: 10px;
+      border: 5px solid red;
+      background-color: #368;
+    }
+
+    .red {
+      background-color: red;
+    }
+  </style>
+</head>
+
+<body>
+  <span class="submit">shang jiao</span>
+  <form action="https://www.bilibili.com/">
+    <input type="submit" value="tijiao">
+  </form>
+  <a href="https://www.bilibili.com/">jump to bilibili</a>
+  <div id="wrap">
+    <!-- <input type="submit"> -->
+    <div class="box" id="333"></div>
+    <input type="text" value="13123">
+    <p class="desc mb5" data-pop='10' inp='des'>321321312
+    </p>
+    <p class="desc mb5" inp='des'>321321312
+    </p>
+    <p class="desc mb5" inp='des'>321321312
+    </p>
+    <p class="desc mb5" inp='des'>321321
+    </p>
+
+    <!-- <img src="images/bird.png" alt="bird">
+    <div><span></span></div> -->
+    <a href="http://www.baidu.com"></a>
+  </div>
+  <script src="http://code.jquery.com/jquery-1.12.0.min.js">
+  </script>
+  <script>
+
+    /*
+    hover() : mouseover + mouseout
+    ready() : window.onload
+    */
+    // $("p").css("backgroundColor", "cyan");
+    // $("p").click(function (e) {
+    //   console.log(1);
+    // })
+    // $("p").mouseover(function (e) {
+    //   console.log("进入P", e);
+    // })
+    // $("p").mouseout(function (e) {
+    //   console.log("离开P", e);
+    // })
+    //  $("#wrap").mouseover(function(e) {
+    //   console.log("进入wrap",e);
+    //  })
+    //  $("#wrap").mouseout(function (e) {
+    //   console.log("离开wrap",e);
+    //  })
+    // $("[type='submit']").hover(function (e) {
+    //   console.log("我在按钮内外跳跃", e.type);
+    // })
+    // $("input").focus(function (e) {
+    //   console.log("我选中了你",e.type);
+    // })
+    //trigger() 执行默认事件行为
+    // console.log(1);
+    // $("[type='submit']").click(function (e) {
+    //   // console.log(1);
+    //   // $("[type='submit']").trigger("submit");
+    //   console.log($("[type='submit']").get(0));
+    // })
+    // $(".submit").click(function (e) {
+    //   // $("form").trigger("submit");
+    //   console.log([$("form").get(0)]);
+    //   $("form").get(0).submit();
+    // })
+    // $("p").click(function (e) {
+    //   console.log(111);
+    // })
+    // $(".desc").click(function (e) {
+    //   console.log(222);
+    // })
+    // $(".box").click(function (e) {
+    //   console.log("first click");
+    // })
+    // $(".box").on("click",function (e) {
+    //   console.log("111",e,"鼠标点击");
+    // })
+    $("#wrap").on("click", "input", function (e) {
+      console.log(e.target.tagName, "鼠标点击");
+
+    })
+    $("#wrap").on("click", "div", function (e) {
+      console.log(e.target.tagName, "鼠标点击");
+
+    })
+    $("#wrap").on("click", "p", function (e) {
+      console.log(e.target.tagName, "鼠标点击");
+    })
+    // $(".box").one("click",function (e) {
+    //   console.log("111",e);
+    // })
+    // $(".box").mouseover(function (e) {
+    //   console.log("鼠标进入了");
+    // })
+    // $(".box").one("mouseout",{name: "jzs"} ,function (e) {
+    //   console.log("鼠标离开了捏",e);
+    // })
+    // $(".box").off("click mouseover");
+    // $(".box").hover(function (e){
+    //   console.log("hello");
+    // },function (e) {
+    //   console.log("bye");
+    // });
+  </script>
+</body>
+
+</html>

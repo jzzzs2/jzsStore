@@ -1,0 +1,116 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2023-02-28 17:03:54
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2023-02-28 19:09:44
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>特效使用</title>
+  <style>
+    body {
+      position: relative;
+      height: 600px;
+    }
+
+    .box {
+      width: 400px;
+      margin: 200px auto;
+      background-color: #ccc;
+      text-align: center;
+      height: 200px;
+    }
+
+    p {
+      position: absolute;
+      left: 0px;
+      right: 0px;
+      margin: auto;
+      display: none;
+      /* opacity: 0; */
+      bottom: -100px;
+      line-height: 40px;
+      width: 100px;
+      height: 40px;
+      border-radius: 20px;
+      font-size: 16px;
+      text-align: center;
+      color: green;
+      background-color: #eee;
+    }
+
+    /* .success {
+      display: block;
+      bottom: -60px;
+    } */
+
+    @keyframes enter {
+      0% {
+        bottom: -100px;
+        opacity: 10%;
+      }
+      50% {
+        opacity: 1;
+        bottom: -80px;
+      }
+      100% {
+        opacity: 0;
+        bottom: -80px;
+      }
+    }
+
+    .animate {
+      animation:  2s linear enter
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box">
+    <p>修改成功</p>
+    <button>登录</button>
+  </div>
+  <script src="http://code.jquery.com/jquery-1.12.1.min.js"></script>
+  <script>
+    // class Message {
+    //   constructor(msg) {
+    //     this.msg = msg
+    //     this.init()
+    //   }
+    //   init() {
+    //     let oP = document.createElement("p")
+    //     console.log(oP);
+    //     document.body.append(oP)
+    //     this.ele = oP
+        
+    //   }
+    //   animate () {
+    //     this.ele.innerText = this.msg        
+    //     this.ele.classList.add("animate")
+    //     // setTimeout(() => {
+    //     //   console.log("setTime");
+    //     //   this.ele.remove()
+    //     // }, 4000);
+    //   }
+    // }
+    $("button").on("click", function (e) {
+      // $("p").fadeIn("normal",function() {
+      //   //延迟几秒后结束
+      // }).delay(1000).fadeOut("fast")
+      // $("p").addClass("animate")
+      // new Message("修改成功").animate()
+      $("p").slideDown("normal").delay(1000).slideUp("normal")
+      // $("p").show("normal").delay(1000).hide("normal")
+      // $("p").fadeIn("normal").delay(1000).fadeOut("normal")
+    })
+  </script>
+</body>
+
+</html>

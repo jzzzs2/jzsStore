@@ -1,0 +1,40 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-11-11 20:09:04
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-11-11 21:08:33
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>worker的替代方法</title>
+</head>
+
+<body>
+  <script>
+    let worker = new Worker("./test2.js");
+    worker.postMessage(32);
+    // fb(32);
+    worker.addEventListener("message", function (e) {
+      console.log("我是主线程  接收到了数据", e.data);
+    })
+    function fb(idx) {
+      if (idx === 0) {
+        return 0;
+      }
+      if (idx === 2 || idx === 1) {
+        return 1;
+      }
+      return fb(idx - 1) + fb(idx - 2) + fb(idx - 3);
+    }
+  </script>
+  <p>keaifdsafsdagsagasdgasgasdgasgafdsfssd</p>
+</body>
+
+</html>

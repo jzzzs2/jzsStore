@@ -1,0 +1,67 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-11-17 21:04:09
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-11-17 21:39:09
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>字符串拓展</title>
+  <script src="http://code.jquery.com/jquery-1.12.1.min.js"></script>
+  <style>
+    .box {
+      width: 300px;
+      height: 200px;
+      background-color: green;
+    }
+  </style>
+</head>
+<body>
+  <div class="box"></div>
+  <script>
+    let str = "abcde";
+    for (value of str) {
+      console.log(value);
+    }
+    //模板字符串
+    let name = "jzs";
+    let address = "home";
+    // console.log(`${name} 在 ${address} 捏`);
+    // console.log(`\`\``);
+    // let $box = $(".box");
+    // $box.append(`
+    // <ul>
+    //   <li>1</li>
+    //   <li>2</li>
+    //   <li>3</li>
+    // </ul>
+    // `.trim())
+    let x = 1;
+    let y = 2;
+    console.log(`${x} + ${y} = ${x + y}`); // 1 + 2 = 3
+    console.log(`${x} + ${y * 2} = ${x + y * 2}`); // 1 + 4 = 5
+    let obj = {x: 1, y: 3};
+    console.log(`${obj.x} and ${obj.y} ${obj.x + obj.y}`);
+    function fn () {
+      return "eating";
+    }
+    console.log(`${fn()} ok`);
+    let person = {
+      name: "jzs",
+      age: 22
+    }
+    // console.log(`${person}`);
+    // console.log(`${222}`);
+    // console.log(`${"222"}`);
+    let param = `${x} +  ${y}`;
+    let strs = `eat ${param} = 3`;
+    console.log(strs);
+  </script>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>requestAnimationFrame</title>
+  <style>
+    body {
+      height: 12000px;
+    }
+  </style>
+</head>
+<body>
+  <script>
+    //requestAnimationFrame(回调函数) 定时器的作用  时间间隔为16ms
+    //页面不可见时,requestAnimationFrame会睡眠,不会调用回调函数.
+    // let num = 0;
+    // function count () {
+    //   num++;
+    //   console.log(num);
+    //   requestAnimationFrame(count);
+    // }
+    // count();
+
+    // let test = 0;
+    // setInterval(function () {
+    //   test++;
+    //   console.log(test);
+    // }, 10)
+    // let num = 0;
+    // let time = Date.now();
+    // function count () {
+    //   // console.log(Date.now() - time);
+    //   num++;
+    //   console.log(Date.now() - time);
+    //   // console.log(num);
+    //   time = Date.now();
+    //   requestAnimationFrame(count);
+    // }
+    // count();
+    let locked = false;
+    let time = Date.now();
+    window.addEventListener("scroll",function (e) {
+      if (!locked) {
+        console.log(Date.now() - time);
+        locked = true;
+        time = Date.now();
+        window.requestAnimationFrame(test);
+      }
+    })
+    function test () {
+      console.log("我调用了");
+      // locked = false;
+    }
+    //
+    function myRequestAnimationFrame (callback, time) {
+      let currentTime = Date.now();
+      (function fn() {
+        let timeout = setTimeout(() => {
+          callback();
+          requestAnimationFrame(fn);
+        }, time);
+        // if (Date.now() - currentTime >= time) {
+        //   callback();
+        //   currentTime = Date.now();
+        //   console.log(currentTime);
+        // }
+        // requestAnimationFrame(fn);
+      })();
+    }
+    myRequestAnimationFrame(test,1000);
+  </script>
+</body>
+</html>

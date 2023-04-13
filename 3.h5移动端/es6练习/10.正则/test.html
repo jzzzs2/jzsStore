@@ -1,0 +1,97 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2023-02-02 21:24:11
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2023-02-02 23:43:52
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    //正向预言 反向预言   就是对之前的匹配式的修饰
+    // username: /^(?!\d+$)(?![a-zA-Z]+$)[a-zA-Z0-9]{6,8}$/,
+    // pwd: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d!.#*?&]{8,12}$/
+    // console.log(/^(?:\d+)([a-zA-Z]*)$/.exec("343fdafad"));
+    // console.log(/^(?:\d+)([a-zA-Z]*)$/.test("343fdafad"));
+    // console.log(/^(\d+)([a-zA-Z]*)$/.exec("343fdafad"));
+    // console.log(/([a-zA-Z]+)(?=\d*)/.exec("dsfs2"));
+    // console.log(/([a-zA-Z]+)(?=\d+)/.exec("dsfs"));
+    // console.log(/([a-zA-Z]+)(?!\d+)/.exec("dsfs"));
+    // console.log(/(?<=\d+)[a-zA-Z]+/.exec("232fdsfsd"));
+    // console.log(/(?<!\d+)[a-zA-Z]+/.exec("232fdsfsd"));
+    // console.log(/^(?!\d+)[a-zA-Z]+$/.exec("23232fsafa"));
+    // console.log(/(?!\d+)[a-zA-Z]+/.exec("23232fsafa"));
+    // console.log(/(?!\d+)(?![a-zA-Z]+)[a-zA-Z0-9]{6,8}/.test("2323232"));
+    // console.log(/[a-zA-Z0-9]{6,8}/.test("2323232"));
+    // console.log(/^(?!\d+$)(?![a-zA-Z]+$)[A-Za-z0-9]+$/.test("43242332"));
+    // console.log(/^(?!\d+$)(?![a-zA-Z]+$)[A-Za-z0-9]+$/.test("fsafasf"));
+    // console.log(/^(?!\d+$)(?![a-zA-Z]+$)[A-Za-z0-9]+$/.test("fsa232sf"));
+    // console.log(/^(?<!\d+$)(?<![a-zA-Z]+$)[A-Za-z0-9]+$/.test("43242332"));
+    // console.log(/^(?<!\d+$)(?<![a-zA-Z]+$)[A-Za-z0-9]+$/.test("fsafasf"));
+    // console.log(/^(?<!\d+$)(?<![a-zA-Z]+$)[A-Za-z0-9]+$/.test("fsa232sf"));
+    // console.log(/dass(?<=\d+)/.exec("dass232"));
+    // console.log(/dass(?<=\d+)/.exec("4242dass243"));
+    // console.log(/\d+(?<=\d+)dass/.exec("232dass3232"));
+    // console.log(/gfdgdf(?=\d)/.test("gfdgdf232"));
+    // console.log(/gfdgdf(?=\d)/.test("gfdgdfsa"));
+    // console.log(/abc(?<=\d+)/.test("abc34"));
+    console.log(/^abc(?<=\d+)$/.test("abc"));
+    console.log(/^abc(?<=\d+)$/.test("abc34"));
+    console.log(/^(?<=\d+$)[a-zA-Z0-9]+$/.test("3232dsadaabc34"));
+    console.log(/(?<=[.]+)[a-zA-Z0-9]+$/.test(".3232dsadaabc34"));
+    console.log(/(?<=[.]+)[a-zA-Z0-9]+$/.exec("3232dsadaabc34"));
+    console.log(/^(?=[.]+)[a-zA-Z0-9]+$/.exec("3232dsadaabc34"));
+    console.log(/^(?=[.]+)[a-zA-Z0-9]+$/.exec(".3232dsadaabc34"));
+    console.log(/^(?=[.]+)[a-zA-Z0-9]+$/.test("3232dsadaabc34"));
+    console.log(/^(?=[.]+)[a-zA-Z0-9]+$/.test("..3232dsadaabc34"));
+    console.log(/^(?=[.]+)[a-zA-Z0-9]+/.test("..3232dsadaabc34"));
+    console.log(/^(?![.]+)[a-zA-Z0-9]+/.test("..3232dsadaabc34"));
+    console.log(/^(?![.]+)[a-zA-Z0-9]+/.test("3232dsadaabc34"));
+    console.log(/^(?![.]+)(?![+-])[a-zA-Z0-9]+/.test("3232dsadaabc34"));
+    console.log(/^(?![.]+)(?![+-])[a-zA-Z0-9]+/.test("+-3232dsadaabc34"));
+    // console.log(/^(?=\d+)[a-zA-Z0-9]+/.test("3232dsadaabc34"));
+    // console.log(/^(?=\d+)[a-zA-Z0-9]+/.exec("3232dsadaabc34"));
+    // console.log(/^(?=\d*)[a-zA-Z0-9]+/.test("3232dsadaabc34"));
+    // console.log(/^(?=\d*)[a-zA-Z0-9]+/.exec("3232dsadaabc34"));
+    // console.log(/^(?!\d+)[a-zA-Z0-9]+/.exec("3232dsadaabc34"));
+    // console.log(/^(?!\d+)[a-zA-Z0-9]+/.test("3232dsadaabc34"));
+    // console.log(/^(?!\d+)[A-Z]+/.test("fdf3232FDSA"));
+    // console.log(/^(?!\d+)[A-Z]+/.exec("fdfd3232AFSF"));
+    // console.log(/^(?!\d+)[A-Z]+/.exec("fdfdAFSF"));
+    // console.log(/^(?!\d+)[A-Z]+/.test("fdfdAFSF"));
+    // console.log(/^(?!\d+)[A-Z]+/.test("DFSAFSF"));
+    // console.log(/(?!\d+)[A-Z]+/.test("232323DFSAFSF"));
+    // console.log(/(?!\d+)[A-Z]+/.exec("232323DFSAFSF"));
+    // console.log(/(?!\d+)[A-Z]+/.test("232323DFSAFSF"));
+    // console.log(/(?!\d+)[A-Z]+/.exec("232323DFSAFSF"));
+    // console.log(/(?!\d+)[A-Z]+/.test("dsds23232ds3dsDFSAFSF"));
+    // console.log(/(?!\d+)[A-Z]+/.exec("dsds23232ds3dsDFSAFSF"));
+    // console.log(/^ (?=[.]+)[a-zA-Z0-9]+/.test(" .3232dsadaabc34"));
+    // console.log(/^ (?=[.]+)[a-zA-Z0-9]+/.test(" 3232dsadaabc34"));
+    // console.log(/(?<=[.]+)[a-zA-Z0-9]+$/.test("3232dsadaabc34"));
+    // console.log(/^(?<!\d+$)[a-zA-Z0-9]+$/.test("3232dsadaabc34"));
+    // console.log(/[_]+/.test("__"));
+    // console.log(/abc(?=\d+)/.test("abc34"));
+    console.log(/^(?=\d+)abc/.test("233abcd"))
+    console.log(/^(?!\d+)abc/.test("hhhabcd"))
+    console.log(/^(?!\d+)abc[a-z]+/.test("abcabcd"))
+    console.log("-------------");
+    console.log(/^(?!\d+$)(?![a-zA-Z]+$)[a-zA-Z0-9]{6,8}$/.test("fsdffds"));
+    console.log(/^(?!\d+$)(?![a-zA-Z]+$)[a-zA-Z0-9]{6,8}$/.test("3232322"));
+    console.log(/^(?!\d+$)(?![a-zA-Z]+$)[a-zA-Z0-9]{6,8}$/.test("23dsdss"));
+    console.log("----------------");
+    console.log(/^(?!\d+$)(?![a-zA-Z]+)[a-zA-Z0-9]{6,8}$/.test("fsdffds"));
+    console.log(/^(?!\d+$)(?![a-zA-Z]+)[a-zA-Z0-9]{6,8}$/.test("3232322"));
+    console.log(/^(?!\d+$)(?![a-zA-Z]+)[a-zA-Z0-9]{6,8}$/.test("23dsdss"));
+    console.log(/^(?!\d+$)(?![a-zA-Z]+)[a-zA-Z0-9]{6,8}$/.exec("23dsdss"));
+  </script>
+</body>
+</html>

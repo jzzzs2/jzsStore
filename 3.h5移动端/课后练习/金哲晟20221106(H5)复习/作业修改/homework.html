@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>updata 表单信息上传</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    .form-wrap {
+      width: 400px;
+      margin: 10px auto;
+    }
+
+    label {
+      display: block;
+      margin: 5px 0;
+    }
+
+    h1 {
+      text-align: center;
+      padding: 10px 0;
+    }
+
+    ::placeholder {
+      font-size: 12px;
+    }
+
+    input[itype] {
+      width: 400px;
+      padding: 0 10px;
+      border: 0;
+      outline: 0;
+      font-size: 16px;
+      line-height: 30px;
+      border-radius: 4px;
+      box-shadow: 0 0 3px #999;
+    }
+
+    input[itype]:focus {
+      box-shadow: 0 0 3px #333;
+    }
+
+    input[ctype] {
+      width: 100px;
+      height: 30px;
+      margin: 10px;
+      line-height: 30px;
+      border: 0;
+      outline: 0;
+      color: #fff;
+      background-color: rgba(122, 122, 122, .6);
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    input[ctype]:hover {
+      background-color: rgba(107, 233, 113, .6);
+    }
+
+    input[ctype]:active {
+      background-color: rgba(235, 113, 31, 0.6);
+    }
+
+    fieldset {
+      margin: 10px 0 20px;
+      border-width: 1px 0 0;
+      border-color: #ccc;
+    }
+
+    legend {
+      margin-left: 20px;
+      padding: 0 10px;
+      font-size: 20px;
+      font-weight: 300;
+    }
+
+    .btn-table {
+      padding-top: 30px;
+    }
+
+    .photo-file-wrap {
+      width: 100%;
+      height: 120px;
+      margin: 20px auto 0;
+      padding: 10px;
+      border: 1px solid #ccc;
+    }
+
+    .upload-drag {
+      position: relative;
+      padding: 30px;
+      margin-top: 30px;
+      border: 1px dashed #e2e2e2;
+      background-color: #fff;
+      text-align: center;
+      cursor: pointer;
+      color: #999;
+    }
+
+    .upload {
+      position: relative;
+      width: 100px;
+      height: 100px;
+      border: 2px dashed #ccc;
+
+    }
+
+    .upload::before,
+    .upload::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      margin: auto;
+      background-color: black;
+    }
+
+    .upload::before {
+      width: 20px;
+      height: 4px;
+
+    }
+
+    .upload::after {
+      width: 4px;
+      height: 20px;
+    }
+
+    /* 触发file类型的Input上传文件不一定要点击上传按钮，点在Input身上即可 */
+    #file-input {
+      opacity: 0;
+      box-sizing: border-box;
+      width: 100px;
+      height: 100px;
+    }
+
+    .preview {
+      position: relative;
+      width: 100px;
+      height: 100px;
+      margin: 0 20px;
+      border-radius: 5px;
+    }
+
+    .preview-img {
+      width: 100%;
+      height: 100%;
+    }
+
+    .delete {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      top: -5px;
+      right: -5px;
+      color: red;
+    }
+
+    .photo-show {
+      display: flex;
+    }
+
+    .photo-show img {
+      border: 1px solid #ccc;
+      margin: 2px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <section class="form-wrap">
+    <h1>信息采集</h1>
+    <form action="http://localhost/getForm.php" method="POST">
+      <fieldset>
+        <legend>基础信息</legend>
+        <label for="user">账号</label> <input type="text" itype name="userName" autofocus id="user"
+          placeholder="4到16位（字母，数字，下划线，减号）" pattern="^[a-zA-Z0-9_-]{4,16}$">
+        <label for="psd">密码</label> <input type="password" itype name="psd" id="psd"
+          placeholder="最少6位，至少1个大写字母，1个小写字母，1个数字，1个特殊字符"
+          pattern="^.*(?=.{6,})(?=.*\d)(?=.*[A-Z])(?=.*[a-z])(?=.*[!@#$%^&*? ]).*$">
+        <label for="phone">手机号码</label> <input type="tel" itype id="phone" name="phone" pattern="^1[34578]\d{9}$"
+          placeholder="11位手机号">
+        <label for="email">邮箱</label> <input type="email" itype id="email" name="email" placeholder="邮箱格式XXX@xxx.xxx">
+        <label for="date">出生年月</label> <input type="date" name="date" itype id="date">
+        <label for="url">个人主页</label> <input type="url" itype list="url_list" id="url" name="link">
+        <datalist id="url_list">
+          <option value="http://www.baidu.com" selected>Baidu</option>
+          <option value="http://www.google.com">Google</option>
+          <option value="http://www.microsoft.com">Microsoft</option>
+        </datalist>
+        <label for="hobby">爱好</label>
+        体育 <input type="checkbox" name="hobby" id="hobby" value="体育">
+        历史 <input type="checkbox" name="hobby" id="hobby" value="历史">
+        编程 <input type="checkbox" name="hobby" id="hobby" value="编程">
+        科技 <input type="checkbox" name="hobby" id="hobby" value="科技">
+        音乐 <input type="checkbox" name="hobby" id="hobby" value="音乐">
+      </fieldset>
+      <fieldset>
+        <legend>文件信息</legend>
+
+        <div class="upload-drag">
+          <p>点击上传，或将文件拖拽到此处</p>
+          <progress id="progress" max="100" min="0" value="0"></progress>
+          <div class="photo-show" id="upload-view">
+          </div>
+          <input type="file" hidden id="photo" name="file" multiple accept="image/*">
+        </div>
+
+      </fieldset>
+
+
+      <div class="btn-table">
+        <input type="submit" ctype value="提交">
+        <input type="reset" ctype value="重置">
+      </div>
+
+    </form>
+  </section>
+
+
+  <script>
+    let photoWrap = document.querySelector('.upload-drag');
+
+    let photoInput = document.querySelector('#photo');
+    let uploadView = document.querySelector('#upload-view')
+
+
+
+    photoWrap.addEventListener('click', function (e) {
+      photoInput.click();
+    }, false)
+    photoInput.addEventListener('change', dropImg, false);
+
+    function dropImg(e, dataUrl) {
+      let templateStr = `
+      <img src="%{src}%" alt="上传成功后渲染" style="width: 196px;height:auto">
+      ` ;
+      let tar = e.target;
+      let file = photoInput.files[0];
+      photoInput.type = 'text';
+      let url = dataUrl || URL.createObjectURL(file);
+      uploadView.innerHTML += templateStr.replace(/\%\{(src)\}\%/, url);
+      photoInput.type = 'file';
+    }
+
+    photoWrap.ondragenter = function () {
+    }
+    //移动，需要阻止默认行为，否则直接在本页面中显示文件
+    photoWrap.ondragover = function (e) {
+      e.preventDefault();
+    }
+    //离开
+    photoWrap.onleave = function () {
+
+    }
+    //拖拽放置，也需要阻止默认行为
+
+    photoWrap.ondrop = function (e) {
+
+      e.preventDefault();
+      //获取拖拽过来的对象,文件对象集合
+      var fs = e.dataTransfer.files;
+      //若为表单域中的file标签选中的文件，则使用form[表单name].files[0]来获取文件对象集合
+      //打印长度
+      //循环多文件拖拽上传
+      for (var i = 0; i < fs.length; i++) {
+        //文件类型
+        var _type = fs[i].type;
+
+        console.log(_type);
+        //判断文件类型
+        if (_type.indexOf('image') != -1) {
+          //文件大小控制
+          let size = fs[i].size
+          //读取文件对象
+          var reader = new FileReader(); //
+          //读为DataUrl,无返回值
+          reader.readAsDataURL(fs[i]);
+          reader.onloadstart = function (e) {
+            progress.value = 0;
+          }
+          // 这个事件在读取进行中定时触发
+          reader.onprogress = function (e) {
+            console.log(e.total, e.loaded, size)
+            progress.value = e.loaded / size * 100;
+          }
+
+          //当读取成功时触发，this.result为读取的文件数据
+          reader.onload = function (e) {
+            //文件数据
+            // console.log(this.result);
+            //添加文件预览
+            dropImg(e, this.result);
+            progress.value = 0;
+          }
+          //无论成功与否都会触发
+          reader.onloadend = function () {
+            if (reader.error) {
+              console.log(reader.error);
+            } else {
+              //上传没有错误，ajax发送文件，上传二进制文件
+            }
+          }
+        } else {
+          alert('请上传图片文件！');
+        }
+      }
+
+    }
+
+  </script>
+</body>
+
+</html>

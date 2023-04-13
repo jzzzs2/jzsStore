@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--vieport-->
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
+	<!--禁止将数字变为电话号码-->
+	<meta name="format-detection" content="telephone=no" />
+    <title>香港小生活</title>
+    <meta name="keywords" content="香港小生活" />
+    <meta name="description" content="香港小生活" />
+    <!--页面样式格式化-->
+    <link rel="stylesheet" href="static/css/reset.css" />
+    <!--所有页面头部header和底部footer公用样式-->
+    <link rel="stylesheet" href="static/css/public.css" />
+    <script src="static/js/jquery.min.js"></script>
+    <!--[if lt IE 9]> 
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+</head>  	
+<body>
+	<!--当前页面私有样式-->
+	<link href="static/css/user.css" rel="stylesheet">
+	
+	<div class="section1">
+		<div class="section1_1">
+			<p class="pic">
+				<img src="static/picture/touxiang.jpg" />
+			</p>
+			<h2 class="niki">陈荣江</h2>
+		</div>
+		<div class="section1_2">
+			<img src="static/images/qiandao.png" />
+			<span>签到</span>
+		</div>
+		<div class="section1_3">
+			<span>会员等级：店主</span>
+			<span>积分：48000</span>
+		</div>
+	</div>
+	
+	<div class="section2">
+		<a href="#" class="item">
+			<p>
+				<img src="static/images/ico_9.png" />
+				<span>0</span>
+			</p>
+			<h3>待付款</h3>
+		</a>
+		<a href="#" class="item">
+			<p>
+				<img src="static/images/ico_10.png" />
+				<span>0</span>
+			</p>
+			<h3>待发货</h3>
+		</a>
+		<a href="#" class="item">
+			<p>
+				<img src="static/images/ico_11.png" />
+				<span>2</span>
+			</p>
+			<h3>待收货</h3>
+		</a>
+		<a href="#" class="item">
+			<p>
+				<img src="static/images/ico_12.png" />
+				<span>0</span>
+			</p>
+			<h3>待评价</h3>
+		</a>
+	</div>
+	
+	<div class="section3">
+		<a href="#" class="item">
+			<p>
+				<img src="static/images/ico_13.png" />
+			</p>
+			<h3>我的订单</h3>
+		</a>
+		<a href="#" class="item">
+			<p>
+				<img src="static/images/ico_14.png" />
+			</p>
+			<h3>退款/售后</h3>
+		</a>
+		<a href="#" class="item">
+			<p>
+				<img src="static/images/ico_15.png" />
+			</p>
+			<h3>优惠券</h3>
+		</a>
+		<a href="#" class="item">
+			<p>
+				<img src="static/images/ico_16.png" />
+			</p>
+			<h3>我的分销</h3>
+		</a>
+		<a href="#" class="item">
+			<p>
+				<img src="static/images/ico_17.png" />
+			</p>
+			<h3>我的积分</h3>
+		</a>
+		<a href="#" class="item">
+			<p>
+				<img src="static/images/ico_18.png" />
+			</p>
+			<h3>供货商中心</h3>
+		</a>
+		<a href="#" class="item">
+			<p>
+				<img src="static/images/ico_19.png" />
+			</p>
+			<h3>我的收藏</h3>
+		</a>
+		<a href="#" class="item">
+			<p>
+				<img src="static/images/ico_20.png" />
+			</p>
+			<h3>账号设置</h3>
+		</a>
+	</div>
+	
+	
+	
+	
+	<!--底部tabbar部分-->
+    <div class="tabbar">
+    	<ul>
+    		<li>
+    			<a href="#">
+    				<p>
+    					<img class="default" src="static/images/tabbar_0.png" />
+    					<img class="on" src="static/images/tabbar_0_on.png" />
+    				</p>    				
+    				<span>首页</span>
+    			</a>
+    		</li>
+    		<li>
+    			<a href="#">
+    				<p>
+    					<img class="default" src="static/images/tabbar_1.png" />
+    					<img class="on" src="static/images/tabbar_1_on.png" />
+    				</p>    				
+    				<span>商品分类</span>
+    			</a>
+    		</li>
+    		<li>
+    			<a href="#">
+    				<p>
+    					<img class="default" src="static/images/tabbar_2.png" />
+    					<img class="on" src="static/images/tabbar_2_on.png" />
+    				</p>    				
+    				<span>购物车</span>
+    			</a>
+    		</li>
+    		<li>
+    			<a href="#" class="active">
+    				<p>
+    					<img class="default" src="static/images/tabbar_3.png" />
+    					<img class="on" src="static/images/tabbar_3_on.png" />
+    				</p>    				
+    				<span>我的</span>
+    			</a>
+    		</li>
+    	</ul>
+    </div>
+    <script>
+    	$('.tabbar ul a').click(function(){
+    		$(this).parent('li').siblings('li').find('a').removeClass('active');
+    		$(this).addClass('active');
+    	});
+    </script>
+    <!--底部tabbar部分-->
+    
+    <script>
+    	$(function(){
+    		function getHeight(){
+    			var winHeight = $(window).outerHeight(true);
+	    		var topHeight = $('.search').outerHeight(true);
+	    		var bottomHeight = $('.tabbar').outerHeight(true);
+	    		var mainHeight = winHeight - topHeight - bottomHeight;
+	    		$('.main_section').css('height',mainHeight + 'px');
+    		}
+    		getHeight();    		
+    		window.onresize = function(){
+    			getHeight();
+    		}
+    	});
+    </script>
+</body>
+</html>

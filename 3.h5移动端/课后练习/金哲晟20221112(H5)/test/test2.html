@@ -1,0 +1,64 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-11-12 15:14:04
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-11-12 15:33:41
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>jquery</title>
+  <style>
+    div {
+      width: 100px;
+      height: 30px;
+    }
+  </style>
+</head>
+<body>
+  <div id="wrap">
+    <div class="box">11111</div>
+    <div class="box">222222222</div>
+    <div class="box">
+      333333333333
+      <div class="box">444444444444444</div>
+    </div>
+  </div>
+  <script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.12.1/jquery.min.js"></script>
+  <script>
+    // jquery 操作分类 
+    /*
+    1.选择器
+    2.属性
+    3.css样式
+    4.特效动效
+    5.Event事件
+    6.dom标签操作
+    7.ajax
+    */
+    // let $ele = $("#wrap");
+    // let $ele = $("#wrap>.box");
+    // let $ele = $("#wrap .box");
+    // console.log($ele);
+    // jq $选择器返回的都是jqDom对象,类数组,因此可以链式调用.
+    // jq对象 和 原生dom对象 是不同的 可以转化
+    let oWrap = document.querySelector("#wrap");
+    let $wrap = $("#wrap");
+    console.log([oWrap]);
+    console.log($wrap);
+    console.log(oWrap === $wrap,"原生dom对象和jqDom对象"); //false
+    console.log(oWrap === $wrap.get(0),"原生dom对象和jqDom对象中的索引为0的对象"); //true
+    console.log($(oWrap) === $wrap,"原生dom对象转化的jq对象和jq对象"); //false
+    console.log($wrap === $("#wrap"),"选择器相同的获取两次的jq对象"); //false
+    // oWrap.addClass('active');
+    console.log($wrap.children);
+    console.log(oWrap.style);
+    console.log($wrap.style);
+  </script>
+</body>
+</html>

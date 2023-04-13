@@ -1,0 +1,114 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-11-10 17:16:56
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-11-10 19:26:16
+-->
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>移动泡泡</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    html,
+    body {
+      height: 100%;
+    }
+
+    canvas {
+      background-color: #999;
+    }
+  </style>
+</head>
+
+<body>
+  <canvas></canvas>
+  <script>
+    let canvas = document.querySelector("canvas");
+    let context = canvas.getContext("2d");
+    const COLORS = ['#69D2E7', '#A7DBD8', '#E0E4CC', '#F38630', '#FA6900', '#FF4E50', '#F9D423']; //彩色池子
+    let ballArr = [];
+    //画布自适应
+    resize();
+    window.onresize = resize;
+    function resize() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    ////小球类
+    (function (ctx) {
+      class Ball {
+        constructor(x = 0, y = 0, r = 3, color = "cyan") {
+          this.x = x;
+          this.y = y;
+          this.r = r;
+          this.direct = getRandom(0, Math.PI * 2);
+          this.color = color;
+          this.vx = 6 * Math.cos(this.direct);
+          this.vy = 6 * Math.sin(this.direct);
+        }
+        update() {
+          this.x += this.vx;
+          this.y += this.vy;
+          // this.vx += Math.cos(this.direct) * .2;
+          // this.vy += Math.sin(this.direct) * .2;
+          this.vx = this.vx * .95;
+          this.vy = this.vy * .95;
+          this.r = this.r * .97;
+          this.draw();
+        }
+        draw() {
+          // ctx.clearRect(0, 0, canvas.width, canvas.height);
+          ctx.beginPath();
+          ctx.fillStyle = this.color;
+          context.globalCompositeOperation = 'lighter';
+          ctx.arc(this.x, this.y, this.r, Math.PI * 2, false);
+          ctx.fill();
+        }
+      }
+      window.Ball = Ball;
+    })(context);
+    //
+    render();
+    canvas.addEventListener("mousemove", function (e) {
+      for (let i = 0; i < getRandom(1, 10); i++) {
+        let r = getRandom(4, 30);
+        let color = getRandom(COLORS);
+        if (ballArr.length > 800) {
+          ballArr.shift();
+        } else {
+          let ball = new Ball(e.clientX, e.clientY, r, color);
+          ballArr.push(ball);
+        }
+      }
+    })
+
+    //获得随机数 和 随机颜色
+    function getRandom(min, max) {
+      if (Array.isArray(min)) {
+        return min[~~(Math.random() * min.length)]; //如果是数组返回其中一个
+      }
+      return min + ~~(Math.random() * (max - min)); //如果是最小数最大数,返回[最小数.最大数)
+    }
+    //一段时间 更新所有球的位置
+    function render() {
+      context.clearRect(0, 0, canvas.width, canvas.height);
+      for (let i = 0; i < ballArr.length; i++) {
+        // console.log(ballArr.length, "数组长度");
+        ballArr[i].update();
+      }
+      requestAnimationFrame(render);
+    }
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,47 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-11-24 17:16:33
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-11-24 18:16:32
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>touch事件组</title>
+  <style>
+    .box {
+      width: 50vw;
+      height: 200px;
+      background-color: red;
+    }
+  </style>
+</head>
+<body>
+  <div class="box"></div>
+  <script>
+    let $box = document.querySelector(".box");
+    $box.addEventListener("touchstart",function (e) {
+      console.log(e.touches[0].identifier,"id");
+      console.log("touchstart",e.touches); //屏幕上所有触点
+      console.log("touchstart",e.touches[0].clientX,e.touches[0].clientY);
+    })
+    $box.addEventListener("touchmove",function (e) {
+      console.log("touchmove",e.targetTouches); //当前元素上的触点
+    })
+    $box.addEventListener("touchend",function (e) {
+      console.log("touchend",e.changedTouches,e.touches,e.targetTouches); //将触发离开前的最近的触发状态获得
+    })
+    // window.addEventListener("touchstart",function (e) {
+    //   console.log("window touchstart",e.targetTouches);
+    // })
+    // $box.addEventListener("touchcancel",function (e) {
+    //   console.log("window touchcancel",e);
+    // })
+  </script>
+</body>
+</html>

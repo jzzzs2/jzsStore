@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/reset-mobile.css">
+  <link rel="stylesheet" href="css/colors.min.css">
+  <link rel="stylesheet" href="css/date-picker.css">
+  <title>日历组件 date-picker</title>
+  <style>
+
+  </style>
+  <script type="text/template" id="picker">
+    <div class="date-picker">
+      <header class="dp-header">
+        <ul class="dp-labels">
+          <li class="sunday">日</li>
+          <li>一</li>
+          <li>二</li>
+          <li>三</li>
+          <li>四</li>
+          <li>五</li>
+          <li class="saturday">六</li>
+        </ul>
+      </header>
+      <div class="dp-container">
+       
+      </div>
+    </div>
+  </script>
+  <script type="text/template" id="calendar">
+    <div class="dp-calendar-item" data-date="{{year}}-{{month}}">
+      <header>
+        <h4>{{year}}年{{month}}月</h4>
+      </header>
+      <ul>
+        <li class="empty-{{empty}} empty"></li>
+        {{each days}}
+        <li
+          class="{{if $value.disabled}}disabled{{/if}}{{if $value.today}} today{{/if}}{{if $value.selected}}selected{{/if}} "
+          date-index="{{$index}}" data-date="{{$value.date}}"> </li>
+        {{/each }}
+      </ul>
+    </div>
+  </script>
+</head>
+
+<body>
+
+  <div class="date-picker-wrap"></div>
+  <input type="text" id="date-input">
+
+  <script src="js/zepto.min.js"></script>
+  <script src="js/template-web.js"></script>
+  <script src="js/pullDown.js"></script>
+  <script src="js/EasyDate.js"></script>
+  <script src="js/date-picker.js"></script>
+  <script>
+    const $pickerWrap = $('.date-picker-wrap');
+    const $inputTarget = $('#date-input');
+    new DatePicker('#date-input', '.date-picker-wrap');
+
+
+  </script>
+
+</body>
+
+</html>
+<!-- 
+  交互行为
+    1. 聚焦指定 input 时右向划出 date-picker 页面
+
+
+ -->

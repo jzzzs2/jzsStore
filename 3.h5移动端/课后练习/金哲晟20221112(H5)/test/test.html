@@ -1,0 +1,127 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-11-12 14:28:57
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-11-12 15:11:53
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>jquery</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .wrap {
+      width: 400px;
+      height: 200px;
+      border: 1px solid #999;
+    }
+
+    .type {
+      display: flex;
+      justify-content: space-evenly;
+      border-bottom: 1px solid #999;
+    }
+    .type span {
+      padding: 5px 10px;
+      border-right: 1px solid green;
+      background-color: #999;
+      color: #fff;
+    }
+    ul li {
+      display: none;
+      text-align: left;
+    }
+
+    span.active {
+      background-color: cyan;
+      color: #368;
+    }
+
+    .show {
+      display: block;
+    }
+
+    .normal {
+      background-color: #999;
+      color: white;
+    }
+
+    .active {
+      background-color: cyan;
+      color: #368;
+    }
+  </style>
+  <!-- <script src="./jquery.min.js"></script> -->
+  <script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.12.1/jquery.min.js"></script>
+</head>
+<body>
+  <div class="wrap">
+    <div class="type">
+      <span class="active">美国中期选举</span>
+      <span>Csgo Major</span>
+      <span>H5</span>
+    </div>
+    <ul>
+      <li class="show">特朗普或当选2024</li>
+      <li>fruit击败navi</li>
+      <li>jquery</li>
+    </ul>
+  </div>
+  <script>
+    let index = 0;
+    //jq 优点
+    //verson 1.11 1.12
+    //大版本1 兼容到ie6   简化dom操作   方便统一管理维护
+    let $type = $(".type");
+    let $span = $("span");
+    let $li = $("li");
+    $type.on("click","span",function (e) {
+      console.log(this);
+      //this指向e.target 
+      //轮转法
+      // $span.eq(index).removeClass("active")
+      // $li.eq(index).removeClass("show");
+      // // let idx = $span.index(e.target);
+      // // index = idx;
+      // $li.eq(index).addClass("show");
+      // $span.eq(index).addClass("active");
+      // console.log(idx);
+      //排他法
+      let idx = $span.index(this);
+      $(this).addClass("active").siblings().removeClass("active")
+      $li.removeClass("show").eq(idx).addClass("show");
+    })
+    //原生js
+    // let oType = document.querySelector(".type");
+    // let aSpan = document.querySelectorAll("span");
+    // let aLi = document.querySelectorAll("li");
+    // oType.addEventListener("click", function (e) {
+    //   // console.log(this);
+    //   if (e.target.tagName.toLowerCase() === "span") {
+    //     // console.log(idx);
+    //     aSpan[index].classList.remove("active");
+    //     aLi[index].classList.remove("show");
+    //     let idx = [].indexOf.call(e.target.parentElement.children,e.target);
+    //     index = idx;
+    //     aSpan[index].classList.add("active");
+    //     aLi[index].classList.add("show");
+    //   }
+    // })
+  </script>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-11-09 18:16:43
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-11-09 20:55:54
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>canvas 文本</title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+    }
+
+    html,
+    body {
+      height: 100%;
+    }
+
+    canvas {
+      background-color: #222;
+    }
+  </style>
+</head>
+
+<body>
+  <canvas></canvas>
+</body>
+<script>
+
+  let canvas = document.querySelector("canvas");
+  let context = canvas.getContext("2d");
+  changeView();
+  window.onresize = changeView;
+  function changeView() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  }
+  //绘制文本 fillText(文本内容,起点x,起点y)
+  //测量文本 measureText(文本) 返回测量对象
+  //测量对象.width: 文本实际宽度
+  //save() restore() 保存状态值 恢复保存值
+  context.font = "20px SimSun, Songti SC";
+  context.fillStyle = "red";
+  context.strokeStyle = "green";
+  // let str = "我是jzs捏";
+  let str = "可爱捏";
+  context.save();
+  context.fillText(str, 300, 300);
+  str = "jzs123";
+  context.font = "40px SimSun, Songti SC";
+  context.fillStyle = "cyan";
+  context.strokeStyle = "red";
+  context.strokeRect(100,100,200,200);
+  context.fillText(str, 400, 400);
+  context.restore();
+  context.strokeRect(200,200,100,100);
+  context.fillText("我是恢复后样式的文字", 600, 600);
+  let resultObj =  context.measureText(str);
+  console.log(resultObj);
+  console.log(resultObj.width);
+
+
+</script>
+
+</html>

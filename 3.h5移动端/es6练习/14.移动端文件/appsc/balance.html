@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--vieport-->
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
+	<!--禁止将数字变为电话号码-->
+	<meta name="format-detection" content="telephone=no" />
+    <title>香港小生活</title>
+    <meta name="keywords" content="香港小生活" />
+    <meta name="description" content="香港小生活" />
+    <!--页面样式格式化-->
+    <link rel="stylesheet" href="static/css/reset.css" />
+    <!--所有页面头部header和底部footer公用样式-->
+    <link rel="stylesheet" href="static/css/public.css" />
+    <script src="static/js/jquery.min.js"></script>
+    <!--[if lt IE 9]> 
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+</head>  	
+<body>
+	<!--当前页面私有样式-->
+	<link href="static/css/balance.css" rel="stylesheet">
+	
+	<div class="public_noback">
+		<a class="back"></a>
+		<h2 class="title">结算中心</h2>
+	</div>
+	
+	<div class="blank_5"></div>
+	
+	<div class="main_section">
+		<div class="section1">
+			<div class="section1_1">
+				<span>配送方式</span>
+				<a>快递</a>
+			</div>		
+		</div>
+		
+		<div class="section2">
+			<div class="kuang">
+				<div class="hasAdd">
+					<div class="info">
+						<span>收货人：张文全</span>
+						<a>13865648816</a>
+					</div>
+					<div class="address">
+						<p>收货地址：江苏省苏州市昆山市玉山镇同丰路玉龙新村</p>
+					</div>
+				</div>
+				<div class="noAdd">点击添加/设置收货地址</div>
+			</div>		
+		</div>
+		<script>
+			// 判断有没有收件地址
+			var address = false;
+			if(address){
+				$('.noAdd').hide();
+				$('.hasAdd').show();
+			}else{
+				$('.noAdd').show();
+				$('.hasAdd').hide();
+			}
+			$('.kuang').click(function(){
+				window.location.href = 'address.html'
+			})
+		</script>
+		
+		<div class="blank_10"></div>
+		
+		<div class="section3">
+			<div class="pro_info">
+				<a href="#" class="pic">
+					<img src="static/picture/cart.jpg" />
+				</a>
+				<div class="content">
+					<h3 class="title">
+						<a href="#">7点上架！10板姚记麦秸秆牙刷10版*6支（零利润纯引流，限1000...</a>
+					</h3>
+					<p class="desc">引流</p>
+					<div class="info">
+						<div class="left">
+							<a>￥</a>
+							<span>49.90</span>
+						</div>
+						<div class="right">
+							<a>X</a>
+							<span>2</span>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="item yhq">
+				<div class="left">
+					<span class="title">优惠券</span>
+					<a>1张可用</a>
+				</div>
+				<div class="right">
+					<input class="yhqInp" type="text" readonly="readonly" />
+					<img src="static/images/right_jiantou.jpg" />
+				</div>
+			</div>
+			<div class="item">
+				<div class="left">
+					<span class="title">配送运费</span>
+				</div>
+				<div class="right">
+					<a>￥</a>
+					<span>0.00</span>
+				</div>
+			</div>
+			<div class="item liuyan">
+				<div class="left">
+					<span class="title">买家留言</span>
+					<input type="text" placeholder="可填写您和卖家达成一致的要求" />
+				</div>
+			</div>
+			<div class="zongji">
+				<span>总计：</span>
+				<a>￥</a>
+				<a>99.80</a>
+			</div>
+		</div>		
+		<div class="blank_10"></div>		
+		<div class="section4">
+			<div class="item active">
+				<img src="static/images/wx.jpg" />
+				<span>微信支付</span>
+			</div>
+			<!--<div class="item">
+				<img src="static/images/zfb.jpg" />
+				<span>支付宝</span>
+			</div>-->
+		</div>
+		<script>
+			$('.section4 .item').click(function(){
+				$(this).addClass('active');
+				$(this).siblings('.item').removeClass('active');
+			});
+		</script>
+	</div>	
+	<div class="section5">
+		<button>提交订单</button>
+	</div>
+	
+	<div class="public_mask"></div>
+	<div class="public_up">
+		<div class="public_top">
+			<h2 class="public_title">商城优惠</h2>
+			<a class="public_close close"></a>
+		</div>
+		<div class="public_main">
+			<ul class="yhqList">
+				<li>
+					<span class="title">10元通用红包</span>
+				</li>
+				<li>
+					<span class="title">不使用红包</span>
+				</li>
+			</ul>
+		</div>
+		<div class="public_button">
+			<button class="confirm">确定</button>
+		</div>
+	</div>
+	<script>
+		var val;
+		$('.confirm').click(function(){
+			$('.yhqInp').val(val);
+			closeMask();
+			console.log(val)
+		});
+		$('.yhqList li').click(function(){
+			$(this).addClass('active');
+			$(this).siblings('li').removeClass('active');
+			val = $(this).find('.title').html();
+		});
+		$('.yhq').click(function(){
+			openMask();
+		});
+		$('.public_mask,.close').click(function(){
+			closeMask();
+			$('.yhqList li').removeClass('active');
+			val = '';
+			$('.yhqInp').val(val);
+		});
+		function openMask(){
+			$('.public_mask').fadeIn(100);
+			$('.public_up').animate({'bottom':'0px'});
+		}
+		function closeMask(){
+			$('.public_mask').fadeOut(100);
+			$('.public_up').animate({'bottom':'-380px'});
+		}
+	</script>
+	<script>
+    	$(function(){
+    		function getHeight(){
+    			var winHeight = $(window).outerHeight(true);
+	    		var topHeight = $('.public_noback').outerHeight(true);
+	    		var sec1Height = $('.section5').outerHeight(true);	    		
+	    		var mainHeight = winHeight - topHeight - sec1Height - 5;
+	    		$('.main_section').css('height',mainHeight + 'px');
+    		}
+    		getHeight();    		
+    		window.onresize = function(){
+    			getHeight();
+    		}
+    	});
+    </script>
+</body>
+</html>

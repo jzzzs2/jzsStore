@@ -1,0 +1,58 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-11-06 15:57:37
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-11-06 16:12:50
+-->
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>文件上传的两种方法</title>
+  <style>
+    .wrap {
+      width: 1000px;
+      height: 1000px;
+      background-color: #999;
+    }
+
+    img {
+      width: 200px;
+      height: auto;
+    }
+  </style>
+</head>
+
+<body>
+  <input type="file" multiple>
+  <div class="wrap">
+  </div>
+</body>
+<script>
+  let oFile = document.querySelector("input");
+  let oWrap = document.querySelector(".wrap");
+  oFile.onchange = function (e) {
+
+    let file = this.files[0];
+    // console.log(files instanceof Object);
+    // let reader = new FileReader();
+    // reader.readAsDataURL(file);
+    // reader.onload = function (e) {
+    //   console.log(reader);
+    //   let src = reader.result;
+    //   let ele = document.createElement("img");
+    //   ele.setAttribute("src",src);
+    //   oWrap.append(ele);
+    // }
+    let src = URL.createObjectURL(file);
+    let ele = document.createElement("img");
+    ele.setAttribute("src", src);
+    oWrap.append(ele);
+  }
+</script>
+
+</html>

@@ -1,0 +1,88 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-11-08 18:40:08
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-11-08 19:37:54
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>canvas</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    canvas {
+      background-color: #ccc;
+    }
+  </style>
+</head>
+
+<body>
+  <canvas width="800" height="600">
+    宁的浏览器不支持canvas画布捏 请使用ie9+浏览器
+  </canvas>
+</body>
+<script>
+  // console.log(navigator.userAgent);
+  // if (!-[2,]) {
+  //   window.open("newAddress");
+  // }
+  //判断是否是ie8以及一下的方法 ie8以及以下 对 [2,] 的处理是 [2,undefined] 而新版是忽略,
+  //!-[2,]
+  let cv = document.querySelector("canvas");
+  let context = cv.getContext("2d"); //所有的操作都是对canvas上文文对象做的
+  //
+  // context.beginPath();
+  // context.arc(200, 200, 100, 0, Math.PI, true); //true 逆时针画 false 顺时针画
+  // context.lineWidth = 10;
+  // context.stroke();
+  // context.fillStyle = "cyan"; //
+  // context.fill(); //填充
+  // context.fillStyle = "red";
+  // context.fill(); //填充
+  // cvCont.fillStyle = "cyan";
+  // cvCont.beginPath();
+  // cvCont.moveTo(100,100);
+  // cvCont.lineTo(200,200);
+  // cvCont.stroke();
+  // cvCont.lineTo(250,400);
+  // cvCont.lineWidth = 20;
+  // cvCont.stroke();
+  // cvCont.closePath();
+
+  // cvCont.lineTo(200,500);
+  // cvCont.closePath();
+  // cvCont.stroke();
+  // cvCont.lineWidth = 20;
+  // context.arcTo(300, 300, 400, 450, 100);
+  context.beginPath();
+  context.strokeStyle = "cyan";
+  context.strokeStyle = "rgb(0,0,0)";
+  context.moveTo(50, 50);
+  context.arcTo(100, 100, 200, 120, 80);
+  context.lineTo(200, 120);
+  // context.strokeStyle = "red";
+  context.stroke();
+  context.font = "30px SimSun, Songti SC";
+  // context.textAlign = "center";
+  context.textAlign = "right";
+  context.shadowBlur = 3;
+  context.shadowColor = "cyan";
+  context.shadowOffsetX = -2;
+  context.shadowoffsetY = -2;
+  context.fillText("wo si jzs",200,200);
+  // context.clearRect(100,100,200,200);
+  // context.clearRect(0,0,100,100);
+  context.clearRect(0,0,cv.offsetWidth,cv.offsetHeight);
+</script>
+
+</html>

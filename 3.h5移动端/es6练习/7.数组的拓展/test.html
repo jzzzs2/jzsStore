@@ -1,0 +1,47 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-12-04 11:56:46
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-12-05 19:32:50
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>扩展运算符</title>
+</head>
+<body>
+  <script>
+    console.log(...[2,3,4,5]);
+    let numbers = [3, 22];
+    function sum (a, b) {
+      console.log(a+b);
+      return a+b;
+    }
+    sum(...numbers);
+    //替代apply
+    function test (a, b, c) {
+      console.log(a+b+c);
+      return a + b + c;
+    }
+    test.apply(this,[2, 4, 6]);
+    test(...[1,2,3]);
+    let arr = [2,9,11,23,99,102];
+    console.log(Math.max(...arr));
+    let a = [2,3,4];
+    let b = [5,7,8];
+    console.log(a.push(...b));
+    console.log(a);
+    //
+    let test3 = [2,4,5];
+    let test2 = [9,10];
+    console.log(test3.concat(test2));
+    console.log(test3);
+    console.log(test2);
+  </script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-11-14 14:44:39
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-11-14 14:47:26
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>about this</title>
+  <style>
+    .box {
+      width: 600px;
+      height: 400px;
+      background-color: #999;
+    }
+
+    span {
+      padding: 0 6px;
+      background-color: pink;
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <span>333</span>
+  </div>
+  <script src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
+  <script>
+    let $box = $(".box");
+    $box.on("click", function (e) {
+      console.log(this,e.target);
+    })
+  </script>
+</body>
+</html>

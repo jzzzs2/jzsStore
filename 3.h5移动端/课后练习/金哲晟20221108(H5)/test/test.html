@@ -1,0 +1,75 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-11-08 17:36:30
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-11-08 20:30:59
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FileReader</title>
+</head>
+<body>
+  <input type="file" multiple>
+  <input type="button" value="获取文件">
+  <progress value="0" max="100"></progress>
+  <audio src="" controls alt></audio>
+  <script>
+    const fileBtn = document.querySelector("input[type='file']");
+    const getFile = document.querySelector("input[type='button']");
+    const progress = document.querySelector("progress");
+    /*
+    read 读取文件
+    result 存放读取文件后转化的结果
+    readyState 0 未读取 1 正在读取 2 读取完成
+    readAsDataURL 转化为base64地址
+    readAsText 读取文本内容String
+    readAsBinaryString 读取为二进制
+    readAsArrayBuffer 数据对象
+
+    读取一次后  要对input元素的files属性进行清空 并且重置type
+    input.files = null;
+    input.type = "text"
+    input.type = "file"
+    */
+    fileBtn.onchange = function (e) {
+      console.log(this.files);
+      let file = this.files[0];
+      // console.log(URL.createObjectURL(file),"blob地址");
+      // console.log("XXXXXXXXXXXXX");
+      let reader = new FileReader();
+      console.log(reader.readyState);
+      // reader.readAsText(file);
+      // reader.readAsArrayBuffer(file);
+      // reader.readAsBinaryString(file);
+      reader.readAsDataURL(file);
+      reader.onload = function (e) {
+        console.log(e,"加载完成");
+        console.log(reader.readyState);
+        // console.log(reader.result);
+      }
+      reader.onloadstart = function (e) {
+        console.log(e,"开始加载");
+      }
+      reader.onprogress = function (e) {
+        console.log(reader.readyState);
+        // console.log(e, "正在加载");
+        let ratio = e.loaded / e.total;
+        console.log(ratio);
+        progress.value = ratio * 100;
+      }
+      reader.onerror = function (error) {
+        console.log(error);
+      }
+      reader.onabort = function (err) {
+        console.log(err );
+      }
+    }
+
+  </script>
+</body>
+</html>

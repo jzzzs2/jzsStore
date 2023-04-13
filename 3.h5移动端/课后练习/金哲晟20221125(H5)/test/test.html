@@ -1,0 +1,171 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-11-25 17:55:25
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-11-25 20:26:37
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>下拉刷新</title>
+  <link rel="stylesheet" href="./h5ui.min.css">
+  <link rel="stylesheet" href="./reset-mobile.css">
+  <script src="./zepto.min.js"></script>
+  <script src="./template-web.js"></script>
+  <style>
+    .pd-page {
+      position: absolute;
+      width: 100%;
+      height: 100vh;
+      top: 0;
+      left: 0;
+      /* 保证不会被广告干扰 */
+    }
+
+    .pd-pocket {
+      width: 100%;
+      overflow: hidden;
+      position: absolute;
+      top: 0;
+      visibility: hidden;
+      padding-top: 30px;
+    }
+
+    /* .pd-content {
+      transform: translateY(100px);
+    } */
+  </style>
+</head>
+
+<body>
+  <div class="pd-page">
+    <div class="pd-pocket">
+      <div class="h5ui-loading processing">
+        <i class="loading-processing_icon"></i>
+        <span>正在加载</span>
+      </div>
+    </div>
+    <div class="pd-content">
+      <ul>
+
+      </ul>
+    </div>
+  </div>
+  <script type="text/template" id="flash">
+    {{each list}}
+    <li>
+      <a class="h5ui-list" href="javascript:void(0);">
+        <div class="h5ui-list_bd">{{$index}} {{$value}}</div>
+        <div class="h5ui-list_ft">
+          <i class="h5ui-list_ft_arrow"></i>
+        </div>
+      </a>
+    </li>
+    {{/each}}
+  </script>
+  <script>
+    let arr = new Array(30);
+    let data = {
+      list: arr.fill(1).map(() => {
+        return ~~(Math.random() * 50)
+      })
+    }
+    let html = template("flash", data);
+    let cont = $(".pd-content ul");
+    cont.html(html);
+    //
+    let $cont = $(".pd-content");
+    let $down = $(".pd-pocket");
+    class PullDown {
+      constructor(callback) {
+        this.pulling = false;
+        this.loading = false;
+        this.startX = 0;
+        this.startY = 0;
+        this.diffY = 0;
+        this.callback = callback;
+        this.initEvent();
+      }
+      initEvent() {
+        initEvents(this);
+      }
+    }
+    let funcMap = {
+      touchstart: function (e, target) {
+        if (target.pulling || target.loading) {
+          return false;
+        }
+        target.startX = e.touches[0].pageX;
+        target.startY = e.touches[0].pageY;
+      },
+      touchmove: function (e, target) {
+        let diffX = e.touches[0].pageX - target.startX;
+        let diffY = e.touches[0].pageY - target.startY;
+
+        //判断是否是下滑 并且 需要在顶端时下滑
+        let isTop = document.documentElement.scrollTop;
+        if (isDown(e.touches[0].pageX, target.startX, e.touches[0].pageY, target.startY) && isTop === 0) {
+          console.log("下滑了耶");
+          target.pulling = true;
+          target.diffY = diffY;
+          translate(diffY);
+        }
+      },
+      touchend: function (e, target) {
+        if (target.diffY > 50) {
+          $down.css({ visibility: "visible" });
+          //加载异步事件
+          target.loading = true;
+          $(document.body).css("overflow","hidden");
+          operateLoad(target);
+          target.pulling = false;
+        } else {
+          $cont.css({ "transition": ".5s" });
+          $cont.css({ "transform": `translate(0px,0px) translateZ(0)` })
+          target.pulling = false;
+        }
+      }
+    }
+    function initEvents(target) {
+      $(window).on("touchstart touchmove touchend", function (e) {
+        if (funcMap[e.type]) {
+          funcMap[e.type](e, target);
+        }
+      })
+    }
+    function translate(y) {
+      console.log("translate执行");
+      if (y > 70) {
+        y = 70;
+      }
+      $cont.css({ "transform": `translate(0px,${y}px) translateZ(0)` })
+    }
+    function operateLoad(target) {
+      setTimeout(() => {
+        target.callback();
+        $down.css({ visibility: "hidden" })
+        target.loading = false;
+        $(document.body).css("overflow","auto");
+      }, 500);
+    }
+    function isDown(x, oldX, y, oldY) {
+      let diff = (y - oldY) - Math.abs((x - oldX));
+      if (y - oldY > 0 && (diff > (Math.abs((x - oldX)) / 2))) {
+        return true;
+      }
+      return false;
+    }
+    let pullDown = new PullDown(function () {
+      $cont.css({ "transition": ".5s" });
+      $cont.css({ "transform": `translate(0px,0px) translateZ(0)` })
+    });
+  </script>
+</body>
+
+</html>

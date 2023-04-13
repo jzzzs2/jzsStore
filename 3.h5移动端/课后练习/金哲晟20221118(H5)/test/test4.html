@@ -1,0 +1,80 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-11-18 20:47:10
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-11-18 20:47:39
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div></div>
+  <script>
+    let template = `
+    <h2><%= data.title %></h2>
+<ul>
+  <% for(let i=0; i < data.list.length; i++) { %>
+    <li data-index=<%=i%>><%= data.list[i] %></li>
+  <% } %>
+</ul>
+`;
+    function compile(template) {
+      const evalExpr = /<%=(.+?)%>/g;
+      const expr = /<%([\s\S]+?)%>/g;
+
+      template = template
+        .replace(evalExpr, '`); \n  echo( $1 ); \n  echo(`')
+        .replace(expr, '`); \n $1 \n  echo(`');
+
+      template = 'echo(`' + template + '`);';
+      console.log(template)
+      let script =
+        `
+      let output = "";
+  
+      function echo(html){
+        output += html;
+      }
+  
+       ${template}
+  
+      return output;
+    `;
+      console.log(script)
+      return script;
+    }
+    let parse = new Function('data', compile(template));
+
+    document.querySelector('div').innerHTML = parse({ list: ["红烧牛肉", "麻辣鸡丝", "蒜香排骨"], title: '菜单' });
+
+    function test(data) {
+      let output = '';
+      function echo(html) {
+        output += html;
+      }
+      echo(`<h2>`);
+      echo(data.title);
+      echo(`</h2><ul>`);
+      for (let i = 0; i < data.list.length; i++) {
+        echo(`<li data-index=`);
+        echo(i);
+        echo(`>`);
+        echo(data.list[i]);
+        echo(`</li>`);
+      }
+      echo(`</ul>`);
+      return output;
+    }
+
+    // document.querySelector('div').innerHTML = test({ supplies: ["broom", "mop", "cleaner"] });
+  </script>
+</body>
+
+</html>

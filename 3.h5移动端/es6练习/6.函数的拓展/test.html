@@ -1,0 +1,42 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-11-30 20:31:20
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-11-30 20:41:44
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>函数的拓展</title>
+</head>
+<body>
+  <script>
+    function Test (x = 0, y = 0) {
+      this.x = x;
+      this.y = y;
+    }
+    let t = new Test(2);
+    console.log(t.x);
+    console.log(t.y);
+    // function eat (food = "noodle") {
+    //   let food = "222"
+    // }
+    //同名参数不能使用默认值
+    // function same (x, x, y = 2) {
+
+    // }
+    let allow = 20;
+    function sum (add = allow) {
+      return add + 1;
+    }
+    console.log(sum()); //21
+    allow = 998;
+    console.log(sum());
+  </script>
+</body>
+</html>

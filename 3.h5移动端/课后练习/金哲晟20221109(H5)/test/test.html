@@ -1,0 +1,26 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-11-09 17:13:27
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-11-09 18:17:04
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>requestAnimationFrame</title>
+</head>
+<body>
+  <script>
+    function send () {
+      console.log(1);
+    }
+    let animation = requestAnimationFrame(send);
+    console.log(animation);
+  </script>
+</body>
+</html>

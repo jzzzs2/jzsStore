@@ -1,0 +1,98 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-11-12 15:34:06
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-11-12 16:45:02
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>jquery 节点查询</title>
+  <style>
+    img {
+      width: 100px;
+      height: auto;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="wrap">
+    <input type="checkbox">
+    <input type="text">
+    <p class="title">
+      <span>23333</span>
+    </p>
+    <img src="./m7.png" alt="miku">
+    <ul class="list">
+      <li>
+        <p class="test">test1</p>
+      </li>
+      <li class="active">
+        <p class="test">test1</p>
+      </li>
+      <li>
+        <p class="test">test1</p>
+      </li>
+      <li class="on">
+        <p class="test" id="not">test1</p>
+        <span>XX</span>
+      </li>
+    </ul>
+  </div>
+  <script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.12.1/jquery.min.js"></script>
+  <script>
+    let $wrap = $("#wrap");
+    let oWrap = document.querySelector("#wrap");
+    //1 $xx.find(selector)  === ele.querySelecror
+    let $input = $wrap.find("input");
+    // console.log($input.length);
+    let $img = $wrap.find("img");
+    // console.log($img);
+    //2 children()
+    // console.log($wrap.children());
+    // console.log($wrap.children("input"));
+    //3 parent()  parents()
+    let $not = $("#not");
+    let $test = $(".test");
+    console.log($not.parent(".close"));
+    console.log($test.parent(".on"));
+    console.log($not.parents("html"));
+    //4 siblings
+    let $ul = $("ul");
+    console.log($ul.siblings());
+    console.log($ul.siblings(".active"));
+    //5 hasClass
+    console.log($ul.hasClass("list"));
+    console.log($ul.hasClass("eat"));
+    console.log($("li").hasClass("on"));
+    // 6 eq
+    let $li = $ul.find("li");
+    console.log($li.eq(1));
+    // 7 next pre nextAll preAll
+    console.log($("img").next());
+    console.log($("img").next("ul"));
+    console.log($("p.title").nextAll());
+    console.log($("p.title").nextAll(".list"));
+    console.log($("img").prev());
+    console.log($("img").prevAll());
+    console.log($("img").prevAll(".title"));
+    //8 first last
+    console.log($("li").first());
+    console.log($("li").last());
+    console.log($("input").first());
+    console.log($("input").last());
+    //9 not
+    console.log($("li").not(".active").not(".on"));
+    // 10 filter
+    console.log($("li").filter(".active"));
+  </script>
+</body>
+
+</html>

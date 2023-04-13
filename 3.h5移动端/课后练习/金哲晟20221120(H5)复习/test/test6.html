@@ -1,0 +1,41 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-11-20 21:23:25
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-11-20 21:34:01
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>模板引擎</title>
+  <script type="text/template" id="temp">
+    {{each list}}
+    <p>name {{$value.name}} age {{$value.age}}</p>
+    {{/each}}
+  </script>
+</head>
+<body>
+  <script src="./template-web.js"></script>
+  <script>
+    let data = {
+      list: [
+        {
+          name: "jzs",
+          age: 22
+        },
+        {
+          name: "zjc",
+          age: 33
+        }
+      ]
+    }
+    let html = template("temp", data);
+    document.body.innerHTML = html;
+  </script>
+</body>
+</html>

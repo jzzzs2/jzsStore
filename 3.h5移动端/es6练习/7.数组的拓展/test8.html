@@ -1,0 +1,30 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-12-11 18:54:35
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-12-11 19:01:18
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>flat() at() 负索引</title>
+</head>
+<body>
+  <script>
+    let arr = [[2,3,4,[7,8]],9,11];
+    console.log(arr.flat());
+    console.log(arr);
+    console.log(arr.flat(2));
+    console.log(arr);
+    let str = "hello world";
+    console.log(arr.at(-2)); //9
+    console.log(str.at(-3)); //r
+    console.log(str.at(-99)); //undefined
+  </script>
+</body>
+</html>

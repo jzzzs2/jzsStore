@@ -1,0 +1,100 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-11-03 16:23:32
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-11-03 16:47:21
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>H5 新增dom API</title>
+  <style>
+    .wrap {
+      width: 100px;
+      height: 100px;
+      background-color: #368;
+    }
+
+    ul {
+      list-style-type: none;
+    }
+
+    ul>li {
+      width: 200px;
+      height: 20px;
+      margin: 10px;
+      line-height: 20px;
+      color: red;
+      box-shadow: 0 0 4px #222;
+    }
+
+    ul>li.active {
+      background-color: rgba(126, 55, 210, .5);
+    }
+  </style>
+</head>
+
+<body>
+  <section id="con" class="wrap"></section>
+
+  <ul class="list">
+    <li data-idx="1" class="active">1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+    <li>5</li>
+  </ul>
+  <script>
+    let oCon = document.getElementById("con");
+    let aLi = document.getElementsByTagName("li");
+    let aAc = document.getElementsByClassName("active");
+    //
+    oCon = document.querySelector("#con");
+    aLi = document.querySelectorAll("li");
+    aAc = document.querySelectorAll(".active");
+    let oUl = document.querySelector(".list");
+    //classList
+    let oLi = document.querySelector("li");
+    // console.log(oLi.classList);
+    // oLi.classList.remove("active");
+    // oLi.classList.add("show");
+    // oLi.classList.toggle("active");
+    // oLi.classList.toggle("active");
+    // console.log(oLi.classList.contains("active")); //true
+    // console.log(oLi.classList.contains("giveup")); //false
+    //after
+    let p = document.createElement("p");
+    let a = document.createElement("a");
+    a.innerText = "link";
+    a.href = "#";
+    p.innerText = "eat";
+    // oUl.after(p,a,"23333");
+    //before
+    let h3 = document.createElement("h3");
+    h3.innerText = "wo si title3";
+    let h4 = document.createElement("h4");
+    h4.innerText = "wo si title4";
+    // oUl.before(h3, h4);
+    //append
+    oUl.append("222");
+    // oUl.appendChild("222");
+    //remove
+    // oUl.remove();
+    //replaceWidth
+    let ele = document.createElement("p");
+    ele.innerText = "wo si P"
+    oLi.replaceWith(ele);
+    //prepend
+    // oUl.prepend(h3);
+    // oUl.prepend(h4);
+    // oUl.prepend(h3, h4, "222");
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,106 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2023-01-01 20:43:55
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2023-01-08 19:00:53
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>对象的拓展运算符</title>
+</head>
+<body>
+  <script>
+    // let {x, y, ...z} = {x: 1, y: 2, a: 3, b: 4}
+    // console.log(x);// 2
+    // console.log(y);// 1
+    // console.log(z); // {a: 3, b: 4}
+    //浅拷贝
+    // let obj = {a: 44, b: [2,4,5], c: {name: "jzs",age: 22}}
+    // let {a,...c} = obj
+    // console.log(c)
+    // c.b.push(9,99)
+    // c.c.age =  999
+    // console.log(obj);
+    // 突发奇想 写下深拷贝递归
+    // function copyDeeply (data) {
+    //   if (Array.isArray(data)) {
+    //     return data.map(function (item,idx) {
+    //       return copyDeeply(item)
+    //     })
+    //   }
+    //   if (data instanceof Object) {
+    //     let newData = {}
+    //     for (let key in data) {
+    //       newData[key] = copyDeeply(data[key])
+    //     }
+    //     return newData
+    //   }
+    //   return data
+    // }
+    // let arr = [1, 2, {name: "jzs", age: 22},[9, 12]]
+    // let newArr = copyDeeply(arr)
+    // newArr[0] = 999
+    // newArr[2].age = 999
+    // newArr[3].push(999)
+    // console.log(arr);
+    // console.log(newArr);
+    // let o1 = {a: 99}
+    // let o2 = {b: 999}
+    // o2._proto_ = o1
+    // let {...o3} = {o2}
+    // console.log(o3);
+    // let o = Object.create({x: 2,y: 22})
+    // console.log(o);
+    // o.c = 999
+    // let {x, ...test} =  o
+    // console.log(x); // 2
+    // console.log(test); //{c: 999}
+    // let z = {name: "jzs",age: 22}
+    // let n = {...z,test: "999"}
+    // console.log(n);
+    // let arr = ["name", "age", "test"]
+    // let newArr = {...arr, "test": 123}
+    // console.log(newArr);
+    // console.log({..."abcd"}); // {0: a,....}
+    // let a = {
+    //   name: "jzs",
+    //   age: 22
+    // }
+    // let obj = {
+    //   ...a
+    // }
+    // let c = {}
+    // Object.assign(c,a)
+    // console.log(obj);
+    // console.log(c);
+    // let a = {
+    //   name: [2, 6, 11],
+    //   age: 22
+    // }
+    // let c = {...a}
+    // c.name.push("9999")
+    // console.log(a);
+    let a = {
+      name: "jzs",
+      age: 22
+    }
+    let b = {
+      addr: "jh"
+    }
+    // let test = {...a, ...b, addr: "hz"}
+    // console.log(test);
+    // console.log(test,Object.assign(a,b));
+    let obj = {
+      ...(true? {name: "jzs",age: 22}: {}),
+      know: "jzs"
+    }
+    console.log(obj);
+  </script>
+</body>
+</html>

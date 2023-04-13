@@ -1,0 +1,54 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2023-03-01 18:56:33
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2023-03-01 19:01:09
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title></title>
+  <style>
+    .box {
+      width: 300px;
+      height: 100px;
+      background-color: red;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box">
+
+  </div>
+  <script>
+    let open = false
+    let finish = false
+    document.querySelector(".box").addEventListener("mousedown", function (e) {
+      console.log(e);
+      open = true
+    })
+    document.querySelector(".box").addEventListener("mousemove", function (e) {
+      if (open) {
+        console.log(e);
+        finish = true
+      }
+
+    })
+    document.querySelector(".box").addEventListener("mouseup", function (e) {
+      if (finish) {
+        console.log(e);
+        open = false
+      }
+
+    }) 
+  </script>
+</body>
+
+</html>

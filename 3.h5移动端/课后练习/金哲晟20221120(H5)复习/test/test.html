@@ -1,0 +1,94 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-11-20 11:00:44
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-11-20 12:15:53
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>jq and sass</title>
+  <link rel="stylesheet" href="../css/test.css">
+  <style>
+    .active {
+      background-color: red;
+    }
+
+    .center {
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .big-fz {
+      font-size: 30px;
+    }
+  </style>
+</head>
+
+<body>
+  <header>header</header>
+  <div class="banner"></div>
+  <div class="wrap">
+    <h2>title h2</h2>
+    <p>这就是传说中的“大触”？挡不住的创作天赋，中学生课本涂鸦大赏</p>
+    <p class="two-p">男老师只需二本学历，女老师就得是研究生？一份录用名单引发讨论</p>
+    <ul>
+      <li>title 2</li>
+      <li>title 3</li>
+      <li>title 4</li>
+      <li>title 5</li>
+    </ul>
+    <p class="third-p">jjjjjzzzzzzzzzzzzzzzzsssssssssss</p>
+    <p class="four-p">zzzzzzzzzzzjjjjjjjjjjjjjjcccccccccc</p>
+    <a href="#">link to bilibili</a>
+  </div>
+  <span>1</span>
+  <span>2</span>
+  <span>3</span>
+  <footer>footer</footer>
+  <script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.12.1/jquery.min.js"></script>
+  <script>
+    let $header = $("header");
+    let $ul = $("ul");
+    $header.css("color","red");
+    $header.css({
+      "fontSize": "30px",
+      "text-align": "center"
+    })
+    //节点查询
+    console.log($ul.prev(".two-p"));
+    console.log($ul.next(".third-p"));
+    console.log($ul.next("p"));
+    console.log($ul.prevAll("h2"));
+    console.log($ul.nextAll("p"));
+    console.log($ul.nextAll("a"));
+    console.log($ul.parent(".box"));
+    console.log($ul.parent(".wrap"));
+    console.log($ul.parents());
+    console.log($ul.parents("body"));
+    console.log($ul.children());
+    console.log($ul.children("li"));
+    console.log($ul.children(".item"));
+    console.log($ul.siblings());
+    console.log($ul.siblings("p"));
+    console.log($(document.body).find("a"));
+    console.log($ul.children().eq(0));
+    console.log($ul.children().eq(1));
+    console.log($ul.children().eq(2));
+    console.log($ul.children().eq(3));
+    let $son = $ul.children();
+    console.log($son.eq(0) === $son.first(),$son.first(),$son.eq(0));
+    console.log($son.eq(3) === $son.last(),$son.last(),$son.eq(3));
+    console.log($ul.siblings().not("p"));
+    console.log($ul.siblings().filter("p"));
+    
+  </script>
+</body>
+
+</html>

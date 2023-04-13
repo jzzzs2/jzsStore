@@ -1,0 +1,57 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-11-13 11:34:10
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-11-13 11:49:22
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>页面监听</title>
+  <style>
+    img {
+      width: 500px;
+      height: auto;
+    }
+  </style>
+</head>
+<body>
+  <a href="https://www.bilibili.com/">jump to bilibili</a>
+  <img src="./images/nut.jpg" alt="nut">
+  <script>
+    // window.onload = function (e) {
+    //   console.log("onload 页面加载完成");
+    // }
+    // window.onunload = function (e) {
+    //   // alert("页面要跳转了捏");
+    //   localStorage.setItem("jump",1);
+    // }
+    // window.onpageshow = function (e) {
+    //   console.log("页面可见时触发 onpageshow");
+    // }
+    // window.onpagehide = function (e) {
+    //   console.log("页面不见时触发 onpagehide");
+    //   localStorage.setItem("hide",1);
+    // }
+    document.onvisibilitychange = function (e) {
+      // console.log(e);
+      if (this.visibilityState === "hidden") {
+        console.log("hidden ing");
+      } else {
+        console.log("visible ing");
+      }
+    }
+    window.onfocus = function (e) {
+      console.log("聚焦当前页面捏");
+    }
+    window.onblur = function (e) {
+      console.log("失焦当前页面捏");
+    }
+  </script>
+</body>
+</html>

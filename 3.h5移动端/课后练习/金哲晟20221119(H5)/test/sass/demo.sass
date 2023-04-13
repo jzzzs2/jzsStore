@@ -1,0 +1,57 @@
+@import './_variable'
+@import './_position'
+$normal-color: red
+$safe-color: green
+$colors: #f5ad1b,#999,#368,#911,#666,#283
+@mixin wh($pd: 20px, $tl: center)
+  width: 1000px
+  height: 100vh
+  padding: $pd
+  text-align: $tl
+
+body 
+  @include wh(40px)
+  font-size: $font-size - 8
+  .box
+    width: $big-width
+    height: 500px + 200
+    background-color: #f0f0f0
+    color: $normal-color
+    &:hover
+      background-color: pink
+ul
+  list-style: none
+  box-shadow: 0 0 4px cyan
+  &:hover
+    background-color: $safe-color
+  @for $i from 1 to 7
+    li:nth-of-type(#{$i})
+      height: $i * 10 + 10px
+      color: darken(cyan, 30%)
+      font-size: $font-size
+      // background-color: lighten(#368, 20%)
+      &::after
+        content: "可爱捏#{$i}"
+      &:hover
+        background-color: complement(skyblue)
+        color: greyscale(blue)
+
+h3
+  height: 200px
+  @if 2 > 9 
+    background-color: skyblue
+  @else 
+    background-color: yellow
+  @if 9 > 17
+    background-color: red
+  // background-color: blue 
+  // background-color: greyscale(brown)
+ul
+  @each $c in $colors
+    $i : index($colors,$c)
+    li:nth-of-type(#{$i})
+      background-color: $c
+
+h2
+  @extend h3
+     

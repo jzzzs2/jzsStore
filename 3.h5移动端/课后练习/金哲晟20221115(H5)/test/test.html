@@ -1,0 +1,176 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-11-15 20:12:57
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-11-15 21:29:20
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>jq动态效果 slideDown slideUp slideToggle</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    a {
+      text-decoration: none;
+      color: #7A7E8A;
+    }
+    ul {
+      list-style: none;
+    }
+
+    .slider {
+      width: 200px;
+      height: 100vh;
+      background-color: #2B2F3E;
+    }
+
+    .slider .list>li>ul {
+      display: none;
+      /* max-height: 0; */
+      background-color: #222;
+      /* transition: all 2s linear; */
+    
+    }
+
+    .list>li {
+      box-sizing: border-box;
+    }
+
+    .list>li>a {
+      display: block;
+      padding: 5px 10px;
+    }
+    
+    .list>li:hover>a{
+      color: #FFF;
+      background-color: #FF404B;
+    }
+
+    body .slider .list .slide {
+      max-height: 400px;
+      display: block;
+    }
+
+    .active {
+      color: #FFF;
+      background-color: #FF404B;
+    }
+
+    .slider .list .show {
+      color: #fff;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="slider">
+    <ul class="list">
+      <li>
+        <a href="javascript:;">核心</a>
+        <ul>
+          <li><a href="javascript:;">get</a></li>
+          <li><a href="javascript:;">length</a></li>
+          <li><a href="javascript:;">index</a></li>
+          <li><a href="javascript:;">removeData</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="javascript:;">选择器</a>
+        <ul>
+          <li><a href="javascript:;">#ID</a></li>
+          <li><a href="javascript:;">class</a></li>
+          <li><a href="javascript:;">element</a></li>
+          <li><a href="javascript:;">:first</a></li>
+          <li><a href="javascript:;">:even</a></li>
+          <li><a href="javascript:;">:last</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="javascript:;">效果</a>
+        <ul>
+          <li><a href="javascript:;">show</a></li>
+          <li id="start"><a href="javascript:;">hide</a></li>
+          <li><a href="javascript:;">toggle</a></li>
+          <li><a href="javascript:;">slideDown</a></li>
+          <li><a href="javascript:;">slideUp</a></li>
+          <li><a href="javascript:;">fadeIn</a></li>
+          <li><a href="javascript:;">fadeOut</a></li>
+          <li><a href="javascript:;">fadeTo</a></li>
+          <li><a href="javascript:;">fadeToggle</a></li>
+          <li><a href="javascript:;">animate</a></li>
+          <li><a href="javascript:;">stop</a></li>
+          <li><a href="javascript:;">delay</a></li>
+          <li><a href="javascript:;">finish</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#">筛选</a>
+        <ul>
+          <li><a href="javascript:;">eq</a></li>
+          <li><a href="javascript:;">first</a></li>
+          <li><a href="javascript:;">last</a></li>
+          <li><a href="javascript:;">hasClass</a></li>
+          <li><a href="javascript:;">filter</a></li>
+          <li><a href="javascript:;">not</a></li>
+          <li><a href="javascript:;">fadeOut</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#">事件</a>
+        <ul>
+          <li><a href="javascript:;">hover</a></li>
+          <li><a href="javascript:;">on</a></li>
+          <li><a href="javascript:;">one</a></li>
+          <li><a href="javascript:;">off</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  <script src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
+  <script>
+    //practise
+    let $start = $("#start");
+    let idx = $start.index();
+    console.log($start.parents("li").prev("li").find("a"));
+    $start.parents("li").prev("li").find("a").eq(idx + 1).attr("id", 666);
+    //原生
+    // let oUl = document.querySelector(".list");
+    // oUl.addEventListener("click", function (e) {
+    //   console.log(1);
+    //   if (e.target.tagName.toLowerCase() === "a") {
+    //     let list = e.target.parentElement.querySelector("ul");
+    //     console.log(list);
+    //     list.classList.toggle("slide");
+    //   }
+    // },false)
+    //jq  内部实现: display:none 变为block, height:0 被animate改变
+    let $ul = $(".list");
+    $ul.on("click", "a", function (e) {
+      //300 500 800
+      $(this).addClass("active").parent("li").siblings("li").children("a").removeClass("active");
+      $(this).parent("li").siblings("li").children("ul").slideUp(100,"linear",function () {
+        console.log(this);
+        $(this).find("a").removeClass("show");
+      });
+      $(this).next("ul").slideToggle(300,"linear",function () {
+        console.log(this);
+        $(this).find("a").toggleClass("show");
+        $(this).slideUp(1000,"swing");
+        // $(this).slideUp(100,"swing",function () {
+        //   $(this).slideDown(100,"linear");
+        // });
+      })
+    })
+  </script>
+</body>
+
+</html>

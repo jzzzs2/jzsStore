@@ -1,0 +1,61 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-11-17 12:05:09
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-11-17 12:09:06
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ui类库 layui</title>
+  <link rel="stylesheet" href="../layui/layui-v2.7.6/layui/css/layui.css">
+  <script src="../layui/layui-v2.7.6/layui/layui.js"></script>
+</head>
+
+<body>
+  <div class="layui-tab">
+    <ul class="layui-tab-title">
+      <li class="layui-this">网站设置</li>
+      <li>用户管理</li>
+      <li>权限分配</li>
+      <li>商品管理</li>
+      <li>订单管理</li>
+    </ul>
+    <div class="layui-tab-content">
+      <div class="layui-tab-item layui-show">
+        1. 高度默认自适应，也可以随意固宽。
+        <br>2. Tab进行了响应式处理，所以无需担心数量多少。
+      </div>
+      <div class="layui-tab-item">内容2</div>
+      <div class="layui-tab-item">内容3</div>
+      <div class="layui-tab-item">内容4</div>
+      <div class="layui-tab-item">内容5</div>
+    </div>
+  </div>
+  <hr>
+  <div class="layui-tab layui-tab-card" lay-allowclose="true">
+    <ul class="layui-tab-title">
+      <li class="layui-this">网站设置</li>
+      <li>用户管理</li>
+      <li>权限分配</li>
+      <li>商品管理</li>
+      <li>订单管理</li>
+    </ul>
+    <div class="layui-tab-content" style="height: 100px;">
+      <div class="layui-tab-item layui-show">默认宽度是相对于父元素100%适应的，你也可以固定宽度。</div>
+      <div class="layui-tab-item">2</div>
+      <div class="layui-tab-item">3</div>
+      <div class="layui-tab-item">4</div>
+      <div class="layui-tab-item">5</div>
+      <div class="layui-tab-item">6</div>
+    </div>
+  </div>
+</body>
+
+</html>

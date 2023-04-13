@@ -1,0 +1,168 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-11-27 11:00:22
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-11-27 16:08:27
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>jd</title>
+  <link rel="stylesheet" href="./css/normalize.css">
+  <link rel="stylesheet" href="./css/jd.css">
+  <link rel="stylesheet" href="./css/swiper.min.css">
+  <script src="./css/swiper.min.js"></script>
+</head>
+
+<body>
+  <div class="jd-wrap">
+    <div class="jd-header">
+      <div class="jd-header-title">
+        <a href="#">
+          <h1><span></span>jdshop</h1>
+        </a>
+        <div class="jd-header-title_search">
+          <span></span>
+          <input type="text" placeholder="搜索">
+        </div>
+        <span class="jd-header-title_login">登录</span>
+      </div>
+      <div class="jd-header-banner">
+        <div class="swiper-container swiper-container-horizontal">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide swiper-slide-active" style="width: 100%;"><img src="./image/l1.jpg" alt=""></div>
+            <div class="swiper-slide swiper-slide-active" style="width: 100%;"><img src="./image/l2.jpg" alt=""></div>
+            <div class="swiper-slide swiper-slide-active" style="width: 100%;"><img src="./image/l3.jpg" alt=""></div>
+            <div class="swiper-slide swiper-slide-active" style="width: 100%;"><img src="./image/l4.jpg" alt=""></div>
+          </div>
+          <!-- Add Pagination -->
+          <div class="swiper-pagination swiper-pagination-clickable swiper-pagination-bullets"><span
+              class="swiper-pagination-bullet swiper-pagination-bullet-active"></span><span
+              class="swiper-pagination-bullet"></span><span class="swiper-pagination-bullet"></span><span
+              class="swiper-pagination-bullet"></span>
+          </div>
+        </div>
+      </div>
+      <div class="jd-header-nav">
+        <div class="jd-header-nav_item">
+          <img src="./image/nav0.png" alt="">
+          <span>四字导航</span>
+        </div>
+        <div class="jd-header-nav_item">
+          <img src="./image/nav1.png" alt="">
+          <span>四字导航</span>
+        </div>
+        <div class="jd-header-nav_item">
+          <img src="./image/nav2.png" alt="">
+          <span>四字导航</span>
+        </div>
+        <div class="jd-header-nav_item">
+          <img src="./image/nav3.png" alt="">
+          <span>四字导航</span>
+        </div>
+        <div class="jd-header-nav_item">
+          <img src="./image/nav4.png" alt="">
+          <span>四字导航</span>
+        </div>
+        <div class="jd-header-nav_item">
+          <img src="./image/nav5.png" alt="">
+          <span>四字导航</span>
+        </div>
+        <div class="jd-header-nav_item">
+          <img src="./image/nav6.png" alt="">
+          <span>四字导航</span>
+        </div>
+        <div class="jd-header-nav_item">
+          <img src="./image/nav7.png" alt="">
+          <span>四字导航</span>
+        </div>
+      </div>
+
+      <div class="jd-content">
+        <div class="jd-content-seckill">
+          <div class="jd-content-seckill_more">
+            <div>
+              <img src="./image/seckill-icon.png" alt="">
+              <span class="red">掌上秒杀</span>
+              <span class="num">0</span>
+              <span class="num">0</span>
+              <span class="col">:</span>
+              <span class="num">0</span>
+              <span class="num">0</span>
+              <span class="col">:</span>
+              <span class="num">0</span>
+              <span class="num">0</span>
+            </div>
+            <span>更多 &gt;</span>
+          </div>
+          <div class="jd-content-seckill_product">
+            <div>
+              <a href="#">
+                <img src="./image/detail01.jpg" alt="">
+                <p class="red">$10</p>
+                <del class="c222">$100</del>
+              </a>
+            </div>
+            <div>
+              <a href="#">
+                <img src="./image/detail01.jpg" alt="">
+                <p class="red">$10</p>
+                <del class="c222">$100</del>
+              </a>
+            </div>
+            <div>
+              <a href="#">
+                <img src="./image/detail01.jpg" alt="">
+                <p class="red">$10</p>
+                <del class="c222">$100</del>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="jd-content-sell">
+          <div class="jd-content-sell_title">
+            <span>京东自营</span>
+          </div>
+          <div class="jd-content-sell_product bt">
+            <a href="#"><img src="./image/cp1.jpg" alt=""></a>
+            <div class="bl">
+              <a href="#" class="bb"><img src="./image/cp2.jpg" alt=""></a>
+              <a href="#"><img src="./image/cp3.jpg" alt=""></a>
+            </div>
+          </div>
+        </div>
+        <div class="jd-content-sell">
+          <div class="jd-content-sell_title">
+            <span>京东自营</span>
+          </div>
+          <div class="jd-content-sell_product bt">
+
+            <div class="br">
+              <a href="#" class="bb"><img src="./image/cp2.jpg" alt=""></a>
+              <a href="#"><img src="./image/cp3.jpg" alt=""></a>
+            </div>
+            <a href="#" ><img src="./image/cp1.jpg" alt=""></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+<script>
+
+
+  var swiper = new Swiper('.swiper-container', {
+    pagination: '.swiper-pagination',
+    paginationClickable: true
+  });
+
+
+</script>
+
+</html>

@@ -1,0 +1,107 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-11-20 11:00:44
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-11-20 15:36:38
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>jq 属性</title>
+  <link rel="stylesheet" href="../css/test.css">
+  <style>
+    .active {
+      background-color: red;
+    }
+
+    .center {
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .big-fz {
+      font-size: 30px;
+    }
+  </style>
+</head>
+
+<body>
+  <header>header
+    <input type="text" name="jzs" id="one-i">
+  </header>
+  <div class="banner"></div>
+  <div class="wrap">
+    <h2>title h2</h2>
+    <p class="one-p">这就是传说中的“大触”？<span>suki</span>挡不住的创作天赋，中学生课本涂鸦大赏</p>
+    <p class="two-p">男老师只需二本学历，女老师就得是研究生？一份录用名单引发讨论</p>
+    <ul>
+      <li>title 2</li>
+      <li>title 3</li>
+      <li>title 4</li>
+      <li>title 5</li>
+    </ul>
+    <p class="third-p">jjjjjzzzzzzzzzzzzzzzzsssssssssss</p>
+    <p class="four-p">zzzzzzzzzzzjjjjjjjjjjjjjjcccccccccc</p>
+    <a href="#">link to bilibili</a>
+    <input type="checkbox" checked>
+    <!-- <input type="checkbox" checked="true"> -->
+    <!-- <input type="checkbox" checked=""> -->
+    <!-- <input type="checkbox" checked="123" index="3"> -->
+  </div>
+  <span>1</span>
+  <span>2</span>
+  <span>3</span>
+  <footer index="last" style="height:200px">footer</footer>
+  <p class="last active">我是last page</p>
+  <input type="button" value="change">
+  <script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.12.1/jquery.min.js"></script>
+  <script>
+    //样式 属性 事件
+    let $header = $("header");
+    let $ul = $("ul");
+    // 属性
+    console.log($("footer").attr("index"));
+    console.log($("footer").attr("style"));
+    // $("footer").attr("index",999);
+    // $("footer").attr("style","color:red;");
+    $("footer").attr({
+      "index":  999,
+      "style": "color:red;" 
+    })
+    // console.log($("input[type='checkbox']").prop("checked"));
+    // console.log($("input").attr("checked")); //checked
+    // $("input").prop("checked",222);
+    // console.log($("input").prop("checked")); //true
+    // console.log($("input").prop("index"));
+    // console.log($("input").attr("index"));
+    $("input").removeAttr("index"); //全部删除
+    // $("p").removeProp("class"); //留下属性名 值为undefined
+    $header.css("color","red");
+    $header.css({
+      "fontSize": "30px",
+      "text-align": "center"
+    })
+    console.log($("header input").val());
+    $("header input").val("输入了");
+    // $("header").text("<span>可爱捏</span>");
+    // $("header").html("<span>可爱捏</span>");
+    console.log($("p").text());
+    console.log($("p").html());
+    // $(".last").text("<span>22</span>");
+    $(".last").html("<span>22</span>");
+    $("input[type='button']").on("click",function (e) {
+      // $(".last").toggleClass("active");
+      // $(".last").addClass("active");
+      $(".last").removeClass("active");
+
+    })
+  </script>
+</body>
+
+</html>

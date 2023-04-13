@@ -1,0 +1,33 @@
+design-width = 750px
+real-width = 400px
+computed(designSize)
+  return ~~((400px / design-width) * designSize)
+.product-sign
+  text-align: center
+  font-size computed(36)
+  color: #222
+  font-family: "PingFang-SC-Medium"
+  line-height computed(86)
+.product-title
+  display flex
+  justify-content: space-between
+  height computed(87)
+  font-size: computed(32)
+  background-color #eeeeee
+.product-list .product-title-item
+  color #a0a0a0
+.product-item
+  display flex
+  justify-content: space-between
+  height computed(112)
+.product-title-item
+  width 50%
+  text-align: center
+  line-height: computed(78)
+.product-item-type
+  font-size computed(32)
+.product-item-price
+  font-size computed(36)
+  color: #e52e25
+.product-item i
+  font-size computed(42)

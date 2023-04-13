@@ -1,0 +1,63 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-11-07 20:41:03
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-11-07 21:10:04
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>块级作用域</title>
+</head>
+<body>
+  <script>
+    //块级作用域
+    var temp = 2;
+    function a () {
+      // console.log(temp);
+      if (false) {
+        var temp = 222;
+      }
+    }
+    a(); //undefined
+    for(var i = 0; i < 10; i++) {
+
+    }
+    // console.log(i);
+    function f1 () {
+      let n = 5;
+      if (true) {
+        let n = 10;
+      }
+      console.log(n);
+    }
+    // f1();
+    {
+      {
+        let same = 22;
+        {
+          let same = 33;
+        }
+      }
+    }
+    {
+      let temp;
+    }
+    // es6环境   {}内声明函数,当做var处理,而不是let
+    (function () {
+      console.log(eat); //undefined
+      console.log(122);
+      if (true) {
+        function eat () {
+          console.log(111);
+        }
+      }
+      eat(); //111
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,186 @@
+@charset "utf-8";
+.cartList{
+	overflow-y: scroll;
+}
+.cartList .item{
+	display: flex;
+	align-items: center;
+	padding: 15px 10px 15px 30px;
+	border-bottom: 1px solid #dddddd;
+	background: url(../images/radio.jpg) no-repeat left 5px center;
+	background-size: 20px 20px;
+}
+.cartList .item.active{
+	background: url(../images/radio_check.jpg) no-repeat left 5px center;
+	background-size: 20px 20px;
+}
+.cartList .item .pic{
+	width: 80px;
+	height: 80px;
+	position: relative;
+	border-radius: 5px;
+	overflow: hidden;
+}
+.cartList .item .pic img{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	-ms-transform: translate(-50%,-50%);
+	-o-transform: translate(-50%,-50%);
+	-moz-transform: translate(-50%,-50%);
+	-webkit-transform: translate(-50%,-50%);
+}
+.cartList .item .content{
+	width: 76%;
+	padding-left: 10px;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+}
+.cartList .item .content .title{
+	font-size: 0;
+	height: 30px;
+	overflow: hidden;
+}
+.cartList .item .content .title a{
+	font-size: 14px;
+	color: #272727;
+	line-height: 15px;
+}
+.cartList .item .content .desc{
+	font-size: 12px;
+	color: #5c5c5c;
+	height: 15px;
+	line-height: 15px;
+	margin: 5px 0 3px;
+}
+.cartList .item .content .info{
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+.cartList .item .content .info .left{
+	display: flex;
+	align-items: center;
+}
+.cartList .item .content .info .left strong{
+	font-size: 14px;
+	color: #fb5403;
+	font-weight: normal;
+	margin-right: 5px;
+}
+.cartList .item .content .info .left strong a{
+	font-size: 18px;
+	color: #fb5403;
+	font-weight: bold;
+}
+.cartList .item .content .info .left span{
+	font-size: 12px;
+	color: #969696;
+	text-decoration: line-through;
+}
+.cartList .item .content .info .right{
+	display: flex;
+	align-items: center;
+}
+.cartList .item .content .info .right button{
+	width: 28px;
+	height: 28px;
+	background: #ffffff;
+	font-size: 12px;
+	color: #959595;
+	outline: none;
+}
+.cartList .item .content .info .right button.jian{	
+	border: 1px solid #ededed;
+	border-top-left-radius: 5px;
+	border-bottom-left-radius: 5px;
+}
+.cartList .item .content .info .right input{
+	width: 33px;
+	height: 28px;
+	background: #ffffff;
+	border: 1px solid #ededed;
+	border-left: none;
+	border-right: none;
+	text-align: center;
+	font-size: 12px;
+	color: #959595;
+}
+.cartList .item .content .info .right button.jia{	
+	border: 1px solid #ededed;
+	border-top-right-radius: 5px;
+	border-bottom-right-radius: 5px;
+}
+
+.bottom_caozuo{
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	height: 55px;
+	padding: 0 15px;
+	border-top: 1px solid #dddddd;
+	width: 100%;
+	position: fixed;
+	left: 0;
+	bottom: 51px;
+	background: #ffffff;
+}
+.bottom_caozuo .left{
+	
+}
+.bottom_caozuo .left label{
+	height: 25px;
+	display: flex;
+	align-items: center;
+	font-size: 14px;
+	color: #929292;
+	padding-left: 25px;
+	background: url(../images/radio.jpg) no-repeat left center;
+	background-size: 20px 20px;
+}
+.bottom_caozuo .left label.active{
+	background: url(../images/radio_check.jpg) no-repeat left center;
+	background-size: 20px 20px;
+}
+.bottom_caozuo .right{
+	display: flex;
+	align-items: center;
+}
+.bottom_caozuo .right .heji{
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+	margin-right: 10px;
+}
+.bottom_caozuo .right .heji p{
+	font-size: 16px;
+	color: #f85d1d;
+	font-weight: bold;
+	line-height: 20px;
+}
+.bottom_caozuo .right .heji p a{
+	font-size: 16px;
+	color: #f85d1d;
+}
+.bottom_caozuo .right .heji span{
+	font-size: 14px;
+	color: #1d1d1d;
+	line-height: 20px;
+}
+.bottom_caozuo .right button{
+	background: #ff5c01;
+	border: 1px solid #ff5c01;
+	border-radius: 5px;
+	outline: none;
+	font-size: 12px;
+	color: #ffffff;
+	width: 80px;
+	height: 30px;
+	cursor: pointer;
+}
+.bottom_caozuo .right button a{
+	font-size: 12px;
+	color: #ffffff;
+}

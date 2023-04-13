@@ -1,0 +1,45 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-11-06 15:09:35
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-11-06 15:20:27
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>新增全局属性 contenteditable data-xx   hidden</title>
+  <style>
+    .box {
+      width: 200px;
+      height: 200px;
+      border: 1px solid #999;
+      background-color: red;
+    }
+  </style>
+</head>
+<body>
+  <div class="box" contenteditable data-food = "noddle" hidden></div>
+  <input type="text">
+  <script>
+    let oBox = document.querySelector(".box");
+    let oIn = document.querySelector("input");
+    oBox.oninput = function (e) {
+      console.log("ke ai nie");
+      console.log(this.dataset);
+      console.log(this.dataset.food);
+    }
+    oBox.dataset.add = "xin zeng";
+    // oBox.onchange = function (e) {
+    //   console.log("keainie");
+    // }
+    oIn.onchange = function (e) {
+      console.log("input nie");
+    }
+    oIn.setAttribute("hidden",false);
+  </script>
+</body>
+</html>

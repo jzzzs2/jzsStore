@@ -1,0 +1,107 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-11-03 17:47:33
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-11-03 19:56:15
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>图片文件拖拽上传</title>
+  <style>
+    .info {
+      width: 300px;
+      height: 100px;
+      margin: 200px 0;
+      border: 1px dashed #999;
+    }
+
+    .info>p {
+      text-align: center;
+      color: #999;
+      font-size: 18px;
+    }
+
+    .sharp {
+      width: 100px;
+      height: 8px;
+      margin: 20px auto;
+      border: 1px solid #B2B2B2;
+      background-color: #EFEFEF;
+      border-radius: 6px;
+    }
+    
+    img {
+      width: 100px;
+      height: auto;
+    }
+
+    .show {
+      position: absolute;
+      top: 200px;
+      left: 315px;
+      width: 400px;
+      height: 250px;
+      border: 1px solid #368;
+    }
+  </style>
+</head>
+<body>
+  <div class="info">
+    <p>点击上传, 或将文件拖拽到此处</p>
+    <div class="sharp"></div>
+    <input type="file" hidden accept="image/*">
+  </div>
+  <section class="show"></section>
+  <script>
+    let oWrap = document.querySelector(".info");
+    let oShow = document.querySelector(".show");
+    let oFile = document.querySelector("[type='file']");
+    oWrap.onclick = function (e) {
+      // console.log([oFile]);
+      oFile.click();
+    }
+
+    oFile.onchange = function (e) {
+      console.log(oFile.value,"change");
+      console.log(oFile.files);
+      // console.log(1);
+      // console.log(this);
+      // console.log(this.files[0]);
+      // getObjectUrl(this.files[0]);
+      getImageCode(this.files[0]);
+    }
+    function getObjectUrl (file) {
+      let url = URL.createObjectURL(file);
+      //创建一个临时url指向图片,刷新即消失.
+      console.log(url);
+      createImg(url);
+    }
+    //base 
+    function getImageCode (file) {
+      let read = new FileReader();
+      read.readAsDataURL(file);
+      read.onload = function () {
+        console.log(read);
+        createImg(read.result);
+      }
+      read.onprogress = function (e) {
+        console.log(this,e.loaded,e.total);
+      }
+    }
+    function createImg (src) {
+      let img = document.createElement("img");
+      img.setAttribute("src",src);
+      oShow.append(img);
+    }
+    /*
+    方法1: base64 new FileReader() reader.readAsDataURL(file对象) reader.onload = function () { src = reader.result} 持久性
+    方法2:blobURL src = URL.createObjectURL(file) 当前会话可以使用
+    */
+  </script>
+</body>
+</html>

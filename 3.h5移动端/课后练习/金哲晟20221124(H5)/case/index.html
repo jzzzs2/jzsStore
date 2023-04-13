@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+  <title>Document</title>
+  <link rel="stylesheet" href="css/reset-mobile.css">
+  <link rel="stylesheet" href="css/index.css">
+  <script src="js/HDview.js"></script>
+  <script>
+    flex(75);
+  </script>
+  <script>
+    var browser = {
+      versions: function () {
+        var u = navigator.userAgent, app = navigator.appVersion;
+        return {
+          trident: u.indexOf('Trident') > -1, //IE内核
+
+          presto: u.indexOf('Presto') > -1, //opera内核
+
+          webKit: u.indexOf('AppleWebKit') > -1, //苹果、谷歌内核
+
+          gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1,//火狐内核
+
+          mobile: !!u.match(/AppleWebKit.*Mobile.*/), //是否为移动终端
+
+          ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端
+
+          android: u.indexOf('Android') > -1 || u.indexOf('Adr') > -1, //android终端
+
+          iPhone: u.indexOf('iPhone') > -1, //是否为iPhone或者QQHD浏览器
+
+          iPad: u.indexOf('iPad') > -1, //是否iPad
+
+          webApp: u.indexOf('Safari') == -1, //是否web应该程序，没有头部与底部
+
+          weixin: u.indexOf('MicroMessenger') > -1, //是否微信 （2015-01-22新增）
+
+          qq: u.match(/\sQQ/i) == " qq" //是否QQ
+        };
+      }(),
+      language: (navigator.browserLanguage || navigator.language).toLowerCase()
+    }
+
+    if (browser.versions.mobile) { //移动端分流
+      window.location = "http://127.0.0.1:5503/touch.html";
+    }
+  </script>
+</head>
+
+<body>
+  <div id="page">
+    你好
+    <img src="appIcon/add_toolbar_normal.png" width="64" height="64" alt="">
+    <img src="appIcon/add_toolbar_normal@2x.png" width="64" height="64" alt="">
+    <img src="appIcon/add_toolbar_normal.png" srcset=" appIcon/add_toolbar_normal@2x.png 2x">
+  </div>
+  <section>
+    <img src="images/1.jpg" alt="">
+  </section>
+  <main>
+    <img src="appIcon/add_toolbar_normal.png" srcset=" appIcon/add_toolbar_normal@2x.png 2x"><img
+      src="appIcon/add_toolbar_normal.png" srcset=" appIcon/add_toolbar_normal@2x.png 2x"><img
+      src="appIcon/add_toolbar_normal.png" srcset=" appIcon/add_toolbar_normal@2x.png 2x"><img
+      src="appIcon/add_toolbar_normal.png" srcset=" appIcon/add_toolbar_normal@2x.png 2x">
+  </main>
+  <!-- <textarea name="" id="" cols="30" rows="10"></textarea> -->
+  <input type="text" name="" id="">
+  <button>确定</button>
+  <div class="bottom-bar">
+    <span>1</span>
+    <span>2</span>
+    <span>3</span>
+    <span>4</span>
+  </div>
+
+</body>
+
+</html>
+
+<!-- 
+
+  1. 动态设置meta:viewport 实现字体高清化并解决 1px问题
+  2. 按照设计图尺寸进行逻辑像素px直接 设置
+
+
+  dpr1        dpr2        dpr3
+
+  scale:1.0   scale:0.5  scale:0.33
+
+  font-size: 37.5  font-size:75  font-size:112.5
+
+
+
+
+
+
+  
+
+ -->

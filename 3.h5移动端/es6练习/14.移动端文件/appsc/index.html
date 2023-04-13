@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--vieport-->
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
+	<!--禁止将数字变为电话号码-->
+	<meta name="format-detection" content="telephone=no" />
+    <title>香港小生活</title>
+    <meta name="keywords" content="香港小生活" />
+    <meta name="description" content="香港小生活" />
+    <!--页面样式格式化-->
+    <link rel="stylesheet" href="static/css/reset.css" />
+    <!--所有页面头部header和底部footer公用样式-->
+    <link rel="stylesheet" href="static/css/public.css" />
+    <script src="static/js/jquery.min.js"></script>
+    <!--[if lt IE 9]> 
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+</head>  	
+<body>
+	<!--当前页面私有样式-->
+	<link rel="stylesheet" href="static/css/swiper.css">
+	<link href="static/css/index.css" rel="stylesheet">
+	<script src="static/js/swiper.min.js"></script>
+	
+	<div class="index_header">
+		<div id="mainMenuBarAnchor"></div>
+		<div class="header_top" id="mainMenuBar">
+			<form class="search">
+				<label for="search"></label>
+				<input id="search" type="text" placeholder="搜索您要的商品" />
+				<input type="submit" value="搜索" />
+			</form>
+			<div class="message">
+				<a href="#">
+					<span>11</span>
+				</a>
+			</div>
+		</div>
+		<script type="text/javascript">
+			$(document).ready(function() {
+		    	var $window = $(window),$mainMenuBar = $('#mainMenuBar'),$mainMenuBarAnchor = $('#mainMenuBarAnchor');
+			    $window.scroll(function() {
+			        var window_top = $window.scrollTop();
+			        var div_top = $mainMenuBarAnchor.offset().top;
+			        if (window_top > div_top) {
+			            $mainMenuBar.addClass('stick');
+			            $mainMenuBarAnchor.height($mainMenuBar.outerHeight());
+			        } else {
+			            $mainMenuBar.removeClass('stick');
+			            $mainMenuBarAnchor.height(0);
+			        }
+			    });
+			});
+		</script>
+		<div class="header_bottom">
+			<div class="swiper-container banner">
+		        <div class="swiper-wrapper">
+		            <div class="swiper-slide">
+		            	<img src="static/picture/banner.jpg" />
+		            </div>
+		            <div class="swiper-slide">
+		            	<img src="static/picture/banner.jpg" />
+		            </div>
+		            <div class="swiper-slide">
+		            	<img src="static/picture/banner.jpg" />
+		            </div>
+		        </div>
+		        <div class="swiper-pagination"></div>
+		    </div>
+		</div>
+		
+	    <script>
+	    	var swiper = new Swiper('.banner', {
+		        pagination: '.banner .swiper-pagination',
+		        autoplay: 2500,
+		        paginationClickable: true
+		    });
+	    </script>
+	</div>
+	
+	<div class="user">
+		<img class="touxiang" src="static/picture/touxiang.jpg" />
+		<div class="info">
+			<h2 class="niki">A-admin</h2>
+			<ul class="list">
+				<a class="item" href="#">
+					<p class="pic">
+						<img src="static/images/ico_1.png" />
+					</p>
+					<span class="title">全部商品</span>
+				</a>
+				<a class="item" href="#">
+					<p class="pic">
+						<img src="static/images/ico_2.png" />
+					</p>
+					<span class="title">最新商品</span>
+				</a>
+				<a class="item" href="#">
+					<p class="pic">
+						<img src="static/images/ico_3.png" />
+					</p>
+					<span class="title">我的订单</span>
+				</a>
+				<a class="item" href="#">
+					<p class="pic">
+						<img src="static/images/ico_4.png" />
+					</p>
+					<span class="title">我的积分</span>
+				</a>
+			</ul>
+		</div>
+	</div>
+	
+	<div class="mukuai">
+		<ul class="list">
+			<a href="#" class="item">
+				<p class="pic">
+					<img src="static/images/ico_5.png" />
+				</p>
+				<span class="title">团购商品</span>
+			</a>
+			<a href="#" class="item">
+				<p class="pic">
+					<img src="static/images/ico_6.png" />
+				</p>
+				<span class="title">秒杀商品</span>
+			</a>
+			<a href="#" class="item">
+				<p class="pic">
+					<img src="static/images/ico_7.png" />
+				</p>
+				<span class="title">我要开店</span>
+			</a>
+			<a href="#" class="item">
+				<p class="pic">
+					<img src="static/images/ico_8.png" />
+				</p>
+				<span class="title">会员中心</span>
+			</a>
+		</ul>
+	</div>
+	
+	<div class="mukuai1">
+		<ul class="list">
+			<a href="#" class="item item1">
+				<h3 class="title">限时秒杀</h3>
+				<div class="pic">
+					<img src="static/picture/huo.png" />
+					<img src="static/picture/huo.png" />
+					<img src="static/picture/dian.png" />
+				</div>
+				<div class="word">鬼知道你喜欢啥</div>
+			</a>
+			<a href="#" class="item item2">
+				<h3 class="title">热门团购</h3>
+				<div class="tuan">
+					<img src="static/picture/tuan.png" />
+					<div class="content">
+						<p>加加减减公主眼膜</p>
+						<span>1000+评价</span>
+					</div>
+				</div>
+				<div class="word">五万人推荐</div>
+			</a>
+		</ul>
+	</div>
+	
+	<div class="index_pro">
+		<div class="item">
+			<div class="top">
+				<div class="title">
+					<a>团购商品</a>
+					<span>一件享受团购价</span>
+				</div>
+			</div>
+			<ul class="list">
+				<li class="item">
+					<div class="pic">
+						<a href="#">
+							<img src="static/picture/product.jpg" />
+						</a>
+					</div>
+					<div class="content">
+						<h2 class="title">
+							<a href="#">加一元送一袋 稻花香大米</a>
+						</h2>
+						<p class="desc">
+							<a>滋稻乐</a>
+							<a>五常稻花香</a>
+							<a>大米</a>
+							<a>5斤</a>
+						</p>
+						<p class="tab">
+							<a>特卖</a>
+							<a>新品</a>
+						</p>
+						<div class="info">
+							<p class="left">
+								<strong>￥49.9</strong>
+								<span>￥69.8</span>
+							</p>
+							<a class="qiang" href="#">立即抢购</a>
+						</div>
+					</div>
+				</li>
+				<li class="item">
+					<div class="pic">
+						<a href="#">
+							<img src="static/picture/product.jpg" />
+						</a>
+					</div>
+					<div class="content">
+						<h2 class="title">
+							<a href="#">加一元送一袋 稻花香大米</a>
+						</h2>
+						<p class="desc">
+							<a>滋稻乐</a>
+							<a>五常稻花香</a>
+							<a>大米</a>
+							<a>5斤</a>
+						</p>
+						<p class="tab">
+							<a>特卖</a>
+							<a>新品</a>
+						</p>
+						<div class="info">
+							<p class="left">
+								<strong>￥49.9</strong>
+								<span>￥69.8</span>
+							</p>
+							<a class="qiang" href="#">立即抢购</a>
+						</div>
+					</div>
+				</li>
+				<li class="item">
+					<div class="pic">
+						<a href="#">
+							<img src="static/picture/product.jpg" />
+						</a>
+					</div>
+					<div class="content">
+						<h2 class="title">
+							<a href="#">加一元送一袋 稻花香大米</a>
+						</h2>
+						<p class="desc">
+							<a>滋稻乐</a>
+							<a>五常稻花香</a>
+							<a>大米</a>
+							<a>5斤</a>
+						</p>
+						<p class="tab">
+							<a>特卖</a>
+							<a>新品</a>
+						</p>
+						<div class="info">
+							<p class="left">
+								<strong>￥49.9</strong>
+								<span>￥69.8</span>
+							</p>
+							<a class="qiang" href="#">立即抢购</a>
+						</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+		<div class="item">
+			<div class="top">
+				<div class="title">
+					<a>限时抢购</a>
+					<span>一件享受团购价</span>
+				</div>
+			</div>
+			<ul class="list">
+				<li class="item">
+					<div class="pic">
+						<a href="#">
+							<img src="static/picture/product.jpg" />
+						</a>
+					</div>
+					<div class="content">
+						<h2 class="title">
+							<a href="#">加一元送一袋 稻花香大米</a>
+						</h2>
+						<p class="desc">
+							<a>滋稻乐</a>
+							<a>五常稻花香</a>
+							<a>大米</a>
+							<a>5斤</a>
+						</p>
+						<p class="tab">
+							<a>特卖</a>
+							<a>新品</a>
+						</p>
+						<div class="info">
+							<p class="left">
+								<strong>￥49.9</strong>
+								<span>￥69.8</span>
+							</p>
+							<a class="qiang" href="#">立即抢购</a>
+						</div>
+					</div>
+				</li>
+				<li class="item">
+					<div class="pic">
+						<a href="#">
+							<img src="static/picture/product.jpg" />
+						</a>
+					</div>
+					<div class="content">
+						<h2 class="title">
+							<a href="#">加一元送一袋 稻花香大米</a>
+						</h2>
+						<p class="desc">
+							<a>滋稻乐</a>
+							<a>五常稻花香</a>
+							<a>大米</a>
+							<a>5斤</a>
+						</p>
+						<p class="tab">
+							<a>特卖</a>
+							<a>新品</a>
+						</p>
+						<div class="info">
+							<p class="left">
+								<strong>￥49.9</strong>
+								<span>￥69.8</span>
+							</p>
+							<a class="qiang" href="#">立即抢购</a>
+						</div>
+					</div>
+				</li>
+				<li class="item">
+					<div class="pic">
+						<a href="#">
+							<img src="static/picture/product.jpg" />
+						</a>
+					</div>
+					<div class="content">
+						<h2 class="title">
+							<a href="#">加一元送一袋 稻花香大米</a>
+						</h2>
+						<p class="desc">
+							<a>滋稻乐</a>
+							<a>五常稻花香</a>
+							<a>大米</a>
+							<a>5斤</a>
+						</p>
+						<p class="tab">
+							<a>特卖</a>
+							<a>新品</a>
+						</p>
+						<div class="info">
+							<p class="left">
+								<strong>￥49.9</strong>
+								<span>￥69.8</span>
+							</p>
+							<a class="qiang" href="#">立即抢购</a>
+						</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+	
+	<!--底部tabbar部分-->
+    <div class="tabbar">
+    	<ul>
+    		<li>
+    			<a href="#" class="active">
+    				<p>
+    					<img class="default" src="static/images/tabbar_0.png" />
+    					<img class="on" src="static/images/tabbar_0_on.png" />
+    				</p>    				
+    				<span>首页</span>
+    			</a>
+    		</li>
+    		<li>
+    			<a href="#">
+    				<p>
+    					<img class="default" src="static/images/tabbar_1.png" />
+    					<img class="on" src="static/images/tabbar_1_on.png" />
+    				</p>    				
+    				<span>商品分类</span>
+    			</a>
+    		</li>
+    		<li>
+    			<a href="#">
+    				<p>
+    					<img class="default" src="static/images/tabbar_2.png" />
+    					<img class="on" src="static/images/tabbar_2_on.png" />
+    				</p>    				
+    				<span>购物车</span>
+    			</a>
+    		</li>
+    		<li>
+    			<a href="#">
+    				<p>
+    					<img class="default" src="static/images/tabbar_3.png" />
+    					<img class="on" src="static/images/tabbar_3_on.png" />
+    				</p>    				
+    				<span>我的</span>
+    			</a>
+    		</li>
+    	</ul>
+    </div>
+    <script>
+    	$('.tabbar ul a').click(function(){
+    		$(this).parent('li').siblings('li').find('a').removeClass('active');
+    		$(this).addClass('active');
+    	});
+    </script>
+    <!--底部tabbar部分-->  
+</body>
+</html>

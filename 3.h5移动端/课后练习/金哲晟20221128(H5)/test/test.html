@@ -1,0 +1,132 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-11-28 19:02:25
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-11-28 23:30:52
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>one</title>
+</head>
+
+<body>
+  <script>
+    const DEFAULT_FORMAT = "yyyy-mm-dd";
+    class EasyDate {
+      constructor(date, option) {
+        this.base = new Date(date);
+        this.format = option?.format || DEFAULT_FORMAT;
+        this.base.setHours(0);
+        this.base.setMinutes(0);
+        this.base.setSeconds(0);
+        this.base.setMilliseconds(0);
+      }
+      static padLeft(num) {
+        return String(num)[1] && String(num) || "0" + num;
+      }
+      /**
+       * @description: 格式化Date对象为日期字符串
+       * @param {Date} 
+       * @param {String}
+       * @return {String} 日期字符串
+       * @Date: 2022-11-28 20:46:54
+       */      
+      static format(date, format = DEFAULT_FORMAT) {
+        let obj = {
+          "y": date.getFullYear(),
+          "m": EasyDate.padLeft(date.getMonth() + 1),
+          "d": EasyDate.padLeft(date.getDate())
+        }
+        console.log(obj.y,obj.m,obj.d);
+        let result = Object.entries(obj).reduce(function (acc, [key, value]) {
+          let regExp = new RegExp(`${key}+`, "i");
+          return acc.replace(regExp, value);
+        }, format);
+        return result;
+      }
+      /**
+       * @description: 获取日期月份第一天是星期几 
+       * @return {String} 当前月份第一天是周几
+       * @Date: 2022-11-28 20:35:48
+       */      
+      getFirstDayOfThisMonth() {
+        let date = this.clone();
+        date.base.setDate(1);
+        return date.base.getDay();
+      }
+      clone () {
+        return new EasyDate(this.base,this.format);
+      }
+      //重置时间  填充十位  时间格式化  得到当前月的第一天  克隆EasyDate对象 设置当前时间 获取当前时间  年份字符串大小   判断当前日期是否是标准日期 闰年
+      setDate (num) {
+        this.base.setDate(num);
+      }
+      getDate () {
+        return this.base.getDate()
+      }
+      /**
+       * @description: 比较两个日期时间的大小
+       * @param {Date} 
+       * @return {Boolean}
+       * @Date: 2022-11-28 20:45:32
+       */      
+      compareTimeStr (date) {
+        if (!date) {
+          return false;
+        }
+        date = date instanceof EasyDate ? date : new EasyDate(date);
+        console.log(date);
+        // console.log(this.toString());
+        // console.log(date.toString());
+        return this.toString() > date.toString()
+      }
+      toString () {
+        console.log(EasyDate.format(this.base,this.format));
+        return EasyDate.format(this.base,this.format);
+      }
+      /**
+       * @description: 判断是否是日期格式 
+       * @param {String} 日期字符串 
+       * @return {Boolean}
+       * @Date: 2022-11-28 21:07:20
+       */      
+      static isStandardDate (dateStr, format) {
+        console.log('-----wo shi ',dateStr, format)
+        let arr = [/d+/gi,/y+/gi,/m+/gi];
+        arr.forEach(function (curr) {
+          format = format.replace(curr, function (right) {
+            return `\\d{${right.length}}`
+          })
+        })
+        console.log(format);
+        // format = format.replace(/-/gi,"[:\\\/\-]");
+        format = format.replace(/-/gi,"[:\\\\\\/\\-]");
+        // [:\\\/\-]
+        console.log(format);
+        let reg = new RegExp(`^${format}$`);
+        // console.log(format);
+        return reg.test(dateStr);
+      }
+    }
+    // let easyDate = new EasyDate(new Date());
+    let easyDate = new EasyDate("2022-11-10");
+    // console.log(EasyDate.padLeft(5));
+    // console.log(EasyDate.format(new Date()));
+    // console.log(easyDate.getFirstDayOfThisMonth());
+    // console.log(easyDate);
+    // console.log(easyDate.base);
+    // console.log(new Date());
+    // console.log(easyDate.compareTimeStr(new Date()));
+    
+    console.log(EasyDate.isStandardDate("2022\\11/22","yyyy-mm-dd"));
+  </script>
+</body>
+
+</html>

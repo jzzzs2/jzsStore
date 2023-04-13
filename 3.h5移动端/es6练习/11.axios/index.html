@@ -1,0 +1,88 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2023-02-03 19:53:19
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2023-02-09 22:22:28
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <input type="file" name="file">
+  <input type="text" name="uid">
+  <button>发送</button>
+  <script src="./node_modules/axios/dist/axios.js"></script>
+  <script>
+    let file = document.querySelector("[type=file]")
+    let text = document.querySelector("[type=text]")
+    axios.defaults.baseURL = "http://127.0.0.1:3000"
+    axios.defaults.headers["Authorization"] = "Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Imp6MzQzNDMiLCJpZCI6IjYzZGNmOTNiZDFlNmQ1NDYwMDAzNGVjZCIsImV4cCI6MTY3NjAyNDk4NCwiaWF0IjoxNjc1NzY1Nzg0fQ.bwNn7StfgCmbqz8JFhY6YyCu1UQNHOXx3P4yqc-PxvHWZ2Ea1uACE4Cw-NfuxSNrtMJGoh_XGPUUhAfe-MC6Cw"
+    // axios.get("/search?search=class",{},{
+    // let axiosObj = axios.create()
+    // axiosObj.get("/search?search=class").then(data=> {
+    //   console.log(data);
+    // }).catch(err=> {
+    //   console.log(err);
+    // })
+    // let axiosSecObj = axios.create()
+    // axiosSecObj.post("/nice/63e0b59d6c478b37ec3c6a31").then(data => {
+    //   console.log(data);
+    // }).catch(err=> {
+    //   console.log(err);
+    // })
+    document.querySelector("button").addEventListener("click", function (e) {
+      // console.log("发送");
+      let axiosThirdObj = axios.create()
+      // let formDate = new FormData()
+      // console.log(file.files, "File");
+      // formDate.append("file",file.files[0])
+      // formDate.append("uid",text.value)
+      // axiosThirdObj.post("/upload/user", formDate, {
+      // }).then(data => {
+      //   console.log(data);
+      // }).catch(err => {
+      //   console.log(err);
+      // })
+      axiosThirdObj.post("/api/rest/articles", {
+        "title": "error343 data",
+        "author": "63e0b59d6c478b37ec3c6a31",
+        "content": "%3Cp%3E%E6%8C%87%E5%AE%9A%E4%B8%80%E4%B8%AA%20%24in%20%E6%9F%A5%E8%AF%A2%E6%9D%A1%E4%BB%B6%E3%80%82%3C%2Fp%3E",
+        "classify": "63e0b3ed0094d7bcfe240ebd"
+      }).then(data=> {
+        console.log(data);
+      }).catch(err=> {
+        console.log(err);
+      })
+    })
+
+    // }).then(data=> {
+    //   console.log(data);
+    // }).catch(err=> {
+    //   console.log(err);
+    // })
+    // axios.post("http://127.0.0.1:3000/admin/login", {
+    //   "username": "jzs233",
+    //   "pwd": "ssss3444",
+    //   "email": "23fdsa@qq.com"
+    // }, {
+    //   headers: {
+    //     "Authorization": "Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoidGp5IiwicHdkIjoic2l5aXNpIiwiZXhwIjoxNjczNDExODU0LCJpYXQiOjE2NzMxNTI2NTR9.VMY_LLF60G8MEKAEYaEgHcKYcnPMqWAGF5GczchO36JOYNw5a7wrKvtFZp2096PqSQ8ZAJ77aRVPMY3GArH9fQ",
+
+    //   }
+    // }).then(data => {
+    //   console.log(data, "test");
+    // })
+
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html style="font-size: 256px;">
+<head>
+<meta charset="UTF-8">
+<title>优惠卷</title>
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+<link rel="stylesheet" type="text/css" href="statics/css/style.css">
+<script src="statics/js/flexible.js" type="text/javascript" charset="utf-8"></script>
+<script src="https://lf9-cdn-tos.bytecdntp.com/cdn/expire-1-M/zepto/1.2.0/zepto.min.js" type="text/javascript" charset="utf-8"></script>
+</head>
+
+<body style="font-size: 12px;">
+<!-- 顶部标题返回 -->
+<div class="top-bar"> <i></i>
+  <div class="title">优惠券</div>
+</div>
+<!-- 类别 -->
+<div class="category">
+  <ul>
+    <li class="active">未使用(12)</li>
+    <li>已使用(80)</li>
+    <li>已过期(12)</li>
+  </ul>
+</div>
+<div class="container">
+  <ul class="active">
+    <li>
+      <div class="l">
+        <p><i>￥</i>100</p>
+        <span>满¥500可用</span> </div>
+      <div class="r">
+        <h3>女装优惠券</h3>
+        <div class="use">
+          <p>仅供精品女装专区使用</p>
+          <button>立即使用</button>
+        </div>
+        <div class="status">
+          <p>2021.10.01-2021.12.01</p>
+          <span>快过期</span> </div>
+      </div>
+    </li>
+    <li>
+      <div class="l">
+        <p><i>￥</i>200</p>
+        <span>满¥700可用</span> </div>
+      <div class="r">
+        <h3>生鲜食品优惠券</h3>
+        <div class="use">
+          <p>仅供生鲜食品专区使用</p>
+          <button>立即使用</button>
+        </div>
+        <div class="status">
+          <p>2021.10.01-2021.12.01</p>
+          <span>快过期</span> </div>
+      </div>
+    </li>
+    <li>
+      <div class="l">
+        <p><i>￥</i>300</p>
+        <span>满¥5000可用</span> </div>
+      <div class="r">
+        <h3>女装优惠券</h3>
+        <div class="use">
+          <p>仅供精品女装专区使用</p>
+          <button>立即使用</button>
+        </div>
+        <div class="status">
+          <p>2021.10.01-2021.12.01</p>
+          <span>快过期</span> </div>
+      </div>
+    </li>
+    <li>
+      <div class="l">
+        <p><i>￥</i>1000</p>
+        <span>满¥5000可用</span> </div>
+      <div class="r">
+        <h3>家用电器券</h3>
+        <div class="use">
+          <p>仅供家用电器专区使用</p>
+          <button>立即使用</button>
+        </div>
+        <div class="status">
+          <p>2021.10.01-2021.12.01</p>
+          <span>快过期</span> </div>
+      </div>
+    </li>
+    <li>
+      <div class="l">
+        <p><i>￥</i>1000</p>
+        <span>满¥5000可用</span> </div>
+      <div class="r">
+        <h3>家用电器券</h3>
+        <div class="use">
+          <p>仅供家用电器专区使用</p>
+          <button>立即使用</button>
+        </div>
+        <div class="status">
+          <p>2021.10.01-2021.12.01</p>
+          <span>快过期</span> </div>
+      </div>
+    </li>
+  </ul>
+  <ul>
+    <li>
+      <div class="l">
+        <p><i>￥</i>100</p>
+        <span>满¥500可用</span> </div>
+      <div class="r">
+        <h3>女装优惠券</h3>
+        <div class="use">
+          <p>仅供精品女装专区使用</p>
+          <button disabled="">立即使用</button>
+        </div>
+        <div class="status">
+          <p>2021.10.01-2021.12.01</p>
+          <span>已使用</span> </div>
+      </div>
+    </li>
+  </ul>
+  <ul>
+    <li>
+      <div class="l">
+        <p><i>￥</i>200</p>
+        <span>满¥700可用</span> </div>
+      <div class="r">
+        <h3>生鲜食品优惠券</h3>
+        <div class="use">
+          <p>仅供生鲜食品专区使用</p>
+          <button disabled="">立即使用</button>
+        </div>
+        <div class="status">
+          <p>2021.10.01-2021.12.01</p>
+          <span>已过期</span> </div>
+      </div>
+    </li>
+  </ul>
+</div>
+<!-- 兑换优惠卷 -->
+<div class="exchange">
+  <button>兑换优惠券</button>
+</div>
+<script type="text/javascript">
+// 切换类别
+$('.category ul li').click(function(){
+	var index = $(this).index();
+	$(this).addClass('active').siblings().removeClass('active');
+	$('.container ul').removeClass('active').eq(index).addClass('active');
+})
+</script>
+</body>
+</html>

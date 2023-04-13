@@ -1,0 +1,69 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-11-30 20:43:28
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-11-30 21:08:09
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>与解构赋值默认值结合</title>
+</head>
+
+<body>
+  <script>
+    //函数参数默认值和解构赋值默认值
+    // function getInfo ({name = "jzs", age = 20}) {
+    //   return name + age;
+    // }
+    // function getInfo ({name = "jzs", age = 20} = {}) {
+    //   return name + age;
+    // }
+    // console.log(getInfo({}));
+    // console.log(getInfo());
+    function f({ a, b = "world" } = { a: "hello" }) {
+      console.log(a, b);
+    }
+    // f();
+    f({ b: undefined });
+    //practise
+    function m1({ x = 0, y = 0 } = {}) {
+      return [x, y];
+    }
+
+    // 写法二
+    function m2({ x, y } = { x: 0, y: 0 }) {
+      return [x, y];
+    }
+    console.log(m1());//[0,0]
+    console.log(m2());//[0,0]
+    console.log(m1({}));//[0,0]
+    console.log(m2({}));//[undefined,undefined]
+    console.log(m1({x: 5}));//[5,0]
+    console.log(m2({x: 9}));//[9,undefined]
+    // m1();//[0,0]
+    // m2();//[0,0]
+    // m1({});//[0,0]
+    // m2({});//[undefined,undefined]
+
+    //参数默认值的位置
+    function test (a = 2, c) {
+      return a + c;
+    }
+    // console.log(test(,2));
+    // console.log(test(undefined, 2));
+    function foo (x = 5, y = 6) {
+      console.log(x, y);
+    }
+    foo(undefined, 3); // 5 3
+    foo(null, 6); //null 6
+  </script>
+</body>
+
+</html>

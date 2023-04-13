@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+  <meta charset="UTF-8">
+  <!-- <meta name="viewport"
+    content="width=device-width, initial-scale=.5, maximum-scale=0.5, minimum-scale=0.5, user-scalable=no"> -->
+  <link rel="stylesheet" href="css/reset-mobile.css">
+  <link rel="stylesheet" href="css/touch.css">
+  <script src="js/HDview.js"></script>
+  <script>
+    flex(75);
+  </script>
+  <title>touch</title>
+  <style>
+    div {
+      font-size: 80px;
+      color: #222;
+      background-color: green;
+    }
+  </style>
+</head>
+
+<body ontouchstart>
+
+  <div id="target">
+
+  </div>
+  <a href="tel:10086">拨打10086</a>
+  <p class="bottom-line">我是一段文本</p>
+  <!-- <section>
+    <img src="images/1.jpg" alt=""> 
+  </section> -->
+  <script src="js/zepto.min.js"></script>
+  <!-- <script src="js/zepto-touch.js"></script> -->
+  <script src="https://cdn.bootcdn.net/ajax/libs/touchjs/0.2.13/touch.min.js"></script>
+  <script>
+    const target = document.querySelector('#target');
+    // const $mask = $('.mask');
+    touch.on(target, "rotate scale", function (e) {
+      target.style.transform = `scale(${e.scale}) rotate(${e.rotation}deg)`
+      target.innerHTML = `rotate: ${e.rotation} scale: ${e.scale}`
+    });
+
+
+    // $mask.on('tap', function () {
+    //   console.log('tap');
+    // })
+
+    // $mask.on('longTap', function () {
+    //   console.log('longTap');
+    // })
+
+    // $mask.on('singleTap', function () {
+    //   console.log('singleTap');
+    // })
+
+    // $mask.on('doubleTap', function () {
+    //   console.log('doubleTap');
+    // })
+
+    // $mask.on('swipe', function (e) {
+    //   console.log('swipe', e);
+    // })
+
+    // $mask.on('swipeLeft', function () {
+    //   console.log('swipeLeft');
+    // })
+
+
+
+    // target.addEventListener('click', () => {
+    //   console.log('click');
+    // })
+
+    // target.addEventListener('touchstart', () => {
+    //   console.log('touchstart');
+    // })
+
+    // $(target).on('tap', function () {
+    //   console.log('tap target');
+    // })
+
+    // $mask.on('tap', function (e) {
+    //   e.stopPropagation();
+    //   console.log('tap mask');
+    // })
+
+
+  </script>
+</body>
+
+</html>

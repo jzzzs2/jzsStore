@@ -1,0 +1,47 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-12-11 18:38:51
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-12-11 18:53:37
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>数组遍历entries keys values</title>
+</head>
+<body>
+  <script>
+    let arr = ["name", true, "age", 999, {addr: "hangZhou"}];
+    console.log(arr.entries());
+    console.log(arr.keys());
+    console.log(arr.values());
+    // let obj = {
+    //   name: "jzs",
+    //   age: 22
+    // }
+    for (let key of arr.keys()) {
+      console.log(key);
+    }
+    for (let v of arr.values()) {
+      console.log(v);
+    }
+    for (let e of arr.entries()) {
+      console.log(e);
+    }
+    // console.log(arr.entries().next().value);
+    // console.log(arr.keys().next().value);
+    // console.log(arr.values().next().value);
+    // console.log(arr.entries().next().value);
+    // console.log(arr.keys().next().value);
+    // console.log(arr.values().next().value);
+    console.log([NaN].includes(NaN));
+    console.log([NaN].indexOf(NaN));
+    
+  </script>
+</body>
+</html>

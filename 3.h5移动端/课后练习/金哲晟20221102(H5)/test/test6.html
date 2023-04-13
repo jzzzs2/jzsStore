@@ -1,0 +1,39 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-11-02 20:50:28
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-11-02 21:37:00
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>H5新增表单属性</title>
+</head>
+<body>
+  <meter value=".3"></meter>
+  <form action="https://www.baidu.com/" id="f1">
+    <input type="text" placeholder="请输入用户名" form="f1" autofocus>
+    <input type="password" pattern="^\d{4,8}$" form="f1">
+    <!-- <input type="file" multiple form="f1" required> -->
+    <input type="file" multiple form="f1">
+    <input type="submit" value="提交">
+  </form>
+  <form action="" id="f2"></form>
+  <script>
+    document.querySelector("[type='file']").oninput = function (e) {
+      console.log(this.files);
+      console.log(this.files.length);
+    }
+    let psIn = document.querySelector("[type='password']");
+    //pattern中验证不通过时,跳出默认信息
+    console.log(psIn);
+    psIn.oninvalid = function (e) {
+      this.setCustomValidity("请输入四到八位数字");
+    }
+  </script>
+</body>
+</html>

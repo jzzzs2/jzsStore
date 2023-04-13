@@ -1,0 +1,62 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-11-06 16:13:41
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-11-06 16:34:57
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>video audio 属性 方法 事件</title>
+  <style>
+    video {
+      width: 400px;
+      height: auto;
+    }
+  </style>
+</head>
+<body>
+  <!-- <video src="./test.mp4" controls autoplay muted loop poster="./fblj.png"></video> -->
+  <video src="./test.mp4" controls  poster="./fblj.png"></video>
+  <button>jump to 1min</button>
+</body>
+<script>
+  let video = document.querySelector("video");
+  let btn = document.querySelector("button");
+  video.volume = .1;
+  // console.log(video.paused); //true
+  video.playbackRate = 1.5;
+  video.ontimeupdate = function (e) {
+    // console.log([video]);
+    // console.log(video.currentTime);
+  }
+  video.onloadstart = function (e) {
+    console.log("load start");
+  }
+  video.oncanplay = function (e) {
+    console.log("can play");
+  }
+  video.onpause = function (e) {
+    console.log("pause");
+  }
+  video.onplay = function (e) {
+    console.log("play");
+  }
+  video.onplaying = function (e) {
+    console.log("playing");
+  }
+  video.onended = function (e) {
+    console.log("end");
+  }
+  // btn.onclick = function (e) {
+  //   // console.log();
+  //   console.log(video.paused);
+  //   // video.currentTime = 20;
+  // }
+  
+</script>
+</html>

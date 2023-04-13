@@ -1,0 +1,34 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-11-23 20:30:10
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-11-23 21:13:26
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>srcset 设置高清图片</title>
+  <link rel="stylesheet" href="../css/test2.css">
+</head>
+
+<body>
+  <div class="box"></div>
+  <img src="./fblj.png" alt="" srcset=" ./fblj@2x.png 2x">
+  <!-- 浏览器会根据像素点密度自动选择匹配的图片 -->
+  <script>
+    const dpr = window.devicePixelRatio;
+    const images = document.querySelectorAll("img");
+    images.forEach((img) => {
+      img.src.replace(".",`@${dpr}x.`);
+    })
+  </script>
+
+</body>
+
+</html>

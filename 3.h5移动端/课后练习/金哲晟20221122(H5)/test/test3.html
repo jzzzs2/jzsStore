@@ -1,0 +1,34 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-11-22 20:39:16
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-11-22 20:45:44
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>rem</title>
+  <style>
+    .box {
+      width: 5rem;
+      height: 200px;
+      margin: 0 auto;
+      background-color: red;
+    }
+  </style>
+</head>
+<body>
+  <div class="box"></div>
+  <script>
+    function setRem () {
+      document.documentElement.style.fontSize = window.screen.width / 10 + "px";
+    }
+    setRem();
+  </script>
+</body>
+</html>

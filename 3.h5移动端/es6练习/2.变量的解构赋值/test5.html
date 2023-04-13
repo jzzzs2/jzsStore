@@ -1,0 +1,64 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-11-17 20:20:34
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-11-17 20:56:59
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>其他解构赋值</title>
+</head>
+<body>
+  <script>
+    const [a, b, c, d] = "word";
+    // console.log(a, b, c, d);
+    const {length: len} = "eat";
+    // console.log(len);
+    //右边不是对象 会先转化为对象 右边是布尔和数值,会先转化为包装对象
+    // let {toString: str} = 222;
+    let {toString: test} = true;
+    // console.log(str === Number.prototype.toString);
+    console.log(test === Boolean.prototype.toString);
+    // console.log(str === test);
+    let {toString: str} = Array.prototype.toString;
+    console.log(str);
+    //函数参数的解构赋值
+    // function add([a, b]) {
+    //   return a + b;
+    // }
+    // console.log(add([2,5]));
+    // let arr = [[3, 6], [8, 6]].map(([one,two]) => {
+    //   return one + two;
+    // })
+    // console.log(arr);
+    //函数参数解构默认值
+    // function move(a = 60, b = 6) {
+    //   return a + b;
+    // }
+    // function move({a = 10, b = 1} = {a: 60, b: 6}) {
+    //   return a + b;
+    // }
+    // console.log(move()); //66
+    // console.log(move({a: 66})); //67
+    // console.log(move({a: 10, b: 66})); //76
+    // console.log(move({})); //11
+    // console.log(move());
+    // function move ({x = 0, y = 0} = {}) {
+    //   return [x, y];
+    // }
+    // console.log(move({}));
+    // let newArr = [null, undefined, "333"].map((param = "tidai") => {
+    //   return param;
+    // })
+    // console.log(newArr);
+    let {name : namaei} = {name: "jzs"};
+    console.log(namaei);
+  </script>
+</body>
+</html>

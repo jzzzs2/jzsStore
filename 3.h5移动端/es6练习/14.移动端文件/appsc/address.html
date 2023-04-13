@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--vieport-->
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
+	<!--禁止将数字变为电话号码-->
+	<meta name="format-detection" content="telephone=no" />
+    <title>香港小生活</title>
+    <meta name="keywords" content="香港小生活" />
+    <meta name="description" content="香港小生活" />
+    <!--页面样式格式化-->
+    <link rel="stylesheet" href="static/css/reset.css" />
+    <!--所有页面头部header和底部footer公用样式-->
+    <link rel="stylesheet" href="static/css/public.css" />
+    <script src="static/js/jquery.min.js"></script>
+    <!--[if lt IE 9]> 
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+</head>  	
+<body>
+	<!--当前页面私有样式-->
+	<link href="static/css/address.css" rel="stylesheet">
+	<div id="mainMenuBarAnchor"></div>
+	<div class="section1" id="mainMenuBar">
+		<form action="" method="post">
+			<input type="text" placeholder="请输入姓名或者手机号" />
+			<input type="submit" value=""/>
+		</form>
+	</div>
+	<script type="text/javascript">
+		$(document).ready(function() {
+	    	var $window = $(window),$mainMenuBar = $('#mainMenuBar'),$mainMenuBarAnchor = $('#mainMenuBarAnchor');
+		    $window.scroll(function() {
+		        var window_top = $window.scrollTop();
+		        var div_top = $mainMenuBarAnchor.offset().top;
+		        if (window_top > div_top) {
+		            $mainMenuBar.addClass('stick');
+		            $mainMenuBarAnchor.height($mainMenuBar.outerHeight());
+		        } else {
+		            $mainMenuBar.removeClass('stick');
+		            $mainMenuBarAnchor.height(0);
+		        }
+		    });
+		});
+	</script>
+	<div class="list">
+		<div class="item">
+			<div class="top">
+				<p>张文全 13865648816</p>
+				<p>江苏省苏州市昆山市玉山镇同丰路玉龙新村</p>
+			</div>
+			<div class="bottom">
+				<div class="left">
+					<span class="active">默认</span>
+				</div>
+				<div class="right">
+					<a class="edit">编辑</a>
+					<a class="del">删除</a>
+				</div>
+			</div>
+		</div>
+		<div class="item">
+			<div class="top">
+				<p>张文全 13865648816</p>
+				<p>江苏省苏州市昆山市玉山镇同丰路玉龙新村</p>
+			</div>
+			<div class="bottom">
+				<div class="left">
+					<span>默认</span>
+				</div>
+				<div class="right">
+					<a class="edit">编辑</a>
+					<a class="del">删除</a>
+				</div>
+			</div>
+		</div>
+		<div class="item">
+			<div class="top">
+				<p>张文全 13865648816</p>
+				<p>江苏省苏州市昆山市玉山镇同丰路玉龙新村</p>
+			</div>
+			<div class="bottom">
+				<div class="left">
+					<span>默认</span>
+				</div>
+				<div class="right">
+					<a class="edit">编辑</a>
+					<a class="del">删除</a>
+				</div>
+			</div>
+		</div>
+		<div class="item">
+			<div class="top">
+				<p>张文全 13865648816</p>
+				<p>江苏省苏州市昆山市玉山镇同丰路玉龙新村</p>
+			</div>
+			<div class="bottom">
+				<div class="left">
+					<span>默认</span>
+				</div>
+				<div class="right">
+					<a class="edit">编辑</a>
+					<a class="del">删除</a>
+				</div>
+			</div>
+		</div>
+		<div class="item">
+			<div class="top">
+				<p>张文全 13865648816</p>
+				<p>江苏省苏州市昆山市玉山镇同丰路玉龙新村</p>
+			</div>
+			<div class="bottom">
+				<div class="left">
+					<span>默认</span>
+				</div>
+				<div class="right">
+					<a class="edit">编辑</a>
+					<a class="del">删除</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="add">
+		<a href="add.html">添加新地址</a>
+	</div>
+	
+	<div class="public_mask"></div>
+	<div class="public_tan">
+		<div class="content">
+			<p>确认删除该地址么？</p>
+		</div>
+		<div class="caozuo">
+			<a class="cancel">取消</a>
+			<a class="confirm">确认</a>
+		</div>
+	</div>
+	<script>
+		$('.del').click(function(){
+			openMask();
+		});
+		$('.public_mask,.cancel').click(function(){
+			closeMask();
+		});
+		$('.confirm').click(function(){
+			alert('在此执行删除操作');
+			setTimeout(function(){
+				closeMask();
+			},1000);
+		})
+		function openMask(){
+			$('.public_mask').fadeIn(100);
+			$('.public_tan').fadeIn(100);
+		}
+		function closeMask(){
+			$('.public_mask').fadeOut(100);
+			$('.public_tan').fadeOut(100);
+		}
+	</script>
+	
+	<script>
+		$('.list .item .bottom .left span').click(function(){
+			$(this).addClass('active');
+			$(this).parents('.item').siblings('.item').find('span').removeClass('active');
+		})
+	</script>
+</body>
+</html>

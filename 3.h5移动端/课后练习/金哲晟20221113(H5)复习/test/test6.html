@@ -1,0 +1,90 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-11-13 16:36:22
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-11-13 18:49:19
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>canvas</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    html,
+    body {
+      height: 100%;
+    }
+
+    canvas {
+      background-color: #999;
+    }
+  </style>
+</head>
+
+<body>
+  <canvas></canvas>
+  <img src="./images/dxj.webp" alt="DXJ" hidden>
+  <img src="./images/nut.jpg" alt="nut" hidden>
+  <script>
+    const COLORS = ['#69D2E7', '#A7DBD8', '#E0E4CC', '#F38630', '#FA6900', '#FF4E50', '#F9D423'];
+    let canvas = document.querySelector('canvas');
+    let context = canvas.getContext("2d");
+    context.lineWidth = 5;
+    // context.translate(300,300);
+    resize();
+    window.onresize = resize;
+    function resize() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    let ele = document.querySelector("[alt='DXJ']");
+    let twoEle = document.querySelector("[alt='nut']");
+    // console.log(ele);
+    // console.log(twoEle);
+    ele.onload = function () {
+      // drawImage(ele);
+      // context.translate(300, 300);
+      // context.rotate(  -Math.PI * 90 / 180);
+      // context.rotate(Math.PI * 90 / 180);
+      // context.drawImage(ele, 50, -50, 100, 100);
+      // context.scale(2, 2);
+      // context.drawImage(ele, 50, -150, 200, 200);
+      // context.drawImage(ele,-100,200,100,100);
+      // context.drawImage(ele,100,-200,100,100);
+      // context.translate(-300,-300);
+      // context.drawImage(ele, 0, 0, 100, 100);
+      // context.beginPath();
+      // context.moveTo(50,50);
+      // context.lineTo(100,100);
+      // context.lineTo(50,200);
+      // context.closePath();
+      // context.clip();
+      // context.drawImage(ele, 50, 50, 200, 200);
+    }
+    twoEle.onload = function () {
+      // drawImage(twoEle);
+    }
+    // function drawImage(ele) {
+    //   context.drawImage(ele, 100 + ~~(Math.random() * 300), 100 + ~~(Math.random() * 300), 200, 200);
+    // }
+    context.fillStyle = "red";
+    context.strokeStyle = "cyan";
+    context.fillRect(200,200,100,100);
+    context.strokeRect(400,400,100,100);
+    context.rect(200,600,100,100);
+    // context.fillStyle = "red";
+    context.fill();
+  </script>
+</body>
+
+</html>

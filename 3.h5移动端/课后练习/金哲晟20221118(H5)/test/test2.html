@@ -1,0 +1,143 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-11-18 20:03:29
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-11-18 20:18:17
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>模板引擎</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    body,
+    html {
+      background-color: whitesmoke;
+      font-size: 12px;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    li {
+      display: inline-block;
+      padding: 0 10px;
+      background: white;
+    }
+
+    h3 {
+      text-align: center;
+    }
+
+    p {
+      text-align: center;
+    }
+
+    .title {
+      font-size: 16px;
+      font-weight: 400;
+      color: #333;
+      line-height: 42px;
+    }
+
+    .desc {
+      color: #b0b0b0;
+    }
+
+    .price {
+      color: #444;
+      line-height: 58px;
+    }
+
+    span {
+      color: red;
+    }
+  </style>
+</head>
+
+<body>
+  <ul id="product-list">
+  </ul>
+  <script>
+    const productData = {
+      title: '小米手机',
+      list: [
+        {
+          productImgUrl: 'img/1.webp',
+          productCUID: '088722478239',
+          productTitle: 'PTD16-小米10青春版5G',
+          productDesc: '50倍潜望式驾驶员/轻薄5G手机',
+          productPrice: 209000,
+          productCount: 999
+        }, {
+          productImgUrl: 'img/2.webp',
+          productCUID: '088789478639',
+          productTitle: 'PTD16-小米10', //
+          productDesc: '骁龙865/1亿预期相机',
+          productPrice: 379000, //3790.50
+          productCount: 999
+        }, {
+          productImgUrl: 'img/3.webp',
+          productCUID: '088789478339',
+          productTitle: 'PTD16-Redmi K30 Pro',
+          productDesc: '双模5G，骁龙865，投放全面屏',
+          productPrice: 269900,
+          productCount: 0
+        }, {
+          productImgUrl: 'img/4.webp',
+          productCUID: '088789471239',
+          productTitle: 'PTD16-Redmi K30 Pro准版',
+          productDesc: '双模5G，骁龙865，投放全面屏',
+          productPrice: 349900,
+          productCount: 99
+        }]
+    };
+    class createDataDom {
+      constructor(data,ele) {
+        this.formatData = this.format(data);
+        this.createDom(this.formatData,ele);
+      }
+      format(data) {
+        data = data.list.map(({ productImgUrl, productTitle, productDesc, productPrice }) => {
+          return {
+            productImgUrl,
+            productTitle,
+            productDesc,
+            productPrice
+          }
+        })
+        return data;
+      }
+      createDom(data,ele) {
+        let str = "";
+        data.forEach(function ({ productImgUrl,
+          productTitle,
+          productDesc,
+          productPrice }) {
+          str += `<li>
+      <img src=${productImgUrl} alt="">
+      <h3 class="title">${productTitle}</h3>
+      <p class="desc">${productDesc}</p>
+      <p class="price"><span>${productPrice}</span>元起</p>
+    </li>`;
+        })
+        ele.innerHTML = str;
+      }
+    }
+    let dom = document.querySelector("ul");
+    let obj = new createDataDom(productData,dom);
+  </script>
+</body>
+
+</html>

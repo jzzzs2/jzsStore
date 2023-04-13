@@ -1,0 +1,82 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2023-02-18 22:29:36
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2023-02-19 13:22:27
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title></title>
+  <style>
+    .box {
+      position: absolute;
+      top: 300px;
+      left: 600px;
+      width: 800px;
+      height: 400px;
+      background-color: red;
+    }
+    span {
+      position: fixed;
+      top: 100px;
+      left: 50%;
+    }
+  </style>
+</head>
+<body>
+  <script src="./node_modules/jquery/dist/jquery.min.js"></script>
+  <!-- <form action="" name="test"></form>
+  <form action="" name="test2"></form>
+  <form action="" name="test3"></form>
+  <form action="" name="test4"></form>
+  <form action="" name="test5"></form> -->
+  <div class="box">
+    <span>可爱捏</span>
+  </div>
+  <script>
+    
+    // let result = $("form").find.call([],(item)=> {
+    //   return item.attr("name") == "test2"
+    // })
+    // let result = $("form").find((item)=> {
+    //   console.log(item.attr("name",item,222));
+    //   return item.attr("name") == "test2"
+    // })
+    // console.log(result,"xxx");
+    // let arr = [2,5,7,11]
+    // let idx = arr.find(item => {
+    //   return item > 8
+    // })
+    // console.log(idx,"idx");
+    // let result = document.querySelectorAll("form")
+    // // let result = document.querySelectorAll("form").find.call([],item => {
+    // //   console.log(item);
+    // //   return item.name == "test2"
+    // // })
+    // // console.log(result,"result");
+    // let idx = Array.prototype.find.apply(result, item=> {
+    //   console.log(item);
+    // })
+    // console.log(idx);
+    // let result = Array.prototype.slice.call(document.querySelectorAll("form"))
+    // let result = Array.from(document.querySelectorAll("form"))
+    // console.log(result);
+    // let back = result.find(item => {
+    //   console.log(item,item.name);
+    //   return item.name == "test"
+    // })
+    // console.log(back);
+    // let result = Array.prototype.find.call($("form"),(item) => {
+    //   console.log(item);
+    //   return item.name == "test3"
+    // })
+    // console.log(result);
+  </script>
+</body>
+</html>

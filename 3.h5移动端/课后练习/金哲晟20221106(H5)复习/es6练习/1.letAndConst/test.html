@@ -1,0 +1,85 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-11-06 19:02:00
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-11-06 21:04:51
+-->
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>let const</title>
+</head>
+
+<body>
+  <script>
+    {
+      let a = 10;
+      var b = 1;
+    }
+    // console.log(b);
+    // console.log(a);
+    //
+    // var a = [];
+    // for (let i = 0; i < 10; i++) {
+    //   a[i] = function () {
+    //     console.log(i);
+    //   }
+    // }
+    // a[5]();
+    let i = 2;
+    for (let i = 0; i < 6; i++) {
+      let i = 19;
+      console.log(i);
+    }
+    //不存在变量提升
+    // console.log(a);
+    // let a = 22;
+    // console.log(a);
+    // console.log(p);
+    // var p = 22;
+    // 暂时性死区
+    // var test = 222;
+    {
+      // test = "wuwuwu";
+      // console.log(test);
+      let test = 444;
+    }
+    //
+    typeof wuwuwu;
+    // var str = 22;
+    // {
+    //   typeof str;
+    //   let str = "22";
+    // }
+    //   typeof str;
+    //   let str = "22";
+
+    // b未声明就进他进行赋值.
+    function test(a = b, b = 3) {
+
+    }
+    // function test(a = 3, b = a) {
+    //   return false;
+    // }
+    // test();
+    //不允许重复声明 let在相同作用域内
+    // function func () {
+    //   let a = 10;
+    //   var a = 2;
+    //   let a = 20;
+    //   const a = 20;
+    // }
+    function func (param1) {
+      const param1 = 222;
+      let param1 = 222;
+    }
+    func();
+  </script>
+</body>
+
+</html>

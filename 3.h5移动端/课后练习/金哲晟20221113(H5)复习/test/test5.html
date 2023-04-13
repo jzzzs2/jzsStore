@@ -1,0 +1,102 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-11-13 15:28:31
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-11-13 16:35:45
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>canvas</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    html,
+    body {
+      height: 100%;
+    }
+
+    canvas {
+      background-color: #999;
+    }
+  </style>
+</head>
+
+<body>
+  <canvas></canvas>
+  <img src="./images/gblj2.jpg" alt="GBLJ" hidden>
+  <!-- <script src="http://code.jquery.com/jquery-1.12.1.min.js"></script> -->
+  <script>
+    const COLORS = ['#69D2E7', '#A7DBD8', '#E0E4CC', '#F38630', '#FA6900', '#FF4E50', '#F9D423'];
+    let canvas = document.querySelector('canvas');
+    let context = canvas.getContext("2d");
+    context.lineWidth = 5;
+    resize();
+    window.onresize = resize;
+    function resize() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    //
+    canvas.onmousemove = function (e) {
+      // console.log(1);
+      drew(e);
+    }
+    function drew(e) {
+      context.clearRect(0, 0, canvas.width, canvas.height);
+      context.beginPath();
+      let x = e.clientX;
+      let y = e.clientY;
+      for (let i = 0; i < 20; i++) {
+        console.log(i);
+        let angle = Math.PI * 2 * i / 20;
+        context.strokeStyle = COLORS[~~(Math.random() * 7)];
+        context.moveTo(x, y);
+        context.lineTo(x + random() * Math.cos(angle), y + random() * Math.sin(angle));
+        context.stroke();
+      }
+      // let style = context.createLinearGradient(0,0,window.innerWidth,window.innerHeight);
+      // style.addColorStop(0,"pink");
+      // style.addColorStop(1,"green");
+      // context.fillStyle = style;
+      // let style = context.createPattern(document.querySelector("img"),"repeat");
+      context.fillStyle = COLORS[~~(Math.random() * 7)];
+      context.arc(x, y, 30, 0, Math.PI * 2, true);
+      context.fill();
+    }
+    function random() {
+      return 80 + Math.random() * 200;
+    }
+    setInterval(function () {
+      requestAnimationFrame(boom);
+    }, 500);
+    function boom() {
+      let x = Math.random() * 800 + 200;
+      drawBoom(x);
+    }
+
+    function drawBoom(x) {
+      context.clearRect(0, 0, canvas.innerWidth, canvas.innerHeight);
+      context.beginPath();
+      context.fillStyle = COLORS[~~(Math.random() * 7)];
+      context.moveTo(x - 50, 150);
+      context.lineTo(x - 50, 0);
+      context.lineTo(x + 50, 0);
+      context.lineTo(x + 50, 150);
+      context.arc(x, 150, 50, 0, Math.PI, false);
+      context.stroke();
+      context.fill();
+    }
+  </script>
+</body>
+
+</html>

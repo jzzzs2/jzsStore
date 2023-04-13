@@ -1,0 +1,55 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-11-27 17:31:23
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-11-27 18:15:15
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>touch事件组</title>
+  <style>
+
+    body {
+      /* display: flex; */
+      /* flex-direction: column; */
+      /* align-items: center; */
+      width: 1000px;
+    }
+    h1 {
+      float: left;
+    }
+    .box {
+      float: left;
+      width: 400px;
+      height: 400px;
+      background-color: cyan;
+    }
+  </style>
+</head>
+<body>
+  <h1>title 1 keai nie</h1>
+  <div class="box"></div>
+  <script src="../css/zepto.min.js"></script>
+  <script src="../css/zepto-touch.js"></script>
+  <script>
+    let $box = $(".box");
+    $box.on("touchstart",function (e) {
+      console.log("touchstart",e,e.targetTouches);
+      console.log(e.targetTouches[0].pageX,e.targetTouches[0].pageY);
+      console.log(e.touches[0].clientX,e.touches[0].clientY,e.touches[0].screenX,e.touches[0].screenY,e.touches[0].identifier);
+    })
+    $box.on("touchmove",function (e) {
+      console.log("touchmove",e,e.targetTouches);
+    })
+    $box.on("touchend",function (e) {
+      console.log("touchend",e,e.changedTouches);
+    })
+  </script>
+</body>
+</html>

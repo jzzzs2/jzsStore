@@ -1,0 +1,31 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-11-30 20:22:26
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-11-30 20:30:03
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    let reg = new RegExp("abc","i");
+    console.log(reg);
+    let twoReg = new RegExp("dd","g");
+    console.log(twoReg);
+    // let threeReg = new RegExp(/\d+/gi);
+    // let threeReg = new RegExp(/\d+/gi,"i");
+    let threeReg = new RegExp(/\d+/gi,"g");
+    console.log(threeReg);
+    console.log(/abc/gi.flags);
+    console.log(/oo/g.flags);
+  </script>
+</body>
+</html>

@@ -1,0 +1,109 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-11-20 20:52:26
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-11-20 21:22:42
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>jq特效</title>
+  <style>
+    .box {
+      display: none;
+      width: 1000px;
+      height: 400px;
+      margin: 100px auto;
+      background-color: red;
+    }
+  </style>
+</head>
+<body>
+  <div class="box"></div>
+  <input type="button" value="slideDown">
+  <input type="button" value="slideUp">
+  <input type="button" value="slideToggle">
+  <input type="button" value="show">
+  <input type="button" value="hide">
+  <input type="button" value="toggle">
+  <input type="button" value="fadeIn">
+  <input type="button" value="fadeOut">
+  <input type="button" value="fadeToggle">
+  <input type="button" value="fadeTo">
+  <input type="button" value="animate">
+  <input type="button" value="stop">
+  <input type="button" value="delay">
+  
+  <script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.12.1/jquery.min.js"></script>
+  <script>
+    let $box = $(".box");
+    let $input = $("input");
+    $($input[0]).on("click", function (e) {
+      $(".box").slideDown(1000,"linear",function () {
+        console.log("slideDown");
+      })
+    })
+    $($input[1]).on("click", function (e) {
+      console.log(1);
+      $(".box").slideUp(500,"linear",function () {
+        console.log("slideUp");
+      })
+    })
+    $($input[2]).on("click", function (e) {
+      console.log(1);
+      $(".box").slideToggle(1000,"linear",function () {
+        console.log("slideToggle");
+      })
+    })
+    $($input[3]).on("click", function (e) {
+      console.log(1);
+      $(".box").show(1000,"linear");
+    })
+    $($input[4]).on("click", function (e) {
+      console.log(1);
+      $(".box").hide(1000,"linear");
+    })
+    $($input[5]).on("click", function (e) {
+      console.log(1);
+      $(".box").toggle(1000,"linear");
+    })
+    $($input[6]).on("click", function (e) {
+      $(".box").fadeIn(1000,"linear");
+    })
+    $($input[7]).on("click", function (e) {
+      $(".box").fadeOut(1000,"linear");
+    })
+    $($input[8]).on("click", function (e) {
+      console.log(1);
+      $(".box").fadeToggle(1000);
+    })
+    $($input[9]).on("click", function (e) {
+      $(".box").fadeTo(1000,.5);
+    })
+    $($input[10]).on("click", function (e) {
+      $(".box").animate({
+        width: "50px",
+        height: "600px",
+        opacity: .1
+      },2000,"linear")
+    })
+    $($input[12]).on("click", function (e) {
+      console.log(1);
+      $(".box").delay(2000).slideDown("fast","linear",function () {
+        console.log("slideDown");
+      })
+    })
+    $($input[11]).on("click", function (e) {
+      console.log(1);
+      $(".box").slideDown("fast","linear",function () {
+        console.log("slideDown");
+      })
+    })
+  </script>
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-11-02 19:49:19
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-11-02 20:29:36
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>H5新增功能性标签</title>
+  <style>
+    .progress {
+      display: flex;
+      width: 250px;
+      height: 8px;
+      background-color: #999;
+      border-radius: 8px;
+    }
+
+    .pro-unit {
+      height: 8px;
+      background-color: cyan;
+    }
+  </style>
+</head>
+<body>
+  <p>我是一只<mark>小毛驴</mark> 啊 从来也不骑</p>
+  <meter value="80" min="50" max="100" high="90" low="70"></meter>
+  <!-- output语义化标签 -->
+  <hr>
+  10 + <input type="text "> = <output contentEditable>30</output>
+  <!-- ruby rt 文字标注 -->
+  <p>天下第一公主殿下<ruby>初音未来<rt>miku</rt></ruby></p>
+  <!-- datalist  下拉框的加强版,可以自己输入 -->
+  <select name="select" id="">
+    <option value="001">北京</option>
+    <option value="002">上海</option>
+    <option value="003">广州</option>
+  </select>
+  <br>
+  <input type="text" list="cityList">
+  <datalist id="cityList">
+    <option value="001">北京</option>
+    <option label="上海" value="002">
+    <option label="广州" value="003">
+  </datalist>
+  <!-- 拖拉框 -->
+  <br>
+  <input type="range" max="100" min="50" value="75" id = "range">
+  <progress value="10" max="100"></progress>
+  <!-- 自定义进度条 -->
+  <div class="progress">
+    <span class="pro-unit"></span>
+  </div>
+  <br>
+  <details>
+    <summary>MIKU</summary>
+    xxxxxx xuexi H5 
+  </details>
+  <p>我每天<time>9:00</time>起床 (不晚maybe)</p>
+  <p>我在 <time datetime = "2008-02-14">元旦</time>有个考试捏</p>
+  <!-- wbr word breaking oppotunity -->
+  <p style="width:100px">ggdsf<wbr>ss
+    ash<wbr>gsdfhsdfh
+    dshdsfhsdhfdsh
+    sdfhhhhhhhh
+    hsdhsdhsdhsdhsdhsd</p>
+  <script src="./my.js"></script>
+  <script>
+    let COLORS = ["red", "blue", "green"];
+    let dropIn = document.querySelector("#range");
+    let pro = document.querySelector(".progress");
+    let proUnit = document.querySelector(".pro-unit");
+    pro.addEventListener("mousemove", function (e) {
+      let ex = e.clientX;
+      let position = getPosition(pro);
+      let diff_x = ex - position.left;
+      let widthRadio = diff_x / pro.offsetWidth;
+      proUnit.style.width = `${widthRadio * 100}%`;
+      console.log(COLORS[widthRadio * 3]);
+      proUnit.style.backgroundColor = COLORS[~~(widthRadio * 3)];
+    })
+  </script>
+</body>
+</html>

@@ -1,0 +1,127 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-11-04 22:21:51
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-11-05 09:31:12
+-->
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>audio</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    audio {
+      width: 600px;
+      background-color: #222;
+    }
+
+    span {
+      border: 1px solid #999;
+      background-color: pink;
+    }
+  </style>
+</head>
+
+<body>
+  <audio src="../video/xxy.mp3" controls autoplay ></audio>
+  <audio src="../video/mp4.mp4" controls autoplay muted poster="../video/normal.jpg"></audio>
+  
+  <span class="stop">stop</span>
+  <span class="go">go</span>
+  <span class="renew">backtoHead</span>
+  <span class="fast">kaze</span>
+  <span class="down">down</span>
+  <span class="clear">clear</span>
+  <span class="jump">jump to 20</span>
+  <video width="200" height="100" controls auto muted>
+    <source src="../video/xxy.mp3" controls>
+  </video>
+</body>
+<script src="../my.js"></script>
+<script>
+  let oSt = $(".stop");
+  let oAu = $("audio");
+  let oGo = $(".go");
+  let oNew = $(".renew");
+  let oKz = $(".fast");
+  let oDown = $(".down");
+  let oClear = $(".clear");
+  let oV = $("video");
+  let oJ = $(".jump")
+  // document.querySelector("span").onclick = function (e) {
+  //   // console.log(1);
+  //   // console.log(document.querySelector("audio").paused);
+  //   // document.querySelector("audio").paused = true;
+  //   console.log(document.querySelector("audio").duration);
+  // }
+  
+  console.log(oAu);
+  oGo.onclick = function (e) {
+    console.log("go");
+    oAu.play();
+  }
+  oSt.onclick = function (e) {
+    console.log("stop");
+    oAu.pause();
+  }
+  oNew.onclick = function (e) {
+    oAu.load(); //回到头继续播放
+  }
+  oKz.onclick = function (e) {
+    oAu.playbackRate = 5.5;
+  }
+  oDown.onclick = function (e) {
+    oAu.volume = .2;
+  }
+
+  oAu.onended = function (e) {
+    console.log("播放结束了呢");
+  }
+  oAu.onloadstart = function (e) {
+    console.log("资源开始加载");
+  }
+  oV.oncanplay = function (e) {
+    console.log("资源加载over video");
+  }
+  oV.onloadstart = function (e) {
+    console.log("资源开始加载Video");
+  }
+  oAu.onabort = function (e) {
+    console.log("播放被中断了呢");
+  }
+  oAu.oncanplay = function (e) {
+    console.log("资源已经加载完毕了呢");
+  }
+  oAu.onpause = function (e) {
+    console.log("视频暂停了呢");
+  }
+  oAu.ontimeupdate = function (e) {
+    console.log(oAu.currentTime);
+    console.log("视频时间正在改变");
+  }
+  oAu.onemptied = function (e) {
+    console.log("视频源g了");
+  }
+  oAu.onabort = function (e) {
+    console.log("视频中断了了");
+  }
+  oClear.onclick = function (e) {
+    oAu.src = "";
+  }
+  oJ.onclick = function (e) {
+    console.log(1);
+    console.log(oAu.currentTime);
+    oAu.currentTime = 30;
+  }
+</script>
+
+</html>

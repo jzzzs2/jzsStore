@@ -1,0 +1,76 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-11-10 16:36:56
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-11-10 17:16:34
+-->
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>getImageData putImageData createImageData</title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+    }
+
+    html,
+    body {
+      overflow: hidden;
+      height: 100%;
+    }
+
+    canvas {
+      background-color: #999;
+      /* color: rgb(0,255,255); */
+    }
+  </style>
+</head>
+
+<body>
+  <canvas></canvas>
+  <script>
+    let canvas = document.querySelector("canvas");
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    let context = canvas.getContext("2d");
+    let img = document.createElement("img");
+    img.src = "hero.png";
+    context.fillStyle = "cyan";
+    context.fillRect(100,100,200,200);
+    let data;
+    // img.onload = function () {
+    //   context.drawImage(img, 0, 0, 34, 50, 0, 0, 170, 250);
+    //   data = context.getImageData(0,0,170,250);
+    //   console.log(data);
+    //   // context.drawImage(img,0,0);
+    // }
+    // setTimeout(() => {
+    //   context.drawImage(img, 0, 0, 34, 50, 0, 0, 170, 250);
+    //   data = context.getImageData(0,0,170,250);
+    //   console.log(data);
+    // }, 1000);
+    // data = context.createImageData(100,100);
+    // console.log(data);
+    // data = context.getImageData(100,100,200,200);
+    // console.log(data);
+    data = context.getImageData(100,100,200,200);
+    console.log(data);
+    for (let i = 0; i < data.data.length; i++) {
+      if (i % 4 === 1) {
+        data.data[i] = 0;
+      }
+    }
+    context.putImageData(data,500,500);
+    console.log(context.createImageData(data));
+    context.putImageData(context.createImageData(data),200,200);
+    
+  </script>
+</body>
+
+</html>

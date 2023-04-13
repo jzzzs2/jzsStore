@@ -1,0 +1,60 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-11-16 16:10:35
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-11-16 16:39:15
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>jq 节点操作 内部插入</title>
+</head>
+
+<body>
+  <div class="wrap">
+    <p class="desc">我是p标签 我在wrap中</p>
+    <ul>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ul>
+
+    <p class="other">我是另一个p</p>
+  </div>
+  <script src="http://code.jquery.com/jquery-1.12.1.min.js"></script>
+  <script>
+    let $wrap = $(".wrap");
+    let $desc = $(".desc");
+    let $other = $(".other");
+    let $li = $("li");
+    // $wrap.append($desc);
+    // console.log($wrap.append($desc));
+    // $wrap.prepend($other);
+    // console.log($desc.appendTo($wrap));
+    // $desc.appendTo($wrap);
+    // let $span = $("<span>eat</span>");
+    // $span.prependTo($wrap);
+    // $wrap.append(function (...args) {
+    //   console.log(args);//idx html()
+    //   return $("<h2>title h2</h2>");
+    // })
+    // $wrap.prepend(function (...args) {
+    //   console.log(args);//idx html()
+    //   return $("<span>spanxxx</span>");
+    // })
+    $li.append(function (idx,html) {
+      console.log(idx,html);
+      return `<a>第${idx}个a 内容是${html}</a>`
+    })
+  </script>
+</body>
+
+</html>

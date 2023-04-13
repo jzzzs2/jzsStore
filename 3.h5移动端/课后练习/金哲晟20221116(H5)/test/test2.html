@@ -1,0 +1,54 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-11-16 16:38:24
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-11-16 16:54:50
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>jq 节点操作 同级插入</title>
+</head>
+<body>
+  <div class="wrap">
+    <p class="desc">我是p标签 我在wrap中</p>
+    <ul>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ul>
+
+    <p class="other">我是另一个p</p>
+  </div>
+  <script src="http://code.jquery.com/jquery-1.12.1.min.js"></script>
+  <script>
+    let $wrap = $(".wrap");
+    let $desc = $(".desc");
+    let $other = $(".other");
+    let $li = $("li");
+    // $li.before("<a href='#'>link</a>");
+    // $li.after("<span>end</span>");
+    $li.before(function (idx,html) {
+      return `<a href='#'>${idx}</a>`;
+    })
+    $li.after(function (idx,html) {
+      return `<span>${idx}</span>`;
+    })
+    // $wrap.before($other);
+    // $other.after($("ul"));
+    // console.log($desc.insertAfter($other));
+    // $desc.insertAfter($other);
+    // console.log($other.insertBefore($("ul")));
+    // $other.insertBefore($("ul"));
+    $wrap.after($("<p>222</p>"));
+    $wrap.before($("<h3>title</h3>"));
+  </script>
+</body>
+</html>

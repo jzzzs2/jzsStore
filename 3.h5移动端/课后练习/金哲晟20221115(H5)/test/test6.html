@@ -1,0 +1,105 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-11-15 21:29:30
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-11-15 22:36:15
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>stop delay</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    ul {
+      list-style: none;
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .wrap {
+      overflow: hidden;
+      width: 1029px;
+      height: 600px;
+    }
+    ul {
+      width: 300%;
+    }
+    
+    ul li {
+      float: left;
+      position: relative;
+      width: 80px;
+    }
+
+    ul li p {
+      position: absolute;
+      top: 0;
+      left: 0;
+      box-sizing: border-box;
+      width: 40px;
+      padding: 10px 5px;
+      color: cyan;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="wrap">
+      <ul>
+        <li>
+          <p>拉萨真好玩</p><img src="./1.jpg">
+        </li>
+        <li>
+          <p>拉萨真好玩</p><img src="./2.jpg">
+        </li>
+        <li>
+          <p>拉萨真好玩</p><img src="./3.jpg">
+        </li>
+        <li>
+          <p>拉萨真好玩</p><img src="./4.jpg">
+        </li>
+      </ul>
+    </div>
+  </div>
+  <script src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
+  <script>
+    let $ul = $("ul");
+    let $li = $("li");
+    // $li.hover(function (e) {
+    //   $(this).stop(true).animate({
+    //     "width": "789px"
+    //   }).siblings("li").animate({
+    //     "width": "80px"
+    //   }).children("p").delay(2000).slideUp();
+      
+    // });
+    $li.hover(function (e) {
+      $(this).stop(true).animate({
+        "width": "789px"
+      }).siblings("li").animate({
+        "width": "80px"
+      }).children("p").delay(2000).animate({
+        width: "200px",
+        fontSize: "40px"
+      });
+      
+    });
+  </script>
+</body>
+
+</html>

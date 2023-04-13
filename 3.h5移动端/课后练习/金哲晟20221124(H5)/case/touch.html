@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+  <meta charset="UTF-8">
+  <!-- <meta name="viewport"
+    content="width=device-width, initial-scale=.5, maximum-scale=0.5, minimum-scale=0.5, user-scalable=no"> -->
+  <link rel="stylesheet" href="css/reset-mobile.css">
+  <link rel="stylesheet" href="css/touch.css">
+  <script src="js/HDview.js"></script>
+  <script>
+    flex(75);
+  </script>
+  <title>touch</title>
+  <style>
+
+  </style>
+</head>
+
+<body ontouchstart>
+
+  <div id="target">
+    我是里面的文本
+    <a href="#">hahahahhahahahaah</a>
+    <div class="mask">
+      <a href="">+86-1324552345</a>
+
+    </div>
+  </div>
+  <a href="tel:10086">拨打10086</a>
+  <p class="bottom-line">我是一段文本</p>
+  <!-- <section>
+    <img src="images/1.jpg" alt=""> 
+  </section> -->
+  <script src="js/zepto.min.js"></script>
+  <!-- <script src="js/zepto-touch.js"></script> -->
+  <script src="https://cdn.bootcdn.net/ajax/libs/touchjs/0.2.13/touch.min.js"></script>
+  <script>
+    const target = document.querySelector('#target');
+    const $mask = $('.mask');
+    target.addEventListener('click', () => {
+      console.log('click');
+    })
+
+    target.addEventListener('touchstart', () => {
+      console.log('touchstart');
+    })
+
+    $(target).on('tap', function () {
+      console.log('tap target');
+    })
+
+    $mask.on('tap', function (e) {
+      e.stopPropagation();
+      console.log('tap mask');
+    })
+
+
+  </script>
+</body>
+
+</html>
+
+<!-- 
+
+    1. 实现高清化 1px 线
+    修改viewport 的 initial-scale 缩放比例 
+    2倍屏下 scale 修改为 0.5 能够实现 1px 极细线  ip4-ip6
+    3倍屏下 scale 修改为 0.3 能够实现 1px 极细线  ip6pls - ip11
+
+    用js 获取 window.devicePixelRatio dpr
+       1/dpr
+    1倍屏 dpr = 1
+    2倍屏 dpr = 2 缩小到 .5
+    3倍屏 dpr = 3 缩小到 .3333
+
+    2. 设置了 initial-scale 缩放比例后 所有页面内容都会被缩小 
+
+    例如: 
+    div width为200 设置initial-scale 由1改为.5之后 div的显示宽度为100
+    p文本也会变小 之前字体大小为14px 缩小后为 7px (最小8px)
+
+    为了解决这个问题 我们需要 修改元素的css尺寸为原来的2倍 或者 3倍
+
+    例如 原先 width: rem(400); 现在就应该设置为  width: rem(800)
+    字体原先是 rem(28) 就应该设置为 rem(56)
+
+    用js动态修改 
+      因为rem单位的参照系是 html的fontsize 我们只需要让font-size改
+      为1倍屏幕下的2倍 或者3倍就可以
+
+      
+
+
+
+   
+ 
+
+
+-->

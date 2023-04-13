@@ -1,0 +1,36 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-11-06 11:48:13
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-11-06 11:56:02
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>检测焦点是否在当前页上的事件 window onblur onfocus 检测页面是否可见事件 document visibilitychange  属性visibilityState</title>
+</head>
+<body>
+  <script>
+    window.onblur = function (e) {
+      document.title = "页面失去焦点"
+    }
+    window.onfocus = function (e) {
+      document.title = "页面获得焦点"
+    }
+
+    document.onvisibilitychange = function (e) {
+      if (document.visibilityState === "visible") {
+        console.log(document.visibilityState);
+        alert("可见捏");
+      } else {
+        console.log(document.visibilityState);
+        alert("不可见捏");
+      }
+    }
+  </script>
+</body>
+</html>

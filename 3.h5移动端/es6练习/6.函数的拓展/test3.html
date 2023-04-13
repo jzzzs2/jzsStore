@@ -1,0 +1,52 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-11-30 21:06:58
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-12-04 11:15:01
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>函数的length属性</title>
+</head>
+<body>
+  <script>
+    console.log((function (a,b,c){}).length); //3
+    console.log((function (a,b=2,c){}).length); //1
+    console.log((function (...args){}).length); //0
+
+    let x = 22;
+    function test(y = x) {
+      // "use strict";
+      let x = 99;
+      console.log(y);
+    }
+    test();
+    //rest
+    function sum (...args) {
+      let sum = 0;
+      for (v of args) {
+        sum += v;
+      }
+      console.log(sum);
+      return sum;
+    }
+    sum(2,6,2,1);
+    function push(arr, ...args) {
+      "use strict";
+      args.forEach(function (item,idx) {
+        arr.push(item)
+      })
+      console.log(arr);
+      return arr;
+    }
+    push([],3,2,1,0)
+  </script>
+  
+</body>
+</html>

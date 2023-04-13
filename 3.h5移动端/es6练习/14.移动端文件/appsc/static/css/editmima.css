@@ -1,0 +1,39 @@
+@charset "utf-8";
+body{
+	background: #F6F6F9;
+}
+.biaodan{
+	padding-top: 10px;
+}
+.biaodan ul{
+	background: #ffffff;
+}
+.biaodan ul .item{
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	border-bottom: 1px solid #F6F6F9;
+	padding: 0 15px;
+	height: 45px;
+}
+.biaodan ul .item input{
+	width: 100%;
+	border: none;
+	height: 35px;
+	text-align: left;
+}
+
+.biaodan .submit{
+	display: block;
+	padding: 15px;
+}
+.biaodan .submit .submit_button{
+	display: block;
+	width: 100%;
+	background: #1CBB7F;
+	font-size: 15px;
+	color: #ffffff;
+	border-radius: 5px;
+	border: none;
+	height: 40px;
+}

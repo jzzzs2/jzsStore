@@ -1,0 +1,44 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-12-05 20:09:46
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-12-08 20:09:24
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Array.of()</title>
+</head>
+
+<body>
+  <script>
+    let obj = {
+      "0": "name",
+      "1": "age",
+      length: 2
+    }
+    console.log(Array.from(obj));
+    console.log("2323".length);
+    console.log(Array.of(2, 5, 6, 1));
+    function ArrayOf() {
+      return [].slice.call(arguments);
+    }
+    console.log(ArrayOf(2,3,5));
+    console.log(typeof ArrayOf(2,3,4));
+    console.log(Array.isArray(ArrayOf(2,3,4)));
+    // console.log(ArrayOf(2,3,5) instanceof Object);
+    // console.log(ArrayOf(2,3,5) instanceof Array);
+    // console.log([1,3] instanceof Object);
+    // console.log([2,3] instanceof Array);
+    console.log(Array.of(undefined));
+    console.log(Array.of(99, 88));
+  </script>
+</body>
+
+</html>

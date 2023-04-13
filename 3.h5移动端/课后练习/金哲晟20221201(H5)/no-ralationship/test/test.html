@@ -1,0 +1,36 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-12-01 11:32:33
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-12-01 11:41:46
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    let reg = /[+-]/;
+    console.log(reg.test("+"));
+    console.log(reg.test("-"));
+    reg = /[+\-]/;
+    console.log(reg.test("+"));
+    console.log(reg.test("-"));
+    console.log(reg.test("\\"));
+    reg = /[+-2]/;
+    console.log(reg.test("+"));
+    console.log(reg.test("-"));
+    console.log(reg.test("2"));
+    reg = /\\/
+    console.log(reg.test("\\"));
+    reg = /a+/
+    console.log(reg.test("a"));
+  </script>
+</body>
+</html>

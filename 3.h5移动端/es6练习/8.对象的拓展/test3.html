@@ -1,0 +1,35 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2023-01-01 20:24:09
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2023-01-01 20:42:20
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>属性遍历</title>
+</head>
+<body>
+  <script>
+    let obj = {
+      name: "jzs",
+      age: 22
+    }
+    // console.log(Object.getOwnPropertyDescriptor(obj,"name"));
+    // console.log(Object.getOwnPropertyDescriptor(obj,"age"));
+    let arr = [2, 5, 55]
+    // for (key in arr) {
+    //   console.log(key);
+    // }
+    // console.log(Object.keys(arr));
+    console.log(Object.getOwnPropertyNames(arr));
+    console.log(Reflect.ownKeys(arr));
+    console.log(Reflect.ownKeys({ [Symbol()]:0, b:0, 10:0, 2:0, a:0 }));
+  </script>
+</body>
+</html>

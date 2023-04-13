@@ -1,0 +1,76 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-11-06 15:21:05
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-11-06 15:39:24
+-->
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>新增功能标签</title>
+  <style>
+    #one-xw:after {
+      content: attr(hot);
+      width: 10px;
+      height: 10px;
+      background-color: orange;
+    }
+
+    #two-xw:after {
+      content: attr(hot);
+      width: 10px;
+      height: 10px;
+      background-color: orange;
+    }
+
+    #three-xw:after {
+      content: attr(hot);
+      width: 10px;
+      height: 10px;
+      background-color: orange;
+    }
+  </style>
+</head>
+
+<body>
+  <mark>222</mark>
+  <meter value="0" max="100" min="0" high="80" low="30"></meter>
+  <output name="ha" for="">keai nie</output>
+  <!-- 可输入下拉框 -->
+  <input type="text" list="address">
+  <datalist id="address">
+    <option value="h1.com">qiyouWang</option>
+    <option value="h2.com">4399wang</option>
+    <option value="h3.com">steamwang</option>
+  </datalist>
+  <progress value="10" max="100"></progress>
+  <ruby>
+    公主殿下
+    <rt>mikusama</rt>
+  </ruby>
+  <ul>
+    <li id="one-xw" hot="992">新闻1 热度:</li>
+    <li id="two-xw" hot="212">新闻2 热度:</li>
+    <li id="three-xw" hot="423">新闻3 热度:</li>
+  </ul>
+
+</body>
+<script>
+  let oMe = document.querySelector("meter");
+  console.log([oMe]);
+  setInterval(function () {
+    if (oMe.value >= 100) {
+      console.log("222222");
+      oMe.value = 0;
+    }
+    oMe.value += 10;
+    console.log(oMe.value);
+  }, 500)
+</script>
+
+</html>

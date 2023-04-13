@@ -1,0 +1,67 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-12-05 19:45:32
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-12-05 20:09:00
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>解构赋值 array.from</title>
+</head>
+<body>
+  <p class="mark">p1</p>
+  <p class="mark">p2</p>
+  <p>p3</p>
+  <p class="mark">p4</p>
+  <script>
+    let arr = [99, 22, 55, 88];
+    [a,...rest] = arr;
+    // console.log(a);
+    // console.log(rest);
+    // console.log(arr[0]);
+    // console.log(arr.slice(1));
+    const [c,...b] = [];
+    // console.log(c); //undefined
+    // console.log(b); //[]
+    // console.log([..."string"]);
+    let obj = {
+      name: "jzs",
+      age: "22"
+    }
+    // console.log(Array.from(obj));
+    obj = {
+      0: "name",
+      1: "age",
+      length: 3
+    }
+    // console.log(Array.from(obj));
+    let aP = document.querySelectorAll("p");
+    console.log(Array.from(aP));
+    console.log(Array.from(aP).filter(function (item,idx) {
+      return item.classList.contains("mark");
+    }));
+    function test () {
+      console.log(arguments);
+      console.log(typeof arguments);
+      console.log(arguments instanceof Array);
+      let sum = 0;
+      Array.from(arguments).forEach(function (item) {
+        sum += item;
+      })
+      console.log(sum);
+    }
+    test(2,6,2,1);
+    let conArr = Array.from(aP, (item) => item.innerText)
+    console.log(conArr);
+    console.log(Array.from([2,,9,,1],function (item) {
+      return item || 0;
+    }));
+  </script>
+</body>
+</html>

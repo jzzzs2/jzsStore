@@ -1,0 +1,37 @@
+.product-sign {
+  text-align: center;
+  font-size: 19px;
+  color: #222;
+  font-family: "PingFang-SC-Medium";
+  line-height: 45px;
+}
+.product-title {
+  display: flex;
+  justify-content: space-between;
+  height: 46px;
+  font-size: 17px;
+  background-color: #eee;
+}
+.product-list .product-title-item {
+  color: #a0a0a0;
+}
+.product-item {
+  display: flex;
+  justify-content: space-between;
+  height: 59px;
+}
+.product-title-item {
+  width: 50%;
+  text-align: center;
+  line-height: 41px;
+}
+.product-item-type {
+  font-size: 17px;
+}
+.product-item-price {
+  font-size: 19px;
+  color: #e52e25;
+}
+.product-item i {
+  font-size: 22px;
+}

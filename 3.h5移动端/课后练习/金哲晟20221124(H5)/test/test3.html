@@ -1,0 +1,58 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-11-24 17:40:26
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-11-24 17:48:21
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>zepto</title>
+  <script src="../js/zepto.min.js"></script>
+  <script src="../js/zepto-touch.js"></script>
+  <style>
+    .box {
+      width: 400px;
+      height: 200px;
+      background-color: red;
+    }
+  </style>
+</head>
+<body>
+  <div class="box"></div>
+  <script>
+    $(".box").on("tap",function (e) {
+      console.log("tap",e);
+    })
+    $(".box").on("swipe",function (e) {
+      console.log("swipe");
+    })
+    $(".box").on("swipeRight",function (e) {
+      console.log("swipeRight");
+    })
+    $(".box").on("swipeLeft",function (e) {
+      console.log("swipeLeft");
+    })
+    $(".box").on("swipeUp",function (e) {
+      console.log("swipeTop");
+    })
+    $(".box").on("swipeDown",function (e) {
+      console.log("swipeBottom");
+    })
+    $(".box").on("longTap",function (e) {
+      console.log("longTap",e);
+    })
+    $(".box").on("singleTap",function (e) {
+      console.log("singleTap");
+    })
+    $(".box").on("doubleTap",function (e) {
+      console.log("doubleTap");
+    })
+  </script>
+</body>
+</html>

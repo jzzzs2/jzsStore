@@ -1,0 +1,91 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-11-05 17:25:50
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-11-05 20:04:59
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>fullScreen</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+
+
+  </style>
+  <script src="./my.js"></script>
+</head>
+<body>
+  <div class="wrap">
+    <img src="./images/xiangcai.png" alt="xc">
+    <input type="button" value = "开启全屏" class="open">
+    <input type="button" value="关闭全屏" class="close">
+    <input type="button" value="是否是全屏" class="full">
+  </div>
+  
+  <script>
+    let oImg = $("img");
+    let oOpen = $(".open");
+    let oClose = $(".close");
+    let isFull = $(".full");
+    let requestFullScreenArr = ["requestFullscreen","webkitRequestFullScreen","mozRequestFullScreen","msRequestFullscreen"];
+    let exitFullScreenArr = ["exitFullscreen","webkitExitFullScreen","mozExitFullScreen","msExitFullscreen"];
+    let isFullScreenArr = ["fullscreenElement","webkitFullscreenElement","mozFullScreenElement","msFullscreenElement"];
+    oOpen.onclick = function (e) {
+
+      for(var item of requestFullScreenArr){
+        if (oOpen[item]) {
+        console.log(item)
+          oOpen[item]();
+          break;
+        }
+      }
+      // requestFullScreenArr.forEach(item => {
+      //   if (oOpen[item]) {
+      //   console.log(item)
+      //     oOpen[item]();
+      //   }
+      // })
+    }
+    oImg.onclick = function (e) {
+      requestFullScreenArr.forEach(item => {
+        if (oImg[item]) {
+          oImg[item]();
+          return false;
+        }
+      })
+    }
+
+    // oClose.onclick = function (e) {
+    //   exitFullScreenArr.forEach(item => {
+    //     if (document[item]) {
+    //       document[item]();
+    //     }
+    //   })
+    // }
+    //关闭全屏调用者必须是document,开启全屏调用者可以是普通元素
+    isFull.onclick = function (e) {
+      isFullScreenArr.forEach(item => {
+        console.log(2);
+        if (document[item]) {
+          console.log(1);
+          console.log(document[item]);
+          // alert(document[item]);
+          // return false;
+        }
+      })
+    }
+    //是否可以使用全屏功能.
+    console.log(document.fullscreenEnabled || document.mozFullScreenEnabled || document.webkitFullscreenEnabled ||document.msFullscreenEnabled);
+  </script>
+</body>
+</html>

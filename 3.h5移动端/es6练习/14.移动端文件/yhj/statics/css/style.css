@@ -1,0 +1,32 @@
+*{margin: 0;padding: 0;border: 0;list-style: none;text-decoration: none;color: inherit;font-weight: normal;font-family: "微软雅黑";box-sizing: border-box;font-style: normal;outline: none;-webkit-tap-highlight-color: transparent;}
+body{width: 100%;overflow-x: hidden;background: #eaeaea;}
+img{vertical-align: middle;max-width: 100%;}
+.container{width: 100%;padding: 0 .4rem;}
+/*顶部标题返回*/
+.top-bar{position: fixed;width: 100%;;top: 0;left: 0;display: flex;align-items: center;width: 100%;height: .9rem;padding: 0 .2rem;background: #fff;z-index: 99;}
+.top-bar i{display: inline-block;width: .5rem;height: .9rem;background: url(../images/arrow-left.png) left center no-repeat;background-size: .18rem .31rem;position: relative;z-index: 3;}
+.top-bar .title{position: absolute;height: .4rem;width: 100%;text-align: center;left: 0;font-size: .34rem;z-index: 2;}
+
+.category{font-size: .3rem;color: #666666;position: fixed;top: .9rem;width: 100%;padding: 0 .4rem;background: #fff;;z-index: 99;}
+.category ul{display: flex;justify-content: space-between;width: 100%;align-items: center;}
+.category ul li{padding: .1rem 0 .3rem 0;position: relative;}
+.category ul li.active{color:#fc1b1b;}
+.category ul li.active::after{position: absolute;content: "";display: inline-block;bottom:.16rem;left: 50%;transform: translateX(-50%);width: .5rem;height: .06rem;border-radius: .06rem;background: #f91b1b;}
+.container{width: 100%;padding: .35rem .3rem;position: relative;padding-top: 2.05rem;padding-bottom: 1.65rem;}
+.container ul{display: flex;flex-direction: column;display: none;}
+.container ul.active{display: block;}
+.container ul li{width: 100%;height: 2.18rem;background: url(../images/item-bg.png) center center no-repeat;background-size: 100%;margin-bottom: .15rem;display: flex;position: relative;}
+.container ul li .l{flex-shrink: 0;width: 2.2rem;color: #fff;display: flex;flex-direction: column;align-items: center;}
+.container ul li .l p{font-size: .51rem;display: flex;align-items: baseline;padding-top: .5rem;padding-bottom: .48rem;font-weight: bold;}
+.container ul li .l p i{font-size: .24rem;}
+.container ul li .l span{font-size: .3rem;color: #a63a08;}
+.container ul li .r{width: 100%;display: flex;flex-direction: column;justify-content: center;padding-left: .45rem;padding-right: .15rem;}
+.container ul li .r h3{font-size: .32rem;color: #000;}
+.container ul li .r .use{display: flex;justify-content: space-between;align-items: center;font-size: .26rem;color: #666666;margin-top:.03rem }
+.container ul li .r .use button{flex-shrink: 0;width: 1.2rem;height: .52rem;line-height: .52rem;font-size: .24rem;color: #fff;background: #01bb75;border-radius: .05rem;}
+.container ul li .r .use button[disabled]{background-color: #bbb;pointer-events: none;cursor: not-allowed;}
+.container ul li .r .status{display: flex;justify-content: space-between;align-items: center;font-size: .26rem;color: #666666;margin-top: .15rem;}
+.container ul li .r .status span{flex-shrink: 0;padding: .05rem .1rem;background: #f6e5dc;font-size: .16rem;color: #dd3f14;border-radius: .05rem;}
+/* 兑换优惠卷 */
+.exchange{position: fixed;left: 0;bottom: 0;width: 100%;height: auto;padding: .2rem .35rem .3rem .35rem;background: #fff;z-index: 99;}
+.exchange button{width: 100%;height: .96rem;line-height: .96rem;background: #01ba79;font-size: .36rem;color: #fff;border-radius: .15rem;}

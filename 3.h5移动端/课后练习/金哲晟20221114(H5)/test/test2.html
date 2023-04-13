@@ -1,0 +1,102 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-11-14 17:14:03
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-11-14 18:09:01
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>jq属性操作</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    #wrap {
+      height: 100px;
+      width: 100px;
+    }
+
+    .red {
+      background-color: red;
+    }
+
+    .active {
+      display: block;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="wrap">
+    <input type="text" value="13123" index = 3>
+    <p class="desc mb5" inp='des1'>11111
+      <span></span>
+    </p>
+    <p class="desc mb5" inp='des2'>2222222
+      <span></span>
+    </p>
+    <p class="desc mb5" inp='des3'>3333333
+      <span></span>
+    </p>
+    <p class="desc mb5" inp='des4'>44444444
+      <span></span>
+    </p>
+    <!-- first<input type="checkbox" checked> -->
+    first<input type="checkbox" index = 0>
+    <br>
+    second<input type="checkbox" checked = "ccc" index = 1>
+    <img src="images/bird.png" alt="bird">
+    <div><span></span></div>
+    <input type="text" value = "kujiji" id="mul">
+    <input type="text" value = "kemoji" id="mul">
+  </div>
+  <script src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
+  <script>
+    console.log($("[type='text']").attr("index")); //3
+    console.log($("#wrap").attr("id")); //wrap
+    console.log($(".desc").attr("inp")); // des1
+    console.log($("img").attr("src")); //images/bird.png
+    console.log($("img").prop("src")); //dom对象中经过处理的src的值.
+    console.log([$("[type='checkbox']")[0]],"dom");
+    console.log($("[type='checkbox']").prop("checked")); //true
+    console.log($("[type='checkbox']").attr("checked")); //checked
+    console.log($("#wrap").addClass("red active"));
+    console.log($("#wrap").removeClass("red"));
+    // console.log($("#wrap").hasClass("active red"));
+    console.log($("#wrap").hasClass("active"));
+    console.log($("[type='checkbox']").attr("index"));
+    // console.log($("[type='checkbox']").attr("index", 6));
+    console.log($("[type='checkbox']").prop("index")); //无法获取自定义属性
+    console.log($("[type='checkbox']").prop("eat", 22)); //给dom元素对象添加了该属性,但是在元素标签上不可见.
+    $("#mul").attr({
+      "index": 99,
+      // "title": "kule",
+      "color": "red"
+    });
+    // $("#mul").removeAttr("index color id title") //清除
+    // $("#mul").removeProp("title"); //值设置为undefined 属性不会消失
+    // $("#mul").removeProp("id");
+    // $("#mul").removeProp("color"); //自定义属性移除不了 
+    // $("#mul").removeProp("index");
+    // $("#mul").toggleClass("index title eating");
+    // $("#mul").toggleClass("eating title");
+    // console.log($("#mul").val());
+    // $("#mul").val(666);
+    console.log($("p").text()); //获取符合条件的所有元素的内容
+    // console.log($("p").text(NaN));
+    // console.log($("p").text("ok"));
+    console.log($("p").html()); //获取符合条件的第一个元素的html内容
+    console.log($("p").html("111<span>2222</span>")); //设置时能设置所有的p元素的html内容.
+  </script>
+</body>
+
+</html>

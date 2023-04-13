@@ -1,0 +1,76 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-11-29 17:50:09
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-11-30 15:44:01
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../css/test.css">
+  <title></title>
+</head>
+
+<body>
+  <div id="app">
+    
+  </div>
+  <script src="../js/template-web.js"></script>
+  <script type="text/template" id="temp">
+    <div class="wrap">
+      <div class="title">
+        <span>日</span>
+        <span>一</span>
+        <span>二</span>
+        <span>三</span>
+        <span>四</span>
+        <span>五</span>
+        <span>六</span>
+      </div>
+    </div>
+    <div class="yearAndMonth">
+      <span>{{year}}年{{month}}月</span>
+    </div>
+    <ul>
+    <li class="empty-{{empty}} empty"></li>
+    {{each days}}
+      <li class="{{if $value.disabled}}disabled{{/if}} {{if $value.selected}}selected{{/if}} {{if $value.today}}today{{/if}}">
+        {{if $value.today}}
+          今天
+          {{else}}
+          {{$index + 1}}
+        {{/if}}
+      </li>
+    {{/each}}
+  </ul>
+  </script>
+  <script src="../js/easyDate.js"></script>
+  <script>
+    // console.log(new EasyDate(new Date()).toObject());
+    let data = new EasyDate(new Date("2022/12/12")).toObject();
+    // arr = arr.fill(1).map(function (curr, idx) {
+    //   return {
+    //     disabled: idx > 14,
+    //     selected: idx === 9,
+    //     today: idx === 14,
+    //     day: idx + 1
+    //   }
+    // })
+    // let data = {
+    //   list: arr,
+    //   empty: 3
+    // }
+    console.log(data);
+    let html = template("temp", data);
+    // console.log(html);
+    document.querySelector("#app").innerHTML = html;
+  </script>
+</body>
+
+</html>

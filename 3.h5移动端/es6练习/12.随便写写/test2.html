@@ -1,0 +1,50 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2023-02-20 19:35:12
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2023-02-20 19:42:15
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function copyDeep (data) {
+      if (Array.isArray(data)) {
+        return data.map(item => {
+          return copyDeep(item)
+        })
+      }
+      if (typeof data == "object") {
+        return Object.fromEntries(Object.entries(data).map(([key,value]) => {
+          return [key,copyDeep(value)]
+        }))
+      }
+      return data
+    }
+    let a = {
+      test: [2,4,5],
+      test2: {
+        a: "22",
+        b: 33,
+        c: {
+          AAA: "aaaa"
+        }
+      }
+    }
+    let b = copyDeep(a)
+    console.log(b);
+    console.log(b.test === a.test);
+    console.log(b.test2 === a.test2);
+    console.log(b.test2.c === a.test2.c);
+  </script>
+
+</body>
+</html>

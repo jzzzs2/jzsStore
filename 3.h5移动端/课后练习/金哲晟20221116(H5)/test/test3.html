@@ -1,0 +1,58 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-11-16 16:56:14
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-11-16 17:12:46
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>节点操作 wrap unwrap</title>
+</head>
+
+<body>
+  <div class="wrap">
+    <p class="desc">我是p标签 我在wrap中</p>
+    <ul>
+      <li>
+        <p>新闻简讯</p>
+      </li>
+      <li>
+        <p>新闻简讯</p>
+      </li>
+      <li>
+        <p>新闻简讯</p>
+      </li>
+      <li>
+        <p>新闻简讯</p>
+      </li>
+      <li>
+        <p>新闻简讯</p>
+      </li>
+    </ul>
+    <a href="#">lk</a>
+  </div>
+  <script src="http://code.jquery.com/jquery-1.12.1.min.js"></script>
+  <script>
+    let $p = $("p");
+    let $li = $("li");
+    // $p.unwrap();
+    // $li.wrap($("<a href='#'>link</a>"));
+    // $li.wrap(function (idx) {
+    //   console.log(idx);
+    //   return $(`<a href='#'>link ${idx}</a>`)
+    // })
+    // console.log($("<a href='#'>lk</a>"));
+    // console.log($("a"));
+    // $li.wrapAll($("<div id='list'></div>"));
+    $p.wrapInner($("<span></span>")); // 给内容一个父级
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,61 @@
+@charset "utf-8";
+body{
+	background: #F6F6F9;
+}
+.biaodan{
+	padding-top: 10px;
+}
+.biaodan ul{
+	background: #ffffff;
+}
+.biaodan ul .item{
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	border-bottom: 1px solid #F6F6F9;
+	padding: 0 15px;
+	height: 45px;
+}
+.biaodan ul .item span{
+	font-size: 15px;
+	color: #242424;
+}
+.biaodan ul .item input{
+	width: 210px;
+	border: none;
+	height: 35px;
+	text-align: right;
+}
+
+.biaodan .submit{
+	display: block;
+	padding: 15px;
+}
+.biaodan .submit .submit_button{
+	display: block;
+	width: 100%;
+	background: #1CBB7F;
+	font-size: 15px;
+	color: #ffffff;
+	border-radius: 5px;
+	border: none;
+	height: 40px;
+}
+
+.list{
+	background: #ffffff;
+}
+.list .item{
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	border-bottom: 1px solid #F6F6F9;
+	padding: 0 15px;
+	height: 45px;
+	background: url(../images/right_jiantou.jpg) no-repeat right 15px center;
+	background-size: 8px 12px;
+}
+.list .item span{
+	font-size: 15px;
+	color: #242424;
+}

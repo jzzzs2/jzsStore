@@ -1,0 +1,45 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-11-04 21:50:47
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-11-04 22:31:08
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>video</title>
+  <style>
+    video {
+      width: 600px;
+      height: 400px;
+    }
+
+    span {
+      border: 1px solid #999;
+      background-color: pink;
+    }
+  </style>
+</head>
+<body>
+  <!-- <video src="../video/mp4.mp4" controls loop muted></video> -->
+  <!-- <video src="../video/mp4.mp4" controls loop muted poster="../video/normal.jpg" ></video> -->
+  <!-- <video src="../video/mp4.mp4" controls  poster="../video/normal.jpg" preload autoplay></video> -->
+  <!-- autoplay 要和 muted 同时使用才能生效 -->
+  <!-- <video src="../video/mp4.mp4" controls autoplay muted>
+  </video> -->
+  <video controls autoplay muted>
+    <source src="../video/mp4.wmv">
+    <source src="../video/mp4.mp4">
+  </video>
+  <span>stop</span>
+</body>
+<script>
+  document.querySelector("span").onclick = function (e) {
+    document.querySelector("video").paused = true;
+  }
+</script>
+</html>

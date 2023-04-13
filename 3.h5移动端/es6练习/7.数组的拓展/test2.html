@@ -1,0 +1,41 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-12-05 19:33:46
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-12-05 19:50:19
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>复制合并数组</title>
+</head>
+<body>
+  <script>
+    let arr = [2, 9, 12, 22, 5];
+    // let twoArr = [...arr];
+    // console.log(twoArr);
+    // console.log(twoArr == arr);
+    let a = {
+      name: "jzs"
+    }
+    let b = {
+      age: 22
+    }
+    let c1 = [a, b];
+    let c2 = [1,2,3];
+    let obj = [...c1,...c2];
+    console.log(obj);
+    a.name = "zjc";
+    b.age = 0;
+    c2.push(999);
+    console.log(c2);
+    // obj = [...c1,...c2]
+    // console.log(obj);
+  </script>
+</body>
+</html>

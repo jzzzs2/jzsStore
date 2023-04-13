@@ -1,0 +1,56 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-11-08 18:13:03
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-11-08 18:33:45
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>地理信息</title>
+</head>
+
+<body>
+  <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=	DarF2LCCGzn6T16zgy8ZPkvYYE5CT6fu"></script>
+  <script>
+    const options = {
+      enableHighAccuracy: true,
+      maximumAge: 10000,
+      timeout: 3000,
+    }
+    function successCallback(position) {
+      var output = '';
+      output += "您的位置已经确定下来\n\n";
+      output += '经度：' + position.coords.longtitude + "\n\n";
+      output += '纬度：' + position.coords.latitude + "\n\n";
+      output += '精度：' + position.coords.accuracy + " 米\n";
+      if (position.coords.altitudeAccuracy) {
+        output += '海拔精度：' + position.coords.altitudeAccuracy + " 米\n";
+      };
+      if (position.coords.heading) {
+        output += '速度：' + position.coords.Speed + "m/s\n";
+      };
+      output += '时间戳：' + position.timestamp;
+      console.log(output);
+    }
+
+    function errorCallback(error) {
+      console.log(error);
+    }
+
+    // if (window.navigator.geolocation) {
+    //   navigator.geolocation.getCurrentPosition(successCallback, errorCallback, options);
+    // }
+    if (window.navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(successCallback,errorCallback,options);
+    }
+  </script>
+</body>
+
+</html>

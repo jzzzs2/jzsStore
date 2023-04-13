@@ -1,0 +1,63 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-11-27 17:31:23
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-11-28 16:59:57
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>touch事件组</title>
+  <style>
+
+    /* body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 1000px;
+    } */
+    .box {
+      /* float: left; */
+      /* width: 400px; */
+      height: 200px;
+      background-color: cyan;
+    }
+  </style>
+</head>
+<body>
+  <!-- <h1>title 1 keai nie</h1> -->
+  <div class="box"></div>
+  <script src="../css/zepto.min.js"></script>
+  <script src="../css/zepto-touch.js"></script>
+  <script src="../css/touch.min.js"></script>
+  <!-- <script src="../css/jquery.min.js"></script> -->
+  <script>
+    
+    function test (a = 2) {
+      return true;
+    }
+    let $box = $(".box");
+    console.log($box);
+    // touch.on(document.querySelector(".box"),"hold",function () {
+    //   console.log("hold",);
+    // })
+    touch.on($box,"hold",function (e) {
+      console.log("hold",e.originEvent);
+    })
+    touch.on($box,"swipe",function (e) {
+      console.log("swipe");
+    })
+    touch.on($box,"drag",function (e) {
+      console.log("drag");
+    })
+    touch.on($box,"rotate",function (e) {
+      console.log("rotate");
+    })
+  </script>
+</body>
+</html>

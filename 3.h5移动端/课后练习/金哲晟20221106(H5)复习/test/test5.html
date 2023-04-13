@@ -1,0 +1,61 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-11-06 15:45:10
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-11-06 15:57:20
+-->
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>类名操作 节点操作</title>
+  <style>
+    .box {
+      width: 200px;
+      height: 200px;
+      background-color: cyan;
+    }
+
+    .active {
+      font-size: 10px;
+    }
+
+    .show {
+      font-size: 20px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box active show"></div>
+  <ul class="list">
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+  </ul>
+</body>
+<script>
+  let oBox = document.querySelector(".box");
+  let oUl = document.querySelector(".list");
+  // console.log(oBox.classList instanceof Object);
+  // console.log(oBox.classList instanceof Array);
+  // console.log(oBox.classList);
+  // console.log(oBox.classList.contains("active"));
+  // console.log(oBox.classList.add("jzs"));
+  // console.log(oBox.classList.remove("show"));
+  // console.log(oBox.classList.toggle("jzs"));
+  // let oSpan = document.createElement("span");
+  // oBox.after(oSpan);
+  // oBox.before(oSpan);
+  // oBox.replaceWith(oSpan);
+  // oSpan.remove();
+  // console.log(oUl);
+  oBox.append(oUl,"keainie");
+  // oBox.appendChild(oUl);
+</script>
+
+</html>

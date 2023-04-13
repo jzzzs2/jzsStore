@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+  <title>Document</title>
+  <style>
+    * {
+      -webkit-touch-callout: none;
+    }
+
+    .wrap {
+      color: #fff;
+      width: 100vw;
+      height: 40vh;
+      background-color: #333;
+    }
+
+    .wrap span {
+      display: block;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="wrap">
+
+  </div>
+  <script>
+
+    const wrap = document.querySelector('.wrap')
+    //移动端不建议dom1的 onEvent写法 
+    // window.onclick = function () {
+    //   console.log(1)
+    // }
+
+    window.addEventListener('click', function () {
+      console.log('click');
+    })
+
+    // window.addEventListener('mousedown', function (e) {
+    //   // console.log('mousedown', e);
+    // })
+
+
+    // window.addEventListener('mousemove', function (e) {
+    //   // console.log('mousemove', e);
+    // })
+
+
+    // window.addEventListener('mouseup', function (e) {
+    //   // console.log('mouseup', e);
+    // })
+
+    let event_touches = [];
+    window.addEventListener('touchstart', function (e) {
+      console.log(e.targetTouches)
+      wrap.innerHTML = ''
+      event_touches = e.targetTouches;
+    })
+
+    window.addEventListener('touchmove', function (e) {
+      event_touches = e.targetTouches;
+
+    })
+
+    window.addEventListener('touchend', function (e) {
+      for (let key in e.changedTouches) {
+        if (key != 'length' && key != 'item') {
+          wrap.innerHTML += `第${key}个 ${e.changedTouches[key].identifier}`
+        }
+
+      }
+    })
+
+  </script>
+</body>
+
+</html>

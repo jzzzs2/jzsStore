@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>worker 子线程 单独处理计算量比较大的表达式函数</title>
+</head>
+<body>
+  <script id="test" type="app/work">
+    addEventListener("message", function (e) {
+      postMessage(e.data);
+    },false);
+  </script>
+  <script>
+    let work = new Blob([document.querySelector("#test").innerHTML]);
+    let url = URL.createObjectURL(work);
+    // let worker = new Worker("test.js", {
+    //   name: "zjc"
+    // });
+    // let worker = new Worker("test.js");
+    let worker = new Worker(url);
+    // worker.postMessage({name: "jzs",age: 22});
+    worker.postMessage({a:2,b:3});
+    worker.addEventListener("message", function (e) {
+      console.log(e.data,"我是主线程接收数据");
+      // worker.terminate();
+    })
+    
+    // worker.postMessage("twice");
+    // worker.terminate();
+    worker.addEventListener("error", function (e) {
+      console.log(e,"报错了捏");
+    })
+  </script>
+  <p>我是测试用的p捏</p>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-11-02 20:30:32
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-11-02 21:12:42
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>新增表单类型</title>
+  <style>
+    input {
+      display: block;
+    }
+
+    .wrap {
+      position: relative;
+      overflow: hidden;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+    }
+    #color {
+      position: absolute;
+      top: -20px;
+      left: -20px;
+      width: 100px;
+      height: 100px;
+      padding: 0;
+      border: none;
+    }
+  </style>
+</head>
+<body>
+  <input type="text">
+  <input type="password">
+  <input type="radio">
+  <input type="checkbox">
+  <input type="submit">
+  <input type="button">
+  <input type="file" multiple id="file">
+  <br>
+  color
+  <div class="wrap">
+    <input type="color" id="color">
+  </div>
+  date<input type="date"> X
+  datetime<input type="datetime"> X
+  datetime-local<input type="datetime-local"> X
+  email<input type="email"> X 
+  tel<input type="tel"> X
+  search<input type="search"> X
+  url<input type="url"> X
+  range<input type="range">
+  week<input type="week"></input>
+  time<input type="time"> X
+  month<input type="month">
+  number<input type="number"></input> 
+  <script>
+    let file = document.querySelector("#file");
+    file.onchange = function (e) {
+      console.log([this]);
+      console.log(typeof this.files);
+      console.log(this.files instanceof Array); //object
+    }
+    console.log(document.querySelector("[type='month']"));
+  </script>
+</body>
+</html>

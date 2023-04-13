@@ -1,0 +1,74 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-11-16 17:13:36
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-11-16 17:32:06
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>节点 替换删除操作</title>
+</head>
+
+<body>
+  <div class="wrap">
+    <p class="desc">我是p标签 我在wrap中</p>
+    <ul>
+      <li>
+        <p>新闻简讯</p>
+      </li>
+      <li>
+        <p><b>新闻简讯</b></p>
+      </li>
+      <li>
+        <p>新闻简讯</p>
+      </li>
+      <li>
+        <p>新闻简讯</p>
+      </li>
+      <li>
+        <p>新闻简讯</p>
+      </li>
+    </ul>
+
+  </div>
+
+
+
+  <p class="other">我是另一个p</p>
+  <script src="http://code.jquery.com/jquery-1.12.1.min.js"></script>
+  <script>
+    let $desc = $(".desc");
+    let $p = $("li p");
+    let $wrap = $(".wrap");
+    // $desc.replaceWith($("<h2>title h2</h2>"));
+    // console.log($desc.replaceWith($("<h2>title h2</h2>")));
+    // $p.replaceWith(function (...args) {
+    //   // console.log(args); //[idx,html]
+    //   return `${args[0]}<span>${args[1]}</span>`;
+    // })
+    // console.log($("<p>可爱捏</p>").replaceAll($("li")));
+    // $p.remove();
+    // $p.empty();
+    // $p.not(".desc").remove();
+    // $("p").remove(".desc");
+    //empty remove
+    // $("p").detach();
+    // $("p").detach(".desc");
+    //clone
+    $wrap.click(function (e) {
+      console.log("我是wrap点击事件");
+    })
+
+    // $wrap.clone().insertAfter($wrap);
+    $wrap.clone(true).insertAfter($wrap);
+  </script>
+</body>
+
+</html>

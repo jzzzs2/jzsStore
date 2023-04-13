@@ -1,0 +1,95 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-11-17 16:27:21
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-11-17 16:46:35
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>swiper</title>
+  <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css">
+  <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    .wrap {
+      width: 1000px;
+      height: 600px;
+      margin: 100px auto;
+      box-shadow: 0 0 4px #333;
+    }
+
+    img {
+      width: 1000px;
+      height: 600px;
+    }
+
+    #swiper {
+      overflow: hidden;
+    }
+    .wrap {
+      position: relative;
+    }
+
+    .swiper-button-next {
+      position: absolute;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      margin: auto;
+    }
+
+    .swiper-button-prev {
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      margin: auto;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <div id="swiper" class="swiper-container swiper-container-initialized swiper-container-horizontal">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide swiper-slide-active" style="width: 1000x;"><img src="./1.jpg" alt=""></div>
+        <div class="swiper-slide swiper-slide-next" style="width: 1000px;"><img src="./2.png" alt=""></div>
+        <div class="swiper-slide" style="width: 1000px;"><img src="./3.png" alt=""></div>
+        <div class="swiper-slide" style="width: 1000px;"><img src="./4.png" alt=""></div>
+        <div class="swiper-slide" style="width: 1000px;"><img src="./5.png" alt=""></div>
+        <div class="swiper-slide" style="width: 1000px;"><img src="./6.png" alt=""></div>
+      </div>
+      <!-- Add Arrows -->
+      <div class="swiper-button-next" tabindex="0" role="button" aria-label="Next slide" aria-disabled="false"></div>
+      <div class="swiper-button-prev swiper-button-disabled" tabindex="-1" role="button" aria-label="Previous slide"
+        aria-disabled="true"></div>
+      <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
+    </div>
+  </div>
+  <script>
+
+    var swiper = new Swiper('.swiper-container', {
+      speed: 1500,
+      width: 1000,
+      height: 600,
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+    });
+
+  </script>
+</body>
+
+</html>

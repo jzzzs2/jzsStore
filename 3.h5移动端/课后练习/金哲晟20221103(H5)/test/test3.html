@@ -1,0 +1,124 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-11-03 16:48:18
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-11-03 21:11:47
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>drag drop H5 拖拽放置</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      user-select: none;
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .wrap {
+      float: left;
+      width: 400px;
+      height: 250px;
+      margin: 20px;
+      box-shadow: 0 0 6px #222;
+    }
+
+    img {
+      width: 250px;
+      height: auto;
+    }
+
+    #p {
+      background-color: cyan;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <p id="p" draggable="true">我是一个p标签</p>
+    <!-- <img src="./images/h1.jpg" alt="gblj" width="635" height="551" draggable="false" id="img"> -->
+    <img src="./images/h1.jpg" alt="gblj" width="635" height="551" draggable="true" id="img">
+  </div>
+  <div class="other wrap"></div>
+  <script>
+    let oImg = document.querySelector("#img");
+    let other = document.querySelector(".other");
+    let oWrap = document.querySelector(".wrap");
+    document.ondragstart = function (e) {
+      e.target.style.border = "2px solid cyan";
+      e.dataTransfer.setData("text/html",e.target.id);
+      // console.log(e.target);
+      console.log("开始拖拽");
+    }
+    document.ondragend = function (e) {
+     console.log(e.target); 
+     console.log("拖拽结束");
+    }
+
+    document.ondragover = function (e) {
+      console.log(1);
+      // console.log(e.target);
+      ///当拖拽时停留在一块区域时触发
+      e.preventDefault();
+    }
+    document.ondrop = function (e) {
+      console.log("wosi Drop");
+      console.log(e.target);
+      //指向的是进入的标签元素
+      let id = e.dataTransfer.getData("text/html")
+      e.target.append(document.querySelector(`#${id}`));
+      // console.log(e.dataTransfer.getData("text/html"));
+    }
+    oWrap.ondragenter = function (e) {
+      console.log("enter");
+      console.log(e.target);
+    }
+    document.ondrag = function (e) {
+      console.log("拖拽中");
+      // console.log(e.target);
+    }
+    oWrap.ondragleave = function (e) {
+      console.log("leave");
+      console.log(e.target);
+    }
+
+    other.ondragenter = function (e) {
+      console.log("enter");
+      console.log(e.target);
+      //指向的是 进入的标签元素
+    }
+
+    // other.ondragleave = function (e) {
+    //   console.log("leave");
+    //   console.log(e.target);
+    //   //指向是 离开的标签元素
+    // }
+    document.ondragleave = function (e) {
+      console.log(e.target);
+      console.log("离开了");
+    }
+    /*总结
+    e.target指向被拖拽元素
+    dragstart 当元素开始拖拽时
+    dragend 当元素拖拽结束后执行
+    drag 当元素在拖拽时执行
+
+    e.target指向目标元素
+    drop 松开拖拽元素后执行
+    dragenter 拖拽当元素进入某个元素时触发
+    dragleave 拖拽当元素离开某个元素时触发
+    dragover 当鼠标未松开,停留在某个目标上时触发
+    */
+  </script>
+</body>
+</html>

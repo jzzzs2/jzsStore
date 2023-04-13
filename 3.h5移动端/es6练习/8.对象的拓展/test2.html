@@ -1,0 +1,48 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2023-01-01 20:12:45
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2023-01-01 20:22:52
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2.属性名表达式</title>
+</head>
+<body>
+  <script>
+    // let key = "addr"
+    // let obj = {
+    //   ["name"] : "jzs",
+    //   age: 22,
+    //   [key] : "bread"
+    // }
+    // console.log(obj);
+    // let lastWord = "last word"
+    // const a = {
+    //   "lastWord" : "hello1",
+    //   [lastWord]: "hello2"
+    // }
+    // console.log(a);
+    // let obj = {
+    //   ["hell" + "2"]() {
+    //     console.log("keainie");
+    //     return 22
+    //   }
+    // }
+    // console.log(obj.hell2());
+    let oneObj = {a: 1}
+    let twoObj = {b: 2}
+    const myObj = {
+      [oneObj] : "keainie",
+      [twoObj] : "haochi"
+    }
+    console.log(myObj)
+  </script>
+</body>
+</html>

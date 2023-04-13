@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <a href="http://baidu.com">baidu</a>
+  <script>
+    /*
+      页面 声明周期事件
+
+      beforeunload unload load
+
+      pagehide pageshow
+    
+    */
+
+
+    // 页面跳转之前执行了beforeunload事件
+    window.onbeforeunload = function () {
+      localStorage.setItem('beforeunload', 'check');
+      // return false;
+    }
+
+
+    // 页面隐藏的时候执行了pagehide事件
+    window.onpagehide = function () {
+      localStorage.setItem('pagehide', 'check')
+    }
+
+    // 当用户离开页面时触发了unload事件
+    window.onunload = function () {
+      localStorage.setItem('unload', 'check')
+    }
+
+    // 页面显示的时候执行了pageshow事件
+    window.onpageshow = function () {
+      localStorage.setItem('pageshow', 'check')
+    }
+
+    // 页面完成加载时执行了load事件
+    window.onload = function () {
+      localStorage.setItem('load', 'check')
+    }
+
+  </script>
+</body>
+
+</html>

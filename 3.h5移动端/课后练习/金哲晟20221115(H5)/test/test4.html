@@ -1,0 +1,60 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-11-15 21:29:30
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-11-15 22:31:46
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>fadein out to toggle</title>
+  <style>
+    .box {
+      width: 400px;
+      height: 400px;
+      background-color: #999;
+      box-shadow: 2px 2px 4px #222;
+    }
+
+    img {
+      display: none;
+      width: 300px;
+      height: auto;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box">
+    <img src="./gblj2.jpg" alt="gblj">
+  </div>
+  <script src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
+  <script>
+    //fade 实现: display:none 变为block, opacity从0 到 100
+    let $box = $(".box");
+    let $img = $("img");
+    // $box.hover(function (e) {
+    //   $img.fadeIn(2000,function () {
+    //     console.log("enter");
+    //   })
+    // }, function (e) {
+    //   $img.fadeOut(2000,function () {
+    //     console.log("out");
+    //   })
+    // })
+    $box.click(function (e) {
+      // console.log(1);
+      // $img.fadeToggle(2000,"linear",function () {
+      // })
+      $img.fadeTo(1000, .2,"linear");
+    })
+  </script>
+</body>
+
+</html>

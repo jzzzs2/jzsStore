@@ -1,0 +1,66 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-11-13 11:50:14
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-11-13 12:18:23
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FileReader</title>
+  <style>
+    .box {
+      width: 600px;
+      height: 500px;
+      border: 1px solid #999;
+    }
+  </style>
+</head>
+<body>
+  <input type="file" multiple >
+  <button class="copy">copy</button>
+  <button class="text">copy text</button>
+  <div class="box"></div>
+  <script src="http://code.jquery.com/jquery-1.12.1.min.js"></script>
+  <script>
+    let $btn = $("button.copy");
+    let $file = $("input");
+    $btn.on("click", function (e) {
+      let fileReader = new FileReader();
+      console.log(fileReader.readyState,"加载状态");
+      let file = $file[0].files[0];
+      fileReader.readAsDataURL(file);
+      
+      fileReader.onprogress = function (e) {
+        console.log(fileReader.readyState,"加载状态");
+        console.log(e,"加载中");
+        console.log(e.total,e.loaded,e.total === e.loaded);
+      }
+      
+      fileReader.onload = function (e) {
+        console.log(fileReader.readyState,"加载状态");
+        let src = fileReader.result;
+        let ele = document.createElement("img");
+        ele.src = src;
+        $("div")[0].appendChild(ele);
+      }
+    })
+    $(".text").on("click",function (e) {
+      let fileReader = new FileReader();
+      let file = $file.get(0).files[0];
+      fileReader.readAsText(file);
+      fileReader.onload = function (e) {
+        //progressEvent 加载事件
+        console.log(e);
+        console.log(e.loaded,e.total);
+        console.log(this.result,"结果");
+      }
+    })
+  </script>
+</body>
+</html>

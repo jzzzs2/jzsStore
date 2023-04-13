@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>fullScreen 全屏API</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <img src="images/m2.jpg" alt="m2">
+    <input id="open" type="button" value="开启全屏">
+    <input id="close" type="button" value="取消全屏">
+    <input id="is-full" type="button" value="是否全屏?">
+  </div>
+  <script>
+
+    /* 
+
+      fullScreen
+
+      fullscreenElement
+
+     ELement.requestFullScreen() 开启全屏
+
+    全屏功能是否可用
+      document.fullscreenEnabled || document.mozFullScreenEnabled || document.webkitFullscreenEnabled ||document.msFullscreenEnabled
+
+    当前是否为全屏状态
+      console.log(document.fullscreenElement || document.webkitFullscreenElement || document.mozFullScreenElement || document.msFullscreenElement)
+
+
+      1. 全屏可以使局部具体ELement全屏
+      2. 退出全屏需要document处理
+      3. 注意拼写 s S
+    */
+
+    const oWrap = document.querySelector('img');
+    const openBtn = document.querySelector('#open');
+    const closeBtn = document.querySelector('#close');
+    const isFullBtn = document.querySelector('#is-full');
+
+
+
+    const requestFullScreens = ['requestFullscreen', 'webkitRequestFullScreen', 'mozRequestFullScreen', 'msRequestFullscreen'];
+    const exitFullScreens = ['exitFullscreen', 'webkitCancelFullScreen', 'mozCancelFullScreen', 'msExitFullscreen'];
+
+    openBtn.onclick = function () {
+      for (let i = 0; i < requestFullScreens.length; i++) {
+        let key = requestFullScreens[i];
+        if (oWrap[key]) {
+          oWrap[key]();
+          return false;
+        }
+      }
+    };
+
+    isFullBtn.onclick = function () {
+      // console.log(document.fullscreenElement || document.webkitFullscreenElement || document.mozFullScreenElement || document.msFullscreenElement)
+
+    }
+
+    closeBtn.onclick = function () {
+      for (let i = 0; i < exitFullScreens.length; i++) {
+        let key = exitFullScreens[i];
+        if (document[key]) {
+          document[key]();
+          return false;
+        }
+      }
+    };
+
+
+  </script>
+</body>
+
+</html>

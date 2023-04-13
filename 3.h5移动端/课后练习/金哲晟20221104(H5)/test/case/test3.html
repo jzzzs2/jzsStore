@@ -1,0 +1,76 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-11-04 22:24:13
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-11-04 23:25:02
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    video {
+      width: 600px;
+      height: 400px;
+    }
+  </style>
+</head>
+<script src="../my.js"></script>
+
+<body>
+  
+  <!-- <video src="../video/mp4.mp4" controls loop muted></video> -->
+  <!-- <video src="../video/mp4.mp4" controls loop muted poster="../video/normal.jpg" ></video> -->
+  <!-- <video src="../video/mp4.mp4" controls  poster="../video/normal.jpg" preload autoplay></video> -->
+  <!-- autoplay 要和 muted 同时使用才能生效 -->
+  <video src="../video/mp4.mp4" controls  muted preload loop>
+  </video>
+  <!-- <video controls autoplay muted>
+    <source src="../video/mp4.wmv">
+    <source src="../video/mp4.mp4">
+  </video> -->
+  <span>stop change src</span>
+  <script>
+    let oAu = $("video");
+    oAu.onended = function (e) {
+      console.log("播放结束了呢");
+    }
+    oAu.onabort = function (e) {
+      console.log("播放被中断了呢");
+    }
+    oAu.onemptied = function (e) {
+      console.log("媒体元素被清空了");
+    }
+
+    oAu.oncanplay = function (e) {
+      console.log("资源已经加载完毕了呢");
+    }
+    oAu.onloadstart = function (e) {
+      console.log("资源开始加载");
+    }
+    oAu.onpause = function (e) {
+      console.log("视频暂停了呢");
+    }
+    oAu.ontimeupdate = function (e) {
+      console.log("视频时间正在改变");
+    }
+    oAu.onplay = function (e) {
+      console.log("play" + "kaigo");
+    }
+    oAu.onplaying = function (e) {
+      console.log("playing" + "kaigon");
+    }
+    let oAbort = $("span");
+    oAbort.onclick = function (e) {
+      oAu.src = "";
+    }
+  </script>
+</body>
+
+</html>

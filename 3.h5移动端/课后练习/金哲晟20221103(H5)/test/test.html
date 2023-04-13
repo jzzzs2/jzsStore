@@ -1,0 +1,80 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-11-03 16:22:13
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-11-03 16:22:33
+-->
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>list</title>
+</head>
+
+<body>
+  <script>
+    //dom节点搜索操作 get系列
+    // let oUl = document.getElementById("list");
+    // let aLi = document.getElementsByTagName("li");
+    // let aSpan = document.getElementsByClassName("c555");
+    //dom节点搜索操作 h5新增
+    let oUl = document.querySelector("ul");
+    let aLi = document.querySelectorAll("li");
+    //类名操作
+    let ele = document.querySelector("ul");
+    ele.classList.add("bgc333");
+    ele.classList.add("active");
+    ele.classList.remove("active");
+    ele.classList.contain("active");
+    ele.classList.toggle("bgc333");
+    //dom节点 插入操作 前插 后插
+    let oSpan = document.createElement("span");
+    oSpan.innerText = "wosi span";
+    ele.after(oSpan);
+    let oP = document.createELement("p");
+    oP.innerText = "wo si Page";
+    ele.before(oP);
+    //dom节点删除
+    document.body.remove();
+    //dom节点替换
+    let oInput = document.createELement("input");
+    oInput.setAttribute("placeholder", "wo si Input");
+    ele.replaceWith(oInput);
+    //appendChild和append的差异 append可以追加多个/append有返回值为追加的对象/append允许domString对象追加
+    let text = "wosi word";
+    let sp = document.createElement("span");
+    sp.innerText = "sp";
+    ele.append(text, sp);
+    //prepend 在节点前追加
+    let s3 = document.createElement("h3");
+    s1.innerText = "wosi h3";
+    let s2 = document.createElement("h2");
+    s2.innerText = "wosi h2";
+    let s4 = document.querySelectorAll(".test");
+    //一次追加多个  ...s4 ele
+    ele.prepend(...s4);
+    //多次追加一个 s2 s3 ele
+    ele.prepend(s3);
+    ele.prepend(s2);
+//drag和drop
+    /*
+    draggable属性 设置元素可拖拽,链接和图片默认有该属性
+    事件.
+    拖动目标上触发
+    dragstart
+    drag
+    dragend
+    所在容器上触发
+    dragover
+    dragenter
+    dragleave
+    drop  drop事件触发需要禁用dragover事件的默认行为
+    */
+  </script>
+</body>
+
+</html>

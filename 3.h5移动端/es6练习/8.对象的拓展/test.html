@@ -1,0 +1,42 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2023-01-01 19:52:11
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2023-01-01 20:14:10
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>1</title>
+</head>
+<body>
+  <script>
+    let name = "jzs"
+    let obj = {name}
+    // console.log(obj); // {name: jzs}
+    function f (x,y) {
+      return {x, y}
+    }
+    // console.log(f(2, 8));
+    //
+    const Person = {
+      name: "zhangSan",
+      hello() {
+        console.log("my name",this.name);
+      }
+    }
+    // Person.hello()
+    function getPoint() {
+      const x = 1
+      const y = 2
+      return {x, y}
+    }
+    // console.log(getPoint());
+  </script>
+</body>
+</html>

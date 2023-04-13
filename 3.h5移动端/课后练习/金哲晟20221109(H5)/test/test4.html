@@ -1,0 +1,85 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-11-09 18:16:43
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-11-09 21:39:56
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>canvas clip剪裁</title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+    }
+
+    html,
+    body {
+      height: 100%;
+    }
+
+    canvas {
+      background-color: #222;
+    }
+  </style>
+</head>
+
+<body>
+  <canvas></canvas>
+</body>
+<script>
+
+  let canvas = document.querySelector("canvas");
+  let context = canvas.getContext("2d");
+  changeView();
+  window.onresize = changeView;
+  function changeView() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    context.fillStyle = "cyan";
+    // context.fillRect(0,0,100,100);
+    // context.translate(100, 100);
+    context.fillRect(0, 0, 100, 100);
+    // context.translate(-100,-100);
+    // context.fillRect(0,0,100,100);
+    // context.scale(2.5, 2.5);
+    context.font = "20px SimSun, Songti SC";
+    context.fillText("haohaohao2", 400, 400);
+    // context.scale(2.5, 2.5);
+    // context.fillText("haohaoh22ao", 400, 400);
+    // context.rotate(-30 * Math.PI / 180);
+    context.rotate(90 * Math.PI / 180);
+    context.fillRect(200,-200,100,100);
+    context.fillText("haohaohao", 200, -700);
+    context.setTransform(1,0,0,1,0,0);
+    context.fillText("haohaoha333o", 200, 200);
+  }
+  /*
+  clip() 剪裁
+  1.创建路径
+  2.调用剪裁方法
+  3.后续所有绘制只有剪裁区域内会展示
+  */
+  let img = document.createElement("img");
+  img.src = "miku.jpg";
+  // img.onload = function () {
+  //   context.beginPath();
+  //   context.moveTo(100, 100);
+  //   context.lineTo(300, 200);
+  //   context.lineTo(200, 400);
+  //   context.closePath();
+  //   context.clip();
+  //   context.drawImage(img, 100, 100);
+  // }
+  //改变绘制环境原点 translate 改变绘制上下文的初始位置 rotate 旋转绘制环境的坐标轴 scale 放大或者缩小之后绘制的图 包括宽高和初始位置
+
+</script>
+
+</html>

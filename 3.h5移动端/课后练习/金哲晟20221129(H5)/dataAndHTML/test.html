@@ -1,0 +1,63 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-11-29 17:50:09
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-11-29 19:58:15
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../css/test.css">
+  <title></title>
+</head>
+<body>
+  <div class="title">
+    <span>日</span>
+    <span>一</span>
+    <span>二</span>
+    <span>三</span>
+    <span>四</span>
+    <span>五</span>
+    <span>六</span>
+  </div>
+  <ul>
+    <!-- <li class="empty"></li> -->
+  </ul>
+  <script src="../js/template-web.js"></script>
+  <script type="text/template" id="temp">
+    <li class="empty-{{empty}} empty"></li>
+    {{each list}}
+      <li class="{{if $value.disabled}}disabled{{/if}} {{if $value.selected}}selected{{/if}} {{if $value.today}}today{{/if}}">
+        {{if $value.today}}
+          今天
+          {{else}}
+          {{$value.day}}
+        {{/if}}
+      </li>
+    {{/each}}
+  </script>
+  <script>
+    let arr = new Array(30);
+    arr = arr.fill(1).map(function (curr,idx) {
+      return {
+        disabled: idx > 14,
+        selected: idx === 9,
+        today: idx === 14,
+        day: idx + 1
+      }
+    })
+    let data = {
+      list: arr,
+      empty: 3
+    }
+    let html = template("temp", data);
+    console.log(html);
+    document.querySelector("ul").innerHTML = html;
+  </script>
+</body>
+</html>

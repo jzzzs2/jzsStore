@@ -1,0 +1,92 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-11-05 18:31:14
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-11-06 11:10:54
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>sessionStorage</title>
+</head>
+<body>
+  <script>
+    //setItem(X, x) getItem(X) removeItem(X) clear()
+    // sessionStorage.setItem("name","jzs");
+    // console.log(sessionStorage.getItem("name"));
+    // sessionStorage.removeItem("name");
+    // sessionStorage.clear();
+
+    //封装自己的sessionStorage
+    (function (w) {
+      // console.log(w);
+      class MySessionStorage {
+        constructor () {
+          this.storage = w.sessionStorage;
+          this.history = {};
+        }
+        setItem (...args) {
+          if (args.length === 0) {
+            return false;
+          }
+          if (args.length === 2 && typeof args[0] !== "object" && typeof args[1] !== "object") {
+            this.storage.setItem(String(args[0]),args[1]);
+            this.history[String[args[0]]] = args[1];
+          }
+          if (args.length === 1 && Object.prototype.toString.call(args[0]) === "[object Object]") {
+            return Object.entries(args[0]).map( ([key,value]) => {
+              this.storage.setItem(key,value);
+              this.history[key] = value;
+              return key;
+            })
+          }
+          return this.history;
+        }
+        getItem (...args) {
+          if (args.length === 0) {
+            return false;
+          }
+          if (args.length === 1 && Object.prototype.toString.call(args[0]) === "[object Array]" && args[0].length !== 0) {
+            return args[0].reduce((acc,item,idx) => {
+              acc[item] = this.storage.getItem(item);
+              return acc;
+            },{})
+          }
+          if (args.length === 1 && typeof args[0] !== "object") {
+            return this.storage.getItem(args[0]);
+          }
+        }
+        removeItem (...args) {
+          let arr = args.flat(Infinity);
+          if (arr.length === 0) {
+            return false;
+          } else {
+            arr.forEach((item) => {
+              this.storage.removeItem(item);
+            })
+          }
+        }
+        clearItem () {
+          this.storage.clear();
+          this.history = {};
+        }
+      }
+      window.MySessionStorage = MySessionStorage;
+    })(window);
+    // let mySession = new MySessionStorage();
+    // mySession.setItem({
+    //   name: "JZS",
+    //   age: 22
+    // })
+    // mySession.setItem("item",22);
+    // console.log(mySession.getItem("item"));
+    // console.log(mySession.getItem(["name","age"]));
+    
+  </script>
+</body>
+</html>

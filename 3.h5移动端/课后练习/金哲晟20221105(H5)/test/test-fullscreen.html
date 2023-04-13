@@ -1,0 +1,45 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-11-05 17:25:50
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-11-05 19:59:43
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>fullScreen</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+
+
+  </style>
+  <script src="./fullscreen.js"></script>
+</head>
+<body>
+  <div class="wrap">
+    <img src="./images/xiangcai.png" alt="xc">
+    <input type="button" value = "开启全屏" class="open">
+    <input type="button" value="关闭全屏" class="close">
+    <input type="button" value="是否是全屏" class="full">
+    <p class="isFullScreen">no</p>
+  </div>
+  
+  <script>
+    function fullscreenElementEvent(isFullScreen){
+      document.querySelector('.isFullScreen').innerText = isFullScreen?'yes':'no'
+    }
+    document.querySelector('.open').addEventListener('click', function(e){
+      changeFullScreen(this)
+    })
+  </script>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-11-24 17:03:35
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-11-24 17:17:10
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="viewport-fit=cover">
+  <!-- 每次页面刷新读取数据都从服务器读取 -->
+  <meta http-equiv="Pragma" content="no-cache">
+  <!-- ios识别数字为电话号码和邮箱 -->
+  <meta name="format-detection" content="telephone=no, email=no">
+  <!-- 360浏览器极速模式 -->
+  <meta name="renderer" content="webkit">
+  <!-- uc强制竖屏 -->
+  <meta name="screen-orientation" content="portrait">
+  <!-- qq强制竖屏 -->
+  <meta name="x5-orientation" content="portrait">
+  <!--  -->
+  <title>移动兼容适配</title>
+  <style>
+    body {
+      /* 手机刘海 */
+      padding-bottom: constant(safe-area-inset-bottom);
+      padding-bottom: env(safe-area-inset-bottom);
+    }
+
+    /* ios底部头部fixed定位导致输入框收回闪屏 */
+    main {
+      position: fixed;
+      top: 50px;
+      bottom: 50px;
+      overflow: scroll;
+    }
+
+    /* ios取消input 输入英文首字母默认大写 */
+    body:active {
+      height: 200px;
+      background-color: red;
+    }
+
+    /* ios点击闪屏问题 */
+    html,
+    body {
+      -webkit-tap-highlight-color: rgba(0, 0, 0, 0); //或者 transparent
+
+    }
+
+    /* 禁止长按链接与图片弹出菜单 */
+    a,
+    img {
+      -webkit-touch-callout: none
+    }
+  </style>
+
+</head>
+
+<body ontouchstart>
+  <input type="text" autocapitalize="none">
+  <a href="tel:17815555535">call</a>
+  <a href="sms:10086"></a>
+
+</body>
+
+</html>

@@ -1,0 +1,46 @@
+@import _variable
+$test: font-size
+$colors: #482,#922,#888,#129,#290,#283
+@mixin around($w: 200px, $h: 200px)
+  height: $h
+  width: $w
+  border-radius: 50%
+  background-color: yellow
+  box-shadow: 0 0 4px #222
+body
+  >span
+    display: inline-block
+    @include around()
+  font-size: $middle-font
+  &:hover
+    background-color: #f1f1f1
+  header
+    background-color: $header-bgc
+  .wrap
+    background-color: $center-bgc
+  footer
+    background-color: $footer-bgc
+h2
+  #{$test}: 30px
+  background-color: red
+  border: 1px solid #999
+h3
+  @extend h2
+// span
+//   display: inline-block
+//   @include around()
+  // @include around(100px,100px)
+ul
+  @if 3 == 3
+  color: red
+  @for $i from 1 to 7
+    li:nth-of-type(#{$i})
+      height: $i * 10 + 10px
+  @each $c in $colors
+    $i: index($colors,$c)
+    li:nth-of-type(#{$i})
+      @if $i > 2
+        // background-color: darken($c, 20%)
+        background-color: complement($c)
+      @else
+        background-color: lighten(#000,20%)

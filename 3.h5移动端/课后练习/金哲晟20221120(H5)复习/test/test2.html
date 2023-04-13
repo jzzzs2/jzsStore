@@ -1,0 +1,110 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-11-20 11:00:44
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-11-20 12:56:25
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>jq and sass</title>
+  <link rel="stylesheet" href="../css/test.css">
+  <style>
+    .active {
+      background-color: red;
+    }
+
+    .center {
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .big-fz {
+      font-size: 30px;
+    }
+  </style>
+</head>
+
+<body>
+  <header>header</header>
+  <div class="banner"></div>
+  <div class="wrap">
+    <h2>title h2</h2>
+    <p>这就是传说中的“大触”？挡不住的创作天赋，中学生课本涂鸦大赏</p>
+    <p class="two-p">男老师只需二本学历，女老师就得是研究生？一份录用名单引发讨论</p>
+    <ul>
+      <li>title 2</li>
+      <li>title 3</li>
+      <li>title 4</li>
+      <li>title 5</li>
+    </ul>
+    <p class="third-p">jjjjjzzzzzzzzzzzzzzzzsssssssssss</p>
+    <p class="four-p">zzzzzzzzzzzjjjjjjjjjjjjjjcccccccccc</p>
+    <a href="#">link to bilibili</a>
+  </div>
+  <span>1</span>
+  <span>2</span>
+  <span>3</span>
+  <footer>footer</footer>
+  <script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.12.1/jquery.min.js"></script>
+  <script>
+    let $header = $("header");
+    let $ul = $("ul");
+    $header.css("color","red");
+    $header.css({
+      "fontSize": "30px",
+      "text-align": "center"
+    })
+    //节点操作
+    let $h3 = $(document.createElement("h3"));
+    $h3.addClass("center big-fz");
+    $h3.text("keainie");
+    // $ul.append($h3);
+    $h3.appendTo($ul);
+    let $a = $(document.createElement("a"));
+    $a.text("wo si a link")
+    $(document.body).append($a);
+    $ul.append($a);
+    //
+    // $ul.prepend($a);
+    $a.prependTo($ul);
+    let $span = $("span");
+    // $span.after($a);
+    // $span.before($a);
+    // let result = $a.insertBefore($span);
+    // console.log(result);
+    // result = $a.insertAfter($span);
+    // console.log(result);
+    let $wrap = $(".wrap");
+
+    // $wrap.wrap("<div class='content'></div>")
+    $wrap.wrap($(document.createElement("div")).addClass("content"));
+    $wrap.unwrap();
+    //
+    // $(document.body).empty();
+    $("p").remove(".four-p");
+    $("p").on("mouseover",function (e) {
+      console.log(this,e.target);
+    })
+    // $("p").remove();
+    // let $cl = $("p").clone();
+    let $cl = $("p").clone(true);
+    console.log($cl);
+    $(document.body).append($cl);
+    // let result = $("p").replaceWith($a);
+    // console.log(result);
+    // let result = $a.replaceAll($("p"));
+    // console.log(result);
+    $("h2").wrapInner("<span></span>");
+    // $("p").wrapAll("<main></main>");
+    // $("p").detach();
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,47 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-11-24 17:49:53
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-11-27 18:45:51
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>touchjs</title>
+  <!-- <script src="https://cdn.bootcdn.net/ajax/libs/touchjs/0.2.14/touch.min.js"></script> -->
+  <script src="../js/touch.min.js"></script>
+  <style>
+    .box {
+      width: 120vw;
+      height: 120vw;
+      background-color: cyan;
+    }
+  </style>
+</head>
+<body>
+  <div class="box"></div>
+  <script>
+    console.log(1);
+    let oBox = document.querySelector(".box");
+    touch.on(oBox,"swipe",function (e) {
+      console.log(e.target.style);
+      e.target.style.transform = "translate(100px,0px)";
+      console.log(e);
+    });
+
+    touch.on(oBox,"rotate",function (e) {
+      console.log(e.rotation);
+      e.target.style.transform = `rotate(${e.rotation}deg)`;
+    })
+
+    touch.on(oBox,"pinch",function (e) {
+      console.log(e,"缩放");
+    })
+  </script>
+</body>
+</html>

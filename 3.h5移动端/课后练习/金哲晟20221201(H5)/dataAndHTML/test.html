@@ -1,0 +1,77 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-11-29 17:50:09
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-12-02 16:25:07
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../css/test.css">
+  <title></title>
+  <script src="../js/zepto.min.js"></script>
+  <script src="../js/easyDate.js"></script>
+  <script src="./datePicker.js"></script>
+  <script src="../js/pulldown.js"></script>
+</head>
+
+<body>
+  <div id="container">
+    选择><input type="text">
+    <div id="app">
+
+    </div>
+  </div>
+
+  <script src="../js/template-web.js"></script>
+  <script type="text/template" id="temp">
+    <div class="wrap">
+      <div class="title">
+        <span>日</span>
+        <span>一</span>
+        <span>二</span>
+        <span>三</span>
+        <span>四</span>
+        <span>五</span>
+        <span>六</span>
+      </div>
+    </div>
+    <div class="yearAndMonth">
+      <span>{{year}}年{{month}}月</span>
+    </div>
+    <ul>
+    <li class="empty-{{empty}} empty"></li>
+    {{each days}}
+      <li class="{{if $value.disabled}}disabled{{/if}} {{if $value.selected}}selected{{/if}} {{if $value.today}}today{{/if}}" data-date='{{$value.date}}'>
+        {{if $value.today}}
+          今天
+          {{else}}
+          {{$index + 1}}
+        {{/if}}
+      </li>
+    {{/each}}
+  </ul>
+  </script>
+  <script>
+    let timeMap = {
+      y: "FullYear",
+      m: "Month",
+      d: "date"
+    }
+    // console.log(EasyDate.transDate("+1m",new Date("2022-05-01")));
+    
+    let date = new Date();
+    let pc = new DatePicker($("input"), $("#app"),date);
+    new PullDown(function () {
+      pc.flashPreMonth();
+    })
+  </script>
+</body>
+
+</html>

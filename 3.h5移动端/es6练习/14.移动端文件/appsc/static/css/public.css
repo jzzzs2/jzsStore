@@ -1,0 +1,245 @@
+@charset "utf-8";
+/*返回按钮*/
+.public_back{
+	background: #ffffff;
+	height: 40px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	border-bottom: 1px solid #ebebeb;
+}
+.public_back .back{
+	width: 40px;
+	height: 40px;
+	background: url(../images/back.jpg) no-repeat center;
+	background-size: 9px 17px;
+	cursor: pointer;
+}
+.public_back .title{
+	font-size: 15px;
+	color: #080808;
+	line-height: 20px;
+}
+.public_back .search{
+	width: 40px;
+	height: 40px;
+	background: url(../images/search.jpg) no-repeat center;
+	background-size: 18px 18px;
+	cursor: pointer;
+}
+/*返回按钮*/
+/*无返回按钮*/
+.public_noback{
+	background: #ffffff;
+	height: 40px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-bottom: 1px solid #ebebeb;
+	position: relative;
+}
+.public_noback .title{
+	font-size: 15px;
+	color: #080808;
+	line-height: 20px;
+}
+.public_noback .del{
+	width: 40px;
+	height: 40px;
+	background: url(../images/del.jpg) no-repeat center;
+	background-size: 17px 17px;
+	cursor: pointer;
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+.public_noback .back{
+	width: 40px;
+	height: 40px;
+	background: url(../images/back.jpg) no-repeat center;
+	background-size: 9px 17px;
+	cursor: pointer;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+/*无返回按钮*/
+.blank_5{
+	width: 100%;
+	height: 5px;
+	background: #f4f4f4;
+}
+.blank_10{
+	width: 100%;
+	height: 10px;
+	background: #f4f4f4;
+}
+/*弹出层*/
+.public_mask{
+	display: none;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	z-index: 20;
+	background: rgba(0,0,0,.65);
+}
+.public_tan{
+	display: none;
+	position: fixed;
+	width: 230px;
+	z-index: 25;
+	top: 45%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	-ms-transform: translate(-50%,-50%);
+	-o-transform: translate(-50%,-50%);
+	-moz-transform: translate(-50%,-50%);
+	-webkit-transform: translate(-50%,-50%);
+	background: #ffffff;
+}
+.public_tan .content{
+	height: 70px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-bottom: 1px solid #cccccc;
+}
+.public_tan .content p{
+	font-size: 14px;
+	color: #000000;
+}
+.public_tan .caozuo{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.public_tan .caozuo a{
+	flex: 1;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 35px;
+	font-size: 14px;
+	color: #000000;
+}
+.public_tan .caozuo a:nth-child(2){
+	background: #fb1cab;
+	color: #ffffff;
+}
+/*弹出层*/
+
+/*弹出层上弹*/
+.public_up{
+	position: fixed;
+	width: 100%;
+	height: 380px;
+	left: 0;
+	bottom: -380px;
+	background: #ffffff;
+	z-index: 25;
+}
+.public_up .public_top{
+	height: 45px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-bottom: 1px solid #cccccc;
+	position: relative;
+	padding: 0 15px;
+}
+.public_up .public_top .public_title{
+	font-size: 16px;
+	color: #000000;
+	font-weight: bold;
+}
+.public_up .public_top .public_close{
+	position: absolute;
+	top: 10px;
+	right: 15px;
+	width: 25px;
+	height: 25px;
+	background: url(../images/close.jpg) no-repeat center;
+	background-size: 25px;
+}
+.public_up .public_main{
+	height: 295px;
+	overflow-y: scroll;
+}
+.public_up .public_button{
+	font-size: 0;
+}
+.public_up .public_button button{
+	width: 100%;
+	height: 40px;
+	background: #fb1cab;
+	border: none;
+	font-size: 15px;
+	color: #ffffff;
+	outline: none;
+}
+/*弹出层上弹*/
+
+
+/*底部tabbar部分*/
+.tabbar{
+	height: 51px;
+}
+.tabbar ul{
+	display: flex;
+	align-items: center;
+	position: fixed;
+	width: 100%;
+	left: 0;
+	bottom: 0;
+	z-index: 15;
+	border-top: 1px solid #f0f0f0;	
+	background: #ffffff;
+}
+.tabbar ul li{
+	flex: 1;
+}
+.tabbar ul a{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	height: 50px;
+}
+.tabbar ul p{
+	width: 25px;
+	height: 25px;
+	overflow: hidden;
+	position: relative;
+}
+.tabbar ul img{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+}
+.tabbar ul img.default{
+	z-index: 10;
+}
+.tabbar ul img.on{
+	z-index: 0;
+	opacity: 0;
+}
+.tabbar ul span{
+	font-size: 12px;
+	color: #7f8699;
+	line-height: 15px;
+	margin-top: 3px;
+}
+.tabbar ul a.active img.default{
+	z-index: 0;
+	opacity: 0;
+}
+.tabbar ul a.active img.on{
+	z-index: 10;
+	opacity: 1;
+}
+.tabbar ul a.active span{
+	color: #a04cff;
+}
+/*底部tabbar部分*/

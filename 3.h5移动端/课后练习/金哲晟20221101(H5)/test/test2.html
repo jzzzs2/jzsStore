@@ -1,0 +1,120 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-11-01 16:57:54
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-11-01 17:36:38
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>常用H5 结构语义化标签 兼容处理</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    .header {
+      height: 80px;
+      font-size: 30px;
+      color: #fff;
+      line-height: 80px;
+      background-color: #268;
+      text-align: center;
+    }
+
+    .main {
+      width: 1100px;
+      margin: 0 auto;
+      background-color: purple;
+    }
+
+    .nav ul{
+      display: flex;
+      justify-content: space-around;
+    }
+    
+    .wrap {
+      display: flex;
+      justify-content: space-between;
+      width: 1100px;
+      margin: 0 auto;
+      background-color: #999;
+    }
+
+    .slider-bar {
+      width: 200px;
+      height: 400px;
+      background-color: pink;
+    }
+
+    .aside {
+      width: 900px;
+      height: 400px;
+      background-color: skyblue;
+    }
+
+    .footer {
+      height: 80px;
+      line-height: 80px;
+      font-size: 30px;
+      color: #fff;
+      background-color: green;
+      text-align: center;
+    }
+
+    figure {
+      text-align: center;
+    }
+    
+    img {
+      width: 200px;
+      height: 300px;
+    }
+
+    h3 {
+      text-align: center;
+    }
+
+    p {
+      text-align: center;
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+  <header class="header">header</header>
+  <main class="main">
+    <nav class="nav">
+      <ul>
+        <li>生活</li>
+        <li>游戏</li>
+        <li>学习</li>
+        <li>健身</li>
+      </ul>
+    </nav>
+    <section class="wrap">
+      <article class="slider-bar">slider-bar</article>
+      <aside class="aside">
+        <figure>
+          <img src="./images/gblj2.png" alt="gblj" width="576" height="960">
+          <h3>好看的纸片人</h3>
+          <details>
+            <p>这是一个纸片人 可爱捏</p>
+            <progress></progress>
+          </details>
+        </figure>
+      </aside>
+    </section>
+  </main>
+  <footer class="footer">footer</footer>
+</body>
+</html>

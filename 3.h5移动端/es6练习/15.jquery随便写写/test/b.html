@@ -1,0 +1,91 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2023-02-28 19:22:48
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2023-02-28 19:26:36
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <!DOCTYPE html>
+  <html>
+
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+
+  <body>
+
+    省:<select id="pro"></select>
+    市:<select id="city"></select>
+    <script type="text/javascript">
+      var province = ["请选择", "北京", "河北", "山西", "河南", "黑龙江", "吉林", "辽宁", "湖北", "内蒙", "宁夏"];
+      var cityArr = [
+        ["请选择"],
+        ["海淀区", "朝阳区", "东城区", "西城区", "大兴区", "顺义区", "昌平区"],
+        ["石家庄", "保定", "邯郸", "廊坊", "唐山", "承德", "邢台"],
+        ["太原", "晋城", "运城", "大同", "临汾", "平遥", "忻州"],
+        ["郑州", "洛阳", "安阳", "信阳", "新乡", "南阳", "开封", "驻马店", "焦作", "商丘", "周口", "平顶山", "三门峡", "漯河", "鹤壁", "濮阳"],
+        ["哈尔滨", "牡丹江", "鹤岗", "绥化", "齐齐哈尔", "鸡西"],
+        ["长春", "四平", "白城", "洮南"],
+        ["鞍山", "大连", "沈阳", "丹东", "盘锦", "葫芦岛"],
+        ["武汉", "襄阳", "荆州"],
+        ["包头", "呼和浩特", "乌兰浩特", "呼伦贝尔"],
+        ["银川", "中卫", "吴忠", "固原"]
+      ]
+
+      var pro = document.querySelector("#pro");
+      var city = document.querySelector("#city");
+
+      // 省份渲染
+      proShow();
+      // 城市渲染
+      cityShow(0);
+
+      // 联动
+      pro.onchange = function () {
+        console.log(this.value,this);
+        cityShow(this.value);
+      }
+
+      // 省份渲染
+      function proShow() {
+        var str = "";
+        for (var i = 0; i < province.length; i++) {
+          str += `
+						<option value="${i}">${province[i]}</option>
+					`;
+        }
+        pro.innerHTML = str;
+      }
+
+      // 城市渲染
+      function cityShow(index) {
+        var str = "";
+        for (var i = 0; i < cityArr[index].length; i++) {
+          str += `
+						<option value="${i}">${cityArr[index][i]}</option>
+					`;
+        }
+        city.innerHTML = str;
+      }
+
+
+    </script>
+  </body>
+
+  </html>
+</body>
+
+</html>

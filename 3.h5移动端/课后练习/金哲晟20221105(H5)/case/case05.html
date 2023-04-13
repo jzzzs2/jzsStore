@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>storage应用</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      height: 100vh;
+      padding: 100px;
+    }
+
+    .commit-box {
+      width: 400px;
+      height: 280px;
+
+      padding: 10px;
+      box-shadow: 0 0 4px #222;
+
+    }
+  </style>
+</head>
+
+<body>
+  <h3>留言</h3>
+  <div class="commit-box" contenteditable></div>
+
+  <script src="js/Storage.js"></script>
+
+  <script>
+    const commitBox = document.querySelector('.commit-box');
+    const storage = new Storage('local');
+
+
+
+    /* 
+    
+      防止用户留言 在意外情况下关闭页面导致的内容丢失
+
+
+    
+    
+    */
+    window.addEventListener('visibilitychange', function (e) {
+
+      if (document.hidden) {
+        storage.setStorage('commit', commitBox.innerText);
+      }
+
+
+    }, false)
+
+    window.onload = function () {
+      let commit = storage.getStorage('commit')
+
+      if (commit.trim().length === 0) {
+        return false;
+      }
+
+      commitBox.innerText = commit;
+
+    }
+
+  </script>
+</body>
+
+</html>

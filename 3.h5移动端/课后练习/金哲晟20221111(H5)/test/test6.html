@@ -1,0 +1,65 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-11-11 19:45:23
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-11-11 20:54:27
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>norification</title>
+</head>
+
+<body>
+  <button class="btn">请求权限</button>
+  <button class="remind">提醒我</button>
+  <script>
+    function fb(idx) {
+      if (idx === 0) {
+        return 0;
+      }
+      if (idx === 2 || idx === 1) {
+        return 1;
+      }
+      return fb(idx - 1) + fb(idx - 2) + fb(idx - 3);
+    }
+    console.log(fb(6));
+    // let notf = new Notification("jzs的通知",{
+    //   body: "您追的番更新了",
+    //   icon: "./test.jpg",
+    // })
+    document.querySelector(".btn").onclick = function (e) {
+      Notification.requestPermission();
+    }
+    document.querySelector(".remind").onclick = function (e) {
+      let notf = new Notification("jzs的通知", {
+        lang: "zh-CN",
+        body: "您追的番更新了",
+        icon: "./test.jpg", //图标
+        dir: "auto" //
+      })
+      notf.onshow = function (e) {
+        console.log("show 通知显示时");
+      }
+      notf.onclick = function (e) {
+        console.log("click 点击通知");
+      }
+      notf.onclose = function (e) {
+        console.log("close 关闭通知");
+      }
+      notf.onerror = function (e) {
+        console.log("error 报错了捏");
+      }
+
+    }
+
+  </script>
+</body>
+
+</html>

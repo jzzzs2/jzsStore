@@ -1,0 +1,70 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-11-13 10:48:30
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-11-13 11:15:21
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>video</title>
+</head>
+
+<body>
+  <!-- <video src="./images/mp4.mp4" controls muted autoplay></video> -->
+  <video src="./images/mp4.mp4" controls poster="./images/nut.jpg" autoplay loop></video>
+  <button>jump to 80s</button>
+  <button class="go">play</button>
+  <button class="stop">pause</button>
+  <button class="replay">load</button>
+  <button class="acc">acc</button>
+  <script>
+    let video = document.querySelector("video");
+    video.oncanplay = function (e) {
+      console.log("我能播放了");
+      console.log(video.readyState, "视频状态");
+      console.log(video.duration, "视频总时间");
+      console.log(video.volume, "视频音量");
+      console.log(video.paused, "视频是否暂停");
+    }
+    video.ontimeupdate = function (e) {
+      console.log(e, "时间在流逝", this.currentTime, e.timeStamp);
+    }
+    video.onpause = function (e) {
+      console.log("视频暂停了");
+    }
+    video.onplay = function (e) {
+      console.log("视频开始播放了");
+    }
+    video.onprogress = function (e) {
+      console.log(e,"progress");
+    }
+    document.querySelector("button").onclick = function (e) {
+      video.currentTime = 80;
+    }
+    let go = document.querySelector(".go");
+    let stop = document.querySelector(".stop");
+    let replay = document.querySelector(".replay");
+    let acc = document.querySelector(".acc")
+    go.onclick = function (e) {
+      video.play();
+    }
+    stop.onclick = function (e) {
+      video.pause();
+    }
+    replay.onclick = function (e) {
+      video.load();
+    }
+    acc.onclick = function (e) {
+      video.playbackRate = 3;
+    }
+  </script>
+</body>
+
+</html>

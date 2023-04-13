@@ -1,0 +1,191 @@
+$design-width : 750
+$font-size : 75
+@function getSize ($num)
+ @return $num / $design-width * 100vw
+@mixin flex-set ($direction : row,$wrap : nowrap)
+  display: flex
+  flex-direction: $direction
+  flex-wrap: $wrap
+  align-items: center
+*
+  margin: 0
+  padding: 0
+a
+  text-decoration: none
+.jd-wrap
+  position: absolute
+  left: 0
+  top: 0
+  width: 100%
+  overflow: hidden
+.jd-header-title
+  position: fixed
+  top: 0
+  left: 0
+  z-index: 999
+  display: flex
+  justify-content: space-between
+  align-items: center
+  width: 100vw
+  height: getSize(100)
+  background-color: rgba(122,0,0,0.3)
+  span
+    color: #fff
+    font-size: 14px
+    margin-right: 4px
+  h1
+    font-size: 0
+    span
+      display: inline-block;
+      width: 60px;
+      height: 30px;
+      background-image: url(../image/sprites.png);
+      background-position: 4px -304px;
+      background-size: 200px 200px;
+.jd-header-title_search
+  @include flex-set()
+  justify-content: flex-start
+  width: getSize(524)
+  height: getSize(64)
+  border-radius: 18px 18px
+  background-color: #fff
+  font-size: 14px
+  span
+    display: inline-block
+    width: 20px
+    height: 20px
+    margin-left: 6px
+    background-image: url(../image/sprites.png)
+    background-position: -59px -110px
+    background-size: 200px 200px
+  input
+    border: none
+    outline: none
+.jd-header-banner
+  width: 100vw
+  img
+    width: 100%
+.jd-header-nav
+  box-sizing: border-box
+  width: 100vw
+  height: getSize(304)
+  &::after
+    content: ""
+    background-color: #E7E7EB
+    width: 100%
+    height: 1px
+    transform: scaleY(.5) translateY(10px)
+  @include flex-set(row,wrap)
+  justify-content: space-between
+  // padding: getSize(24) getSize(40)
+  font-size: 14px
+  img
+    width: getSize(84)
+    height: getSize(84)
+    padding-bottom: getSize(16)
+.jd-header-nav_item
+  width: 25%
+  @include flex-set(column)
+
+.jd-content
+  box-sizing: border-box
+  padding-top: getSize(20)
+  background-color: #E8E8ED
+.jd-content-seckill
+  box-sizing: border-box
+  width: 96vw
+  margin: 0 auto
+  border: 1px solid #E4E4E8
+  background-color: #fff
+.jd-content-seckill_more
+  box-sizing: border-box
+  padding: 0 getSize(12)
+  @include flex-set()
+  justify-content: space-between
+  height: getSize(68)
+  img
+    width: getSize(32)
+    height: getSize(40)
+  span
+    font-size: 14px
+  >div
+    @include flex-set()
+    justify-content: flex-start
+    span.num
+      width: getSize(32)
+      height: getSize(48)
+      line-height: getSize(48)
+      margin-right: getSize(6)
+      text-align: center
+      color: #fff
+      background-color: #000
+.jd-content-seckill_product
+  @include flex-set()
+  justify-content: space-between
+  padding-bottom: getSize(22)
+  >div
+    box-sizing: border-box
+    @include flex-set()
+    width: 33%
+    padding: 0 getSize(40)
+    margin-top: getSize(20)
+    a
+      font-family: -apple-system, Helvetica, sans-serif;
+      font-size: 14px
+      @include flex-set(column)
+      p
+        line-height: 1.5;
+      
+.jd-content-seckill_product img
+  width: getSize(156)
+  height: auto
+
+.jd-content-sell
+  box-sizing: border-box
+  width: 96vw
+  margin: getSize(20) auto
+  margin-bottom: 0
+  border: 1px solid #E4E4E8
+  background-color: #fff
+.jd-content-sell_title
+  box-sizing: border-box
+  height: getSize(64)
+  line-height: getSize(64)
+  padding: 0 getSize(20)
+  color: #666
+  span::before
+    content: ""
+    display: inline-block
+    width: getSize(8)
+    height: getSize(32)
+    background-color: #d8505c
+    margin-right: getSize(18)
+    transform: translateY(2px)
+.jd-content-sell_product
+  @include flex-set()
+  a
+    width: 50%
+  >div
+    @include flex-set(column)
+    width: 50%
+    a
+      width: 100%
+  img
+    width: 100%
+    height: auto
+.red
+  color: #d8505c
+  padding: 0 getSize(22)
+.col
+  text-align: center
+  padding-right: getSize(8)
+.c222
+  color: #222
+.bl
+  border-left: 1px solid #ccc
+.bt
+  border-top: 1px solid #ccc
+.bb
+  border-bottom: 1px solid #ccc
+.br
+  border-right: 1px solid #ccc

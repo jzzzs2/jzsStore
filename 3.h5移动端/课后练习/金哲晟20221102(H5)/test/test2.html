@@ -1,0 +1,107 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-11-02 18:50:50
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-11-02 21:12:08
+-->
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>H5标签全局属性</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    section {
+      width: 400px;
+      height: 300px;
+      border: 1px solid #999;
+      outline: none;
+    }
+
+    input {
+      outline: none;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    li::after {
+      content: attr(data-hot);
+      color: cyan;
+    }
+
+    .wrap {
+      width: 200px;
+      height: 100px;
+      background-color: red;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- <section title="我是描述文本" id="" class="content" contentEditable hidden>
+    我是一个可以编辑的section
+  </section> -->
+  <section title="我是描述文本" id="" class="content" contenteditable hidden>
+    我是一个可以编辑的section
+  </section>
+  <input type="text" placeholder="请输入4-8位数字捏" data-valid = "^\d{4,8}$" data-test="xixi">
+  <ul></ul>
+  <div class="wrap" draggable="true" dropzone>
+    
+  </div>
+  <div class="wrap">
+    
+  </div>
+  <script>
+    let hotNews = [{
+      content: "海牙老师今天长胖了.5克",
+      hot: 1777
+    },
+    {
+      content: "某国大豆出口额降低33%",
+      hot: 1293
+    },
+    {
+      content: "掘金胜快船 104:89",
+      hot: 1023
+    },
+    {
+      content: "外交部回应菅义伟当选日本首相",
+      hot: 8722
+    }
+    ];
+    let input = document.querySelector("input");
+    let oUl = document.querySelector("ul");
+    input.onkeypress = function (e) {
+      console.log(this.dataset);
+      let reg = new RegExp(this.dataset.valid);
+      console.log(reg.test(this.value),"校验结果");
+      if (reg.test(this.value)) {
+        this.style.border = "2px solid green";
+      } else {
+        this.style.border = "2px solid red";
+      }
+    }
+    for (let i = 0; i < hotNews.length; i++) {
+      let li = document.createElement("li");
+      console.log(hotNews[i].content);
+      li.innerText = hotNews[i].content;
+      li.dataset.hot = hotNews[i].hot;
+      console.log(li.dataset instanceof Array);
+      console.log(li.dataset instanceof Object);
+      oUl.appendChild(li);
+    }
+  </script>
+</body>
+
+</html>

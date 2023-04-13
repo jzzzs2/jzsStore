@@ -1,0 +1,97 @@
+*
+  margin: 0
+  padding: 0
+#container
+  position: relative
+  width: 100vw
+  height: 100vh
+  overflow: hidden
+  overflow-y: auto
+  // background-color: #ccc
+  input
+    width: 200px
+    outline: none
+    border: 1px solid cyan
+    box-shadow: 1px solid #ccc
+#app
+  position: absolute
+  top: 0
+  left: 0
+  transform: translateX(100vw) translateZ(0)
+  transition: .5s
+  background-color: #fff
+.wrap
+  width: 100vw
+  height: 52px
+.title
+  position: fixed
+  top: 0
+  left: 0
+  width: 100vw
+  display: flex
+  justify-content: space-between
+  background-color: #ccc
+  span
+    line-height: 3.25
+    text-align: center
+    flex-grow: 2
+li.disabled
+  color: #ccc!important
+ul
+  width: 100vw
+  display: flex
+  justify-content: flex-start
+  flex-wrap: wrap
+  list-style: none
+  li:not(.empty)
+    box-sizing: border-box
+    padding: 10px 10px
+  li:not(.empty)
+    width: 14.28vw
+    color: #222
+    text-align: center
+    line-height: 2
+@for $i from 0 to 7
+  $sat: 7 - $i
+  $sun: 8 - $i
+  .empty-#{$i}
+    width: 14.28 * $i * 1vw
+    @for $idx from 0 to 5
+      $result: $idx * 7 + $sat + 1
+      $two-result: $idx * 7 + $sun + 1
+      &~li:nth-of-type(#{$result})
+        // background-color: cyan
+        color: gold
+      &~li:nth-of-type(#{$two-result})
+        // background-color: cyan
+        color: gold
+.selected
+  background-color: orange
+  border-radius: #orange 
+body #app ul .today
+  border-radius: 50%
+  background-color: rgba(200,0,0,.5)
+  color: cyan
+body ul .disabled
+  color: #ccc !important
+.yearAndMonth
+  display: flex
+  justify-content: center
+  align-items: center
+  padding: 20px 0
+  span
+    letter-spacing: 0
+  &::before
+    content: ""
+    height: 1px
+    width: 60px
+    margin-right: 6px
+    transform: translateY(.5)
+    background-color: #dedede
+  &::after
+    content: ""
+    height: 1px
+    width: 60px
+    margin-left: 6px
+    transform: translateY(.5)
+    background-color: #dedede

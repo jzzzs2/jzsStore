@@ -1,0 +1,62 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-12-04 11:16:35
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-12-04 11:44:44
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>箭头函数</title>
+</head>
+<body>
+  <script>
+    //函数name属性
+    let a = function () {
+      console.log("a");
+    }
+    let b = function eat () {
+      console.log("keainie");
+      // keainie
+    }
+    // console.log((function (){}).name);
+    // console.log(a.name);
+    // console.log(b.name);
+    // console.log((function food () {}).name);
+    //
+    // let c = () => (a=2,console.log(a));
+    // c = (a,b) => (a+b)
+    // console.log(c(2,3));
+    // c = num => num + 2;
+    // console.log(c(2));
+    // c()
+    // let d = () => {
+    //   return {a: 2, b: 1}
+    // }
+    // let d = () => ({a: 2, b: 1})
+    // console.log(d());
+    // console.log("this指向问题");
+    // function foo () {
+    //   setTimeout(() => {
+    //     console.log(this.name);
+    //   }, 1000);
+    // }
+    // foo.call({name:"jzs"});
+    var name = "dahua";
+    // let name = "dahua";
+    let cat = {
+      name: "jzs",
+      eat: () => {
+        return this.name
+      }
+    }
+    console.log(cat.eat());
+    console.log(b.toString());
+  </script>
+</body>
+</html>

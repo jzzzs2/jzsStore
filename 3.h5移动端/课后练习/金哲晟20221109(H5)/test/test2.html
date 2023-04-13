@@ -1,0 +1,83 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-11-09 18:16:43
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-11-09 20:40:29
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>canvas 画布</title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+    }
+
+    html,
+    body {
+      height: 100%;
+    }
+
+    canvas {
+      background-color: #222;
+    }
+  </style>
+</head>
+
+<body>
+  <canvas></canvas>
+</body>
+<script>
+  let canvas = document.querySelector("canvas");
+  let context = canvas.getContext("2d");
+  let img = document.createElement("img");
+  // img.src = "https://c-ssl.duitang.com/uploads/blog/202105/16/20210516091312_2e8c8.thumb.400_0.jpg";
+  img.src = "miku.jpg";
+  //渐变 createLinearGradient  addColorStop(0,xx) (1,xx)
+  // let gradient = context.createLinearGradient(100,100,200,200);
+  // let gradient = context.createLinearGradient(300,0,400,0);
+  // let gradient = context.createLinearGradient(0, 50,  0, 200)
+  //createPattern()
+  let gradient = context.createLinearGradient(100,100,1000,1000);
+  gradient.addColorStop(0, "cyan");
+  gradient.addColorStop(1, "yellow");
+  //模式 createPattern(img,param) repeat no-repeat repeat-x repeat-y
+  
+  img.onload = function (e) {
+    let pattern = context.createPattern(img, "repeat");
+    // context.drawImage(img, 200, 200);
+    // context.fillStyle = "cyan";
+    // context.fillStyle = gradient;
+    // context.fillStyle = pattern;
+    // context.lineWidth = 3;
+    // context.strokeStyle = "red";
+    // // context.strokeRect(500, 500, 200, 200); //不填充
+    // context.fillRect(500,500,200,200);
+    // context.rect(0,0,200,200); //未填充
+    // // context.fillRect(300,300,400,200); //已填充
+    // context.rect(300,300,100,100);//未填充
+    // context.stroke();
+    // context.fill();
+    // context.drawImage(img,35,48,195,218,200,200,160,170);
+    // context.drawImage(img,100,100,200,355);
+    context.drawImage(img,0,0,400,355,100,100,100,98);
+    // context.drawImage(img,)
+  }
+  //画矩形三件套 strokeRect fillRect rect
+  changeView();
+  window.onresize = changeView;
+  function changeView() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  }
+  
+</script>
+
+</html>

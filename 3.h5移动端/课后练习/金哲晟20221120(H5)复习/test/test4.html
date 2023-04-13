@@ -1,0 +1,94 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-11-20 11:00:44
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-11-20 16:11:25
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>jq 样式事件</title>
+  <link rel="stylesheet" href="../css/test2.css">
+  <style>
+    .active {
+      background-color: red;
+    }
+
+    .center {
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .big-fz {
+      font-size: 30px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <ul>
+      <li>1</li>
+      <li>2</li>
+      <li>3</li>
+      <li>4</li>
+      <li>5</li>
+      <li>6</li>
+    </ul>
+    <p>p1</p>
+    <p>p2</p>
+    <p>p3</p>
+    <input type="button" value="fix" class="one-btn">
+    <input type="button" value="off" class="two-btn">
+    <input type="button" value="fix one" class="three-btn">
+  </div>
+  <script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.12.1/jquery.min.js"></script>
+  <script>
+    //样式 事件
+    let $ul = $("ul");
+    let $li = $("li");
+    let $p = $("p");
+    // $p.css("backgroundColor","skyblue");
+    $p.css({
+      "backgroundColor": "skyblue",
+      "fontSize": "20px"
+    })
+    console.log($ul.offset().left);
+    console.log($ul.offset().top);
+    console.log($ul.position());
+    $(document).scrollTop(100);
+    console.log($(".wrap").width(),$(".wrap").height());
+    console.log($(".wrap").innerWidth(),$(".wrap").innerHeight());
+    console.log($(".wrap").outerWidth(),$(".wrap").outerHeight());
+    console.log($(".wrap").outerWidth(true),$(".wrap").outerHeight(true));
+    // $("p").click(function (e) {
+    //   console.log(111,e,this);
+    // })
+    $(".one-btn").on("click",function () {
+      $(".wrap").on("click","p",function (e) {
+        console.log(111);
+      })
+    })
+    $(".two-btn").on("click",function () {
+      $(".wrap").off("click");
+    })
+    $(".three-btn").on("click",function () {
+      $(".wrap").one("click","p",function () {
+        console.log(111);
+      })
+    })
+    $(".wrap").hover(function (e) {
+      console.log("over",this,e);
+    },function (e) {
+      console.log("out",this,e);
+    })
+  </script>
+</body>
+
+</html>
