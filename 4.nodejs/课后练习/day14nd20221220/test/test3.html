@@ -1,0 +1,70 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-12-20 16:51:58
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-12-20 19:08:13
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ajax req json server send FileStream</title>
+</head>
+
+<body>
+  <a href="">download img</a>
+  <img src="" alt="">
+  <script>
+    let oImg = document.querySelector("img")
+    let oA = document.querySelector("a")
+    let xhr = new XMLHttpRequest()
+    xhr.responseType = "blob"
+    xhr.open("POST", "http://127.0.0.1:3001/file", true)
+    let obj = {
+      fileName: "99.png"
+    }
+    xhr.setRequestHeader("Content-Type", "application/json;charset=utf8")
+    xhr.send(JSON.stringify(obj))
+    xhr.onreadystatechange = function (res) {
+      //处理流
+      console.log(res);
+      if (xhr.readyState === 4) {
+        console.log(xhr.response);
+        let src = URL.createObjectURL(xhr.response)
+        console.log(src);
+        oImg.src = src
+        oA.href = src
+      }
+    }
+
+    //
+    function isJson(data) {
+      try {
+        JSON.parse(data)
+        return true
+      } catch (error) {
+        console.log("fail");
+        return false
+      }
+    }
+    function mapContentType(type) {
+      let map = {
+        "application/json": "json",
+        "multipart/form-data": "file",
+        "application/x-www-form-urlencoded": "form",
+        "text/plain;charset=utf8": "text"
+      }
+      return map[cut(type)]
+    }
+    function cut(str) {
+      return str.split(";")[0]
+    }
+  </script>
+</body>
+
+</html>

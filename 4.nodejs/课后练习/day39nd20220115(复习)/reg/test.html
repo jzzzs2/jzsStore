@@ -1,0 +1,69 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2023-01-15 12:56:08
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2023-01-15 15:06:57
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>title</title>
+</head>
+<body>
+  <script>
+    console.log(/\\/.test("\\"));
+    console.log(/\\\\\\\\/.test("\\\\\\"));
+    console.log(/[*+.]/.test("+"));
+    console.log(/[*+.]/.test("*"));
+    console.log(/[*+.]/.test("."));
+    console.log(/^\d+$/.test("3232a"));
+    console.log(/^\d+$/.test("323223232"));
+    console.log(/\d*/.test("")); //{0,}
+    console.log(/\d+/.test("a2")); //{1,}
+    console.log(/\d?/.test("")); //{0,1}
+    console.log(/\d{5}/.test(3434));
+    console.log(/\d{5}/.test(343423));
+    console.log(/\d{5}/.test(3423));
+    console.log(/\d{2,}/.test(343423));
+    console.log(/\d{2,5}/.test(4));
+    //? 贪婪
+    console.log("2323232".match(/\d+?/));
+    console.log("2323232".match(/\d+/));
+    console.log("2323232232".match(/\d{5,}?/));
+    console.log("2323232232".match(/\d{5,}/));
+    //
+    console.log("abABc123456".match(/([a-zA-Z]+)(\d+)/));
+    console.log("abABc123456".replace(/([a-zA-Z]+)(\d+)/,"$1abc"))
+    //正向预查 在符合pattern情况下 从该匹配项开始匹配查找字符串
+    //用户名 不能是存字母或者数字
+    console.log(/(?![a-zA-Z]+)(?!\d+)[\d|a-z|A-Z]+/.test("43abc24"));
+    console.log(/(?<![a-zA-Z]+)(?<!\d+)[\d|a-z|A-Z]+/.test("43abc24"));
+    console.log(("432224").match(/(?<![a-zA-Z]+)(?<!\d+)[\d|a-z|A-Z]+/));
+    
+    // console.log("43abc24".match(/(?![a-zA-Z]+)(?!\d+)[a-z|A-Z]+/));
+    // console.log("43abc24".match(/^(?![a-zA-Z]+$)(?!\d+$)[a-z|A-Z|0-9]+/));
+    // console.log("43abc24".match(/(?![a-zA-Z]+)(?!\d+)\w+/));
+    // console.log("43abc24".match(/(?<![a-zA-Z]+)(?<!\d+)\w+/));
+    // console.log("43abc24".match(/^(?![a-zA-Z]+$)(?!\d+$)\w+/));
+    // console.log(("aaasdsds").match(/(?<![a-z|A-Z]+)(?<!\d+)[\d|a-z|A-Z]+/));
+    // console.log(("aaasdsds").match(/(?<![a-z|A-Z]+)(?<!\d+)[\d|a-z|A-Z]+/));
+    // console.log(("aaasdsds3434343").match(/(?<![a-z]+)(?<!\d+)[\d]+/));
+    // console.log("45asDS343".match(/(?<!\d+)[a-z|A-Z]+/));
+    // console.log("45asDS343".match(/(?<!\d+)\w+/));
+    // console.log(/^[\d]+$/.test("432432424"));
+    // console.log(/^[0-9]+$/.test("432432424aa"));
+    // console.log(/[\da-zA-Z]+/.test("fda34a"));
+    // console.log("2803290705@qq.com".match(/(?=\d+@\w+\.com)\d+/));
+    // console.log("17815555535@qq.com".match(/(?=\d+@\w+\.com)\d+/));
+    // console.log("17815555535qq.com".match(/(?=\d+@\w+\.com)\d+/));
+    console.log("343434343".match(/(?<![a-z|A-Z]+)(?<!\d+)[a-z|A-Z|\d]+/));
+    console.log("@343434343@@".match(/(?<![@]+)[a-z|A-Z|\d]+(?![@]+)/));
+    console.log("4343fas343FSDF34".match(/(?<!\d)\w+(?!\d)/));
+  </script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2023-01-06 17:10:17
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2023-01-06 20:17:38
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>title</title>
+</head>
+
+<body>
+  <script src="./node_modules/axios/dist/axios.min.js"></script>
+  <script>
+    //当本地localStorage存在 token时, 直接使用. 不存在token时,发送获取token请求,并且返回token. 然后请求图片..
+    async function getToken() {
+      let token = localStorage.getItem("token")
+      if (!token) {
+        //从服务器获取token
+        try {
+          let result = await axios.post("http://127.0.0.1:3000/getToken", {
+            username: "jzs",
+            pwd: "abc123"
+          },{
+            withCredentials: true
+          })
+          // console.log(result.data);
+          localStorage.setItem("token",result.data.data)
+          return result.data.data
+        } catch (error) {
+          console.log(error);
+        }
+      }
+      return token
+    }
+    getToken().then(async res => {
+      console.log(res);
+      let result = await axios.post("http://127.0.0.1:3000/getAvatar",{},{
+        headers: {
+          "Authorization": `Bearer ${res}`
+        }
+      })
+      console.log(result);
+    })
+  </script>
+</body>
+
+</html>

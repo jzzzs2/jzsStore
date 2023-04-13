@@ -1,0 +1,32 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2023-01-04 20:13:50
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2023-01-04 20:25:59
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>js实现 handlebars</title>
+</head>
+<body>
+  <script src="./handlebars-v4.7.7.js"></script>
+  <script src="./template.hbs.js"></script>
+  <script>
+    let template = Handlebars.templates.template
+    // let str = template({
+    //   name: "jzs",
+    //   age: 22
+    // })
+    let str = template({
+      doesWhat: 'rocks!fdasfsafs'
+    })
+    document.body.append(str)
+  </script>
+</body>
+</html>

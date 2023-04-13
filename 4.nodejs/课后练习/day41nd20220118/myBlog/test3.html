@@ -1,0 +1,73 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2023-01-16 19:20:45
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2023-01-16 23:22:15
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>拦截器 axios实例使用</title>
+  <script src="./node_modules/axios/dist/axios.min.js"></script>
+  <style>
+    .box {
+      width: 300px;
+      height: 300px;
+      background-color: red;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box"></div>
+  <script>
+    axios.defaults.baseURL = 'http://127.0.0.1:3000';
+    // 添加请求拦截器
+
+    document.querySelector(".box").addEventListener("click", function () {
+      const instance = axios.create({
+        timeout: 2000
+      });
+      instance.interceptors.request.use(function (config) {
+        // 在发送请求之前做些什么
+        console.log(config, "config");
+        config.headers.Authorization = "haonnie"
+        return config;
+      }, function (error) {
+        // 对请求错误做些什么
+        return Promise.reject(error);
+      });
+
+      // 添加响应拦截器
+      instance.interceptors.response.use(function (response) {
+        // 对响应数据做点什么
+        console.log(response, "response");
+        // response = response.data
+        // let resObj = {
+        //   data: response.data,
+        //   status: response.status
+        // }
+        // response = response.data
+        return response.data;
+      }, function (error) {
+        // 对响应错误做点什么
+        return Promise.reject(error);
+      });
+      instance.post("/login", {
+        "name": "jh",
+        "password": "O6qvk6yNZ042ODVqJMq95KCqju9+DRx1hAnU2nCyr8XYdZ1e7ZNm3/1Jq6vHYHvdFD8AVXbAdsP92QobfuHlCA=="
+      }).then(function (res) {
+        console.log(res, "res");
+      })
+    })
+
+  </script>
+</body>
+
+</html>

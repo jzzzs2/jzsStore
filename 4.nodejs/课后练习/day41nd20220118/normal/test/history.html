@@ -1,0 +1,50 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2023-01-18 18:04:53
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2023-01-18 22:01:24
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>History</title>
+</head>
+<body>
+  <a href="./a.html">a</a>
+  <a href="./b.html">b</a>
+  <span class="pre">prev</span>
+  <span class="next">next</span>
+  <span class="count">jump to  6</span>
+  <span class="show">show</span>
+  <span class="add">add</span>
+  <script>
+    document.querySelector(".pre").addEventListener("click",function (e) {
+      history.back()
+    })
+    document.querySelector(".next").addEventListener("click",function (e) {
+      history.forward()
+    })
+    document.querySelector(".count").addEventListener("click",function (e) {
+      history.go(1)
+    })
+    document.querySelector(".show").addEventListener("click",function (e) {
+      console.log(history);
+    })
+    document.querySelector(".add").addEventListener("click",function (e) {
+      history.pushState({url: "./b.html",title: "ok"},"wo si title")
+      // document.body.innerHTML = "ke ai nie"
+    })
+    window.addEventListener("popstate",function (e) {
+      console.log(history,"2222");
+    })
+    window.onload = function (e) {
+      console.log("页面加载完毕");
+    }
+  </script>
+</body>
+</html>

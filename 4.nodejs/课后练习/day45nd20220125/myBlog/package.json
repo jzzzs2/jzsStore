@@ -1,0 +1,43 @@
+{
+  "name": "myblog",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "cpl-view": "node ./utils/complie",
+    "cpl-styl": "stylus -w ./src/styl/index.styl -o ./public/css/index.css",
+    "serve": "webpack serve --config ./config/webpack.common.js",
+    "serve-dev": "webpack serve --config ./config/webpack.dev.js",
+    "serve-prod": "webpack serve --config ./config/webpack.prod.js"
+  },
+  "keywords": [],
+  "author": "jzss <2803290705@qq.com>",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.21.0",
+    "bootstrap": "^3.4.1",
+    "jquery": "^3.5.1",
+    "jsencrypt": "^3.0.0-rc.1",
+    "sme-router": "^0.12.8",
+    "store": "^2.0.12",
+    "validator.tool": "^1.0.10",
+    "wangeditor": "^4.5.2"
+  },
+  "devDependencies": {
+    "clean-webpack-plugin": "^3.0.0",
+    "css-loader": "^5.0.1",
+    "file-loader": "^6.2.0",
+    "handlebars": "^4.7.6",
+    "handlebars-loader": "^1.7.1",
+    "html-webpack-plugin": "^4.5.0",
+    "style-loader": "^2.0.0",
+    "stylus": "^0.54.8",
+    "stylus-loader": "^4.3.1",
+    "webpack": "^5.9.0",
+    "webpack-bundle-analyzer": "^4.7.0",
+    "webpack-cli": "^4.2.0",
+    "webpack-dev-server": "^3.11.0",
+    "webpack-merge": "^5.4.0"
+  }
+}

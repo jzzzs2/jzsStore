@@ -1,0 +1,18 @@
+<div class="blog-article-descrip">
+  <h2>{{title}}</h2>
+  <div class="blog-descript-info">
+    <p class="time"><i class="glyphicon glyphicon-time"></i><span>{{createtime}}</span></p>
+    <p><i class="glyphicon glyphicon-user"></i>{{author.nickname}}</p>
+    <p class="visible-xs"><i class="glyphicon glyphicon-eye-open"></i>{{clicks_num}}</p>
+    <p class="visible-xs"><i class="glyphicon glyphicon-comment"></i>{{comments_num}}</p>
+    <p class="visible-xs"><i class="glyphicon glyphicon-heart-empty"></i>{{hits_num}}</p>
+  </div>
+  <div class="blog-img-wrap">
+    <img src="{{cover}}" alt="">
+  </div>
+  <p class="blog-easyIntro">{{{content}}}</p>
+  <p class="blog-easyIntro blog-descrip-classify"><span>{{classify.name}}</span></p>
+</div>
+{{#if comments.length}}
+{{>comment}}
+{{/if}}

@@ -1,0 +1,10 @@
+div {
+  width: 500px;
+}
+div::after {
+  content: 800px;
+}
+
+.test {
+  background-color: green;
+}

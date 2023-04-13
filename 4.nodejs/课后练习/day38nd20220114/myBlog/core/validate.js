@@ -1,0 +1,67 @@
+/*
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2023-01-14 19:38:59
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2023-01-14 21:28:30
+ */
+export default class Validate {
+  constructor({ type,succValidCallback = function () {console.log("success");},failValidCallback = function () {console.log("fail")} }) {
+    this.type = type
+    this.succValidCallback = succValidCallback
+    this.failValidCallback = failValidCallback
+    this.rolesMap = {
+      login: {
+        username: 'required|is_username',
+        pwd: 'require|is_pwd'
+      },
+      regis: {
+        username: 'required|is_username',
+        pwd: 'require|is_pwd'
+      }
+    }
+    this.msgMap = {
+      login: {
+        username: "账号必填|账号格式 数字+字母 6-8位",
+        pwd: "密码必填|密码格式 至少包含大写字母+小写字母+数字 8-12位 "
+      },
+      regis: {
+        username: "账号必填|账号格式 数字+字母 6-8位",
+        pwd: "密码必填|密码格式 至少包含大写字母+小写字母+数字 8-12位 "
+      }
+    }
+    return this.verify()
+  }
+  getValidateArr () {
+    let msgObj = this.msgMap[this.type]
+    let roleObj = this.rolesMap[this.type]
+    return Object.entries(msgObj).map(([key,value]) => {
+      return {
+        name: key,
+        display: value,
+        rules: roleObj[key]
+      }
+    })
+  }
+  verify () {
+    console.log("arr",this.getValidateArr());
+    let validate = new Validator("test",this.getValidateArr(), (obj,evt) =>{
+      console.log(obj,"obj",evt);
+      if (obj.errors.length === 0) {
+        this.succValidCallback()
+        return false
+      }
+      let data = obj.errors
+      console.log(data,"data");
+      data = data.map(function (item,idx) {
+        return {
+          msg: item.messages?.[0],
+          detailMsg: item.display
+        }
+      })
+      this.failValidCallback(data)
+    })
+    return validate
+  }
+}

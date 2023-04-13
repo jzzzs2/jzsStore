@@ -1,0 +1,22 @@
+{
+  "name": "myblog",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "cpl-view": "node ./utils/complie",
+    "cpl-styl": "stylus -w ./styl/index.styl -o ./css/index.css"
+  },
+  "keywords": [],
+  "author": "jzss <2803290705@qq.com>",
+  "license": "ISC",
+  "dependencies": {
+    "bootstrap": "^3.4.1",
+    "colors.css": "^3.0.0",
+    "handlebars": "^4.7.7",
+    "jquery": "1.12",
+    "normalize.css": "^8.0.1",
+    "validator.tool": "^2.2.4"
+  }
+}

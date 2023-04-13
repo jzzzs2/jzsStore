@@ -1,0 +1,9 @@
+{{#if isUser}}
+<div class="blog-user--succ">
+  <img src="{{avatar}}" alt="mk">
+  <i class="glyphicon glyphicon-pencil" data-router="info"></i>
+</div>
+{{else}}
+  <a href="javascript:;" class="blog-user--login" data-type="login" data-router="login">登录</a> | <a href="javascript:;" class="blog-user--reg" data-type="regis" data-router="regis">注册</a>
+{{/if}}
+

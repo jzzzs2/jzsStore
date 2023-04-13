@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "layui": "^2.8.0-rc.5",
+    "multiparty": "^4.2.3"
+  }
+}

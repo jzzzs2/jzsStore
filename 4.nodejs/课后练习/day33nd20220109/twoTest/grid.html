@@ -1,0 +1,76 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2023-01-09 17:57:33
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2023-01-09 18:21:05
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>grid</title>
+  <style>
+    /* .box {
+      display: grid;
+      grid-template-columns: 30px 60px 80px;
+      grid-template-rows: 20px 40px 60px;
+      width: 300px;
+      height: 300px;
+      border: 1px solid #999;
+    } */
+    /* .box {
+      display: grid;
+      grid-template-columns: 1fr 2fr 1fr;
+      grid-template-rows: 20px 1fr 60px;
+      width: 300px;
+      height: 300px;
+      border: 1px solid #999;
+    } */
+    .box {
+      display: grid;
+      /* grid-template-columns: 10% 20% 30%; */
+      /* grid-template-columns: repeat(1, 100px 50px 50px); */
+      /* grid-template-columns: repeat(4, 50px); */
+      /* grid-template-columns: repeat(auto-fill, 50px); */
+      /* grid-template-columns: 1fr auto 100px; */
+      /* grid-template-columns: 100px auto 100px; */
+      grid-template-columns: 1fr auto minmax(100px, 2fr);
+      grid-template-rows: 20px 1fr 60px;
+      /* grid-gap: 30px 10px; */
+      /* grid-row-gap: 20px; */
+      /* grid-column-gap: 30px; */
+      width: 120px;
+      height: 300px;
+      border: 1px solid #999;
+    }
+
+    .item {
+      background-color: #ccc;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box">
+    <!-- <span>1</span>
+    <span>2</span>
+    <span>3</span>
+    <span>4</span> -->
+    <div class="item">1</div>
+    <div class="item">2</div>
+    <div class="item">3</div>
+    <div class="item">4</div>
+    <div class="item">5</div>
+    <div class="item">6</div>
+    <div class="item">7</div>
+    <div class="item">8</div>
+    <div class="item">9</div>
+  </div>
+</body>
+
+</html>

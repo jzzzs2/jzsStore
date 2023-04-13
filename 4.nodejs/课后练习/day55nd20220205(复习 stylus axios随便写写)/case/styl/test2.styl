@@ -1,0 +1,42 @@
+normal-width = 200px
+larget-width = 300px
+// @import "./test.styl"
+add(a,b)
+  // a + b + 100
+  // a + b * 2
+  a = unit(arguments[0],px)
+  b = unit(arguments[1],px)
+  // return a + b 300px 500px
+  return a + b
+testFn()
+  return 100px
+compare(a,b)
+  if a>b
+    high
+  else if a<b
+    low
+  else
+    equal
+test(fn,a,b)
+  return fn() + a + b
+newName = compare
+div
+  // width add(100px,200px)
+  // width add(b:100px,a:50px)
+  // width add(b:100s,a:50%)
+  // width add(b:100s,a:50deg)[0]
+  // width add(b:100s,a:50deg)[1]
+  // width add(b:100s,a:50deg)[2]
+  // width add(b:100s,a:50deg)[1]
+  width add(300,200)
+  &::after
+    // content compare(2,1)
+    // content compare(2,4)
+    // content newName(2,5)
+    // content newName(25,5)
+    content test(testFn,200,500)
+@css {
+  .test {
+    background-color: green;
+  }
+}

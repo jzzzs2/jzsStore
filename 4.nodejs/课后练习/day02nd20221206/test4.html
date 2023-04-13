@@ -1,0 +1,48 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-12-06 17:16:00
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-12-06 17:25:32
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>闭包</title>
+</head>
+<body>
+  <script>
+    let data = (function () {
+      let num = 1;
+      return {
+        set(p) {
+          num = p;
+        },
+        get() {
+          return num;
+        }
+      }
+    })();
+    let html = (function () {
+      let datas = data;
+      return  {
+        render() {
+          document.body.innerText = datas.get();
+        }
+      }
+    })();
+    let all = (function () {
+      let htmls = html;
+      let datas = data;
+      setInterval(function () {
+        htmls.render();
+        datas.set(datas.get()+1);
+      },500)
+    })();
+  </script>
+</body>
+</html>

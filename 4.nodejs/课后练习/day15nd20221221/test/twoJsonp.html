@@ -1,0 +1,50 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-12-21 18:53:05
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-12-21 19:15:10
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>jsonP封装</title>
+</head>
+<body>
+  <script>
+    createJsonP({
+      url: "http://127.0.0.1:3001/data",
+      data: {
+        "name": "jzs",
+        "age": 22
+      },
+      "func": function (data) {
+        console.log(data);
+      }
+    })
+    function createJsonP ({url,data,func}) {
+      let funcName = "fn" + Date.now()
+      let sc = document.createElement("script")
+      src = url + `?${formatData(data)}` + `&callback=${funcName}`
+      console.log(src);
+      sc.src = src 
+      document.querySelector("head").append(sc)
+      window[funcName] = function (data) {
+        // console.log(data);
+        func(data)
+        delete window[funcName]
+        sc.remove()
+      }
+    }
+    function formatData (data) {
+      return Object.entries(data).map(([key,value]) => {
+        return `${key}=${value}`
+      }).join("&")
+    }
+  </script>
+</body>
+</html>

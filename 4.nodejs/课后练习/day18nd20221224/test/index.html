@@ -1,0 +1,132 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-12-24 19:12:02
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-12-25 12:28:49
+-->
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./index.css">
+  <title>预存 懒加载 瀑布流</title>
+</head>
+
+<body>
+  <div class="container">
+  </div>
+
+  <script type="text/template" id="temp">
+    <a href="#" target="blank">
+      <img class="pic" src="http://127.0.0.1:3001/static/image/{{images.large[0]}}" width="200" height="auto">
+    </a>
+    <p class="year">
+      <i class="ml15">{{year}}</i>
+      <span class="mr15">{{original_title}}</span>
+    </p>
+    <p class="movie_info">
+      <span class="title ml15">{{title}}</span>
+      <span class="score mr15">{{rating.average}}</span>
+    </p>
+  </script>
+  <script src="./template-web.js"></script>
+  <script src="./node_modules/axios/dist/axios.min.js"></script>
+
+  <script>
+    class MovieSteam {
+      constructor(width = 200, space = 20, url = "http://127.0.0.1:3001/movie", cont = document.querySelector(".container"),start = 10) {
+        this.itemWidth = width
+        this.space = space
+        this.url = url
+        this.columnsTop = []
+        this.rowsLeft = []
+        this.start = start
+        this.num = 8
+        this.getData()
+        this.count = 0
+        this.cont = cont
+        this.init()
+        this.scrollBind()
+        // this.coreFindPlace()
+      }
+      init() {
+        this.columns = ~~(window.innerWidth / (this.itemWidth + this.space))
+        for (let i = 0; i < this.columns; i++) {
+          this.columnsTop.push(0)
+          this.rowsLeft.push(i * (this.itemWidth + this.space))
+        }
+      }
+      coreFindPlace() {
+        console.log(111);
+        console.log(this.count,this.data,"test");
+        let data = this.data[this.count]
+        let minIndex = this.columnsTop.indexOf(Math.min(...this.columnsTop))
+        let html = template("temp", data)
+        let cont = document.createElement("div")
+        cont.innerHTML = html
+        cont.className = "movie"
+        cont.style.left = this.rowsLeft[minIndex] + "px"
+        cont.style.top = this.columnsTop[minIndex] + "px"
+        this.cont.append(cont)
+        cont.querySelector("img").onload = () => {
+          console.log(this.columnsTop);
+          console.log(cont.offsetHeight + 2 * this.space,"addHeight");
+          this.columnsTop[minIndex] += cont.offsetHeight + 2 * this.space
+          this.count++;
+          this.start++
+          this.count === (this.num) ? true : this.coreFindPlace()
+          // current >= num ? (true): this.coreFindPlace()
+        }
+        cont.querySelector("img").onerror = () => {
+          console.log("图片加载失败")
+          console.log(this.columnsTop);
+          console.log(cont.offsetHeight + 2 * this.space,"addHeight");
+          this.columnsTop[minIndex] += cont.offsetHeight + 2 * this.space
+          this.count++;
+          this.start++
+          this.count === (this.num) ? true : this.coreFindPlace()
+          // current >= num ? (true): this.coreFindPlace()
+        }
+      }
+      getData () {
+        axios.get(`${this.url}?start=${this.start}&num=${this.num}`).then((res) =>{
+          this.data = res.data
+          this.data.map(function (item,idx) {
+            item["images"]["large"] = (item["images"]["large"]).match(/(p\d+\.jpg)/)
+            return item
+          })
+          console.log(this.data,"axios");
+          console.log(this.coreFindPlace);
+          this.coreFindPlace()
+        }).catch(function (err) {
+          console.log(err);
+        })
+      }
+      scrollBind () {
+        window.addEventListener("scroll", () => {
+          console.log("滚动ing");
+          let pageHeight = document.documentElement.scrollTop
+          let viewHeight = window.innerHeight
+          console.log(pageHeight,viewHeight);
+          let lastIndex = document.querySelector(".container").querySelectorAll("div").length - 1
+          let lastDom = document.querySelector(".container").querySelectorAll("div")[lastIndex]
+          console.log(parseInt(lastDom.style.top)+(lastDom.offsetHeight/2),"current",pageHeight + viewHeight,"边界");
+          if (parseInt(lastDom.style.top) + (lastDom.offsetHeight/2) < pageHeight + viewHeight) {
+            //再次发送数据
+            this.count= 0
+            // this.start = this.start + this.num 
+            // console.log("再次发送数据");
+            this.getData()
+          }
+        })
+      }
+    }
+    let Movie = new MovieSteam()
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,22 @@
+{
+  "name": "myblog",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "compile-styl": "stylus -w styl -o ./public/css",
+    "compile-hbs": "node ./script/execHbs.js"
+  },
+  "author": "kyogre",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.21.0",
+    "bootstrap": "^3.4.1",
+    "jquery": "^3.5.1",
+    "jsencrypt": "^3.0.0-rc.1",
+    "store": "^2.0.12",
+    "validator.tool": "^1.0.10",
+    "wangeditor": "^4.5.2"
+  }
+}

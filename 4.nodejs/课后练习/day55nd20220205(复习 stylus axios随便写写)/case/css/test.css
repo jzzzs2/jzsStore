@@ -1,0 +1,28 @@
+html {
+  font-size: 10vw;
+}
+div,
+section,
+h1 {
+  width: 700px;
+  height: 100px;
+  background-color: #f00;
+}
+div span[title="&"],
+section span[title="&"],
+h1 span[title="&"] {
+  font-size: 20px;
+}
+div:hover,
+section:hover,
+h1:hover {
+  background-color: #87ceeb;
+}
+body {
+  font-size: 30px;
+  height: 88px;
+}
+body span {
+  transition: 8s;
+  display: false;
+}

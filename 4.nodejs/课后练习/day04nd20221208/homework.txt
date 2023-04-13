@@ -1,0 +1,44 @@
+1.b
+2.a
+3.b
+4.a
+5.b
+6.a
+7.d
+8.a
+9.c
+10.c
+
+function callIt(fn) {
+let params = Array.from(arguments).slice(1);
+fn(...params)
+}
+
+
+function fizzBuzz(num) {
+if (num % 3 === 0 && num % 5 === 0) {
+   return "fizzbuzz";
+}
+if (num % 3 === 0) {
+   return "fizz";
+}
+if (num % 5 === 0) {
+  return "buzz"	
+}
+if (num === undefined && !num instanceof Number) {
+ return false;
+}
+return num;
+}
+
+function statistical (str) {
+  let arr = Array.from(str);
+  return arr.reduce(function (acc,curr) {
+  if (acc[curr] === undefined) {
+	acc[curr] = 1
+  }else {
+	acc[curr] += 1
+  }
+  return acc;	
+},{})
+}

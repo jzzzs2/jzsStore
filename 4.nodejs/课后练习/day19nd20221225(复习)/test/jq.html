@@ -1,0 +1,42 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-12-25 16:37:33
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-12-25 17:56:06
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>axios</title>
+</head>
+<body>
+  <button >submit</button>
+  <script src="./jquery.min.js"></script>
+  <script>
+    document.querySelector("button").addEventListener("click",function (e) {
+      // JSON.stringify({"name": "jzs","age": 22})
+      // axios.get("http://127.0.0.1:3001/static/image/p449897379.jpg",{"name": "jzs","age": 22},{
+      $.ajax({
+        url: "http://127.0.0.1:3001/static/image/p462657443.jpg",
+        type: "GET",
+        // data: {
+        //   "name": "jzs",
+        //   "age": 22
+        // },
+        success: function(data) {
+          console.log(data,"shuju");
+        },
+        dataType: "blob",
+        xhrFields: {
+          withCredentials: true
+        }
+      })
+    })
+  </script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+{
+  "name": "test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "sv": "sass --version",
+    "ys": "styl --version"
+  },
+  "keywords": [],
+  "author": "kyogre",
+  "license": "ISC",
+  "dependencies": {
+    "jquery": "^3.5",
+    "sass": "^1.27.1",
+    "styl": "^0.2.9"
+  }
+}

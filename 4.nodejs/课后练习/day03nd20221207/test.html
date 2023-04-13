@@ -1,0 +1,41 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-12-07 18:06:56
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-12-07 18:13:03
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>动态加载</title>
+  <style>
+    body {
+      height: 200px;
+    }
+  </style>
+</head>
+<body>
+  <script>
+    function require(url,callback) {
+      let sc = document.createElement("script");
+      sc.src = url;
+      sc.async = "async";
+      document.body.appendChild(sc);
+      sc.onload = function () {
+        callback && callback();
+      }
+    }
+    require("./jquery-1.12.1.js",function () {
+      document.body.onclick = function (e) {
+        console.log(this);
+        $(this).css("backgroundColor","red");
+      }
+    });
+  </script>
+</body>
+</html>

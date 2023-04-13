@@ -1,0 +1,37 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-12-24 21:11:40
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-12-24 22:18:48
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <img src="http://img9.doubanio.com/view/photo/s_ratio_poster/public/p2190556185.jpg" alt="">
+  <script src="./node_modules/axios/dist/axios.min.js"></script>
+  <script>
+    axios.post("http://127.0.0.1:3001/movie",{
+      "start": 10,
+      "num": 12
+    },{
+      // responseType: 'json'
+    }).then(function (res) {
+      console.log(JSON.parse(JSON.stringify(res.data)), "axios");
+      console.log(JSON.parse(JSON.stringify(res.data)), "axios");
+    }).catch(function (err) {
+      console.log(err);
+    })
+  </script>
+</body>
+
+</html>

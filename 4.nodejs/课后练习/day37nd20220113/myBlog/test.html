@@ -1,0 +1,215 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2023-01-13 19:02:22
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2023-01-13 20:36:13
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>title</title>
+  <script src="./node_modules/jquery/dist/jquery.min.js"></script>
+  <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.css">
+  <script src="./node_modules/handlebars/dist/handlebars.runtime.js"></script>
+  <script src="./viewJs/modal.template.js"></script>
+  <style>
+    .box {
+      width: 300px;
+      height: 300px;
+      background-color: red;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box">
+    <a href="#" data-test-2 = "test">test</a>
+  </div>
+
+  <script>
+    $(".box").on("click","a",function (e) {
+      console.log($(this).data("test-2"));
+      // $(this).data("test",123)
+      // console.log($(this).data("test"));
+      // console.log(this);
+      // console.log(e);
+      // console.log(e.target);
+      // console.log(e.type);
+      // console.log("111");
+    })
+  </script>
+
+  <!-- Large modal -->
+  <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg">Large
+    modal</button> -->
+
+  <!-- <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        ...
+      </div>
+    </div>
+  </div> -->
+
+  <!-- Small modal -->
+  <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-sm">Small
+    modal</button>
+
+  <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+    <div class="modal-dialog modal-sm" role="document">
+      <div class="modal-content">
+        ...
+      </div>
+    </div>
+  </div> -->
+  <!-- <div class="modal fade" tabindex="-1" role="dialog" id="myModal"> -->
+  <!-- <div class="modal" tabindex="-1" role="dialog" id="myModal">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+              aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title">登录</h4>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="form-group">
+              <label for="exampleInputEmail1">username</label>
+              <input type="email" class="form-control" id="exampleInputEmail1" placeholder="nickname">
+            </div>
+            <div class="form-group">
+              <label for="exampleInputPassword1">Password</label>
+              <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+            </div>
+            <div class="form-group">
+              <label for="exampleInputFile">xx</label>
+              <input type="file" id="exampleInputFile">
+              <p class="help-block">Example block-level help text here.</p>
+            </div>
+            <div class="checkbox">
+              <label>
+                <input type="checkbox">点我同意
+              </label>
+            </div>
+            <button type="submit" class="btn btn-default">提交</button>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+          <button type="button" class="btn btn-primary" data-dismiss="modal">提交</button>
+        </div>
+      </div>
+    </div>
+  </div> -->
+  <!-- xxxxxxxxxx -->
+  <!-- <div class="modal fade" tabindex="-1" role="dialog" id="myModal">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <form>
+          <div class="form-group">
+            <label for="exampleInputEmail1">username</label>
+            <input type="email" class="form-control" id="exampleInputEmail1" placeholder="nickname">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Password</label>
+            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputFile">xx</label>
+            <input type="file" id="exampleInputFile">
+            <p class="help-block">Example block-level help text here.</p>
+          </div>
+          <div class="checkbox">
+            <label>
+              <input type="checkbox">点我同意
+            </label>
+          </div>
+          <button type="submit" class="btn btn-default">提交</button>
+        </form>
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+              aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title">Modal title</h4>
+        </div>
+        <div class="modal-body">
+          <p>One fine body&hellip;</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" data-dismiss="modal">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div> -->
+</body>
+<script>
+  const data = {
+    login: {
+      title: "登录",
+      formData: [
+        {
+          name: "用户名",
+          inputType: "text",
+          placeHolder: "请输入用户名"
+        },
+        {
+          name: "密码",
+          inputType: "text",
+          placeHolder: "请输入密码"
+        }
+      ],
+      btns: [
+        {
+          type: "close",
+          resName: "取消"
+        },
+        {
+          type: "confirm",
+          resName: "确定"
+        }
+      ]
+
+    },
+    regis: {
+      title: "登录",
+      formData: [
+        {
+          name: "用户名",
+          inputType: "text",
+          placeHolder: "请输入用户名"
+        },
+        {
+          name: "密码",
+          inputType: "text",
+          placeHolder: "请输入密码"
+        }
+      ],
+      btns: [
+        {
+          type: "close",
+          resName: "取消"
+        },
+        {
+          type: "confirm",
+          resName: "确定"
+        }
+      ]
+    }
+  }
+  // $('#myModal').modal("show")
+  // document.body.addEventListener("click", function (e) {
+  //   $('#myModal').modal("hidden")
+  // })
+  // let template = Handlebars.templates["modal.hbs"]
+  // console.log(template(data["login"]));
+
+</script>
+
+</html>

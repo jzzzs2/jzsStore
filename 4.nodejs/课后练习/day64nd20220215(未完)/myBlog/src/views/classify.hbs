@@ -1,0 +1,12 @@
+<div class="blog-classify-container">
+  <a class="blog-classify-add row-4 column-4" data-type="classifyAdd">
+    +
+  </a>
+  {{#each list}}
+  <a class="blog-classify-show row-{{articles.length}} column-{{articles.length}}" data-router="index"
+    data-classify="{{_id}}">
+    <p>{{name}}</p>
+    <p>数量{{articles.length}}</p>
+  </a>
+  {{/each}}
+</div>

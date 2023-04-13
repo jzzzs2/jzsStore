@@ -1,0 +1,26 @@
+{
+  "dependencies": {
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "express-jwt": "^6.1.2",
+    "hbs": "^4.2.0",
+    "http-errors": "^2.0.0",
+    "jsencrypt": "^3.3.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.9.0",
+    "morgan": "^1.10.0",
+    "node-rsa": "^1.1.1"
+  },
+  "name": "my-express",
+  "version": "1.0.0",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon ./bin/www"
+  },
+  "keywords": [],
+  "author": "jzss <2803290705@qq.com>",
+  "license": "ISC",
+  "description": ""
+}

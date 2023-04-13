@@ -1,0 +1,36 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2023-01-09 12:52:42
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2023-01-09 17:03:08
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 设计稿宽度为540px -->
+    <meta name="viewport" content="width=840, user-scalable=no, target-densitydpi=device-dpi,minimum-scale=0,maximum-scale=5">
+    <title>demo1</title>
+    <style>
+      .test {
+        width: 100rem;
+        height: 100px
+      }
+    </style>
+</head>
+
+<body>
+  <div class="test"></div>
+</body>
+<script>
+  let designWidth = 1500
+  function test() {
+    document.documentElement.style.fontSize = (screen.width / designWidth) + "px" 
+  }
+  test()
+</script>
+</html>

@@ -1,0 +1,22 @@
+html,body {
+  font-family:Georgia, 'Times New Roman', Times, serif, "Miscrosoft yahei"
+}
+a {
+  color: #AAAAAA;
+  text-decoration: none;
+  text-align: center;
+}
+a:hover {
+  text-decoration: none;
+  color: #FF851B;
+}
+::placeholder {
+  font-size: 10px;
+  color: #DDDDDD;
+}
+ul {
+  list-style: none;
+}
+h1 {
+  margin: 0;
+}

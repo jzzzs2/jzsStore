@@ -1,0 +1,9 @@
+<div class="blog-tool-wrap">
+  {{#if list}}
+  {{#each list}}
+  <a href="javascript:;" data-router="content" class="hidden-xs">
+    <i class="glyphicon glyphicon-{{icon}}"></i><span>{{content}}</span>
+  </a>
+  {{/each}}
+  {{/if}}
+</div>

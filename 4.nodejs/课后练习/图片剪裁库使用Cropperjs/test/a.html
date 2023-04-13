@@ -1,0 +1,99 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2023-02-20 16:59:22
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2023-02-20 19:03:25
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/cropperjs/1.5.13/cropper.css">
+  <style>
+    div {
+      width: 500px
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+      height: auto
+    }
+  </style>
+</head>
+
+<body>
+  <div>
+    <img src="" alt="" id="test">
+    
+    <input type="file" value="选择文件">
+    <input type="button" value="get">
+    <button type="button">upload cropped</button>
+  </div>
+  <script src="https://cdn.bootcdn.net/ajax/libs/cropperjs/1.5.13/cropper.js"></script>
+  <script src="./node_modules/axios/dist/axios.min.js"></script>
+  <script src="./node_modules/jquery/dist/jquery.js"></script>
+  <!-- <script src="./node_modules/cropperjs/dist/cropper.common.js"></script> -->
+  <script>
+    //选择文件显示预览选择的文件
+    let cropper
+    document.querySelector("input[type=button]").addEventListener("click", function (e) {
+      let data = document.querySelector("input[type=file]").files[0]
+      console.log(data);
+      let blob = URL.createObjectURL(data)
+      console.log(blob);
+      document.querySelector("imgTest").src = blob
+      //初始化剪裁工具
+      const image = document.getElementById('imgTest');
+      cropper = new Cropper(image, {
+      aspectRatio: 16 / 9,
+      crop(event) {
+        console.log("moving");
+      }
+    });
+    })
+    $("button").on("click", function (e) {
+      e.preventDefault()
+      let result = cropper.getCanvasData()
+      let position = cropper.getCroppedCanvas();
+      console.log(position);
+      position.toBlob((blob) => {
+        //初始化剪裁工具
+        // let test = URL.createObjectURL(blob)
+        let formData = new FormData()
+        formData.append("file", blob)
+        axios.post("http://127.0.0.1:3000/upload", formData).then(data => {
+          console.log(data);
+        }).catch(err => {
+          console.log(err);
+        })
+      })
+    })
+    //
+
+
+    
+    // let result = cropper.getCroppedCanvas().toDataURL('image/png')
+    // console.log(result);
+    // cropper.getCroppedCanvas({
+    //   minWidth: 256,
+    //   minHeight: 256,
+    //   maxWidth: 4096,
+    //   maxHeight: 4096,
+    // }).toBlob((blob) => {
+    //   const formData = new FormData();
+    //   console.log(blob);
+    //   // Pass the image file name as the third parameter if necessary.
+    //   formData.append('croppedImage', blob);
+    // }, 'image/png');
+
+  </script>
+</body>
+
+</html>

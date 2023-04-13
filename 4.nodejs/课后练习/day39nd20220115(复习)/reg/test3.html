@@ -1,0 +1,64 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2023-01-15 17:20:23
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2023-01-15 17:45:25
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>grid bootstrap</title>
+  <style>
+    .box {
+      display: grid;
+      justify-content: space-between;
+      align-content: space-around;
+      /* align-content: space-between; */
+      width: 800px;
+      height: 500px;
+      /* grid-template-areas: "b1 b2 b3"
+                            "a1 a2 a3"
+                             "c1 c2 c3"; */
+      /* grid-gap: 10px 20px; */
+      /* grid-template-columns: repeat(2, 1fr 2fr 3fr) */
+      /* grid-template-columns: repeat(auto-fill,100px) */
+      /* grid-template-columns: 1fr auto 2fr */
+      grid-template-columns: 100px 200px 200px;
+      /* grid-auto-flow: row */
+      /* grid-auto-flow: column */
+      /* grid-template-columns: 1fr 2fr 1fr; */
+      /* grid-template-rows: 1fr 1fr */
+    }
+
+    .box span {
+      /* justify-self: center; */
+      /* align-self: center; */
+      /* place-self: start center; */
+      background-color: cyan;
+      /* margin: 10px; */
+    }
+
+    /* .box span:nth-of-type(4) {
+      grid-column: 1/4;
+      grid-row: 2/4;
+    } */
+  </style>
+</head>
+<body>
+  <div class="box">
+    <span>1</span>
+    <span>2</span>
+    <span>3</span>
+    <span>4</span>
+    <span>5</span>
+    <span>6</span>
+    <span>7</span>
+    <span>8</span>
+  </div>
+</body>
+</html>

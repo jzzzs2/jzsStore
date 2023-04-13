@@ -1,0 +1,49 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-12-19 16:40:51
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-12-19 16:43:25
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./node_modules/layui/dist/css/layui.css">
+  <script src="./node_modules/layui/dist/layui.js"></script>
+</head>
+
+<body>
+  <form class="layui-form" action=""
+    target="_blank">
+    <div class="layui-form-item">
+      <label class="layui-form-label">用户名</label>
+      <div class="layui-input-block">
+        <input type="text" name="user" lay-verify="title" autocomplete="off" placeholder="请输入标题" class="layui-input">
+      </div>
+    </div>
+    <div class="layui-form-item">
+      <label class="layui-form-label">密码</label>
+      <div class="layui-input-block">
+        <input type="text" name="pwd" placeholder="请输入" autocomplete="off" class="layui-input">
+      </div>
+    </div>
+    <div class="layui-upload">
+      <input type="file" name="avatar">
+    </div>
+    <div class="layui-form-item">
+      <div class="layui-input-block">
+        <input type="submit" id="test9" class="layui-btn" lay-submit="" lay-filter="demo1">立即提交</button>
+        <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+      </div>
+    </div>
+  </form>
+
+</body>
+
+</html>

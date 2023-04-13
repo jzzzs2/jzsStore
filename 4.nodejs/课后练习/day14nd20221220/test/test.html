@@ -1,0 +1,60 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-12-20 16:50:49
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-12-20 17:29:24
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ajax json数据</title>
+</head>
+<body>
+  <input type="text" id="name">
+  <input type="text" id="age">
+  <input type="text" id="addr">
+  <button>submit</button>
+  <script>
+    let btn = document.querySelector("button")
+    let oN = document.querySelector("#name")
+    let oAge = document.querySelector("#age")
+    let oAddr = document.querySelector("#addr")
+    btn.addEventListener("click",function (e) {
+      let data = {
+        "name": oN.value,
+        "age": oAge.value,
+        "oAddr": oAddr.value
+      }
+      sendAjax(data)
+    })
+    function sendAjax (data) {
+      let xhr = new XMLHttpRequest()
+      xhr.open("POST","http://127.0.0.1:3001/data",true)
+      xhr.setRequestHeader("Content-Type","application/json")
+      xhr.send(JSON.stringify(data))
+      xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4) {
+          if (!(isJson(xhr.responseText))) {
+              return false
+          }
+          console.log(JSON.parse(xhr.responseText));
+        }
+      }
+    }
+    function isJson (data) {
+      try {
+        JSON.parse(data)
+        return true
+      } catch (error) {
+        console.log("fail");
+        return false        
+      }
+    }
+  </script>
+</body>
+</html>

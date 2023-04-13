@@ -1,0 +1,76 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2023-01-09 18:57:01
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2023-01-09 22:00:51
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <input type="file" name="fls">
+  <input type="text" name="pwd">
+  <button>submit</button>
+  <script src="./node_modules/axios/dist/axios.min.js"></script>
+  <script src="./node_modules/axios/dist/axios.js"></script>
+  <script>
+
+
+    document.querySelector("button").addEventListener("click", function (e) {
+      // let data = new FormData()
+      // let pwd = document.querySelector("[name=pwd]").value
+      // let file = document.querySelector("[name=fls]").files[0]
+      // console.log(file);
+      // console.log(pwd);
+      // data.append("pwd", pwd)
+      // data.append("file", file)
+      // let xhr = new XMLHttpRequest()
+      // xhr.open("post","http://127.0.0.1:3000/test")
+      // xhr.send(data)
+      // xhr.onreadystatechange = function () {
+      //   if (xhr.readyState == 4) {
+      //     console.log(xhr.response,"res");
+      //   }
+      // }
+      // axios.post("http://127.0.0.1:3000/index", data, {
+      //   // headers: {
+      //   //   'Content-Type': 'multipart/form-data'
+      //   // }
+      // }).then(function (res) {
+      //   console.log(res);
+      // })
+      axios.post("http://127.0.0.1:3000/index", {}, {
+        responseType: "blob"
+        // headers: {
+        //   'Content-Type': 'multipart/form-data'
+        // }
+      }).then(function (res) {
+        console.log(res);
+        let src = URL.createObjectURL(res.data)
+        // console.log(src,"src");
+        let oImg = document.createElement("img");
+        oImg.src = src
+        // let img = document.createElement("img").src = src
+        document.body.append(oImg)
+      })
+      // axios({
+      //   method: "post",
+      //   url: "http://127.0.0.1:3000/file",
+      //   data: data,
+      // }).then(function (res) {
+      //   console.log(res);
+      // })
+    })
+  </script>
+</body>
+
+</html>

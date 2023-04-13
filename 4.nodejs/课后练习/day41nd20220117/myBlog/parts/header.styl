@@ -1,0 +1,82 @@
+
+img 
+  width 80px
+  height 80px
+  border-radius 50%
+
+
+header 
+  display grid
+  grid-template-columns 2fr 4fr 3fr 2fr
+  justify-content space-around
+  align-content center
+  padding 10px 0
+  line-height 1
+  background-color page-main-color
+
+
+header .blog-header--logo 
+  justify-self center
+  align-self center
+
+
+header .blog-header--nav 
+  display grid
+  grid-template-columns repeat(6,1fr)
+  grid-template-rows 80px
+
+
+header .blog-nav--title 
+  justify-self center
+  align-self center
+
+
+header .blog-header-search 
+  justify-self center
+  align-self center
+  padding 4px 8px
+  border-radius 16px
+  box-shadow 0 0 2px shadow
+
+
+header .blog-header-search input 
+  border none
+  outline none
+  padding 4px 0
+  background-color transparent
+
+
+header .blog-header-search i 
+  font-size 12px
+  cursor pointer
+
+
+header .blog-header-user 
+  justify-self center
+  align-self center
+
+
+.blog-header-slide 
+  font-size 30px
+  justify-self center
+  align-self center
+
+.blog-user--succ
+  position: relative
+  display: flex
+  justify-content: center
+  align-items: center
+  padding: 10px
+  & img
+    width 40px
+    height: auto
+    border-radius: 50%
+  & i
+    position: absolute
+    transition: .1
+    opacity 0
+  &:hover i
+    top: 20px;
+    left: 50px;
+    opacity 1
+    

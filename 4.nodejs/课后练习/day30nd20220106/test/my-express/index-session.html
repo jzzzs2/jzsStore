@@ -1,0 +1,30 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2023-01-06 17:10:17
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2023-01-06 20:35:57
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>title</title>
+</head>
+<body>
+  <script src="./node_modules/axios/dist/axios.min.js"></script>
+  <script>
+    axios.post("http://127.0.0.1:3000/test",{
+      username: "jzs",
+      pwd: "123abc"
+    },{
+      withCredentials: true
+    }).then(function (res) {
+      console.log(res);
+    })
+  </script>
+</body>
+</html>

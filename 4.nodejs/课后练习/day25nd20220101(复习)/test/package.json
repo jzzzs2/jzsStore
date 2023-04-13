@@ -1,0 +1,35 @@
+{
+  "devDependencies": {
+    "styl": "^0.2.9"
+  },
+  "name": "test",
+  "version": "1.0.0",
+  "main": "index.js",
+  "dependencies": {
+    "debug": "^4.3.4",
+    "css-parse": "^1.6.0",
+    "commander": "^1.1.1",
+    "css-stringify": "^1.3.2",
+    "css-whitespace": "^1.1.1",
+    "color-parser": "^0.1.0",
+    "css": "^1.4.4",
+    "hsb2rgb": "^1.0.2",
+    "rework": "^0.18.3",
+    "mime": "^1.2.9",
+    "rework-inherit": "^0.2.1",
+    "rework-visit": "^1.0.0",
+    "ms": "^2.1.2",
+    "rework-mixins": "^1.1.1",
+    "stdin": "^0.0.1",
+    "keypress": "^0.1.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "sv": "sass --version",
+    "sl": "npx styl --version"
+  },
+  "keywords": [],
+  "author": "jzss <2803290705@qq.com>",
+  "license": "ISC",
+  "description": ""
+}

@@ -1,0 +1,31 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-12-19 19:14:13
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-12-19 19:31:27
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <input type="file" name="" value="" multiple>
+  <script>
+    console.log(JSON.parse('{"name":123}'));
+    console.log(JSON.parse('{"name":true}'));
+    console.log(JSON.parse('{"name":"sf"}'));
+    console.log(JSON.parse('{"name":"{name:123}"}'));
+    setTimeout(function () {
+      console.log(document.querySelector("input").files);
+      console.log(document.querySelector("input").files[0]);
+      console.log(document.querySelector("input").files[0].type);
+    },10000)
+  </script>
+</body>
+</html>

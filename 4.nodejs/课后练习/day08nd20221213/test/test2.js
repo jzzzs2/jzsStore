@@ -1,0 +1,1 @@
+var food = 'noodle'/*i am append*//*i am append*//*i am append*/

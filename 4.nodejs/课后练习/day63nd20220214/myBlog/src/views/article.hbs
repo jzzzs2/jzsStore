@@ -1,0 +1,28 @@
+{{#if count}}
+{{#each list}}
+<div class="blog-content--blogs">
+  <a href="javascript:;" data-router="article" data-id="{{_id}}">
+    <h2>{{title}}</h2>
+    <p class="time"><i class="glyphicon glyphicon-heart-empty"></i><span>{{createtime}}</span></p>
+    <p>{{author.nickname}}</p>
+    <img src="{{cover}}" alt="">
+    <p class="blog-easyIntro">
+      {{content}}</p>
+    <div class="blog-content--intro">
+      <div class="blog-content--tags">
+      </div>
+      <div class="blog-content--interact">
+        <span class="like">浏览量({{clicks_num}})</span>
+        <span class="like">点赞({{hits_num}})</span>
+        <span class="comment">评论({{comments_num}})</span>
+      </div>
+    </div>
+  </a>
+</div>
+{{/each}}
+{{else}}
+<div class="blog-classify-lost">
+  <p>该分类还没有文章捏</p>
+  <p><a href="javascript:;" data-router="content" data-classify="{{columnId}}">点我去添加</a></p>
+</div>
+{{/if}}

@@ -1,0 +1,16 @@
+{
+  "name": "case",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "cpl-styl": "stylus -w ./styl -o ./css"
+  },
+  "keywords": [],
+  "author": "jzss <2803290705@qq.com>",
+  "license": "ISC",
+  "dependencies": {
+    "stylus": "^0.59.0"
+  }
+}

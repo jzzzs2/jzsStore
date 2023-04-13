@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      height: 100%;
+    }
+
+    .borderRadiusShadow {
+      box-shadow: 0 0 8px rgba(0, 0, 0, .1);
+      border-radius: 10px;
+    }
+
+    header {
+      height: 335px;
+      background: linear-gradient(to bottom, rgb(22, 121, 228) 0%, #ffffff 100%) no-repeat;
+      margin-bottom: 10px;
+    }
+
+    h1 {
+      height: 40px;
+      line-height: 40px;
+      font-size: 20px;
+      color: #ffffff;
+      text-align: center;
+      font-weight: normal;
+      margin-bottom: 15px;
+    }
+
+    ul {
+      font-size: 0;
+      display: flex;
+      width: 100%;
+      height: calc(100% - 70px);
+      flex-direction: column;
+      flex-wrap: wrap;
+      align-content: space-around;
+      justify-content: space-between;
+    }
+
+    li {
+      width: 248px;
+      height: 120px;
+      padding: 20px 10px 0 17px;
+      background-color: #ffffff;
+      position: relative;
+    }
+
+    li>p {
+      font-size: 30px;
+      margin-bottom: 6px;
+    }
+
+    li>span {
+      font-size: 16px;
+    }
+
+    li>img {
+      width: 80px;
+      position: absolute;
+      top: 50%;
+      right: 10px;
+      transform: translateY(-50%);
+    }
+
+    .wrapper {
+      width: 512px;
+      margin: 0 auto;
+    }
+
+    .card {
+      height: 392px;
+      padding: 20px 25px;
+      margin-bottom: 15px;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+      <h1>首页</h1>
+      <ul>
+          <li class="borderRadiusShadow">
+              <p>10</p>
+              <span>名下设备数量</span>
+          </li>
+          <li class="borderRadiusShadow">
+              <p>212</p>
+              <span>耗材领用数量</span>
+
+          </li>
+          <li class="borderRadiusShadow">
+              <p>22</p>
+              <span>固定资产申请单数量</span>
+
+          </li>
+          <li class="borderRadiusShadow">
+              <p>340</p>
+              <span>耗材资产申请单数量</span>
+
+          </li>
+      </ul>
+  </header>
+  <div class="wrapper">
+      <div class="card borderRadiusShadow">
+          <h4>待办事项</h4>
+      </div>
+      <div class="card borderRadiusShadow">
+          <h4>提醒事项</h4>
+      </div>
+  </div>
+</body>
+
+</html>

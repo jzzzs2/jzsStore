@@ -1,0 +1,88 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2023-01-11 17:46:00
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2023-02-20 16:05:37
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>blog</title>
+
+  <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+  <!-- <script src="./node_modules/jquery/dist/jquery.min.js"></script> -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+    integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"
+    integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd"
+    crossorigin="anonymous"></script>
+  <!-- <link rel="stylesheet" href="./node_modules/colors.css/css/colors.css"> -->
+  <!-- <link rel="stylesheet" href="./node_modules/normalize.css/normalize.css"> -->
+  <link rel="stylesheet" href="./css/index.css">
+  <link rel="stylesheet" href="./css/typo.css">
+</head>
+
+<body id="bd">
+  <div class="blog-modal" hidden>
+  </div>
+  <header>
+    <div class="blog-header--logo">
+      <h1>
+        <a href="#"><img src="./img/jb.jpg" alt=""></a>
+      </h1>
+    </div>
+    <nav class="blog-header--nav hidden-xs hidden-sm">
+      <div class="blog-nav--title"><a href="javascript:;" data-router="index">首页</a></div>
+      <div class="blog-nav--title"><a href="javascript:;" data-router="classify">文章</a></div>
+      <div class="blog-nav--title"><a href="#">心得</a></div>
+      <div class="blog-nav--title"><a href="#">资源</a></div>
+      <div class="blog-nav--title"><a href="javascript:;" data-router="photo">相册</a></div>
+      <div class="blog-nav--title"><a href="#">案例</a></div>
+    </nav>
+    <div class="blog-header-search hidden-xs hidden-sm">
+      <input type="text" placeholder="文章搜索" data-input="articles">
+      <i class="glyphicon glyphicon-search" class="search-btn" data-submit="articles"></i>
+    </div>
+    <div class="blog-header-user hidden-xs hidden-sm">
+      <a href="#" class="blog-user--login" data-type="login">登录</a> | <a href="#" class="blog-user--reg"
+        data-type="regis">注册</a>
+      <!-- <div class="blog-user--succ">
+        <img src="./img/mk.png" alt="mk">
+        <i class="glyphicon glyphicon-pencil"></i>
+      </div> -->
+    </div>
+    <i class="blog-header-slide visible-xs visible-sm glyphicon glyphicon-list
+    "></i>
+  </header>
+  <main class="container">
+    <div class="row">
+      <section class="blog-main-intro hidden-xs hidden-sm col-lg-4 col-md-4">
+        
+      </section>
+      <section class="blog-main-content col-lg-8 col-md-7">
+        <div class="wrap">
+
+        </div>
+
+      </section>
+    </div>
+    <div class="blog-toolbar">
+      
+    </div>
+  </main>
+  <footer>
+    <div class="blog-footer-link"></div>
+    <div class="blog-footer-cal"></div>
+  </footer>
+  <div id="tips">
+
+  </div>
+</body>
+
+</html>

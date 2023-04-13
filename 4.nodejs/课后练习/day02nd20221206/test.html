@@ -1,0 +1,59 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-12-06 16:36:24
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-12-06 16:37:17
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    /*function closePackage () {
+  let num = 10;
+  return function () {
+    num += 5;
+    return num;
+  }
+}
+let c = closePackage();*/
+//console.log(c());
+//console.log(c());
+//console.log(c());
+//console.log(closePackage()());
+//console.log(closePackage()());
+/*function closePackage2 () {
+  let num = 12;
+  return function () {
+    num += 6;
+    return {num};
+  }
+}*/
+//console.log(closePackage2()().num);
+//console.log(closePackage2()().num);
+//let c2 = closePackage2();
+//console.log(c2().num); //18
+//console.log(c2().num); //24
+
+//all();
+//data.set(2,999);
+//console.log(data.get(2));
+let func = (function () {
+  let num = 1;
+  return function () {
+    num++;
+    console.log(num);
+  };
+})();
+func();
+func();
+  </script>
+</body>
+</html>

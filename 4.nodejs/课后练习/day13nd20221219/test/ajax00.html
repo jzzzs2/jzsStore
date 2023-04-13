@@ -1,0 +1,67 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-12-19 16:43:46
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-12-19 19:01:28
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .result {
+      height: 100px;
+      background-color: skyblue;
+      text-align: center;
+      font-size: 30px;
+    }
+  </style>
+</head>
+
+<body>
+  账号<input type="text" id="rc" name="acc">
+  密码<input type="password" id="pwd" name="psd">
+  <button>提交</button>
+  <div class="result"></div>
+  <script>
+    let rc = document.querySelector("#rc")
+    let pwd = document.querySelector("#pwd")
+    let btn = document.querySelector("button")
+    let oResult = document.querySelector(".result")
+    btn.addEventListener("click", function (e) {
+      let obj = {
+        "user": rc.value,
+        "pwd": pwd.value
+      }
+      sendAjax(obj)
+    })
+    function sendAjax(data) {
+      let ajaxObj = new XMLHttpRequest()
+      //ajaxObj.readyState 0
+      ajaxObj.open("POST", "http://127.0.0.1:3001/data", true) //异步
+      //1
+      // ajaxObj.send(JSON.stringify(data))
+      ajaxObj.send('{"token":3243}')
+      ajaxObj.onreadystatechange = function (e) {
+        // console.log(e,ajaxObj.readyState,ajaxObj.status);
+        if (ajaxObj.readyState === 4) {
+          // console.log(ajaxObj.responseText);
+          // console.log(JSON.parse('{"name":"jzs"}'));
+          // console.log(JSON.parse(ajaxObj.responseText));
+          let arr = Object.entries(JSON.parse(ajaxObj.responseText))
+          oResult.innerText = `${arr[0][0]} = ${arr[0][1]}`
+        }
+      }
+
+
+    }
+  </script>
+</body>
+
+</html>

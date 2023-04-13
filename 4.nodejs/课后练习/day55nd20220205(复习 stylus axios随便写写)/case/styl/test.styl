@@ -1,0 +1,42 @@
+design-width = 750px / 10
+varible = 30px
+list = 88px 99px 110px
+array = a b c
+varible ?= 40px
+// varible = ()
+remTransform(input)
+  (input / design-width) rem
+html
+  font-size 10vw
+div, section, h1
+  // width remTransform(75px)
+  width 700px
+  // width design-width
+  // height 200px
+  height (@width / 7)
+  background-color red
+  span[title="\&"]
+    font-size 20px
+  &:hover
+    background-color skyblue
+body
+  font-size varible
+  height list[0]
+  // height array[0]
+  span
+    // transition 1s+2px
+    // transition 1px+2s
+    // transition 4s - 3000ms
+    // transition "22"+"1s"
+    // transition (5s/2)
+    // transition 5s/2
+    // transition (5/2)s
+    // transition 4 * 2s
+    // transition 5s % 2
+    transition 2 ** 3s
+    // display 3==3
+    // display 3>=7
+    // display 3 != 7
+    // display false and 12
+    // display 0 || 12
+    display d in array

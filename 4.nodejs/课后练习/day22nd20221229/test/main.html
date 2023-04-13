@@ -1,0 +1,42 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-12-29 19:18:58
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-12-29 20:53:48
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>title</title>
+</head>
+<body>
+  <form action="javascript:;">
+    <input type="text" name="record">
+    <input type="password" name="pwd">
+    <input type="file" name="ptc">
+    <input type="button" id="sub" value="submit">
+  </form>
+  <script>
+    let btn = document.querySelector("#sub")
+    btn.addEventListener("click",function (e) {
+      let form = new FormData()
+      form.append("record",document.querySelector("[name=record]").value)
+      form.append("ptc",document.querySelector("[name=ptc]").files[0])
+      let xhr = new XMLHttpRequest()
+      xhr.open("post","http://127.0.0.1:8080/user")
+      // xhr.setRequestHeader("Content-Type","multipart/form-data")
+      xhr.send(form)
+      xhr.onreadystatechange = function (res) {
+        if (xhr.readyState === 4) {
+          console.log(xhr.response);
+        }
+      }
+    })
+  </script>
+</body>
+</html>

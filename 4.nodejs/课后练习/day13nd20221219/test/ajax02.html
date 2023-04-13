@@ -1,0 +1,70 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-12-19 16:43:46
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-12-19 18:28:36
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .result {
+      height: 100px;
+      background-color: skyblue;
+      text-align: center;
+      font-size: 30px;
+    }
+  </style>
+</head>
+
+<body>
+  账号<input type="text" id="rc" name="acc">
+  密码<input type="password" id="pwd" name="psd">
+  file<input type="file" id="fl" name="miku">
+  <button>提交</button>
+  <div class="result"></div>
+  <script>
+    let rc = document.querySelector("#rc")
+    let pwd = document.querySelector("#pwd")
+    let btn = document.querySelector("button")
+    let oResult = document.querySelector(".result")
+    let fl = document.querySelector("#fl")
+    btn.addEventListener("click", function (e) {
+      let obj = {
+        "user": encodeURIComponent(rc.value),
+        "pwd": encodeURIComponent(pwd.value)
+      }
+      sendAjax(obj)
+    })
+    function sendAjax(data) {
+      let ajaxObj = new XMLHttpRequest()
+      ajaxObj.open("POST", "http://127.0.0.1:3001/data", true) //异步
+      let file = fl.files
+      // console.log(file,"files",file[0].type);
+      // ajaxObj.setRequestHeader("Content-Type","text/plain;charset=utf8")
+      // let form = new FormData()
+      // form.append("miku",file[0],"mk")
+      // ajaxObj.send()
+      console.log(JSON.stringify(data));
+      // ajaxObj.send(JSON.stringify(data))
+      ajaxObj.send("{token:3432423423}")
+      
+      ajaxObj.onreadystatechange = function (e) {
+        if (ajaxObj.readyState === 4) {
+          oResult.innerText = ajaxObj.responseText
+        }
+      }
+
+
+    }
+  </script>
+</body>
+
+</html>

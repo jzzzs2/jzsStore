@@ -1,0 +1,25 @@
+<div class="blog-article-comment">
+<h3>我的评论</h3>
+<div class="blog-article-comment-area">
+  <textarea name="atticleComment" id="" placeholder="请输入评论"></textarea>
+  <input type="submit" value="提交" class="touch">
+</div>
+<div class="blog-article-comment-list">
+  <h3>评论列表</h3>
+  <ul>
+    {{#each comments}}
+    <li>
+      <div class="blog-comment-user line-row-top">
+        <i class="glyphicon glyphicon-user"></i>:<img src="{{uid.avatar}}" alt=""><span>{{uid.username}}</span>
+      </div>
+      <div class="blog-comment-content">
+        {{content}}
+      </div>
+      <div class="blog-comment-date line-row-bt">
+        <p>{{createtime}}</p>
+      </div>
+    </li>
+    {{/each}}
+  </ul>
+</div>
+</div>

@@ -1,0 +1,125 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2023-01-11 17:46:00
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2023-01-13 21:01:14
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>blog</title>
+  <script src="./node_modules/jquery/dist/jquery.min.js"></script>
+  <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.css">
+  <link rel="stylesheet" href="./node_modules/colors.css/css/colors.css">
+  <link rel="stylesheet" href="./node_modules/normalize.css/normalize.css">
+  <link rel="stylesheet" href="./css/index.css">
+  <script src="./node_modules/handlebars/dist/handlebars.runtime.js"></script>
+  <script src="./viewJs/modal.template.js"></script>
+</head>
+
+<body>
+  <div class="blog-modal" hidden>
+  </div>
+  <header>
+    <div class="blog-header--logo">
+      <h1>
+        <a href="#"><img src="./img/jb.jpg" alt=""></a>
+      </h1>
+    </div>
+    <nav class="blog-header--nav hidden-xs hidden-sm">
+      <div class="blog-nav--title"><a href="#">首页</a></div>
+      <div class="blog-nav--title"><a href="#">文章</a></div>
+      <div class="blog-nav--title"><a href="#">心得</a></div>
+      <div class="blog-nav--title"><a href="#">资源</a></div>
+      <div class="blog-nav--title"><a href="#">相册</a></div>
+      <div class="blog-nav--title"><a href="#">案例</a></div>
+    </nav>
+    <div class="blog-header-search hidden-xs hidden-sm">
+      <input type="text" placeholder="文章搜索">
+      <i class="glyphicon glyphicon-search"></i>
+    </div>
+    <div class="blog-header-user hidden-xs hidden-sm">
+      <a href="#" class="blog-user--login" data-type="login">登录</a> | <a href="#" class="blog-user--reg" data-type="regis">注册</a>
+    </div>
+    <i class="blog-header-slide visible-xs visible-sm glyphicon glyphicon-list
+    "></i>
+  </header>
+  <main class="container">
+    <div class="row">
+      <section class="blog-main-intro hidden-xs hidden-sm col-lg-5 col-md-5">
+        <img src="./img/jb2.png" alt="">
+        <p class="nickname">姬宝苏key</p>
+        <div class="blog-content-intro">
+          <div class="blog-intro-num line-sept">
+            <span class="w700">20</span>
+            <span>文章</span>
+          </div>
+          <div class="blog-intro-type">
+            <span class="w700">3</span>
+            <span>分类</span>
+          </div>
+        </div>
+        <p class="blog-content-story">说起古堡龙姬
+          玩CSGO的玩家们应该都有印象。作为CSGO国服虚拟主播古堡龙姬凭借着幽默的口才和过硬的游戏技术吸引了不少粉丝在玩家圈子里有着举重足轻的地位。而在6月11日的时候 古堡龙姬在B站账号上发布了一个视频
+          在视频中通过有趣的形式讲述了一个关于游戏账号买卖的诈骗场景</p>
+      </section>
+      <section class="blog-main-content col-lg-7 col-md-6">
+        <div class="wrap">
+          <div class="blog-content--blogs">
+            <a href="#">
+              <h2>文章标题</h2>
+              <p class="time"><i class="glyphicon glyphicon-heart-empty"></i><span>2023-01-11</span></p>
+              <img src="./img/jb.jpg" alt="">
+              <p class="blog-easyIntro">
+                文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章</p>
+              <div class="blog-content--intro">
+                <div class="blog-content--tags">
+                  <span>tag1</span>
+                  <span>tag2</span>
+                </div>
+                <div class="blog-content--interact">
+                  <span class="like">点赞(0)</span>
+                  <span class="comment">评论(0)</span>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="blog-content--blogs">
+            <a href="#">
+              <h2>文章标题</h2>
+              <p class="time"><i class="glyphicon glyphicon-heart-empty"></i><span>2023-01-11</span></p>
+              <img src="./img/jb.jpg" alt="">
+              <p class="blog-easyIntro">
+                文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章简介文章</p>
+              <div class="blog-content--intro">
+                <div class="blog-content--tags">
+                  <span>tag1</span>
+                  <span>tag2</span>
+                </div>
+                <div class="blog-content--interact">
+                  <span class="like">点赞(0)</span>
+                  <span class="comment">评论(0)</span>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+
+      </section>
+    </div>
+  </main>
+  <footer>
+    <div class="blog-footer-link"></div>
+    <div class="blog-footer-cal"></div>
+  </footer>
+  <script type="module" src="./core/main.js"></script>
+</body>
+
+</html>

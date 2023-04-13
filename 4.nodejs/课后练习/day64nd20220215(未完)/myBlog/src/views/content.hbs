@@ -1,0 +1,34 @@
+<div class="blog-edit">
+  <div class="panel panel-info">
+    <div class="panel-heading">
+      <h3 class="panel-title">标题</h3>
+    </div>
+    <div class="panel-body">
+      <input type="text" placeholder="请输入标题" id="title">
+    </div>
+  </div>
+  <div class="panel panel-info">
+    <div class="panel-heading">
+      <h3 class="panel-title">内容</h3>
+    </div>
+    <div class="panel-body">
+      <div class="blog-edit--wrap"></div>
+    </div>
+  </div>
+  <div class="panel panel-info">
+    <div class="panel-heading">
+      <h3 class="panel-title">分类</h3>
+    </div>
+    <ul class="blog-classify-wrap">
+      {{#each list}}
+        <li data-classify="{{_id}}" class="blog-classify {{#if selected}}selected{{/if}}">{{name}}</li>
+      {{/each}}
+    </ul>
+  </div>
+  <div class="blog-edit--control">
+    <span></span>
+    <a href="javascript:;" data-router="edit/clean">清空</a>
+    <a href="javascript:;" data-router="edit/article" class="touch">提交</a>
+    <span></span>
+  </div>
+</div>

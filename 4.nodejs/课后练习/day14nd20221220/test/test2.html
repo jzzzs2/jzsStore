@@ -1,0 +1,51 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-12-20 16:51:24
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-12-20 18:00:18
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ajax FormData</title>
+</head>
+
+<body>
+  <input type="text" id="name">
+  <input type="text" id="age">
+  <input type="text" id="addr">
+  <input type="file" multiple id="fl">
+  <button>submit</button>
+  <script>
+    let btn = document.querySelector("button")
+    let oN = document.querySelector("#name")
+    let oAge = document.querySelector("#age")
+    let oAddr = document.querySelector("#addr")
+    let oFl = document.querySelector("#fl")
+    btn.addEventListener("click", function (e) {
+      let form = new FormData()
+      form.append("name",oN.value)
+      form.append("file",oFl.files[0])
+      sendAjax(form)
+    })
+    function sendAjax (data) {
+      let xhr = new XMLHttpRequest()
+      xhr.open("POST","http://127.0.0.1:3001/file",true)
+      xhr.send(data)
+      xhr.onreadystatechange = function (e) {
+        if (!isJson(xhr.responseText)) {
+          return false
+        }
+        console.log(JSON.parse(xhr.responseText));
+      }
+    }
+  </script>
+</body>
+
+</html>

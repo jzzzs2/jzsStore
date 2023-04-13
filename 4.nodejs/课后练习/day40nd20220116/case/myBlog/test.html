@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    .btn {
+      position: fixed;
+      left: 400px;
+      width: 500px;
+      height: 200px;
+      background-color: pink;
+      /* float: right; */
+      /* margin-right: calc(100% - 800px); */
+
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="btn">123123</div>
+  <script>
+    document.querySelector('.btn').addEventListener('click', function (e) {
+      document.body.style.height = '10000px'
+    })
+  </script>
+</body>
+
+</html>

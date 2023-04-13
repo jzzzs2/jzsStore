@@ -1,0 +1,31 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-12-06 18:15:53
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-12-06 18:17:05
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function a () {
+      let num = 1;
+      return function () {
+        return num + 1;
+      }
+    }
+    let c = a();
+    let d = a();
+    console.log(c());
+    console.log(d());
+  </script>
+</body>
+</html>

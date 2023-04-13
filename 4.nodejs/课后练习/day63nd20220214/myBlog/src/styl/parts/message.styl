@@ -1,0 +1,29 @@
+#tips
+  position: fixed
+  width 100%
+  bottom: 0px
+  // bottom: 60px
+  text-align: center
+  transition 1s
+  opacity 1
+  & .enter
+    bottom:0px
+  & .leave
+    animation: leave 3s forwards
+  @keyframes leave {
+    0% {
+      opacity 1
+    }
+    50% {
+      opacity 1
+    }
+    90% {
+      opacity .8
+      transform: translateY(-30px)
+    }
+    100% {
+      opacity 0
+      transform: translateY(-100px)
+    }
+    
+  }

@@ -1,0 +1,53 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-12-09 14:10:13
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-12-09 15:34:46
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>homework Test</title>
+</head>
+
+<body>
+  <script>
+    let arr = [2, 5];
+    arr[10] = 55;
+    console.log(arr);
+    //
+    // console.log({name: "jzs",age: 22}.hasOwnProperty("name"));
+    // console.log({name: "jzs",age: 22}.hasOwnProperty("toString"));
+    // (function () {
+    //   var x,y = 1;
+    //   console.log(x,y);
+    // })();
+    // function callIt(fn) {
+    //   let params = Array.from(arguments).slice(1);
+    //   console.log(params);
+    //   return fn(...params)
+    // }
+    // console.log(callIt(function  (a,b) {return a+b},2,3));
+    function statistical(str) {
+      let arr = Array.from(str);
+      return arr.reduce(function (acc, curr) {
+        if (acc[curr] === undefined) {
+          acc[curr] = 1
+        } else {
+          acc[curr] += 1
+        }
+        return acc;
+      }, {})
+    }
+    console.log(statistical("ahgafisdogjao"));
+    console.log("sfgsga".split() instanceof Array);
+  </script>
+</body>
+
+</html>

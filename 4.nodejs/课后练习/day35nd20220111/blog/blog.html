@@ -1,0 +1,106 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2023-01-11 17:46:00
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2023-01-11 19:17:21
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>blog</title>
+  <script src="./node_modules/jquery/dist/jquery.min.js"></script>
+  <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.css">
+  <link rel="stylesheet" href="./node_modules/colors.css/css/colors.css">
+  <link rel="stylesheet" href="./node_modules/normalize.css/normalize.css">
+  <link rel="stylesheet" href="./css/header.css">
+  <link rel="stylesheet" href="./css/base.css">
+</head>
+
+<body>
+  <header>
+    <div class="blog-header--logo">
+      <h1>
+        <a href="#"><img src="./img/jb.jpg" alt=""></a>
+      </h1>
+    </div>
+    <nav class="blog-header--nav hidden-xs hidden-sm">
+      <div class="blog-nav--title"><a href="#">首页</a></div>
+      <div class="blog-nav--title"><a href="#">文章</a></div>
+      <div class="blog-nav--title"><a href="#">心得</a></div>
+      <div class="blog-nav--title"><a href="#">资源</a></div>
+      <div class="blog-nav--title"><a href="#">相册</a></div>
+      <div class="blog-nav--title"><a href="#">案例</a></div>
+    </nav>
+    <div class="blog-header-search hidden-xs hidden-sm">
+      <input type="text" placeholder="文章搜索">
+      <i class="glyphicon glyphicon-search"></i>
+    </div>
+    <div class="blog-header-user hidden-xs hidden-sm">
+      <a href="#" class="blog-user--login">登录</a> | <a href="#" class="blog-user--reg">注册</a>
+    </div>
+    <i class="blog-header-slide visible-xs visible-sm glyphicon glyphicon-list
+    "></i>
+  </header>
+  <main>
+    <section class="blog-main-intro">
+      <img src="./img/jb.jpg" alt="">
+      <h3>nickname</h3>
+      <p>intro1</p>
+      <p>intro2</p>
+      <p>intro3</p>
+    </section>
+    <section class="blog-main-content">
+      <div class="blog-content--blogs">
+        <a href="#">
+          <h2>title</h2>
+          <p>2023-01-11</p>
+          <img src="./img/jb.jpg" alt="">
+          <p>introduction</p>
+          <div class="blog-content--intro">
+            <div class="blog-content--tags">
+              <span>tag1</span>
+              <span>tag2</span>
+            </div>
+            <div class="blog-content--interact">
+              <span>热度</span>
+              <span>回应</span>
+              <span>转载</span>
+            </div>
+          </div>
+        </a>
+      </div>
+      <div class="blog-content--blogs">
+        <a href="#">
+          <h2>title</h2>
+          <p>2023-01-11</p>
+          <img src="./img/jb.jpg" alt="">
+          <p>introduction</p>
+          <div class="blog-content--intro">
+            <div class="blog-content--tags">
+              <span>tag1</span>
+              <span>tag2</span>
+            </div>
+            <div class="blog-content--interact">
+              <span>热度</span>
+              <span>回应</span>
+              <span>转载</span>
+            </div>
+          </div>
+        </a>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <div class="blog-footer-link"></div>
+    <div class="blog-footer-cal"></div>
+  </footer>
+</body>
+
+</html>

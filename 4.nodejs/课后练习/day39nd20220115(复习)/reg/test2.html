@@ -1,0 +1,41 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2023-01-15 17:11:24
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2023-01-15 17:19:25
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>title</title>
+  <style>
+    .box {
+      width: 50%;
+      height: 100px;
+      background-color: red;
+      margin: auto;
+    }
+    /* @media screen and (max-width: 768px) {
+      .box {
+        width: 100%;
+        height: 30px;
+      }
+    } */
+    @media screen and (min-width: 1200px) {
+      .box {
+        width: 20%;
+        height: 30px;
+      }
+    }
+  </style>
+  <link rel="stylesheet" href="./test.css" media="screen and (max-width: 768px)">
+</head>
+<body>
+  <div class="box"></div>
+</body>
+</html>

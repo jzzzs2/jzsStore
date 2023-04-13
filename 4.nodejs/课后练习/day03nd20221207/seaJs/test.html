@@ -1,0 +1,37 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-12-07 17:32:21
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-12-07 19:19:11
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>seaJs cmd</title>
+  <script src="./sea.js"></script>
+</head>
+<body>
+  <script>
+    seajs.config({
+      base: "/%E5%8D%81%E5%AD%97%E6%B3%A2/%E5%9B%9B.nodejs/%E8%AF%BE%E5%90%8E%E7%BB%83%E4%B9%A0/day03nd20221207/seaJs/",
+      alias: {
+        "jquery": "./jquery-1.12.1",
+        "test": "./test"
+      }
+    })
+    // define("test",function(require,exports,module){
+    //   module.exports = {
+    //     name: "123"
+    //   }
+    // }) 
+    seajs.use(["jquery","./test2","test"],function ($,test,test2) {
+      console.log($,test,test2);
+    })
+  </script>
+</body>
+</html>

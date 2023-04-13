@@ -1,0 +1,36 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-12-07 16:38:41
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-12-07 17:08:44
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>request async属性</title>
+  <script src="./require.js"></script>
+</head>
+<body>
+  <!-- <script src="./b.js" async></script> -->
+  <script>
+    
+    console.log(1);
+    require(["a"],function (obj) {
+      console.log(obj);
+      console.log(obj.name);
+      console.log(obj.age);
+    })
+    // require(["jq"],function (jq) {
+    //   console.log(jq);
+    // })
+    require(["./test/c.js"],function (c1) {
+      console.log(c1);
+    })
+  </script>
+</body>
+</html>

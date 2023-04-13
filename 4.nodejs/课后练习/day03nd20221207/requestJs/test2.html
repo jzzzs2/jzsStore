@@ -1,0 +1,39 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-12-07 17:08:50
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-12-07 17:23:30
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="./require.js"></script>
+</head>
+<body>
+  <script>
+    require.config({
+      baseUrl: "/%E5%8D%81%E5%AD%97%E6%B3%A2/%E5%9B%9B.nodejs/%E8%AF%BE%E5%90%8E%E7%BB%83%E4%B9%A0/day03nd20221207/requestJs/test/",
+      paths: {
+        "jq": "jquery-1.12.1",
+        "under": "underscore",
+        "c":"./c"
+      }
+    })
+    require(["c"],function (result) {
+      console.log(result);
+    })
+    require(["under","jq"],function (under,$) {
+      console.log(under,$);
+    })
+    require(["./test/d.js"],function (d) {
+      console.log(d);
+    })
+  </script>
+</body>
+</html>

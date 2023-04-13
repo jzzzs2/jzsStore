@@ -1,0 +1,35 @@
+<h1>{{name}}</h1>
+<p>{{age}}</p>
+<div>{{test}} parse</div>
+<div>{{{test}}} not parse</div>
+<p>{{signal}} {{{signal}}}</p>
+<div>|||||||</div>
+{{html}}
+{{{html}}}
+<br>
+<br>
+<br>
+<br>
+{{#each obj}}
+<span>{{@key}} {{@index}}~~</span>
+{{/each}}
+<br>
+<br>
+<ul>
+  {{#each list}}
+  {{this.price}} this
+  {{obj.father.sex}} {{obj.addr}} {{obj.father.type}}
+  <p>{{../name}} {{../age}}</p>
+  {{#if @first}}
+  <h3>first</h3>
+  {{/if}}
+  {{#if @last}}
+  <h3>last</h3>
+  {{/if}}
+  <li style="{{#if hot}}backgroundColor:red;color:red{{/if}}">{{product}} {{@key}} {{@index}}</li>
+  {{#each items}}
+  <h4>items {{@key}} {{@index}} items{{weight}} {{range}} {{../price}} {{../../name}}</h4>
+  {{/each}}
+  <li>{{price}}</li>
+  {{/each}}
+</ul>

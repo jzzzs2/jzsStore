@@ -1,0 +1,1 @@
+const c = 'pop'let a = 66; let y = 99;let a = 66; let y = 99;let a = 66; let y = 99;let a = 66; let y = 99;let a = 66; let y = 99;/*i am append*//*i am append*//*i am append*/

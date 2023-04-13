@@ -1,0 +1,59 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2023-01-02 17:20:58
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2023-01-02 17:33:42
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>async</title>
+</head>
+<body>
+  <script>
+    // async function test () {
+    //   console.log("async start");
+    //   return 222
+    // }
+    // console.log(test());
+    // test().then(function (data) {
+    //   console.log(data, "datas");
+    // })
+    // async function test () {
+
+    // }
+    async function test () {
+      console.log("dddd");
+      return "normal"
+    }
+    let app = async function () {
+      console.log("xxx");
+      return "xxx"
+    }
+    let obj = {
+      async test () {
+        console.log("ss");
+        return "ss"
+      }
+    }
+    class Animal {
+      constructor () {
+
+      }
+      async eat() {
+        console.log("keainie");
+        return "hao chi"
+      }
+    }
+    console.log(test());
+    console.log(app());
+    console.log(obj.test());
+    console.log((new Animal()).eat());
+  </script>
+</body>
+</html>

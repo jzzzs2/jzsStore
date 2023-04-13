@@ -1,0 +1,37 @@
+.blog-classify-container
+  width 500px
+  height 80vh
+  p
+    color #fff
+    font-size: 20px
+a.blog-classify-show
+  display flex
+  flex-direction: column
+  justify-content: center
+  align-items: center
+  box-shadow: 0 0 2px shadow-light inset
+  background-color page-main-color
+  &:hover p
+    cursor: pointer
+    color pink
+.blog-classify-show:nth-of-type(2n)
+  background-color shadow-light
+.blog-classify-show:nth-of-type(3n)
+  background-color page-bgc
+for n in 1 2 3 4 5 6 7 8
+  .row-{n}
+    width (n + 1) * 2vw
+  .column-{n}
+    height n * 4vw
+.blog-classify-lost
+  height: 60vh
+.blog-classify-lost p
+  padding: 10px
+  color: pink
+  font-size: 20px
+  border: 1px solid skyblue
+  border-radius: 10px 10px
+  text-align: center
+.selected
+  background-color pink
+  color #fff
