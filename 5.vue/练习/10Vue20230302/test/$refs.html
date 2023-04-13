@@ -1,0 +1,111 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2023-03-02 15:09:54
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2023-03-02 16:50:03
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>v-model 自定义属性props和自定义事件emit的语法糖</title>
+  <style>
+    .box {
+      border: 1px solid #222;
+      padding: 10px;
+      margin: 10px;
+    }
+
+    .pink {
+      border: 1px solid pink;
+    }
+
+    .cyan {
+      border: 1px solid cyan;
+    }
+
+    .skyblue {
+      border: 1px solid skyblue;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <parent-temp></parent-temp>
+  </div>
+  <template id="parent">
+    <div class="box">
+      <button>看看我的父组件</button>
+      <button>修改我的子组件</button>
+      <p>{{message}}</p>
+      <input type="text" name="" value="" @change="changeMessage">blur修改
+      <son-temp ref="pink" class="pink"></son-temp>
+      <son-temp ref="cyan" class="cyan"></son-temp>
+      <son-temp ref="skyblue" class="skyblue"></son-temp>
+    </div>
+  </template>
+  <template id="son">
+    <div class="box">
+      <p>{{message}}</p>
+      <input type="text" name="" value="" @change="modify">找到父元素通过$ref进行修改兄弟message
+    </div>
+  </template>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.7.14/dist/vue.js"></script>
+  <script>
+    let sonTemp = {
+      template: "#son",
+      methods: {
+        modify($event) {
+          console.log($event.target.value);
+          let value = $event.target.value
+          this.$parent.$refs[value].message = "兄弟修改了你的message"
+        }
+      },
+      data() {
+        return {
+          message: "我是儿组件的message"
+        }
+      },
+    }
+    let parentTemp = {
+      template: '#parent',
+      components: {
+        'son-temp': sonTemp
+      },
+      data() {
+        return {
+          message: "我是父组件的message"
+        }
+      },
+      computed: {
+      },
+      methods: {
+        changeMessage($event) {
+          let value = $event.target.value
+          console.log(this.$refs,"$refs",value);
+          this.$refs[value].message = "被父组件修改后的message"
+        }
+      }
+    }
+
+    let app = new Vue({
+      el: "#app",
+      components: {
+        'parent-temp': parentTemp
+      },
+      data() {
+        return {
+          rootMessage: "我是root Message"
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

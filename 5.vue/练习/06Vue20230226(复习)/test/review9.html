@@ -1,0 +1,70 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2023-02-26 14:34:50
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2023-02-26 19:21:07
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>event 事件修饰符  v-model</title>
+  <style>
+    .select {
+      color: #fff;
+      background-color: #222;
+    }
+
+    .shadow {
+      box-shadow: 0 0 4px cyan;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <!-- 账号<input type="text" name="" value="" @keyup.enter="add">
+    密码<input type="text" name="" value=""  @keyup.space="add">
+    <p> 账号{{record}} 密码{{password}}</p>
+    <p>{{num}}</p>
+    <button @click.right="add"> ++</button>
+    <button @click.middle="add"> ++</button> -->
+    <input type="text" name="" value="" v-model.number="content">
+    content {{content}}
+    <!-- <textarea name="" id="" cols="30" rows="10" v-model.number.trim="text"></textarea> -->
+    <textarea name="" id="" cols="30" rows="10" v-model.trim.lazy="text"></textarea>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  <script>
+    let app = new Vue({
+      el: "#app",
+      data() {
+        return {
+          text: "22",
+          content: "内容123",
+          record: "12345",
+          password: "123456",
+          num: 0
+        }
+      },
+      computed: {
+      },
+      methods: {
+        add() {
+          console.log("ele add");
+          this.num++
+        },
+      },
+      filters: {
+      }
+    })
+
+  </script>
+</body>
+
+</html>

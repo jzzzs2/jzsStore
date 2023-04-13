@@ -1,0 +1,72 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2023-03-02 19:19:43
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2023-03-02 19:49:51
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title></title>
+</head>
+<body>
+  <div id="app">
+    <!-- <button @click="add"></button> -->
+    <!-- <input type="text" name="" value="" @change="change"> -->
+    <parent-temp v-model="message" :test="test" :more="more" @test-event="add" normal="normal" v-on="$listeners"></parent-temp>
+  </div>
+  <template id="parent">
+    <div>
+      <p>{{message}}</p>
+    </div>
+  </template>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.7.14/dist/vue.js"></script>
+  <script>
+    let parentTemp = {
+      template: "#parent",
+      model: {
+        prop: "message"
+      },
+      props: {
+        message: String,
+        // test:  String
+      },
+      mounted() {
+        // console.log(this.$props,"++",typeof this.$props);
+        console.log(this.$attrs,"$attrs");
+        console.log(this.$listeners["test-event"]);
+        // this.$emit(this.$listeners["test-event"])
+      }
+    }
+    let app = new Vue({
+      el: "#app",
+      components: {
+        'parent-temp': parentTemp
+      },
+      data () {
+        return {
+          message: "info",
+          test: "i am test",
+          more: "i am more",
+          normal: "i am normal",
+          title: "",
+          num: 1
+        }
+      },
+      methods: {
+        change () {
+          this.title = "123"
+        },
+        add () {
+          this.num++
+        }
+      }
+    })
+  </script>
+</body>
+</html>

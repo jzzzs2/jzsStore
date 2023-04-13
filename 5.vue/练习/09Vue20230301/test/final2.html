@@ -1,0 +1,127 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2023-03-01 15:27:34
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2023-03-01 16:49:16
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>组件通信  层层传递 数据上到下 事件下到上 都不能跨级送递</title>
+  <style>
+    .item {
+      width: 400px;
+      border: 1px solid pink;
+      padding: 20px
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <product-item v-for="(item,idx) in products" :product="item" :key="item.id" @change-num="changeNum(idx,$event)" :index="idx"></product-item>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.7.14/dist/vue.js"></script>
+  <template id="product-button">
+    <div>
+      <button @click="changeNum(1,index)">add</button>
+      <button @click="changeNum(-1,index)">sub</button>
+    </div>
+  </template>
+  <template id="product">
+    <div class="item">
+      <h2>{{product.name}}</h2>
+      <p>{{product.price}}</p>
+      <p>{{product.num | max | min}}</p>
+      <product-button @change-num="changeNum"></product-button>
+    </div>
+  </template>
+  <script>
+    let productButton = {
+      template: "#product-button",
+      methods: {
+        changeNum(num) {
+          this.$emit('change-num',{num})
+        }
+      },
+      props: {
+      }
+    }
+    let productItem = {
+      components: {
+        'product-button': productButton
+      },
+      filters: {
+        max(val) {
+          return Math.min(10,val)
+        },
+        min(val) {
+          return Math.max(0,val)
+        }
+      },
+      computed: {
+      },
+      watch: {
+      },
+      methods: {
+        changeNum(obj) {
+          this.$emit('change-num',obj)
+        }
+      },
+      props: {
+        product: {
+          type: Object
+        },
+        index: {
+          type: Number
+        }
+      },
+      template: '#product',
+    }
+    let app = new Vue({
+      el: "#app",
+      components: {
+        'product-item': productItem
+      },
+      data() {
+        return {
+          products: [
+            {
+              id: '001',
+              name: '洗衣机',
+              price: 19999.99,
+              num: 1,
+            },
+            {
+              id: '002',
+              name: '电视机',
+              price: 12999.50,
+              num: 1,
+            },
+            {
+              id: '003',
+              name: '收音机',
+              price: 2999.00,
+              num: 1,
+            }
+          ]
+        }
+      },
+      methods: {
+        changeNum (idx,obj) {
+          this.products[idx].num += obj['num']
+        }
+      },
+      computed: {
+      }
+    })
+  </script>
+</body>
+
+</html>

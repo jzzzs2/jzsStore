@@ -1,0 +1,78 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2023-02-25 16:38:47
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2023-02-25 20:48:27
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>filter</title>
+</head>
+
+<body>
+  <div id="app">
+    <!-- <p>{{num | padLeft('keainie') | addPrefix('p1','p2')}}</p> -->
+    <!-- <p>{{padLeft(num)}}</p> -->
+    <p>{{padLeft(num)}}</p>
+    <!-- <p>{{num}}</p> -->
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  <script>
+    let app = new Vue({
+      el: "#app",
+      data() {
+        return {
+          num: 8
+        }
+      },
+      methods: {
+        padLeft (val) {
+          console.log(this,"methods this");
+          return String(val)[1] && String(val) || "0" + val
+        }
+      },
+      computed: {
+        // padLeft: {
+        //   get() {
+        //     console.log(this,"computed this");
+        //     return String(this.num)[1] && String(this.num) || "0" + this.num
+        //   },
+        //   set (newVal) {
+
+        //   }
+        // }
+      },
+      watch: {
+        num: {
+          async handler (newValue,oldValue) {
+            console.log(this,"watch this");
+            // console.log(newValue,oldValue);
+            this.num = String(newValue)[1] && String(newValue) || "0" + newValue
+          },
+          // immediate: true,
+        }
+      },
+      filters: {
+        padLeft (val,title) {
+          console.log(this,"this指向");
+          // console.log(val,title,"log log");
+          return String(val)[1] && String(val) || "0" + val
+        },
+        addPrefix (val,arg1,arg2) {
+          console.log(this,"this指向")
+          // console.log("params1",arg1,"params2",arg2);
+          return "倒计时" + val
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

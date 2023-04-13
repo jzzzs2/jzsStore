@@ -1,0 +1,67 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2023-02-21 16:16:51
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2023-02-21 17:48:09
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+<body>
+  <div id="app">
+    <input type="text" v-model="num">
+    <div class="blog-test">
+      {{num}}
+    </div>
+  </div>
+  <!-- <div id="app">
+    {{message}}
+    {{test}}
+    <input type="text" v-model="test">
+  </div> -->
+  <script>
+    // let app = new Vue({
+    //   el: "#app",
+    //   data: {
+    //     message: "VUE one day",
+    //     test: "我是测试",
+    //     num: 999
+    //   }
+    // })
+    // console.log(app.attributes);
+    let arr = {
+      name: "jzs"
+    }
+    Object.defineProperty(arr,"name",{
+      get () {
+        return 999
+      },
+      set(val) {
+        console.log("设置val");
+        return val
+      }
+    })
+    console.log(arr.name);
+    arr.name = "keainie"
+    console.log(arr.name);
+    console.log(arr);
+  </script>
+  <!-- <script>
+    let result = document.querySelector("#app").childNodes
+    console.log(result);
+    let regExp = /\{\{(.+)\}\}/
+    let result = "{{name}}".match(regExp)
+    console.log(result);
+  </script> -->
+</body>
+
+</html>

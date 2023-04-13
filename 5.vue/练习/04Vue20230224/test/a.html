@@ -1,0 +1,130 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2023-02-24 15:45:03
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2023-02-24 18:49:04
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>class</title>
+  <style>
+    .active {
+      color: cyan;
+      background-color: red;
+    }
+
+    .around {
+      box-shadow: 0 0 4px 4px pink;
+    }
+
+    .normal {
+      font-size: 80px;
+    }
+
+    .red {
+      color: red
+    }
+
+    .blue {
+      color: blue
+    }
+
+    .green {
+      color: green
+    }
+
+    .jzs {
+      color: yellow
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <!-- <div class="box" :class="{active:isActive,around:isAround}" @click="changePos">
+      {{message}}
+    </div> -->
+    <!-- <div class="box" :class="psObj" @click="changePos">
+      {{message}}
+    </div> -->
+    <!-- <div class="box" :class="[{active:psObj.active},{around:psObj.around}]" @click="changePos">
+      {{message}}
+    </div> -->
+    <!-- <div class="box normal" :class="getClassObj" @click="changePos">
+      {{message}}
+    </div> -->
+    <!-- <div class="box normal" :class="[isActive?classAc:'',isAround?classAr:'']" @click="changePos">
+      {{message}}
+    </div> -->
+    <!-- <div class="box" :class="colors[idx]">
+      {{message}}
+    </div> -->
+    <!-- <div class="box" :class="{[className]:isExist}">
+      {{message}}
+    </div> -->
+    <div class="box" :class="[className,classAc,classAr]">
+      {{message}}
+    </div>
+    <button @click="changeColor" style="color:red;" :style="{backgroundColor: bgc}">switch color</button>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    let app = new Vue({
+      el: "#app",
+      data() {
+        return {
+          bgc: "cyan",
+          // classStr: "active around",
+          className: "jzs",
+          isExist: true,
+          classAc: "active",
+          classAr: "around",
+          message: "我是内容123",
+          isActive: false,
+          isAround: true,
+          psObj: {
+            active: true,
+            around: false
+          },
+          idx: 0,
+          colors: [
+            "red",
+            "blue",
+            "green"
+          ]
+        }
+      },
+      computed: {
+        getClassObj () {
+          return {
+            active: this.isActive,
+            around: this.isAround
+          }
+        }
+      },
+      methods: {
+        changePos () {
+          this.isActive = !this.isActive
+          this.isAround = !this.isAround
+        },
+        changeColor () {
+          this.idx++
+          this.idx = this.idx % 3
+        }
+        // changePos() {
+        //   this.psObj.active = !this.psObj.active
+        //   this.psObj.around = !this.psObj.around
+        // }
+      }
+    })
+  </script>
+</body>
+
+</html>

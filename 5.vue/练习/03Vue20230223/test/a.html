@@ -1,0 +1,47 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2023-02-23 13:23:48
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2023-02-23 16:21:31
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>内部监听</title>
+</head>
+<body>
+  <script>
+    let obj = {
+      list: [
+        "keainie",
+        {
+          name: "jzs",
+          age: 22
+        },
+      ],
+      obj: {
+        name: "jzs",
+        age: 22
+      }
+    }
+    function observe(obj,key,val) {
+      Object.defineProperty(obj,key,{
+        set (newVal) {
+          console.log("set 监听");
+          val = newVal
+        },
+        get () {
+          console.log("get 监听");
+          return val
+        }
+      })
+    }
+    observe(obj,"list",obj.list)
+  </script>
+</body>
+</html>

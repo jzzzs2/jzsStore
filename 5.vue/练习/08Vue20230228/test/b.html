@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>组件 注册 内部注册</title>
+</head>
+
+<body>
+  <div id="app">
+    <title-component></title-component>
+    <button-component></button-component>
+    <!-- <title-component></title-component> -->
+    <!-- <button-components></button-components> -->
+    <!-- <button-components></button-components> -->
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.7.14/dist/vue.js"></script>
+  <script>
+    const buttonComponent = {
+      template: `<div> <button @click='num++'>add</button> {{num}}</div>`,
+      data () {
+        return {
+          num: 0
+        }
+      }
+    }
+    //html标签和属性不识别大小写.最后转化为小写.
+    const titleComponentObj = {
+      template: `<H2 TITLE='ok'>i am h2 <button-components></button-components></H2>`,
+      // template: `<H2 TITLE='ok'>i am h2</H2>`,
+      // components: {
+      //   'button-components': buttonComponent
+      // },
+      components: {
+        'button-components': buttonComponent
+      },
+      methods: {
+      }
+    }
+    // Vue.component("title-component",titleComponentObj)
+    // Vue.component("button-component",componentObj)
+    let app = new Vue({
+      el: "#app",
+      components: {
+        'title-component': titleComponentObj,
+        'button-component': buttonComponent
+      },
+      data() {
+        return {
+          message: " i am vm 对象"
+        }
+      },
+      methods: {
+
+      }
+    })
+  </script>
+</body>
+
+</html>

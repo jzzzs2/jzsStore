@@ -1,0 +1,83 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2023-02-27 14:55:50
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2023-02-27 15:30:07
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vue 生命周期</title>
+  <style>
+
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    {{name}} {{age}} {{addr}} {{ent}}
+    <input type="text" name="" id="" v-model="ent">
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="./node_modules/axios/dist/axios.min.js"></script>
+  <script>
+    let app = new Vue({
+      el: "#app",
+      data() {
+        return {
+          name: "jzs",
+          age: 22,
+          addr: "jinHua",
+          ent: "内容"
+        }
+      },
+      methods: {
+        test() {
+          return "test method"
+        }
+      },
+      //生命周期
+      //在Mounted后 才把el替换成了$el
+      beforeCreate() {
+        console.log("beforeCreate", "初始化vm对象内部自有属性,事件绑定语法等等", this.name, this.$data, this.$el, this.test,"|",this.name);
+        axios.get("http://127.0.0.1:3000/test").then(res => {
+          console.log(res.data.data);
+          this.name = res.data.data
+        }).catch(err => {
+          {
+            console.log(err);
+          }
+        })
+      },
+      created() {
+        console.log("created", "进行data混入,对data的define配置", this.name, this.$data, this.$el, this.test,"|",this.name);
+      },
+      beforeMount() {
+        console.log("beforeMount", "解析模板,vdom创建,未渲染,没有$el", this.$el.innerText);
+      },
+      mounted() {
+        console.log("mounted", "将vdom实际渲染到dom中,生成$el,用于保存实际dom对象", this.$el.innerText);
+      },
+      beforeUpdate() {
+        console.log("beforeUpdate", "数据发生了改变 但未更新视图", this.$el.innerText);
+      },
+      updated() {
+        console.log("updated", "数据改变并且vdom对比,对视图进行了更新", this.$el.innerText);
+      },
+      beforeDestroy() {
+        console.log("beforeDestory");
+      },
+      destroyed() {
+        console.log("destroyed");
+      }
+    })
+  </script>
+</body>
+
+</html>

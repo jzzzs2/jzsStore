@@ -1,0 +1,103 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2023-03-01 15:27:34
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2023-03-01 16:17:09
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>组件通信 $emit</title>
+  <style>
+    .item {
+      width: 400px;
+      border: 1px solid pink;
+      padding: 20px
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <!-- <product-item v-for="(item,idx) in products" :product-obj="item" @change-num="changeNum(idx,$event)" :key="item.id"></product-item> -->
+    <!-- <product-item v-for="(item,idx) in products" :product-obj="item" @change-num="changeNum($event,idx)" :key="item.id"></product-item> -->
+    <product-item v-for="(item,idx) in products" :product-obj="item" @change-num="changeNum(arguments,idx)" :key="item.id"></product-item>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.7.14/dist/vue.js"></script>
+  <template id="product">
+    <div class="item">
+      <h2>名称: {{productObj.name}}</h2>
+      <p>价格: {{productObj.price}}</p>
+      <p>数量: {{productObj.num | max}}</p>
+      <button @click="$emit('change-num','谢谢你温暖了四季','hhhhhh','okkkkk')">more</button>
+      <button>less</button>
+    </div>
+  </template>
+  <script>
+    let productItem = {
+      filters: {
+        max(val) {
+          return Math.min(10,val)
+        }
+      },
+      computed: {
+      },
+      watch: {
+      },
+      props: {
+        productObj: {
+          type: Object
+        }
+      },
+      template: '#product',
+    }
+    let app = new Vue({
+      el: "#app",
+      components: {
+        'product-item': productItem
+      },
+      data() {
+        return {
+          message: "修改成功",
+          id: "1",
+          products: [
+            {
+              id: '001',
+              name: '洗衣机',
+              price: 19999.99,
+              num: 1,
+            },
+            {
+              id: '002',
+              name: '电视机',
+              price: 12999.50,
+              num: 1,
+            },
+            {
+              id: '003',
+              name: '收音机',
+              price: 2999.00,
+              num: 1,
+            }
+          ]
+        }
+      },
+      methods: {
+        changeNum(params,idx) {
+          console.log(params,params.length,"||",idx,"||");
+          this.products[idx].num++
+        }
+      },
+      computed: {
+      }
+    })
+  </script>
+</body>
+
+</html>

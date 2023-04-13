@@ -1,0 +1,96 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2023-02-23 17:19:19
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2023-02-23 17:58:06
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>事件 修饰符</title>
+</head>
+
+<body>
+  <div id="app">
+    <h2>{{count}}</h2>
+    <!-- <div class="wrap" @click.capture="addWrap">
+      <input type="text" @input="add">
+      <button @click.stop.once="add">+</button>
+      <a href="http://baidu.com/" @click.prevent.stop="decre">-</a>
+    </div> -->
+    <!-- <div class="wrap" @click.self="addWrap">
+      <input type="text" @input="add">
+      <button @click="add">+</button>
+      <a href="http://baidu.com/" @click.prevent="decre">-</a>
+    </div> -->
+    <div class="wrap">
+      <!-- <input type="text" @keyup.enter="add">
+      <input type="text" @keyup.13="add">
+      <input type="text" @keyup.page-down="add">
+      <input type="text" @keyup.tab="add">
+      <input type="text" @keyup.delete="add">
+      <input type="text" @keyup.esc="add">
+      <input type="text" @keyup.space="add">
+      <input type="text" @keyup.up="add">
+      <input type="text" @keyup.down="add">
+      <input type="text" @click.left="add">
+      <input type="text" @click.right="add"> -->
+      <!-- 系统修饰符号 -->
+      <input type="text" @click.ctrl="add">
+      <input type="text" @click.alt="add">
+      <input type="text" @click.shift.exact="add">
+      <input type="text" @click.meta.exact="add">
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  <script>
+    let app = new Vue({
+      el: "#app",
+      data() {
+        return {
+          count: 0,
+          list: [
+            {
+              id: 1,
+              content: '回锅肉',
+              count: 0
+            },
+            {
+              id: 2,
+              content: '炒土豆',
+              count: 0
+            },
+            {
+              id: 3,
+              content: '佛跳墙',
+              count: 0
+            }
+          ]
+
+        }
+      },
+      methods: {
+        add() {
+          console.log("i am normal add");
+          this.count++
+        },
+        decre() {
+          this.count = this.count - 1
+        },
+        addWrap () {
+          console.log("wo si wrap");
+          this.count++
+        }
+      }
+    })
+    //
+  </script>
+</body>
+
+</html>

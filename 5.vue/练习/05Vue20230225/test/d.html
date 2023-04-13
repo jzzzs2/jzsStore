@@ -1,0 +1,114 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2023-02-25 16:38:47
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2023-02-25 21:31:31
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>$event watch computed methods 使用区别</title>
+  <script src="./node_modules/axios/dist/axios.min.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <h2>{{title}}</h2>
+    <!-- <button @click="changeTitle('keainie',$event)">点击 切换标题</button> -->
+    <button @click="changeTitle('keainie')">点击 切换标题</button>
+    <!-- <input type="text" name="" id="" v-model="content"> -->
+    <!-- <p>被翻译内容:  {{transformCont}}</p> -->
+    <br>
+    <br>
+    <br>
+    <br>
+    <button @click="changeInnerObj">change InnerObj</button>
+    <button @click="changeAllObj">change AllObj</button>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  <script>
+    let app = new Vue({
+      el: "#app",
+      data() {
+        return {
+          idx: 0,
+          title: "normal 标题",
+          content: "",
+          transformCont: "",
+          obj: {
+            name: "jzs",
+            addr: "金华",
+            age: 22,
+            family: {
+              father: {
+                name: "jinhong",
+                age: "55"
+              },
+              mother: {
+                name: "tongjianyin",
+                age: 50
+              }
+            }
+          }
+        }
+      },
+      methods: {
+        changeTitle(title, e) {
+          console.log(title, e);
+          this.title = title
+          axios.get("http://127.0.0.1:3000/user").then(data=> {
+            console.log(data);
+          }).catch(err=> {
+            console.log(err);
+          })
+          return 
+        },
+        changeInnerObj () {
+          // this.obj.name = "zjc"
+          this.obj.family.father.name = "zjc"
+        },
+        changeAllObj () {
+          this.obj = {
+            name: "替换name",
+            age: 999
+          }
+        }
+      },
+      computed: {
+
+      },
+      watch: {
+        async content (newValue,oldValue) {
+          // console.log("我是监听title数据变化的watcher 执行");
+          // this.title = "我是watcher 要求显示的数据"
+          console.log(newValue,oldValue,"new and old");
+          this.idx++
+          this.transformCont = "被翻译内容结果" + this.idx
+        },
+        obj: {
+          handler(newValue,oldValue) {
+            console.log(newValue,oldValue,"new and old");
+          },
+          immediate: true, //组件创建时是否执行
+          // deep: true
+        },
+        'obj.age': {
+          handler(newValue,oldValue) {
+            console.log(newValue,oldValue,"newAge oldAge");
+          }
+        }
+      },
+      filter: {
+
+      }
+    })
+  </script>
+</body>
+
+</html>

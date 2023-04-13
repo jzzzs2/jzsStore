@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>组件 创建注册使用 全局注册</title>
+</head>
+
+<body>
+  <div id="app">
+    <button-component></button-component>
+    <button-component></button-component>
+    <button-component></button-component>
+    <button-component></button-component>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.7.14/dist/vue.js"></script>
+  <script>
+    //传统写法 1组件 创建 注册 使用
+    // let buttonComponent = Vue.extend({
+    //   template: `<button>add</button>`
+    // })
+    // Vue.component("buttonComponent",buttonComponent)
+    //语法糖写法
+    const componentObj = {
+      template: `<div><title-component></title-component><button @click='add'>add</button> {{num}}</div>`,
+      data() {
+        return {
+          num: 0
+        }
+      },
+      methods: {
+        add() {
+          this.num++
+        }
+      }
+    }
+    const titleComponentObj = {
+      template: `<h2>i am h2</h2>`,
+      methods: {
+
+      }
+    }
+    Vue.component("title-component",titleComponentObj)
+    Vue.component("button-component",componentObj)
+    console.log(Vue.component("button-component"));
+    let app = new Vue({
+      el: "#app",
+      data() {
+        return {
+          message: " i am vm 对象"
+        }
+      },
+      methods: {
+
+      }
+    })
+  </script>
+</body>
+
+</html>

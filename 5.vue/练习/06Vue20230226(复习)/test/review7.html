@@ -1,0 +1,72 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2023-02-26 14:34:50
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2023-02-26 15:55:16
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>event 事件</title>
+  <style>
+    .select {
+      color: #fff;
+      background-color: #222;
+    }
+
+    .shadow {
+      box-shadow: 0 0 4px cyan;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <!-- <p v-for="(item,idx) in arr">{{item}} {{item.name}} {{item.id}}</p> -->
+    <!-- <p v-for="num in 10">{{num}}</p> -->
+    <button @click="num++">add</button>
+    <button @click="getNumber(10,$event)">getNumber</button>
+    <p>{{num}}</p>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  <script>
+    let app = new Vue({
+      el: "#app",
+      data() {
+        return {
+          arr: [{ name: "jzs", id: 001 }, { name: "zjc", id: 002 }, { name: "jyh", id: 003 }],
+          name: "jzs",
+          num: 1,
+          person: {
+            name: "jzs",
+            age: 22,
+            addr: "jinHua"
+          }
+        }
+      },
+      computed: {
+      },
+      methods: {
+        getNumber(addNum,e) {
+          console.log(e);
+          this.num += addNum
+          return this.num
+        }
+      },
+      filters: {
+        test(val) {
+          return val
+        }
+      }
+    })
+
+  </script>
+</body>
+
+</html>

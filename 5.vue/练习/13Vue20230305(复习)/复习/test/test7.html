@@ -1,0 +1,174 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2023-03-05 11:50:00
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2023-03-05 18:48:41
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>大杂烩  动态组件</title>
+  <style>
+    #app {
+      padding: 20px;
+      border: 1px solid #444;
+    }
+
+    .one {
+      margin: 10px;
+      padding: 20px;
+      border: 1px solid pink;
+    }
+
+    .two {
+      margin: 10px;
+      padding: 20px;
+      border: 1px solid cyan;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <p>vm message: {{message}}</p>
+    修改: <input type="text" v-model="message.content">
+    num: current {{num.count | min}}
+    <p>动态组件</p>
+    <!-- <keep-alive :include="['OneComponent']">
+      <component :is="name"></component>
+    </keep-alive> -->
+    <!-- <keep-alive include="TwoComponent"> -->
+    <keep-alive :max="1">
+      <component :is="name"></component>
+    </keep-alive>
+  </div>
+  <template id="one">
+    <div class="one">
+      同意<input type="checkbox" name="" id="">
+      <p>one message: {{message}}</p>
+      修改: <input type="text" v-model="message">
+      <!-- <p>rootMessage: {{rootMessage.content}}</p> -->
+      <!-- <p>rootNumber: {{rootNum.count}}</p> -->
+      <br>
+      <br>
+    </div>
+  </template>
+  <template id="two">
+    <div class="two">
+      同意<input type="checkbox" name="" id="">
+      <p>two message: {{message}}</p>
+      修改: <input type="text" v-model="message">
+      <br>
+      <!-- rootMessage:  {{rootMessage.content}} -->
+      <!-- rootNumber:  {{rootNum.count}} -->
+      <br>
+      <br>
+    </div>
+  </template>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.7.14/dist/vue.js"></script>
+  <script>
+    let TwoComponent = {
+      template: "#two",
+      inject: {
+        rootMessage: {
+          from: "rootMessage",
+          default: "root默认信息"
+        },
+        rootNum: {
+          from: "rootNum",
+          default: "root默认num"
+        }
+      },
+      methods: {
+      },
+      props: {
+      },
+      data() {
+        return {
+          message: "我是two component的message"
+        }
+      }
+    }
+    let OneComponent = {
+      template: '#one',
+      inject: {
+        rootMessage: {
+          from: "rootMessage",
+          default: "默认root信息"
+        },
+        rootNum: {
+          from: "rootNum",
+          default: "默认Num"
+        }
+      },
+      methods: {
+      },
+      components: {
+        TwoComponent
+      },
+      props: {
+      },
+      data() {
+        return {
+          message: "我是one component的message"
+        }
+      }
+    }
+    let app = new Vue({
+      el: "#app",
+      provide () {
+        return {
+          rootMessage: this.message,
+          rootNum: this.num
+        }
+      },
+      components: {
+        OneComponent,
+        TwoComponent
+      },
+      methods: {
+      },
+      watch: {
+        currentNum: {
+          handler (newValue,oldValue) {
+            // console.log(newValue,oldValue,"currentNum计算属性 修改了");
+          },
+          deep: true
+        }
+      },
+      computed: {
+        currentNum () {
+          return this.$options.filters.min(this.num)
+        } 
+      },
+      filters: {
+        min (val) {
+          return Math.max(0,val)
+        },
+        max (val) {
+          return Math.min(10,val)
+        }
+      },
+      data() {
+        return {
+          // message: "我是vm实例message",
+          message: {
+            content: "我是vm实例message"
+          },
+          num: {
+            count: 0
+          },
+          name: "OneComponent"
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,43 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2023-02-28 15:06:08
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2023-02-28 15:24:10
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>prop</title>
+</head>
+<body>
+  <div id="app">
+    <!-- <p>数字 :{{num}}</p> -->
+    <son-component :son-num="num" :son-message="message"></son-component>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.7.14/dist/vue.js"></script>
+  <script>
+    let sonObj = {
+      template: `<div><button @click='sonNum++'>add</button>{{sonNum}} --- {{sonMessage}}</div>`,
+      props: ['sonNum',"sonMessage"]
+    }
+    let app = new Vue({
+      el: "#app",
+      components: {
+        "son-component": sonObj
+      },
+      data () {
+        return {
+          message: "信息~~~",
+          num: 0
+        }
+      },
+      methods: {}
+    })
+  </script>
+</body>
+</html>

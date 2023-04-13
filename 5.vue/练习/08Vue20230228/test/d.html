@@ -1,0 +1,101 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2023-02-28 15:06:08
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2023-02-28 16:05:01
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>prop</title>
+</head>
+<body>
+  <div id="app">
+    <!-- <p>数字 :{{num}}</p> -->
+    <son-component diyAttr="false" :son-num="num" :son-message="message" title="miku" :age="22" :id="1" :hobby="hobbies" :is-corr="isSk" :arr="[1,2,3,4]" :obj="{name: 'jzs',age: '22'}" v-bind="testObj"></son-component>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.7.14/dist/vue.js"></script>
+  <script>
+    let sonObj = {
+      template: `<div><button @click='sonNum++'>add</button>{{sonNum}} --- {{sonMessage}} || {{title}} {{age}} {{id}} {{hobby}} {{isCorr}} {{arr}} {{obj}} || {{addr}} {{place}} {{descript}}</div>`,
+      props: {
+        "sonNum": {
+          type: Number,
+          required: true,
+          default: 666,
+          validator (value) {
+            return /^.{3,}$/.test(value)
+          }
+        },
+        "sonMessage": {
+          type: String,
+          required: true,
+          default: "我是备用信息",
+          validator (value) {
+            return /^.{5,}$/.test(value)
+          }
+        },
+        "title": {
+          type: String
+        },
+        "age": {
+          type: [String,Number]
+        },
+        "id": {
+          type: Number
+        },
+        "hobby": {
+          type: Array
+        },
+        "isCorr": {
+          type: Boolean
+        },
+        "arr":  {
+          type: Array
+        },
+        "obj": {
+          type: Object
+        },
+        "addr": {
+          type: String
+        },
+        "place": {
+          type: String
+        },
+        "descript": {
+          type: String
+        }
+      }
+    }
+    let app = new Vue({
+      el: "#app",
+      components: {
+        "son-component": sonObj
+      },
+      data () {
+        return {
+          // message: "信息~123",
+          // num: 100
+          message: undefined,
+          num: undefined,
+          hobbies: [
+            "抽烟","喝酒","烫头"
+          ],
+          isSk: true,
+          testObj: {
+            addr: "jinhua",
+            place: "room",
+            descript: "haoye"
+          }
+        }
+      },
+      methods: {}
+    })
+  </script>
+</body>
+</html>

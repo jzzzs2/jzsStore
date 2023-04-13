@@ -1,0 +1,173 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2023-03-03 15:55:53
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2023-03-03 17:59:47
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>provide inject</title>
+  <style>
+    .box {
+      padding: 10px;
+      margin: 10px;
+      border: 1px solid steelblue;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app" class="box">
+    <p>to parent 信息: {{toParent}}</p>
+    <p>to son 信息: {{toSon}}</p>
+    <p>root的message: {{message}}</p>
+    <p>root的num: {{num}}</p>
+    <parent-component></parent-component>
+  </div>
+  <template id="son">
+    <div class="box">
+      <p>son的message: {{message}}</p>
+      <p>root的message: {{rootMessageObj.content}}</p>
+      <input type="text" name="" value="" @input="addNum" @change="changeInfo($event,type)">
+    </div>
+  </template>
+  <template id="parent">
+    <div class="box">
+      <p>parent的message: {{message}}</p>
+      <p>root的message: {{rootMessageObj.content}}</p>
+      <input type="text" name="" value="" @input="addNum" @change="changeInfo($event,type)">
+      <son-component></son-component>
+    </div>
+  </template>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  <script>
+    let sonComponent = {
+      template: "#son",
+      data() {
+        return {
+          message: "我是孙子组件message",
+          type: "Son"
+        }
+      },
+      inject: {
+        // rootMessageObj: "message",
+        rootMessageObj: {
+          from: "message",
+          default() {
+            return {
+              content: "我是默认内容捏"
+            }
+          }
+        },
+        addNum: {
+          from: "addMethod",
+          default() {
+            return function () { }
+          }
+        },
+        changeInfo: {
+          from: "changeInfo"
+        }
+      },
+      props: {
+        toSon: {
+          type: String
+        }
+      },
+      mounted() {
+      },
+    }
+    let parentComponent = {
+      template: "#parent",
+      data() {
+        return {
+          message: "我是父组件message",
+          type: 'Parent'
+        }
+      },
+      // inject: {
+      //   rootMessageObj: "message",
+      //   addNum: "addMethod"
+      // },
+      inject: {
+        rootMessageObj: {
+          from: "message",
+          default() {
+            return {
+              content: "我是默认对象的content"
+            }
+          }
+        },
+        // rootMessageObj: "message",
+        // addNum: "addMethod"
+        addNum: {
+          from: "addMethod",
+          default() {
+            return function () { }
+          }
+        },
+        changeInfo: {
+          from: "changeInfo"
+        }
+      },
+      components: {
+        'son-component': sonComponent
+      },
+      methods: {
+      },
+      mounted() {
+      }
+    }
+    let app = new Vue({
+      el: "#app",
+      provide() {
+        return {
+          message: this.message,
+          addMethod: this.addNum,
+          changeInfo: this.changeInfo
+        }
+      },
+      data() {
+        return {
+          // message: "我是ROOT组件message",
+          // message: "",
+          message: {
+            content: "root de content message"
+          },
+          toParent: "root给parent的信息",
+          toSon: "root给son的信息",
+          num: 0
+        }
+      },
+      components: {
+        'parent-component': parentComponent
+      },
+      methods: {
+        modifyMessage($event) {
+          console.log($event);
+          let value = $event.target.value
+          this.message = value
+        },
+        addNum(e) {
+          console.log(e, "num 中的 e");
+          this.num++
+        },
+        changeInfo (e,type) {
+          console.log(e,type,"|||");
+          let value = e.target.value
+          this[`to${type}`] = value 
+        }
+      }
+    })
+
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,104 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2023-03-05 11:50:00
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2023-03-06 14:44:42
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>大杂烩  v-model default</title>
+  <style>
+    #app {
+      padding: 20px;
+      border: 1px solid #444;
+    }
+
+    .one {
+      margin: 10px;
+      padding: 20px;
+      border: 1px solid pink;
+    }
+
+    .two {
+      margin: 10px;
+      padding: 20px;
+      border: 1px solid cyan;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    message info: {{message.content}}
+    <one-component v-model="message.content"></one-component>
+  </div>
+  <template id="one">
+    <div class="one">
+      parent message: {{value}}
+      修改: <input type="text" @change="$emit('input',$event.target.value)">
+      <br>
+      <br>
+    </div>
+  </template>
+  
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.7.14/dist/vue.js"></script>
+  <script>
+    let OneComponent = {
+      template: '#one',
+      methods: {
+      },
+      props: {
+        value: {
+          type: String
+        }
+      },
+      data() {
+        return {
+          message: "我是one component的message"
+        }
+      }
+    }
+    let app = new Vue({
+      el: "#app",
+      components: {
+        OneComponent,
+      },
+      methods: {
+      },
+      computed: {
+        currentNum () {
+          return this.$options.filters.min(this.num)
+        } 
+      },
+      filters: {
+        min (val) {
+          return Math.max(0,val)
+        },
+        max (val) {
+          return Math.min(10,val)
+        }
+      },
+      data() {
+        return {
+          // message: "我是vm实例message",
+          message: {
+            content: "我是vm实例message"
+          },
+          num: {
+            count: 0
+          },
+          name: "OneComponent"
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,80 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2023-02-24 18:07:35
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2023-02-24 18:33:46
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>computed</title>
+</head>
+
+<body>
+  <div id="app">
+    <!-- <div class="box">
+      {{getNumber(sec)}}
+      {{getNumber}}
+    </div> -->
+    <div class="box">
+      <p>姓: {{firstName}} </p>
+      <p>名: {{lastName}} </p>
+      {{getAllName}}
+      <p>时间 {{getTime}}</p>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    let app = new Vue({
+      el: "#app",
+      data() {
+        return {
+          sec: 9,
+          firstName: "金",
+          lastName: "哲晟"
+        }
+      },
+      methods: {
+        // getNumber (sec) {
+        //   return String(sec)[1] && String(sec) || "0" + sec
+        // }
+      },
+      computed: {
+        getNumber() {
+          return String(this.sec)[1] && String(this.sec) || "0" + this.sec
+        },
+        getAllName: {
+          get() {
+            return this.firstName + this.lastName
+          },
+          set(val) {
+            let firstName = val.split("")[0]
+            let lastName = val.slice(-val.length + 1)
+            this.firstName = firstName
+            this.lastName = lastName
+          }
+        },
+        // getTime () {
+        //   return new Date()
+        // }
+        getTime: {
+          get() {
+            return new Date()
+          },
+          set(val) {
+            let newVal = val
+          }
+
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

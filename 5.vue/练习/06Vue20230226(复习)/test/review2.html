@@ -1,0 +1,96 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2023-02-26 14:34:50
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2023-02-26 14:53:36
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>reviews </title>
+  <style>
+    .select {
+      color: #fff;
+      background-color: #222;
+    }
+
+    .shadow {
+      box-shadow: 0 0 4px cyan;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <!-- <div class="box" :class="{select: isShow,shadow: isSd}">
+      {{message}}
+    </div> -->
+    <!-- <div class="box" :class="classAttr">
+      {{message}}
+    </div> -->
+    <!-- <div class="box" :class="['select','shadow']">
+      {{message}}
+    </div> -->
+    <!-- <div class="box" :class="[selectName,shadowName]">
+      {{message}}
+    </div> -->
+    <!-- <div class="box" :style="{color: 'red',fontSize: '30px'}">
+      {{message}}
+    </div> -->
+    <!-- <div class="box" :style="[oneStyleObj,twoStyleObj]">
+      {{message}}
+    </div> -->
+    <div :style="{ display: ['-webkit-box','-ms-flexbox'] }"></div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  <script>
+    let app = new Vue({
+      el: "#app",
+      data() {
+        return {
+          oneStyleObj: {
+            color: "red"
+          },
+          twoStyleObj: {
+            boxShadow: "0 0 5px #222"
+          },
+          selectName: "select",
+          shadowName: "shadow",
+          isSd: "shadow",
+          classname: "class",
+          psInfo: true,
+          name: "jzs",
+          age: 22,
+          addr: "JinHua",
+          isTest: true,
+          message: "keainie",
+          msg: "<p>1234</p>",
+          isShow: true,
+          message: "message Info",
+        }
+      },
+      computed: {
+        classAttr() {
+          return {
+            select: this.isShow,
+            shadow: this.isSd
+          }
+        }
+      },
+      methods: {
+        getAllName() {
+          return this.name + this.age
+        }
+      }
+    })
+
+  </script>
+</body>
+
+</html>

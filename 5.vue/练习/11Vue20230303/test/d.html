@@ -1,0 +1,128 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2023-03-03 15:55:53
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2023-03-03 18:51:59
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>slot 插槽</title>
+  <style>
+    .box {
+      padding: 10px;
+      margin: 10px;
+      border: 1px solid steelblue;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app" class="box">
+    <parent-component>
+      <template v-slot:root-message="props">
+        <p>root给parent传的值</p>    
+        <p>并且使用了 parent内部值 {{props.type}} {{props.message}}</p>
+      </template>
+      <!-- <template #random="attrs">
+          <p>test</p>
+          <p>{{attrs}}</p>
+          <p>test</p>
+      </template> -->
+      <template #random="attrs">
+          <!-- 1 -->
+      </template>
+      <template>
+        <div>
+          <p>no name slot 1 </p>
+        </div>
+      </template>
+      <template>
+        <div>
+          <p>no name slot 2</p>
+        </div>
+      </template>
+        <!-- <div>
+          <p>no name slot 1 </p>
+        </div>
+        <div>
+          <p>no name slot 2</p>
+        </div> -->
+        <div>
+          <p>no name slot 3</p>
+        </div>
+    </parent-component>
+  </div>
+  <template id="son">
+    <div class="box">
+    </div>
+  </template>
+  <template id="parent">
+    <div class="box">
+      <slot name="root-message" :message="message" :type="type"></slot>
+      <slot></slot>
+      <slot></slot>
+      <br>
+      <slot name="random" :message="message">我是默认的插值 值</slot>
+      <br>
+      <son-component></son-component>
+    </div>
+  </template>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  <script>
+    let sonComponent = {
+      template: "#son",
+      data() {
+        return {
+          message: "我是孙子组件message",
+          type: "Son"
+        }
+      },
+      mounted() {
+      },
+    }
+    let parentComponent = {
+      template: "#parent",
+      data() {
+        return {
+          message: "我是父组件message",
+          type: 'Parent'
+        }
+      },
+      components: {
+        'son-component': sonComponent
+      },
+      methods: {
+      },
+      mounted() {
+      }
+    }
+    let app = new Vue({
+      el: "#app",
+      data() {
+        return {
+          message: {
+            content: "root de content message"
+          },
+          toParent: "root给parent的信息",
+          toSon: "root给son的信息",
+          num: 0
+        }
+      },
+      components: {
+        'parent-component': parentComponent
+      },
+      methods: {
+      }
+    })
+
+  </script>
+</body>
+
+</html>

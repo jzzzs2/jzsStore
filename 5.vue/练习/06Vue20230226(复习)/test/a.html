@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>banner vue</title>
+  <style>
+    .banner {
+      position: relative;
+      width: 400px;
+      height: 200px;
+    }
+
+    .wrap {
+      overflow: hidden;
+    }
+
+    .banner-item {
+      width: 500%;
+      transition: .5s linear
+    }
+
+    .banner-item img {
+      float: left;
+      width: 400px;
+      height: 200px;
+    }
+
+    .banner span.on {
+      background-color: #222;
+      color: #fff;
+    }
+
+    .banner-prev {
+      position: absolute;
+      left: 30px;
+      top: 0px;
+      bottom: 0px;
+      width: 30px;
+      height: 100px;
+      line-height: 100px;
+      margin: auto;
+      color: #fff;
+      font-size: 26px;
+      cursor: pointer;
+      background-color: rgba(200, 200, 200, .8);
+    }
+
+    .banner-next {
+      position: absolute;
+      right: 30px;
+      top: 0px;
+      bottom: 0px;
+      width: 30px;
+      height: 100px;
+      line-height: 100px;
+      margin: auto;
+      color: #fff;
+      font-size: 26px;
+      cursor: pointer;
+      background-color: rgba(200, 200, 200, .8);
+    }
+
+    .banner-pointer {
+      position: absolute;
+      top: 140px;
+      left: 0;
+      right: 0;
+      margin: auto;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      width: 200px;
+      background-color: rgba(220, 220, 220, .9);
+    }
+
+    .banner-pointer span {
+      padding: 10px;
+      border-radius: 50%;
+      font-size: 18px;
+      color: #222;
+      background-color: #fff;
+    }
+  </style>
+</head>
+
+<body>
+  <div class='banner'>
+    <img :src="item" alt="" v-for="item in srcArr">
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  <script>
+    let app = new Vue({
+      el: '.banner',
+      data() {
+        return {
+          srcArr: ['./img/1.png', './img/2.png', './img/3.png', './img/4.png']
+        }
+      },
+      computed: {
+      },
+      methods: {
+      },
+      watch: {
+      },
+      filters: {
+      }
+    })
+  </script>
+</body>
+
+</html>

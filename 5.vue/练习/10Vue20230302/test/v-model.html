@@ -1,0 +1,89 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2023-03-02 15:09:54
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2023-03-02 15:32:34
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>v-model 自定义属性props和自定义事件emit的语法糖</title>
+  <style>
+    .box {
+      border: 1px solid #222;
+      padding: 10px;
+      margin: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <parent-temp></parent-temp>
+  </div>
+  <template id="parent">
+    <div class="box">
+      <p>parent的Message:  {{message}}</p>
+      <son-temp v-model="message"></son-temp>
+    </div>
+  </template>
+  <template id="son">
+    <div class="box">
+      <p>从parent获取的message:  {{parentMsg}}</p>
+      <!-- <button @click="modify">修改从parent获取的message</button> -->
+      <input @change="modify" type="text">(修改从parent获取的message)
+    </div>
+  </template>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.7.14/dist/vue.js"></script>
+  <script>
+    let sonTemp = {
+      template: "#son",
+      methods: {
+        modify($event) {
+          console.log($event.target.value);
+          let value = $event.target.value
+          this.$emit("modify-message",value )
+        }
+      },
+      model: {
+        prop: "parentMsg",
+        // event: "modify-message"
+      },
+      props: {
+        parentMsg: {
+          type: String
+        }
+      }
+    }
+    let parentTemp = {
+      template: '#parent',
+      components: {
+        'son-temp': sonTemp
+      },
+      data() {
+        return {
+          message: "我是父组件的message"
+        }
+      }
+    }
+
+    let app = new Vue({
+      el: "#app",
+      components: {
+        'parent-temp': parentTemp
+      },
+      data() {
+        return {
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

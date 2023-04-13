@@ -1,0 +1,53 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2023-02-22 16:18:23
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2023-02-22 16:21:48
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>XXXX 123</title>
+  <style>
+    .active {
+      background-color: skyblue;
+      color: #fff
+    }
+
+    [v-cloak] {
+      display: none
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box">
+    <div v-once>{{age}}</div>
+    <div v-once>{{age}}</div>
+    <div v-text="age"></div>
+    <!-- <div v-text="name"></div> -->
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  <script>
+    let app = new Vue({
+      el: document.querySelector(".box"),
+      data() {
+        return {
+          message: "welcome to my home",
+          name: "jzs",
+          age: 22
+        }
+      },
+      methods: {
+      }
+    })
+  </script>
+</body>
+
+</html>

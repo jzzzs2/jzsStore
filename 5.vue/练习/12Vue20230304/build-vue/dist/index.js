@@ -1,0 +1,1 @@
+console.log(function(o){var n=o.obj,r=void 0===n?{}:n,b=o.prop;return!(null==r||!r[void 0===b?"a":b])}({obj:{a:1,b:2},prop:"b"}));

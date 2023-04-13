@@ -1,0 +1,195 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2023-03-03 15:55:53
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2023-03-04 15:57:49
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>动态组件 选项卡 2 keep-alive</title>
+  <style>
+    .box {
+      padding: 10px;
+      margin: 10px;
+      border: 1px solid steelblue;
+    }
+
+    .head {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      width: 400px;
+      margin: auto;
+      line-height: 60px;
+    }
+
+    .part {
+      padding: 0px 6px
+    }
+
+    .active {
+      color: #fff;
+      background-color: #444;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app" class="box">
+    <div class="head">
+      <span v-for="(item,idx) in titleList" :class="{active: idx===activeIdx}" @click="change(idx,$event)"
+        class="part">{{item.name}}</span>
+    </div>
+    <keep-alive :include="/music\-temp|movie\-temp/" :max="1">
+      <component :is="tempName"></component>
+    </keep-alive>
+    <!-- <keep-alive :include="tempArr">
+      <component :is="tempName"></component>
+    </keep-alive> -->
+    <!-- <component :is="tempName"></component> -->
+
+  </div>
+  <template id="game">
+    <div>
+      <p>消息 {{message}}</p>
+    </div>
+  </template>
+  <template id="music">
+    <div>
+      输入手机号抽取会员<input type="text" v-model="phone">
+    </div>
+  </template>
+  <template id="movie">
+    <div>
+      是否同意观看该电影<input type="checkbox" name="" id="" v-model="isAgree">
+    </div>
+  </template>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  <script>
+
+    let gameTemp = {
+      template: "#game",
+      data() {
+        return {
+          message: "ow国服关闭"
+        }
+      },
+      mounted() {
+        console.log("game mounted");
+      },
+      destroyed() {
+        console.log("game destroy");
+      },
+      activated() {
+        console.log("game activated");
+      },
+      deactivated() {
+        console.log("game deactivated");
+      }
+    }
+    let musicTemp = {
+      template: "#music",
+      data() {
+        return {
+          phone: ""
+        }
+      },
+      mounted() {
+        console.log("music mounted");
+      },
+      destroyed() {
+        console.log("music destroy");
+      },
+      activated() {
+        console.log("music activated");
+      },
+      deactivated() {
+        console.log("music deactivated");
+      }
+    }
+    let movieTemp = {
+      template: "#movie",
+      data() {
+        return {
+          isAgree: false
+        }
+      },
+      mounted() {
+        console.log("movie mounted");
+      },
+      destroyed() {
+        console.log("movie destroy");
+      },
+      activated() {
+        console.log("movie activated");
+      },
+      deactivated() {
+        console.log("movie deactivated");
+      }
+    }
+    let app = new Vue({
+      el: "#app",
+      components: {
+        'game-temp': gameTemp,
+        'music-temp': musicTemp,
+        'movie-temp': movieTemp
+      },
+      mounted() {
+        console.log("vm实例渲染");
+      },
+      destroyed() {
+        console.log("vm实例销毁");
+      },
+      activated() {
+        console.log("vm实例激活");
+      },
+      deactivated() {
+        console.log("vm实例失活了");
+      },
+
+      data() {
+        return {
+          message: {
+            content: "root de content message"
+          },
+          activeIdx: 0,
+          // tempName: gameTemp,
+          tempName: "game-temp",
+          tempArr: ["music-temp","movie-temp"],
+          titleList: [
+            {
+              name: "game",
+              // temp: gameTemp
+              temp: "game-temp"
+            },
+            {
+              name: "music",
+              // temp: musicTemp
+              temp: "music-temp"
+            },
+            {
+              name: "movie",
+              temp: "movie-temp"
+            }
+          ]
+        }
+      },
+      methods: {
+        change(idx, e) {
+          this.activeIdx = idx
+          this.tempName = this.titleList[idx].temp
+        }
+      }
+    })
+
+  </script>
+</body>
+
+</html>

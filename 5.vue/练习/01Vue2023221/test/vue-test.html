@@ -1,0 +1,144 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2023-02-21 16:26:02
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2023-02-21 18:11:27
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>vue 双向绑定原理 实现</title>
+</head>
+
+<body>
+  <div id="app">{{name}}<input type="text" v-model="name"></div>
+  <script>
+    //发布者和监听者
+    let Publisher = class Publisher {
+      constructor(attr) {
+        this.attr = attr
+        this.subs = []
+      }
+      pub() {
+        for (let i = 0; i < this.subs.length; i++) {
+          this.subs[i].update()
+        }
+      }
+    }
+    let Subscriber = class Subscriber {
+      constructor(node, attr, vm) {
+        this.node = node
+        this.attr = attr
+        this.vm = vm
+        Publisher.target = this
+        this.get()
+      }
+      get() {
+        this.update()
+        Publisher.target = null
+      }
+      update() {
+        this.node.nodeValue = this.vm[this.attr]
+        this.node.value = this.vm[this.attr]
+      }
+    }
+    //1.转接函数
+    function propertyTransplant(target, data) {
+      Object.entries(data).map(([key, value]) => {
+        target[key] = value
+      })
+    }
+    //2.解析指代标识为仓库数据并对一些元素进行事件绑定
+    function compile(el, vm) {
+      let nodes = document.querySelector(el).childNodes
+      //input标签
+      for (let i = 0; i < nodes.length; i++) {
+        let node = nodes[i]
+        if (node.nodeType == 1) {
+          console.log("TYPE 1");
+          let attributes = node.attributes
+          console.log(attributes, "Attr");
+          if ("v-model" in attributes) {
+            console.log("你是有v-model的元素");
+            let key = node.getAttribute("v-model")
+            //初次赋值
+            node.value = vm[key]
+            //进行绑定
+            node.addEventListener("input", function (e) {
+              console.log("修改仓库");
+              vm[key] = this.value
+            })
+            //TODI 订阅者创建
+            new Subscriber(node,key,vm)
+          }
+        }
+        //文字
+        if (node.nodeType == 3) {
+          console.log("TYPE 3");
+          let regExp = /\{\{(.+)\}\}/
+          if (regExp.test(node.nodeValue)) {
+            let key = node.nodeValue.match(regExp)[1]
+            console.log(key, "key");
+            node.nodeValue = vm[key]
+            //toDo 订阅者创建
+            new Subscriber(node,key,vm)
+          }
+        }
+      }
+    }
+    //对vm中的数据进行监听
+    function watchAttr(data, vm) {
+      let keys = Object.keys(data)
+      console.log(keys, "keys");
+      for (let i = 0; i < keys.length; i++) {
+        let value = data[keys[i]]
+        let publisher = new Publisher()
+        console.log(keys[i], "curr key", value);
+        Object.defineProperty(vm, keys[i], {
+          get() {
+            if (Publisher.target) {
+              console.log("进行订阅");
+              publisher.subs.push(Publisher.target)
+            }
+            return value
+          },
+          set(val) {
+            if (val == value) {
+              return
+            }
+            value = val
+            //toDo 发布消息
+            publisher.pub()
+          }
+        })
+      }
+    }
+
+    //3.对vue对象上的数据进行监听
+    class Vue {
+      constructor({ el, data }) {
+        this.el = el
+        propertyTransplant(this, data)
+        watchAttr(data, this)
+        compile(el, this)
+        // this.init()
+        
+      }
+    }
+    let app = new Vue({
+      el: "#app",
+      data: {
+        name: "jzs"
+      }
+    })
+
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,78 @@
+  <!DOCTYPE html>
+  <html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+      .active {
+        background-color: skyblue;
+        color: #fff
+      }
+
+      [v-cloak] {
+        display: none
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="box">
+      <img alt="" v-bind:[attr]="src">
+      <div class="box">{{message}}</div>
+      <div class="box">{{test}}</div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script>
+      let app = new Vue({
+        el: document.querySelector(".box"),
+        data() {
+          return {
+            message: "welcome to my home",
+            name: "jzs",
+            msg: "<p>学习学习</p>",
+            type: "active",
+            attr: "src",
+            src: "http://127.0.0.1:3000"
+            // src: undefined
+            // src: null,
+            // src: "",
+            // src: 0, 有属性,有属性值
+            // src: NaN, 有属性有属性值
+            // src: true 有属性有属性值
+            // src: false 无属性
+            // test: false, 有属性 没有属性值
+            // test: NaN, 有属性没有属性值
+            // test: undefined, 没有属性
+            // test: "", 有属性没有属性值
+            // test: 0, 有属性没有属性值
+            // test: null 没有属性
+            // test: "keainie"  有属性和正常属性值
+            // test: 3423432 有属性没有属性值 
+            // test: Boolean(3242342),
+            // isHide: undefined  没有属性
+            // isHide: null 没有属性
+            // isHide: false 没有属性
+            // isHide: "" 有属性,属性值默认hidden
+            // isHide: 0 有属性,属性值默认hidden
+            // isHide: true 有属性
+            // isHide: 999 有属性
+            // isHide: "xxxx" 有属性
+          }
+        },
+        methods: {
+          showMyName() {
+            return this.name + "007"
+          },
+          getName() {
+            return "active"
+          }
+        }
+      })
+      // app.$mount(".box")
+    </script>
+  </body>
+
+  </html>

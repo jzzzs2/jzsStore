@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>tabs</title>
+  <style>
+    .on {
+      color: #fff;
+      background-color: #222
+    }
+    
+    .tabs {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      width: 800px;
+      height: 400px;
+      margin: 200px auto;
+      background-color: cyan;
+      border-bottom: 1px solid #222
+    }
+    .tabs-title {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      height: 80px;
+    }
+    .tabs-title span {
+      padding: 20px;
+      font-size: 20px;
+    }
+    .tabs-content {
+      text-align: center;
+      background-color: skyblue;
+      height: 200px;
+      line-height: 200px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <div class="tabs">
+      <div class="tabs-title">
+        <span v-for="(item,index) in messageArr" @click="changeIdx(index)"
+          :class="{on: index==idx}">{{item.title}}</span>
+      </div>
+      <div class="tabs-content">
+        {{messageArr[idx].content}}
+      </div>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    let app = new Vue({
+      el: "#app",
+      data() {
+        return {
+          idx: 0,
+          messageArr: [
+            {
+              title: "政治",
+              content: "特朗普停战俄乌"
+            },
+            {
+              title: "游戏",
+              content: "星际2中国夺冠"
+            },
+            {
+              title: "音乐",
+              content: "天下第一公主殿下"
+            }
+          ]
+        }
+      },
+      methods: {
+        changeIdx(idx) {
+          this.idx = idx
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

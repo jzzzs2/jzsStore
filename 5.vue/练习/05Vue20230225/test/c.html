@@ -1,0 +1,109 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2023-02-25 16:38:47
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2023-02-25 20:58:04
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>v-model </title>
+</head>
+<body>
+  <div id="app">
+    <!-- <input type="radio" name="sex" id="" value="男man" v-model="sex">男
+    <br>
+    <input type="radio" name="sex" id="" value="女women" v-model="sex">女 -->
+    <!-- <input type="checkbox" name="hobbies" id="" :value="hb1" v-model="hobbies">抽烟
+    <input type="checkbox" name="hobbies" id="" :value="hb2" v-model="hobbies">喝酒
+    <input type="checkbox" name="hobbies" id="" :value="hb3" v-model="hobbies">烫头 -->
+    <!-- <input type="checkbox" name="" id="" v-model="isAgree" value="keainie"> -->
+    <input type="checkbox" name="" id="" v-model="isAgree">同意
+    <!-- <button :disabled="!isAgree">注册</button> -->
+    <!-- <select name="period" id="" v-model="period" multiple>
+      <option value="001">硕士</option>
+      <option>硕士</option>
+      <option value="002">本科</option>
+      <option>本科</option>
+      <option value="003">专科</option>
+      <option>专科</option>
+      <option value="004">高中</option>
+      <option>高中</option>
+      <option :value="{name: item.name,title:item.title}" v-for="item in arr">{{item.title}}</option>
+    </select> -->
+    <br>
+    <br>
+    <br>
+    <br>
+    <!-- v-model 修饰符 .lazy .number .trim -->
+    <!-- <input type="text" name="" id="" v-model.lazy="content"> -->
+    <!-- <input type="text" name="" id="" v-model.number="content"> -->
+    <!-- <input type="text" name="" id="" v-model="content"> -->
+    <!-- <input type="text" name="" id="" v-model.trim="content"> -->
+    <br>
+    <br>
+    <br>
+    <textarea name="" id="" cols="30" rows="10" v-model="message"></textarea>
+    <p>{{message}}</p>
+    <input type="text" name="" id="" v-model="jzs">
+    <br>
+    <br>
+    <br>
+    <input type="checkbox" name="" id="" v-model="isGu" true-value="yes" false-value="no">是否放弃
+    <p>{{isGu}}</p>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  <script>
+    let app = new Vue({
+        el: "#app",
+        data () {
+          return {
+            isGu: false,
+            jzs: "sukui",
+            message: "信息内容",
+            content: "",
+            arr: [
+              {
+                title: "硕士",
+                name: "many"
+              },
+              {
+                title: "本科",
+                name: "much"
+              },
+              {
+                title: "专科",
+                name: "little"
+              }
+            ],
+            isAgree: false,
+            // isAgree: [],
+            sex: "",
+            // sex: [],
+            hb1: "抽烟",
+            hb2: "喝酒",
+            hb3: "烫头",
+            hobbies: [],
+            // period: ""
+            period: []
+            // hobbies: " "
+          }
+        },
+        methods: {
+
+        },
+        computed: {
+
+        },
+        filter: {
+          
+        }   
+    })
+  </script>
+</body>
+</html>

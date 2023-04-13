@@ -1,0 +1,115 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2023-03-01 15:27:34
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2023-03-01 20:19:10
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title></title>
+  <style>
+    .item {
+      width: 400px;
+      border: 1px solid pink;
+      padding: 20px
+    }
+
+    .pad {
+      padding: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <all-type :type-arr="types"></all-type>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.7.14/dist/vue.js"></script>
+  <template id="type">
+    <div>
+      <ul>
+        <li v-for="(item,idx) in typeArr">{{item.title}}
+          <!-- <all-title :list-arr="item.list"></all-title> -->
+          <div><span class="pad" v-for="one in item.list">{{one}}</span></div>
+
+        </li>
+      </ul>
+    </div>
+  </template>
+  <template id="title">
+    <div>
+      <span v-for="item in listArr" class="pad">{{item}}</span>
+    </div>
+  </template>
+  <script>
+    let titleOption = {
+      template: "#title",
+      props: {
+        "listArr": {
+          type: Array
+        }
+      }
+    }
+    let typeOption = {
+      template: "#type",
+      components: {
+        "all-title": titleOption
+      },
+      props: {
+        "typeArr": {
+          type: Array
+        }
+      }
+    }
+    let app = new Vue({
+      el: "#app",
+      components: {
+        'all-type': typeOption
+      },
+      data() {
+        return {
+          types: [
+            {
+              title: "游戏",
+              list: [
+                "cs",
+                "lol",
+                "dota",
+                "ow"
+              ]
+            },
+            {
+              title: "音乐",
+              list: [
+                "lets go",
+                "天下第一公主殿下",
+                "妄想税",
+              ]
+            },
+            {
+              title: "vtuber",
+              list: [
+                "古堡龙姬",
+                "dodo",
+                "永恒妮妮",
+              ]
+            }
+          ]
+        }
+      },
+      methods: {
+      },
+      computed: {
+      }
+    })
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,194 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2023-03-05 11:50:00
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2023-03-05 14:43:20
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>大杂烩 $refs $root</title>
+  <style>
+    #app {
+      padding: 20px;
+      border: 1px solid #444;
+    }
+
+    .one {
+      margin: 10px;
+      padding: 20px;
+      border: 1px solid pink;
+    }
+
+    .two {
+      margin: 10px;
+      padding: 20px;
+      border: 1px solid cyan;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <p>vm message: {{message}}</p>
+    修改: <input type="text" v-model="message">
+    num: current {{num | min}} {{currentNum}}
+    add: <input type="button" @click="change(1,$event)" value="+">
+    sub: <input type="button" @click="change(-1,$event)" value="-">
+    <br>
+    <!-- <one-component :root-message="message" :current-num="currentNum" @change-num="change"></one-component> -->
+    修改哪个子组件的message捏
+    <input type="text" name="" value="" placeholder="填first 或者 second" @change.trim="changeByType(message,$event)">
+    <one-component v-model="message" ref="one-first"></one-component>
+    <one-component v-model="message" ref="one-second"></one-component>
+  </div>
+  <template id="one">
+    <div class="one">
+      <p>one message: {{message}}</p>
+      修改: <input type="text" v-model="message">
+      ADD root num: <input type="button" value="+" @click="$emit('change-num',1)">
+      SUB root num: <input type="button" value="-" @click="$emit('change-num',-1)">
+      root message: {{rootMessage}}
+      修改root message <input type="text" name="" value="" @change="changeMessage">
+      通过$parent 修改: <input type="text" name="" value="" @change="changeByProp">
+      通过 $children修改子: <input type="text" @change="changeSon">
+      <br>
+      <br>
+      from root: <p>msg: {{rootMessage}} num: {{currentNum}}</p>
+      <two-component :root-message="rootMessage" :current-num="currentNum"></two-component>
+      <!-- <two-component :root-message="rootMessage" :current-num="currentNum"></two-component> -->
+      <!-- <two-component :root-message="rootMessage" :current-num="currentNum"></two-component> -->
+    </div>
+  </template>
+  <template id="two">
+    <div class="two">
+      <p>two message: {{message}}</p>
+      修改: <input type="text" v-model="message">
+      <br>
+      <br>
+      <p>root message:{{rootMessage}}  root num:{{currentNum}}</p>
+      <br>
+      change root by$root <input type="text" name="" value="" @change="changeMessage">
+    </div>
+  </template>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.7.14/dist/vue.js"></script>
+  <script>
+    let TwoComponent = {
+      template: "#two",
+      methods: {
+        changeMessage(e) {
+          this.$root.message = e.target.value
+        }
+      },
+      props: {
+        rootMessage: {
+          type: String
+        },
+        currentNum: {
+          type: Number
+        }
+      },
+      data() {
+        return {
+          message: "我是two component的message"
+        }
+      }
+    }
+    let OneComponent = {
+      template: '#one',
+      methods: {
+        changeMessage (e) {
+          let value = e.target.value
+          this.$emit('change-message',value)
+        },
+        changeByProp (e) {
+          let value = e.target.value
+          this.$parent.message = value
+        },
+        changeSon (e) {
+          let value = e.target.value
+          console.log(this.$children,"$children");
+          this.$children[0].message = value
+        }
+      },
+      model: {
+        prop: "rootMessage",
+        event: "change-message"
+      },
+      components: {
+        TwoComponent
+      },
+      mounted() {
+        console.log(this.$parent,this.$children,this.$refs,"one-component");
+      },
+      props: {
+        rootMessage: {
+          type: String
+        },
+        currentNum: {
+          type: Number
+        }
+      },
+      data() {
+        return {
+          message: "我是one component的message"
+        }
+      }
+    }
+    let app = new Vue({
+      el: "#app",
+      components: {
+        OneComponent
+      },
+      methods: {
+        change(num,e) {
+          console.log(num,e,"change start");
+          this.num += num
+        },
+        changeByType(message,e) {
+          let value = e.target.value
+          console.log(this.$refs);
+          this.$refs[`one-${value}`].message = message 
+        }
+      },
+      mounted() {
+        console.log(this.$refs,"app");
+      },
+      watch: {
+        currentNum: {
+          handler (newValue,oldValue) {
+            // console.log(newValue,oldValue,"currentNum计算属性 修改了");
+          },
+          deep: true
+        }
+      },
+      computed: {
+        currentNum () {
+          return this.$options.filters.min(this.num)
+        } 
+      },
+      filters: {
+        min (val) {
+          return Math.max(0,val)
+        },
+        max (val) {
+          return Math.min(10,val)
+        }
+      },
+      data() {
+        return {
+          message: "我是vm实例message",
+          num: 0
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

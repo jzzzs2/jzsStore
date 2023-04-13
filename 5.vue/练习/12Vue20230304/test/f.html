@@ -1,0 +1,180 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2023-03-03 15:55:53
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2023-03-04 16:13:31
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>动态组件 选项卡 2 keep-alive</title>
+  <style>
+    .box {
+      padding: 10px;
+      margin: 10px;
+      border: 1px solid steelblue;
+    }
+
+    img {
+      width: 80px;
+    }
+
+    .head {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      align-items: center;
+      width: 400px;
+      margin: auto;
+      line-height: 60px;
+    }
+
+    .part {
+      padding: 0px 6px
+    }
+
+    .active {
+      color: #fff;
+      background-color: #444;
+    }
+
+    .temp-a {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      align-items: center;
+      border: 1px solid #222;
+    }
+    .temp-b {
+      border: 1px solid #222;
+    }
+    
+    .temp-b .content {
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+    }
+
+    .temp-c {
+      border: 1px solid #222;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app" class="box">
+    <div class="head">
+      <componnet v-for="(item,idx) in tempArr" :is="item">author:jzs</componnet>
+    </div>
+  </div>
+  <template id="component-a">
+    <div class="temp-a">
+      <img src="https://v2.cn.vuejs.org/images/logo.svg" alt="">
+      <h2>{{title}}</h2>
+      <p>{{content}}</p>
+      <slot></slot>
+    </div>
+  </template>
+  <template id="component-b">
+    <div class="temp-b">
+      <h2>{{title}}</h2>
+      <div class="content">
+        <img src="https://v2.cn.vuejs.org/images/logo.svg" alt="">
+        <div class="desc">
+          {{content}}
+        </div>
+      </div>
+      <slot></slot>
+    </div>
+  </template>
+  <template id="component-c">
+    <div class="temp-c">
+      <img src="https://v2.cn.vuejs.org/images/logo.svg" alt="">
+      <img src="https://v2.cn.vuejs.org/images/logo.svg" alt="">
+      <img src="https://v2.cn.vuejs.org/images/logo.svg" alt="">
+      <slot></slot>
+    </div>
+  </template>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  <script>
+
+    let aTemp = {
+      template: "#component-a",
+      data() {
+        return {
+          title: "我是c组件标题",
+          content: "我是c组件内容"
+        }
+      },
+    }
+    let bTemp = {
+      template: "#component-b",
+      data() {
+        return {
+          phone: "",
+          title: "我是b组件标题",
+          content: "我是b组件内容"
+        }
+      },
+    }
+    let cTemp = {
+      template: "#component-c",
+      data() {
+        return {
+          isAgree: false,
+          title: "我是c组件标题",
+          content: "我是c组件内容"
+        }
+      },
+    }
+    let app = new Vue({
+      el: "#app",
+      components: {
+        'a-temp': aTemp,
+        'b-temp': bTemp,
+        'c-temp': cTemp
+      },
+
+      data() {
+        return {
+          message: {
+            content: "root de content message"
+          },
+          activeIdx: 0,
+          tempName: "game-temp",
+          // tempArr: ["music-temp", "movie-temp"],
+          tempArr: ["a-temp", "c-temp","c-temp","b-temp","a-temp"],
+          titleList: [
+            {
+              name: "game",
+              temp: "game-temp"
+            },
+            {
+              name: "music",
+              temp: "music-temp"
+            },
+            {
+              name: "movie",
+              temp: "movie-temp"
+            }
+          ]
+        }
+      },
+      methods: {
+        change(idx, e) {
+          this.activeIdx = idx
+          this.tempName = this.titleList[idx].temp
+        }
+      }
+    })
+
+  </script>
+</body>
+
+</html>

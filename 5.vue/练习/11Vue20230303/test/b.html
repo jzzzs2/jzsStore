@@ -1,0 +1,123 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2023-03-03 15:55:53
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2023-03-03 17:26:47
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>$listeners</title>
+  <style>
+    .box {
+      padding: 10px;
+      margin: 10px;
+      border: 1px solid steelblue;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app" class="box">
+    <p>root的message: {{message}}</p>
+    <p>root的num: {{num}}</p>
+    <parent-component :to-parent="toParent" :to-son="toSon" @change="modifyMessage" @diy-event="addNum"></parent-component>
+  </div>
+  <template id="son">
+    <div class="box">
+      <p>son的message: {{message}}</p>
+      <p>root to son: {{toSon}}</p>
+      son组件触发事件 修改root数据<input type="text" v-on="$listeners" @input="$emit('diy-event',$event)">
+    </div>
+  </template>
+  <template id="parent">
+    <div class="box">
+      <p>parent的message: {{message}}</p>
+      <son-component v-bind="$attrs" v-on="$listeners"></son-component>
+      parent组件触发事件 修改root数据<input type="text" v-on="$listeners" @input="$emit('diy-event',$event)">
+    </div>
+  </template>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  <script>
+    let sonComponent = {
+      template: "#son",
+      data() {
+        return {
+          message: "我是孙子组件message"
+        }
+      },
+      props: {
+        toSon: {
+          type: String
+        }
+      },
+      mounted() {
+        console.log("son 组件print",this.$attrs);
+        console.log("son 组件print",this.$listeners);
+      },
+      methods: {
+        trigger(e) {
+          this.$emit("diy-event",e)
+        }
+      }
+    }
+    let parentComponent = {
+      template: "#parent",
+      data() {
+        return {
+          message: "我是父组件message"
+        }
+      },
+      components: {
+        'son-component': sonComponent
+      },
+      methods: {
+        trigger(e) {
+          this.$emit("diy-event",e)
+        }
+      },
+      // props: {
+      //   toParent: {
+      //     type: String
+      //   }
+      // },
+      mounted() {
+        console.log("parent 组件print",this.$attrs);
+        console.log("parent 组件print",this.$listeners);
+      }
+    }
+    let app = new Vue({
+      el: "#app",
+      data() {
+        return {
+          message: "我是ROOT组件message",
+          toParent: "root给parent的信息",
+          toSon: "root给son的信息",
+          num: 0
+        }
+      },
+      components: {
+        'parent-component': parentComponent
+      },
+      methods: {
+        modifyMessage ($event) {
+          console.log($event);
+          let value = $event.target.value
+          this.message = value
+        },
+        addNum (e) {
+          console.log(e,"num 中的 e");
+          this.num++
+        }
+      }
+    })
+
+  </script>
+</body>
+
+</html>

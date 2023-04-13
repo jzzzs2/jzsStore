@@ -1,0 +1,89 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2023-02-24 16:53:14
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2023-02-24 17:46:56
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>style</title>
+</head>
+
+<body>
+  <div id="app">
+    <!-- <div class="box" :style="{width:'200px',fontSize:'50px',background:'red'}">
+      {{message}}
+    </div> -->
+    <!-- <div class="box" :style="getStyle">
+      {{message}}
+    </div> -->
+    
+    <!-- <div class="box" :style="[{width: width+'px'},{height:height+'px'},{color:color},{'background-color': backgroundColor}]">
+      {{message}}
+    </div> -->
+    <!-- <div class="box" :style="styleObj">
+      {{message}}
+    </div> -->
+    <!-- '-ms-flexbox','-webkit-box' -->
+    <!-- <div class="box" :style="{display:['-webkit-box','-ms-flexbox']}">
+      {{message}}
+    </div> -->
+    <div class="box" :style="{display:['-ms-flexbox','-webkit-box']}">
+      {{message}}
+    </div>
+    <!-- 多个样式 选择符合浏览器条件的最后一个样式 -->
+    <!-- <div class="box" :style="getStyleArr">
+      {{message}}
+    </div> -->
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    let app = new Vue({
+      el: "#app",
+      data() {
+        return {
+          message: "可爱捏",
+          color: "red",
+          width: 800,
+          height: 600,
+          backgroundColor: "cyan",
+          styleObj: {
+            width: "200px",
+            height: "100px",
+            backgroundColor: "red"
+          }
+        }
+      },
+      methods: {
+
+      },
+      computed: {
+        getStyle() {
+          return {
+            width: this.width + "px",
+            height: this.height + "px",
+            color: this.color,
+            backgroundColor: this.backgroundColor
+          }
+        },
+        getStyleArr() {
+          return [{
+            width: this.width + "px",
+            height: this.height + "px",
+            color: this.color,
+            backgroundColor: this.backgroundColor
+          }]
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

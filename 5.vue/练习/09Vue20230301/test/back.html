@@ -1,0 +1,137 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2023-03-01 15:27:34
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2023-03-01 15:50:32
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>组件通信复习</title>
+  <style>
+    
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <!-- <product-item v-bind="products[0]"></product-item> -->
+    <!-- <product-item :product-obj="products[0]"></product-item> -->
+    <!-- <product-item :product-obj="sendObj()"></product-item> -->
+    <product-item :product-obj="threeProduct"></product-item>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.7.14/dist/vue.js"></script>
+  <template id="product">
+    <div>
+      <!-- <h2>名称: {{name}}</h2>
+      <p>价格: {{price}}</p>
+      <p>数量: {{num}}</p> -->
+      <h2>名称: {{productObj.name}}</h2>
+      <p>价格: {{productObj.price}}</p>
+      <p>数量: {{productObj.num}}</p>
+      <p>{{modifyProduct}}</p>
+    </div>
+  </template>
+  <script>
+    let productItem = {
+      computed: {
+        modifyProduct() {
+          return JSON.stringify(this.productObj) + "000"
+        }
+      },
+      watch: {
+        // productObj(newValue,eldValue) {
+        //   console.log(newValue,eldValue,"listening");
+        // }
+        productObj:{
+          handler(newValue,oldValue) {
+            console.log(newValue,oldValue,"listening");
+          },
+          deep: true
+        }
+      },
+      props: {
+        productObj: {
+          type: Object
+        }
+        // name: {
+        //   type: String
+        // },
+        // price: {
+        //   type: Number
+        // },
+        // num: {
+        //   type: Number
+        // }
+      },
+      template: '#product',
+    }
+    let app = new Vue({
+      el: "#app",
+      components: {
+        'product-item': productItem
+      },
+      data() {
+        return {
+          message: "修改成功",
+          id: "1",
+          products: [
+            {
+              name: '洗衣机',
+              price: 19999.99,
+              num: 1,
+            },
+            {
+              name: '电视机',
+              price: 12999.50,
+              num: 1,
+            },
+            {
+              name: '收音机',
+              price: 2999.00,
+              num: 1,
+            }
+          ]
+        }
+      },
+      methods: {
+        sendObj () {
+          return this.products[1]
+        }
+      },
+      computed: {
+        threeProduct () {
+          return this.products[2]
+        }
+      }
+    })
+  </script>
+  <!-- 
+    data:
+    products: [
+            {
+              name: '洗衣机',
+              price: 19999.99,
+              quantity: 1,
+            },
+            {
+              name: '电视机',
+              price: 12999.50,
+              quantity: 1,
+            },
+            {
+              name: '收音机',
+              price: 2999.00,
+              quantity: 1,
+            }
+          ]
+   -->
+</body>
+
+</html>

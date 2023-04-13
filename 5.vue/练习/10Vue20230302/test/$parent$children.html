@@ -1,0 +1,145 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2023-03-02 15:09:54
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2023-03-02 17:20:16
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>v-model 自定义属性props和自定义事件emit的语法糖</title>
+  <style>
+    .box {
+      border: 1px solid #222;
+      padding: 10px;
+      margin: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    message: {{message}}
+    <parent-temp @modify-message="message = $event"></parent-temp>
+  </div>
+  <template id="parent">
+    <div class="box">
+      <button @click="$emit('modify-message','hhhhhh')">hhhh 修改rooot</button>
+      <button @click="look">看看我的父组件</button>
+      <button @click="modify">修改我的子组件</button>
+      <p>一个子组件的message :  </p>
+      <button @click="children[0].message='123'">修改一个子组件的message</button>
+      <!-- <p>{{message}}</p> -->
+      <son-temp></son-temp>
+      <son-temp></son-temp>
+      <!-- <son-temp></son-temp> -->
+    </div>
+  </template>
+  <template id="son">
+    <div class="box">
+      <p>{{message}}</p>
+      <p>父元素的message : {{parentMessage}}</p>
+      <!-- <button @click="$parent.message='我是被儿组件通过$parent修改后的值'">通过$parent修改父组件数据</button> -->
+      <button @click="modify">通过$parent修改父组件数据</button>
+      <!-- <button @click="alert($event)">测试按钮</button> -->
+    </div>
+  </template>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.7.14/dist/vue.js"></script>
+  <script>
+    let sonTemp = {
+      template: "#son",
+      methods: {
+        modify() {
+          console.log(this.$parent, "$parent");
+          this.$parent.message = "被儿组件通过$parent修改后的值"
+        }
+      },
+      data() {
+        return {
+          message: "我是儿组件的message"
+        }
+      },
+      // beforeMount() {
+      //   console.log("son中beforeMount打印$parent", this.$parent);
+      // },
+      // mounted() {
+      //   console.log("son中mounted打印$parent", this.$parent);
+      // },
+      // created() {
+      //   console.log("son中created打印$parent", this.$parent);
+      // },
+      // beforeCreate() {
+      //   console.log("son中beforeCreate打印$parent", this.$parent, this.$parent.message);
+      // },
+      computed: {
+        parentMessage() {
+          return this.$parent.message
+        }
+      }
+    }
+    let parentTemp = {
+      template: '#parent',
+      components: {
+        'son-temp': sonTemp
+      },
+      // mounted() {
+      //   console.log("parent的mounted打印children", this.$children);
+      // },
+      // beforeMount() {
+      //   console.log("parent中beforeMount打印$children", this.$children);
+      // },
+      created() {
+        console.log("created",this.children);
+        this.children = this.$children
+        console.log("parent的created打印children", this.$children);
+      },
+      // beforeCreate() {
+      //   console.log("parent的beforeCreate打印children", this.$children);
+      // },
+      data() {
+        return {
+          message: "我是父组件的message",
+          children: []
+        }
+      },
+      computed: {
+        // sonMessage() {
+        //   console.log(this.$children,this.children);
+        //   return this.children[0].message
+        // }
+      },
+      methods: {
+        look() {
+          console.log(this.$parent, "$parent");
+        },
+        modify() {
+          console.log(this.$children);
+          this.$children.map(item => {
+            item.message = "我是被父组件通过$children修改的值"
+          })
+        }
+      }
+    }
+
+    let app = new Vue({
+      el: "#app",
+      components: {
+        'parent-temp': parentTemp
+      },
+      data() {
+        return {
+          rootMessage: "我是root Message",
+          message: "123"
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>
