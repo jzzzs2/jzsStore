@@ -85,3 +85,69 @@ class User {
 }
 ```
 
+## webpack打包TS
+
+```
+1.开发环境安装
+typescript
+webpack webpack-cli
+webpack-dev-server
+html-webpack-plugin clean-webpack-plugin
+ts-loader
+cross-env
+```
+
+```
+2.项目环境创建
+tsc --init 设置自动编译配置文件
+ts入口文件
+webpack.config.js配置文件
+打包index.html文件
+```
+
+```
+3.配置打包语句
+"dev": "cross-env NODE_ENV=development webpack-dev-server --config build/webpack.config.js",
+"build": "cross-env NODE_ENV=production webpack --config build/webpack.config.js"
+```
+
+## 数据类型
+
+```
+1.boolean
+2.string
+3.number
+let price2: number = 0b1101
+let price3: number = 0o11
+let price: number = 17
+let price1: number = 0x11
+4.数组
+let a:数据类型[] = []
+let b:Array<数据类型> = []
+5.元组
+let arr:[数据类型1,数据类型2...] = [x,x,...]
+6.枚举
+enum 类型名称 {
+key1,
+key2
+}
+类型名称[key1] 可以得到idx,值为0
+如果值是数字,也可以通过数字获得key,类型名称["0"] = key1
+7.联合类型
+function a (params: string | number) {}  参数params类型的允许范围
+类型断言两种写法
+<数据类型>params
+params as 数据类型
+8.object
+9.any
+10.void
+一般用于函数无返回值,void类型的变量值只有undefined或者null
+11.undefined null
+是所有数据类型子类型,可以被它们赋值.
+```
+
+```
+推断:
+当变量定义未赋值,则默认是any类型,变量定义时赋值,则自动推断.
+```
+
