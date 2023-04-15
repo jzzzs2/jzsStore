@@ -24,6 +24,7 @@ alias ll='ls -al'
 ## 工作区暂存区仓库中操作
 
 ```
+git init 初始化工作区
 git status 查看操作状态
 git add . 将所有修改内容提交到暂存区
 git commit -m "注释修改内容" 将修改内容提交到本地仓库
