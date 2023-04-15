@@ -151,3 +151,105 @@ params as 数据类型
 当变量定义未赋值,则默认是any类型,变量定义时赋值,则自动推断.
 ```
 
+## 接口 interface
+
+```
+1.接口对对象的约束
+interface IPerson {
+  readonly id: number
+  name: string
+  age: number
+  sex?: string
+}
+2.接口对函数约束
+interface Func {
+	(参数名1:数据类型,参数名2:数据类型,...):返回值类型
+}
+3.对类约束,类实现接口
+interface IAnimal {
+      eat() :void
+      sleep() :void
+}
+class Animal implements IAnimal{
+	eat(){
+	},
+	sleep(){
+	}
+}
+一个类可以实现多个接口,为了方便书写,可以让一个接口继承多个接口,再由类实现这一个接口.
+```
+
+## 类
+
+```
+1.类继承类只能单继承,extends
+2.子类对象初始化数据调用父类构造方法 super(参数1,xxx),也可以super.方法() 调用父类方法
+3.子类可以重写父类方法
+```
+
+```
+多态: 父类引用指向子类对象
+let animal :Animal = new Cat()
+let animal1 :Animal = new Dog()
+animal.eat("fish")
+animal1.eat("bone")
+```
+
+```
+成员修饰符(类中 属性 构造函数 方法的可访问 ): public(默认) protected private
+public 在子类,类外,类内都可访问
+protected 在子类,类内可访问
+private 在类内可访问
+```
+
+```
+readonly修饰类的属性
+1.直接在类内定义时修饰
+class Person {
+  readonly name: string = 'abc'
+  constructor(name: string) {
+    this.name = name
+  }
+}
+
+let john = new Person('John')
+// john.name = 'peter' // error
+2.在构造函数参数上修饰,修饰后,不用手动进行类内定义和赋值操作.
+class Person2 {
+  constructor(readonly name: string) {
+  }
+}
+
+const p = new Person2('jack')
+console.log(p.name)
+```
+
+```
+存取器:
+
+类中声明get和set方法
+
+class Person {
+  firstName: string = 'A'
+  lastName: string = 'B'
+  get fullName () {
+    return this.firstName + '-' + this.lastName
+  }
+  set fullName (value) {
+    const names = value.split('-')
+    this.firstName = names[0]
+    this.lastName = names[1]
+  }
+}
+
+const p = new Person()
+console.log(p.fullName)
+
+p.firstName = 'C'
+p.lastName =  'D'
+console.log(p.fullName)
+
+p.fullName = 'E-F'
+console.log(p.firstName, p.lastName)
+```
+
