@@ -253,3 +253,65 @@ p.fullName = 'E-F'
 console.log(p.firstName, p.lastName)
 ```
 
+```
+静态成员
+通过类名.属性(方法) 方式调用
+```
+
+```
+抽象类: 为子类服务,提供公共方法和diy抽象方法,不能实例化
+abstract class Animal {
+  abstract cry ()
+  run () {
+    console.log('run()')
+  }
+}
+```
+
+## 函数
+
+```
+1. 可选参数 默认值参数 剩余参数
+function  test(params?:string = "jzs") {
+	
+}
+function  test(params:string = "jzs",...rest :string[]) {
+	
+}
+```
+
+```
+2.函数重载
+function add (x: string, y: string): string
+function add (x: number, y: number): number
+
+// 定义函数实现
+function add(x: string | number, y: string | number): string | number {
+  // 在实现上我们要注意严格判断两个参数的类型是否相等，而不能简单的写一个 x + y
+  if (typeof x === 'string' && typeof y === 'string') {
+    return x + y
+  } else if (typeof x === 'number' && typeof y === 'number') {
+    return x + y
+  }
+}
+```
+
+## 泛型 声明时不清楚参数的数据类型,使用时定义参数数据类型
+
+```
+单泛型参数
+function test<K>(value:K,num:number) :K[] {
+let arr:K[] = []
+       for (let i = 0; i < count; i++) {
+         arr.push(val)
+       }
+       return arr
+}
+test<number>(2,6)
+多泛型参数
+function test<K,V,T>(first:K,second:V,third:T) :[K,V,T] {
+	return [first,second,third]
+}
+test<string,number,string>("22",11,"33")
+```
+

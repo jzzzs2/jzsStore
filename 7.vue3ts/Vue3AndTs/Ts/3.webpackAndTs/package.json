@@ -12,6 +12,7 @@
   "author": "jzss <2803290705@qq.com>",
   "license": "ISC",
   "devDependencies": {
+    "@types/jquery": "^3.5.16",
     "clean-webpack-plugin": "^4.0.0",
     "cross-env": "^7.0.3",
     "html-webpack-plugin": "^4.5.2",
@@ -19,5 +20,8 @@
     "webpack": "^4.41.5",
     "webpack-cli": "^3.3.10",
     "webpack-dev-server": "^3.10.2"
+  },
+  "dependencies": {
+    "jquery": "^3.6.4"
   }
 }
