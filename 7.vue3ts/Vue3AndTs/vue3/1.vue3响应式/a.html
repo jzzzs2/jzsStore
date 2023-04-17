@@ -1,0 +1,58 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2023-04-17 16:56:51
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2023-04-17 17:18:40
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  
+  <script>
+    let obj = {
+      name: "jzs",
+      age: 22,
+      wife: {
+        name: "miku",
+        games: ["csgo", "volorant"],
+      },
+    };
+    let rcObj = new Proxy(obj, {
+      get(target, prop) {
+        // return target[prop]
+        console.log("get");
+        return Reflect.get(target, prop);
+      },
+      set(target, prop, value) {
+        console.log("set");
+        Reflect.set(target, prop, value);
+        return true;
+      },
+      deleteProperty(target,prop) {
+        console.log("delete");
+        Reflect.deleteProperty(target,prop)
+        return true
+      }
+    });
+    // rcObj.name = "zjc"
+    // rcObj["addr"] = "jinhua"
+    // rcObj.wife.games[0] = "cs2"
+    // rcObj.wife.games.push = "cs2"
+    // rcObj.addr = "jinHua"
+    // delete rcObj.age
+    // rcObj.wife.name = "gubaolongji"
+    // console.log(rcObj,obj);
+  </script>
+</body>
+
+</html>
