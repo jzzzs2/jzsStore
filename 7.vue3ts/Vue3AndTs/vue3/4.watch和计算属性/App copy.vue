@@ -4,7 +4,7 @@
  * @Author: sueRimn
  * @Date: 2023-04-18 14:55:15
  * @LastEditors: sueRimn
- * @LastEditTime: 2023-04-18 18:16:53
+ * @LastEditTime: 2023-04-18 16:21:46
 -->
 <template>
   姓氏<input type="text" v-model="user.firstName" /> 名字<input
@@ -27,7 +27,6 @@ import {
   defineComponent,
   ref,
   reactive,
-  watch,
   watchEffect,
 } from "vue";
 export default defineComponent({
@@ -61,12 +60,11 @@ export default defineComponent({
     //   return firstName.value + "_" + lastName.value
     // })
     const fullName = ref("默认名称");
-    watch(fullName,(val,oldValue) => {
-      console.log(oldValue,"oldValue");
-      let arr = val.split("_")
-      user.firstName = arr[0]
-      user.lastName = arr[1]
-    })
+    // watch(fullName,(val) => {
+    //   let arr = val.split("_")
+    //   user.firstName = arr[0]
+    //   user.lastName = arr[1]
+    // })
     // watch(user,(val)=> {
     //   console.log("watching",val);
     //   fullName.value = val.firstName + "_" + val.lastName
@@ -81,14 +79,14 @@ export default defineComponent({
     //   immediate: true
     // })
     //watchEffect
-    // watchEffect(() => {
-    //   fullName.value = user.firstName + "_" + user.lastName;
-    // });
-    // watchEffect(() => {
-    //   let arr = fullName.value.split("_");
-    //   user.firstName = arr[0];
-    //   user.lastName = arr[1];
-    // });
+    watchEffect(() => {
+      fullName.value = user.firstName + "_" + user.lastName;
+    });
+    watchEffect(() => {
+      let arr = fullName.value.split("_");
+      user.firstName = arr[0];
+      user.lastName = arr[1];
+    });
     return {
       user,
       fullName,

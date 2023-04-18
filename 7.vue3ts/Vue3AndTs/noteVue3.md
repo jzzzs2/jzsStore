@@ -381,3 +381,120 @@ vue3:
 1.执行时间在beforeCreate之前,所有setup方法中this为undefined
 ```
 
+> 5.setup返回值细节和参数
+
+```
+setup不能是async函数,无法识别返回对象
+setup中返回的方法和属性最终会和data和methods合并到组件对象上.
+setup中方法不能访问data中属性或者methods中方法,methods中的方法可以访问setup中的属性
+```
+
+```
+setup(props,context) {}
+1)props是从父组件中接收的props值的键值对对象.
+2)context对象,{attrs,emit,slots} = context
+attrs是从父组件中未接收的键值对对象,emit是触发自定义事件的函数,slots包含所有传入的插槽内容的对象, 相当于 this.$slots
+```
+
+> 6.ref细节
+
+```
+ref内部也可以传入对象,但是对象在内部会被转化为Proxy对象.
+const obj = ref({name: "jzs",age: 22})
+obj.value.name 
+```
+
+> 7.计算属性和监视
+
+```
+1)计算属性,watch写在setup中
+写法1:只有计算属性 获取的方法
+const 计算属性变量 = computed(() => {
+	return 其他属性的合并值
+})
+写法2:有计算属性 获取,赋值的方法
+const 计算属性变量 = computed({
+	get() {
+	return 其他属性的合并值
+	},
+	set(value) {
+	//进行对其他数据的操作
+	}
+})
+2)监视函数,watch写在setup中
+写法1:监视单个数据
+watch(数据,(new,old) => {
+//操作
+},{
+immediate: true
+deep: true
+})
+写法2:监视多个数据
+watch([ref数据,() => reactive数据], values => {
+console.log(values)  //最新值的数组
+})
+写法3: watchEffect
+watchEffect(() => {
+  //右查询的响应数据会自动被监听到,并且watchEffect初始会执行一次,不用手动配置
+})
+```
+
+> 8.生命周期
+
+```
+在vue3中使用vue2生命周期:
+beforeCreate() {
+    console.log("vue2 beforeCreate");
+  },
+  created() {
+    console.log("vue2 created");
+  },
+  beforeMount() {
+    console.log("vue2 beforeMount");
+  },
+  mounted() {
+    console.log("vue2 mounted");
+  },
+  beforeUpdate() {
+    console.log("vue2 beforeUpdate");
+  },
+  updated() {
+    console.log("vue2 updated");
+  },
+  beforeUnmount() {
+    console.log("vue2 beforeUnmount");
+  },
+  unmounted () {
+    console.log("vue2 unmounted");
+  }
+Vue3中的生命周期函数:
+onBeforeMount(()=> {
+      console.log("vue3 onBeforeMount");
+    })
+    onMounted(() => {
+      console.log("vue3 onMounted");
+    })
+    onBeforeUpdate(() => {
+      console.log("vue3 onBeforeUpdate");
+    })
+    onUpdated(() => {
+      console.log("vue3 onUpdated");
+    })
+    onBeforeUnmount(() => {
+      console.log("vue3 onBeforeUnmount");
+      
+    })
+    onUnmounted(() => {
+      console.log("vue3 onUnmounted");
+    })
+```
+
++ 他们可以同时存在,且vue3语法的生命周期会比vue2..先执行
+
+## 自定义hook
+
+```
+1.将功能代码封装为函数在ts中,返回需要的响应数据
+2.将响应数据渲染
+```
+
