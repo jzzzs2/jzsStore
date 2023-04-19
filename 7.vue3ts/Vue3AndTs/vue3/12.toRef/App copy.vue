@@ -4,7 +4,7 @@
  * @Author: sueRimn
  * @Date: 2023-04-18 18:16:08
  * @LastEditors: sueRimn
- * @LastEditTime: 2023-04-19 18:15:36
+ * @LastEditTime: 2023-04-19 17:45:00
 -->
 <!--
  * @Descripttion: 
@@ -23,15 +23,17 @@
  * @LastEditTime: 2023-04-19 15:00:16
 -->
 <template>
-  <input type="text" v-model="msg" />
-  <p>showMsg: {{ msg }}</p>
-  <hr />
+  <p>{{obj}}</p>
+  <p>{{age}}</p>
+  <button @click="change">change</button>
+  <hr>
+  <Child :age="age" />
 </template>
 
 <script lang='ts'>
 import {
   defineComponent,
-  reactive,
+  reactive,  
   toRefs,
   onMounted,
   ref,
@@ -41,33 +43,34 @@ import {
   shallowReadonly,
   toRaw,
   markRaw,
-  toRef,
-  customRef,
+  toRef
 } from "vue";
+import Child from "@/components/Child.vue"
 export default defineComponent({
+  components: {
+    Child
+  },
   name: "App",
   setup() {
-    function debounce(msg: string, time: number) {
-      let id :number;
-      return customRef((track, trigger) => {
-        return {
-          get() {
-            track();
-            return msg;
-          },
-          set(newValue :string) {
-            clearTimeout(id)
-            id = setTimeout(() => {
-              msg = newValue;
-              trigger();
-            }, time);
-          },
-        };
-      });
+    const obj = reactive({
+      name: "jzs",
+      age: 22,
+      wife: {
+        name: "miku",
+        age: 18
+      }
+    })
+    const age = toRef(obj.wife, "age")
+    function change () {
+      console.log(age,"age");
+      // age.value = 9999
+      // obj.wife.age = 9999
+      obj.wife.age += 10
     }
-    const msg = debounce("", 1000);
     return {
-      msg,
+      age,
+      obj,
+      change
     };
   },
 });

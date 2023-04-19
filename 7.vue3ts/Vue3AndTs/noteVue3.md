@@ -498,3 +498,75 @@ onBeforeMount(()=> {
 2.将响应数据渲染
 ```
 
+> 9.toRefs
+
+```
+将reactive响应式数据,转化为普通对象,value是原先数据的ref对象.
+```
+
+> 10.ref获取元素
+
+```
+<input ref="xxx">
+setup() {
+	const xxx = ref<HTMLElement>()
+	onMounted(()=> {
+	xxx.value && xxx.value.focus()
+	})
+	return {
+	xxx
+	}
+}
+```
+
+> 11.shallowReactive和shallowRef
+
+```
+shallowReactive(对象数据) 对象内第一层属性的值修改会及时渲染,内部对象的属性修改不会触发渲染
+shallowRef(对象数据) 对象数据在内部不会被reactive成为响应式对象
+```
+
+> 12.readonly和shallowReadonly
+
+```
+对代理数据(reactive,ref)进行再次包装,获得一个只读的代理数据,readonly是深度只读,shallowReadonly是浅只读
+```
+
+> 13.toRaw和markRaw
+
+```
+toRaw可以返回一个reactive代理对象的普通对象,作为临时访问使用
+```
+
+```
+markRaw 可以包装一个普通对象,该对象之后不可成为响应式数据
+```
+
+> 14.toRef
+
+```
+源响应式对象上的某个属性创建一个 ref对象, 二者内部操作的是同一个数据值, 更新时二者是同步的
+const state = reactive({
+      foo: 1,
+      bar: 2
+    })
+const foo = toRef(state, 'foo')
+```
+
+> 15.customRef
+
+```
+返回一个ref对象,自定义控制get,set
+const ref = customRef((track,trigger) => {
+	return {
+	get() {
+		track()
+		return xx
+		},
+	set(newValue) {
+		trigger()
+		}
+	}
+})
+```
+
