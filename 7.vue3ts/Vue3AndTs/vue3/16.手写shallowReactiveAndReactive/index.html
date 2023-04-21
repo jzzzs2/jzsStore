@@ -1,0 +1,97 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2023-04-20 15:26:12
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2023-04-20 17:09:14
+-->
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2023-04-20 15:26:12
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2023-04-20 15:26:41
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script src="./fnc.js"></script>
+  <script>
+    //shallowReactive Reactive
+    // const shallowR = shallowReactive({name: "jzs",age: 22, wife: {name: "miku",age: 18}})
+    // const R = Reactive({name: "jzs",age: 22, wife: {name: "miku",age: 18}})
+    // console.log(shallowR,"xx",R);
+    // shallowR.name = "zjc"
+    // shallowR.wife.name = "zjc"
+    // R.age += 2
+    // shallowR.age += 2
+    // R.wife.age += 2
+    // shallowR.wife.age += 2
+    // const shallowR = shallowReactive([{name: "jzs",age: 22},"mikusama","aaaa@"])
+    // const R = Reactive([{name: "jzs",age: 22},"mikusama","aaaa@"])
+    // console.log(shallowR);
+    // shallowR[1] = "mk"
+    // shallowR[0].name = "mk"
+    // R[1] = {}
+    // R[0].name += "mk"
+    //readonly
+    // const sRead = shallowReadonly({name: "jzs",age: 22,wife: {name: "miku", age: 18}})
+    // const Read = readonly({name: "jzs",age: 88, wife: {name: "miku++", age: 18}})
+    // console.log(sRead, Read);
+    // sRead.name += "22"
+    // sRead.wife.name += "=" 
+    // delete sRead.name
+    // delete sRead.wife.name
+    // console.log(sRead);
+    // Read.wife.name = "hhhh"
+    // delete Read.wife.name
+    // Read.wife.name = "222"
+    // sRead.wife.name = "222"
+    // delete Read.wife.age
+    // delete sRead.wife.age
+    //shallowRef  ref
+    // let sRef1 = shallowRef({name: "jzs",wife: {name: "mk"}})
+    // let sRef1 = shallowRef("22")
+    // let ref1 = ref("33")
+    // let ref1 = ref({name: "jzs",wife: {name: "mk"}})
+    // console.log(sRef1, ref1);
+    // ref1.value.wife.name = 222
+    // sRef1.value.wife = 222
+    // console.log(sRef1.value);
+    // console.log(ref1.value);
+    // sRef1.value = 22
+    // ref1.value = 99
+    // let oRef1 = ref({name: "jzs",age: 22})
+    // console.log(sRef1,ref1,oRef1);
+    // const obj = {
+    //   _name: 'aaa',
+    //   get name() {
+
+    //   },
+    //   set name(value) {
+
+    //   }
+    // }
+    // console.log(obj._name);
+    // a.name = "zjc"
+    // a._add += "222"
+    //  判断数据类型
+    console.log(isRef(ref("22")));
+    console.log(isReactive(Reactive({name: "jzs"})));
+    console.log(isReadonly(readonly({name: "jzs"})));
+    console.log(isProxy(readonly({})));
+    console.log(isProxy(Reactive({name: "jzs"})));
+  </script>
+</body>
+
+</html>

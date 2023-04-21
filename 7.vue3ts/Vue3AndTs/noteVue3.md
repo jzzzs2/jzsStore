@@ -570,3 +570,30 @@ const ref = customRef((track,trigger) => {
 })
 ```
 
+## provide and inject
+
+```
+父组件: 
+provide("名称",数据变量)
+孙组件:
+const 变量 = inject("名称")
+return {
+	变量
+}
+```
+
+## 判断数据类型
+
+```
+1.isRef 检查一个值是否为一个 ref 对象
+2.isReactive 检查一个对象是否是由 reactive 创建的响应式代理
+3.isReadonly 检查一个对象是否是由 readonly 创建的只读代理 
+4.isProxy 检查一个对象是否是由 reactive 或者 readonly 方法创建的代理
+```
+
+## 遇到的细节
+
+```
+input type=checkbox使用v-model="isSelect"绑定,如果isSelect是boolean类型,手动选中和取消表单,会使isSelect值为true和false
+```
+
