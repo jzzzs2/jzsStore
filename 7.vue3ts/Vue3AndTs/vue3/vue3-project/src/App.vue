@@ -32,6 +32,8 @@
         :modifyAll="modifyAll"
         :removeAllSelect="removeAllSelect"
       />
+      <hr>
+      <List2 />
     </div>
   </div>
 </template>
@@ -42,6 +44,7 @@ import { defineComponent, reactive, provide,watch, onMounted} from "vue";
 import Header from "@/components/Header.vue";
 import Footer from "@/components/Footer.vue";
 import List from "@/components/List.vue";
+import List2 from "@/components/List2.vue";
 interface Person {
   id: number;
   name: string;
@@ -49,7 +52,7 @@ interface Person {
 }
 export default defineComponent({
   name: "App",
-  components: { List, Header, Footer },
+  components: { List, Header, Footer, List2 },
   setup() {
     const persons = reactive<{ todos: Person[] }>({
       todos: [

@@ -1,0 +1,41 @@
+<!--pages/user/user.wxml-->
+<!-- <view class="wrap">
+  <view>1</view>
+  <view>2</view>
+  <view>3</view>
+</view> -->
+<!-- <scroll-view scroll-x> -->
+<!-- <scroll-view scroll-y>
+  <view>1</view>
+  <view>2</view>
+  <view>3</view>
+  <view>4</view>
+  <view>5</view>
+</scroll-view> -->
+<!-- <swiper class="swp-wrap" indicator-dots indicator-color="white" indicator-active-color="pink"
+circular
+autoplay
+interval="1500"
+>
+  <swiper-item class="swp-item">1</swiper-item>
+  <swiper-item class="swp-item">2</swiper-item>
+  <swiper-item class="swp-item">3</swiper-item>
+</swiper> -->
+<view>
+  <!-- testContent
+  <text user-select>长按:选中<a>233</a></text>
+  <hr/>
+  <rich-text nodes="<a href='#'>点击跳转</a>"/>
+  <rich-text nodes="<span>点击</span>">123</rich-text> -->
+  <!-- <button type="primary">按钮QaQ</button>
+  <button type="warn">按钮QAQ</button>
+  <button>keainie1</button>
+  <button>keainie2</button>
+  <button size="mini" type="warn" plain>按钮1</button>
+  <button size="mini" plain>按钮2</button> -->
+  <!-- <image src="/images/normal.jpg" mode=""/> -->
+  <!-- <image src="/images/normal.jpg" mode="aspectFill"/>
+  <image src="/images/normal.jpg" mode="aspectFit"/> -->
+  <image src="/images/normal.jpg" mode="widthFix"/>
+  <image src="/images/normal.jpg" mode="heightFix"/>
+</view>
