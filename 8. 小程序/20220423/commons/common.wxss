@@ -1,0 +1,4 @@
+view {
+  color: cyan;
+  font-weight: 900;
+}

@@ -1,0 +1,63 @@
+<!--pages/data/data.wxml-->
+<!-- <view>{{msg1}}</view>
+<view>{{msg2}}</view>
+<view>{{number * 2}}</view> -->
+<!-- <view>{{testNumber + 2}}</view> -->
+<!-- <image src="{{url}}" mode="widthFix"/> -->
+<!-- <view>
+  {{number * 3 >= 1 ? "i am>=1" : "i am<=1"}}
+</view> -->
+<!-- 事件 -->
+<!-- <view bindtap="testTap">
+  <button type="primary" data-info="2">点我触发1</button>
+  <button type="primary" data-info="{{2}}">点我触发2</button>  
+</view> -->
+<!-- <button type="primary" bindtap="testTap" data-info="2">点我触发1</button>
+<button type="primary" bindtap="testTap" data-info="{{2}}">点我触发2</button> -->
+<!-- <view>count: {{count}}</view>
+<view>count2: {{count2}}</view>
+<button bindtap="add">click !</button>
+<button bindtap="addDataset" data-info="{{loop}}">click dataset!</button> -->
+<hr/>
+<!-- <input type="text" bindinput="inputFnc" /> -->
+<!-- <input type="text" value="{{syncCount}}" bindinput="syncInputFunc" /> -->
+<!-- 1<input type="checkbox" name="test" id="" bindchange="test" />
+2<input type="checkbox" value="2" name="test" id="" bindchange="test" />
+3<input type="checkbox" value="3" name="test" id="" bindchange="test" /> -->
+<!-- 条件 列表 渲染 -->
+<button bindtap="changeRender">change isRender</button>
+<!-- <view wx:if="{{isRender}}">条件渲染</view> -->
+<!-- <view wx:if="{{gender === '男'}}">男</view>
+<view wx:elif="{{gender === '女'}}">女</view>
+<view wx:else>奇怪的性别</view> -->
+<!-- <view wx:if="{{type === 1}}">
+  男
+</view>
+<view wx:elif="{{type === 0}}">
+  女
+</view>
+<view wx:else>
+  奇怪的性别
+</view> -->
+<!-- <block wx:if="{{false}}">
+  <view>1</view>
+  <view>2</view>
+  <view>3</view>
+</block>
+<hr/>
+<block hidden="{{true}}">
+  <view hidden="{{true}}">1</view>
+  <view hidden="{{true}}">2</view>
+  <view hidden="{{true}}">3</view>
+</block> -->
+<!-- 列表渲染 -->
+<!-- <view wx:for="{{listArr}}" wx:key="index">
+  索引是 {{index}}, 内容是 {{item}}
+</view>
+<view wx:for="{{listArr}}" wx:for-index="idx" wx:for-item="itemName" wx:key="idx">
+  索引是 {{idx}}, 内容是 {{itemName}}
+</view> -->
+<!-- <view>
+  123
+</view> -->
+<!-- tabBar -->

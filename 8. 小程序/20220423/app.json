@@ -1,15 +1,47 @@
 {
   "pages":[
+    "pages/home/home",
+    "pages/contact/contact",
+    "pages/message/message",
+    "pages/data/data",
     "pages/user/user",
     "pages/index/index",
     "pages/logs/logs"
-    
   ],
+  "tabBar": {
+    "color": "#222",
+    "selectedColor": "#00ebeb",
+    "backgroundColor": "#eee",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/home/home",
+        "text": "主页",
+        "iconPath": "/images/tabbar/home.png",
+        "selectedIconPath": "/images/tabbar/home-active.png"
+      },
+      {
+        "pagePath": "pages/message/message",
+        "text": "信息",
+        "iconPath": "/images/tabbar/message.png",
+        "selectedIconPath": "/images/tabbar/message-active.png"
+      },
+      {
+        "pagePath": "pages/contact/contact",
+        "text": "联系我",
+        "iconPath": "/images/tabbar/contact.png",
+        "selectedIconPath": "/images/tabbar/contact-active.png"
+      }
+    ]
+  },
   "window":{
-    "backgroundTextStyle":"light",
-    "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "Weixin",
-    "navigationBarTextStyle":"black"
+    "navigationBarTitleText": "jzsnodemo",
+    "navigationBarTextStyle": "white",
+    "navigationBarBackgroundColor": "#00ffff",
+    "enablePullDownRefresh": true,
+    "backgroundColor": "#00ffff",
+    "backgroundTextStyle": "dark",
+    "onReachBottomDistance": 100
   },
   "style": "v2",
   "sitemapLocation": "sitemap.json"
