@@ -1,0 +1,5 @@
+/* pages/home/home.wxss */
+view {
+  height: 1200px;
+  background-color: #ccc;
+}

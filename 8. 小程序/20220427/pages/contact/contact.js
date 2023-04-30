@@ -1,41 +1,39 @@
-// pages/home/home.js
+// pages/contact/contact.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    colorsList: [],
+    isLoading: false
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-    wx.request({
-      url: "https://www.escook.cn/api/get",
-      method: "GET",
-      data: {
-        name: "jzs",
-        age: 22
-      },
-      success: (res) => {
-        console.log(res,"res");
-      }
+    this.getColors()
+  },
+  getColors () {
+    this.data.isLoading = true
+    wx.showLoading({
+      title: '在加载捏',
     })
     wx.request({
-      url: "https://www.escook.cn/api/post",
-      method: "POST",
-      data: {
-        name: "zjc",
-        age: 99
-      },
+      url: "https://www.escook.cn/api/color",
+      method: "GET",
       success: (res) => {
-        console.log(res.data,this);
+        this.setData({
+          colorsList: [...this.data.colorsList,...res.data.data]
+        })
+      },
+      complete: () => {
+        wx.hideLoading()
+        this.data.isLoading = false
       }
     })
   },
-
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -75,7 +73,10 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom() {
-
+    if (!this.data.isLoading) {
+      console.log("chufa");
+      this.getColors()
+    }
   },
 
   /**

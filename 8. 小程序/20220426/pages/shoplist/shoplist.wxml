@@ -1,0 +1,23 @@
+<view class="shop-wrap" wx:for="{{shopList}}" wx:key="id">
+  <view class="shop-img">
+    <image src="{{item.images[0]}}" mode=""/>
+  </view>
+  <view class="shop-info">
+    <text class="fw900">{{item.name}}</text>
+    <text>电话: {{m1.format(item.phone)}}</text>
+    <text>地址: {{item.address}}</text>
+    <text>营业时间: {{item.businessHours}}</text>
+  </view>
+</view>
+<wxs module="m1">
+  var format = function (str) {
+    var strArr = str.split("")
+    if (strArr.length !== 11) return str
+    strArr.splice(3,0,"-")
+    strArr.splice(8,0,"-")
+    return strArr.join("")
+  }
+  module.exports = {
+    format: format
+  }
+</wxs>

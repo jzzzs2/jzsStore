@@ -1,4 +1,4 @@
-// pages/home/home.js
+// pages/contact/contact.js
 Page({
 
   /**
@@ -12,28 +12,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-    wx.request({
-      url: "https://www.escook.cn/api/get",
-      method: "GET",
-      data: {
-        name: "jzs",
-        age: 22
-      },
-      success: (res) => {
-        console.log(res,"res");
-      }
-    })
-    wx.request({
-      url: "https://www.escook.cn/api/post",
-      method: "POST",
-      data: {
-        name: "zjc",
-        age: 99
-      },
-      success: (res) => {
-        console.log(res.data,this);
-      }
-    })
+
   },
 
   /**

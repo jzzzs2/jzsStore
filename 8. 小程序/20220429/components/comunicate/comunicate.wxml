@@ -1,0 +1,6 @@
+<!--components/comunicate/comunicate.wxml-->
+<text>comunicate.wxml</text>
+<view>
+  {{count}}
+</view>
+<button bindtap="add">sync count ++</button>

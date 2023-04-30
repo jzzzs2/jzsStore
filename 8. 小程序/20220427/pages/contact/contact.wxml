@@ -1,0 +1,5 @@
+<!--pages/contact/contact.wxml-->
+<!-- <text>联系我</text> -->
+<view wx:for="{{colorsList}}" wx:key="index" style="background-color:rgba({{item}});">
+{{item}}
+</view>

@@ -1,41 +1,38 @@
-// pages/home/home.js
+// pages/info/info.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    query: {},
+    count: 0
   },
-
+  backTo () {
+    // wx.navigateBack({
+    //   delta: 1
+    // })
+    wx.navigateBack()
+  },
+  add () {
+    this.setData({
+      count: this.data.count + 1
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-    wx.request({
-      url: "https://www.escook.cn/api/get",
-      method: "GET",
-      data: {
-        name: "jzs",
-        age: 22
-      },
-      success: (res) => {
-        console.log(res,"res");
-      }
-    })
-    wx.request({
-      url: "https://www.escook.cn/api/post",
-      method: "POST",
-      data: {
-        name: "zjc",
-        age: 99
-      },
-      success: (res) => {
-        console.log(res.data,this);
-      }
+    console.log(options,"info中options");
+    this.setData({
+      query: options
     })
   },
-
+  jumpHome () {
+    wx.switchTab({
+      url: '/pages/home/home?name=jzs',
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -68,7 +65,7 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh() {
-
+    
   },
 
   /**

@@ -1,0 +1,26 @@
+/* pages/shoplist/shoplist.wxss */
+.shop-wrap {
+  display: flex;
+  padding: 16rpx;
+  border: 1rpx solid #eee;
+  margin: 8rpx;
+  box-shadow: 2rpx 2rpx 6rpx #bebebe;
+  text-shadow: 0rpx 0rpx 1rpx #222;
+  border-radius: 8rpx;
+}
+.shop-wrap .shop-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  font-size: 24rpx;
+}
+.shop-img image {
+  width: 250rpx;
+  height: 250rpx;
+  vertical-align: middle;
+  margin-right: 18rpx;
+}
+.fw900 {
+  font-weight: 900;
+  font-size: 34rpx;
+}

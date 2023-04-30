@@ -1,0 +1,43 @@
+<!--components/test/test.wxml-->
+<!-- <view class="test">components/test/test.wxml</view> -->
+<!-- <view class="fz80 fz40" id="test">
+  12345 use outer
+</view> -->
+<!-- <view class="fz80">
+  123
+</view> -->
+<!-- <view>
+  transportData: {{max}}
+  count: {{count}}
+</view>
+<button bindtap="add">add count</button>
+<button bindtap="change">change max</button> -->
+<!-- <view>
+  {{one}} + {{two}} = {{total}}
+</view>
+<button bindtap="addOne">add one</button>
+<button bindtap="addTwo">add two</button> -->
+<!-- <view>
+  {{m1.jsonStr(obj)}}
+</view>
+<button bindtap="changeName">change name</button>
+<button bindtap="changeAge">change age</button>
+<button bindtap="changeObj">change obj</button>
+<button bindtap="changeAddr">change addr</button> -->
+<view class="fz40">
+{{m1.jsonStr(rgb)}}
+</view>
+<view class="view-wrap" style="background-color: rgb({{fullColor}});">
+  {{fullColor}}
+</view>
+<button size="mini" type="warn" bindtap="addR">R</button>
+<button type="primary" size="mini" bindtap="addG">G</button>
+<button size="mini" bindtap="addB">B</button>
+<wxs module="m1">
+  function jsonStr (obj) {
+    return JSON.stringify(obj)
+  }
+  module.exports = {
+    jsonStr:jsonStr
+  }
+</wxs>

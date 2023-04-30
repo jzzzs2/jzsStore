@@ -1,0 +1,6 @@
+/* pages/contact/contact.wxss */
+view {
+  height: 200rpx;
+  line-height: 200rpx;
+  text-align: center;
+}

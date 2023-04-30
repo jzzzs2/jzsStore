@@ -1,0 +1,14 @@
+<!--pages/info/info.wxml-->
+<!-- <text>pages/info/info.wxml</text>
+<navigator open-type="navigateBack" delta="1">back to</navigator>
+<navigator open-type="navigateBack">back to no params</navigator>
+<hr/>
+<hr/>
+<button bindtap="backTo">back to</button>
+<navigator url="/pages/home/home?name=jzs" open-type="switchTab">jump to home</navigator>
+<button bindtap="jumpHome">jump to home 2</button> -->
+<view>
+  {{count}}
+</view>
+<button bindtap="add">count ++</button>
+<hr/>

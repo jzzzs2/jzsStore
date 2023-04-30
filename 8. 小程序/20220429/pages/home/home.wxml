@@ -1,0 +1,64 @@
+<!--pages/home/home.wxml-->
+<button bindtap="add">add count</button>
+<button bindtap="addChild">add Sync child</button>
+<button bindtap="addByChild">add by child</button>
+<view>
+  count: {{count}}
+</view>
+<!-- <test-com count="{{count}}" bind:sync="addSync" id="test" class="test"></test-com> -->
+<test-com bind:sync="addSync" id="test" class="test"></test-com>
+<hr/>
+<hr/>
+<hr/>
+<slot-test>
+  <view>
+    123
+  </view>
+</slot-test>
+<!-- <text class="fz80">pages/home/home.wxml</text>
+<view class="fz80">
+  xx
+</view> -->
+<!-- <view class="test">
+  test inner
+</view> -->
+<!-- <text>{{transportData}} ||</text> -->
+<!-- <test-comp max="{{transportData}}"></test-comp>
+<view>
+  123345
+</view> -->
+<!-- <slot-test> -->
+  <!-- <view slot="before">
+    1234
+  </view>
+  <view slot="s1">
+    123
+  </view> -->
+  <!-- <view slot="after">
+  12345
+</view> -->
+<!-- <block slot="s1">
+  <view>
+    123
+  </view>
+  <view>
+  12345
+  </view>  
+  <text>123</text>
+</block> -->
+<!-- </slot-test> -->
+<!-- <block slot="s1">
+  <view>
+    123
+  </view>
+  <view>
+  12345
+  </view>  
+  <text>123</text>
+</block> -->
+
+
+<!-- <hr/>
+<view class="innerTest">
+  outer test
+</view> -->

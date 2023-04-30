@@ -1,0 +1,5 @@
+<!--pages/home/home.wxml-->
+<text>主页</text>
+<view>
+  测试Test
+</view>

@@ -1,0 +1,8 @@
+/* pages/home/home.wxss */
+.fz40 {
+  font-size: 40rpx;
+}
+#test2 {
+  font-size: 90rpx;
+  color: red;
+}

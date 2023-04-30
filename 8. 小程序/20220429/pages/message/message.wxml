@@ -1,0 +1,6 @@
+<!--pages/message/message.wxml-->
+<text>pages/message/message.wxml</text>
+<view>
+  xxx
+</view>
+<test-comp ></test-comp>

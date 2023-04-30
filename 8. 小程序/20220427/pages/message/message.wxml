@@ -1,0 +1,30 @@
+<!--pages/message/message.wxml-->
+<!-- <text>message</text> -->
+<!-- <view>
+  {{t1.toLow(upStr)}}
+</view>
+<view>
+  {{t1.toUp(lowStr)}}
+</view> -->
+<!-- <wxs module="t1">
+  var toLow = function (str) {
+    return str.toLowerCase()
+  }
+  var toUp = function (str) {
+    return str.toUpperCase()
+  }
+  module.exports = {
+    toLow: toLow,
+    toUp: toUp
+  }
+</wxs> -->
+<view>
+{{lowStr}}
+  {{m2.toUp(lowStr)}}
+</view>
+<view>
+{{upStr}}
+  {{m2.toLow(upStr)}}
+</view>
+<!-- <wxs src="../../utils/test.wxs" module="m2"/> -->
+<wxs src="/utils/test.wxs" module="m2"/>

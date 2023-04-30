@@ -1,0 +1,10 @@
+var toUp = function (str) {
+  return str.toUpperCase()
+}
+var toLow = function (str) {
+  return str.toLowerCase()
+}
+module.exports = {
+  toUp: toUp,
+  toLow: toLow
+}

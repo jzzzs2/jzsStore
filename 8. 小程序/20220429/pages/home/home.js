@@ -1,39 +1,45 @@
 // pages/home/home.js
 Page({
-
+  // options: {
+  //   multipleSlots: true
+  // },
   /**
    * 页面的初始数据
    */
   data: {
-
+    transportData: 10,
+    count:  1
   },
-
+  add () {
+    this.setData({
+      count: this.data.count + 1
+    })
+  },
+  addByChild () {
+    const child = this.selectComponent(".test")
+    // child.setData({
+    //   count: child.data.count + 1 
+    // })
+    child.add()
+  },
+  addChild () {
+    this.setData({
+      count: this.data.count + 1
+    })
+    console.log(this.selectComponent("#test"));
+    console.log(this.selectComponent(".test"));
+  },
+  addSync (e) {
+    console.log(e,"addSync");
+    this.setData({
+      count: e.detail.value
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-    wx.request({
-      url: "https://www.escook.cn/api/get",
-      method: "GET",
-      data: {
-        name: "jzs",
-        age: 22
-      },
-      success: (res) => {
-        console.log(res,"res");
-      }
-    })
-    wx.request({
-      url: "https://www.escook.cn/api/post",
-      method: "POST",
-      data: {
-        name: "zjc",
-        age: 99
-      },
-      success: (res) => {
-        console.log(res.data,this);
-      }
-    })
+
   },
 
   /**

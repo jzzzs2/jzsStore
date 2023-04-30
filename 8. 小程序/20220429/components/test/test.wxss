@@ -1,0 +1,13 @@
+/* components/test/test.wxss */
+.test {
+  color: pink;
+  font-size: 80px;
+}
+.innerTest {
+  color: pink;
+  font-size: 96rpx;
+}
+.view-wrap {
+  height: 200rpx;
+  line-height: 200rpx;
+}

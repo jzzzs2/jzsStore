@@ -1,0 +1,12 @@
+<!--components/slot/slot.wxml-->
+<view>
+  <!-- <slot name="before"></slot>  -->
+  <text>components/slot/slot.wxml</text>
+  <!-- <slot name="s1"></slot> -->
+  <slot></slot>
+  <!-- <slot></slot>
+  <slot></slot> -->
+  <!-- <slot name="s1"></slot> -->
+  <!-- <slot name="after"></slot>   -->
+</view>
+
