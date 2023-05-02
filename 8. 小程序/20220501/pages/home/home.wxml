@@ -1,0 +1,11 @@
+<!--pages/home/home.wxml-->
+<!-- <van-button type="info">点击</van-button>
+<van-button type="default">点击</van-button>
+<van-button type="danger">点击</van-button>
+<van-button type="warning">点击</van-button>
+<van-button plain type="warning">点击</van-button> -->
+<!-- <view class="test">
+  <van-button type="primary">点击</van-button>  
+</view>
+<test></test> -->
+home

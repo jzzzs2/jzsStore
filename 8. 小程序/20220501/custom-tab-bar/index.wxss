@@ -1,0 +1,8 @@
+/* custom-tab-bar/index.wxss */
+.tabbar-wrap {
+  display: flex;
+  justify-content: space-around;
+}
+.van-tabbar-item {
+  --tabbar-item-margin-bottom: 0
+}

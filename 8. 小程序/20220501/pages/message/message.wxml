@@ -1,0 +1,11 @@
+<!--pages/message/message.wxml-->
+<view>
+  {{info}}
+</view>
+<view>
+  count1: {{count1}}
+  count2: {{count2}}
+</view>
+<van-button type="primary" bindtap="addCountOne" data-step="{{1}}">add count1</van-button>
+<van-button type="primary" bindtap="addCountTwo" data-step="{{1}}">add count2</van-button>
+<test></test>

@@ -1,0 +1,8 @@
+<!--component/test/test.wxml-->
+<text>component/test/test.wxml</text>
+<view>
+  
+</view>
+count1: {{count1}} count2: {{count2}}
+<van-button bindtap="addOne">add count1</van-button>
+<van-button bindtap="addTwo">add count2</van-button>

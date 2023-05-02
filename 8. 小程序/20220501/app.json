@@ -1,0 +1,65 @@
+{
+  "pages":[
+    "pages/home/home",
+    "pages/message/message",
+    "pages/contact/contact"
+  ],
+  "preloadRule": {
+    "pages/home/home": {
+      "network": "all",
+      "packages": ["packageOne","packageTwo"]
+    }
+  },
+  "subPackages": [
+    {
+      "root": "packageOne",
+      "name": "p1",
+      "pages": [
+        "pages/index/index",
+        "pages/user/user"
+      ]
+    },
+    {
+      "root": "packageTwo",
+      "name": "p2",
+      "pages": [
+        "pages/addr/addr"
+      ],
+      "independent": true
+    }
+  ],
+  "tabBar": {
+    "custom": true,
+    "list": [
+      {
+      "pagePath": "pages/home/home",
+      "text": "主页",
+      "iconPath": "/images/home.png",
+      "selectedIconPath": "/images/home-active.png"
+      },
+      {
+        "pagePath": "pages/message/message",
+        "text": "信息",
+        "iconPath": "/images/message.png",
+        "selectedIconPath": "/images/message-active.png"
+      },
+      {
+          "pagePath": "pages/contact/contact",
+          "text": "联系我",
+          "iconPath": "/images/contact.png",
+          "selectedIconPath": "/images/contact-active.png"
+      }
+    ]
+  },
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "Weixin",
+    "navigationBarTextStyle":"black"
+  },
+  "sitemapLocation": "sitemap.json",
+  "usingComponents": {
+    "van-button": "@vant/weapp/button/index",
+    "test": "/component/test/test"
+  }
+}
