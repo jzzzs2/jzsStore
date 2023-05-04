@@ -16,12 +16,32 @@
             "style" : {}
         }
     ],
+    
 	"globalStyle": {
 		"navigationBarTextStyle": "white",
 		"navigationBarTitleText": "好优购",
 		"navigationBarBackgroundColor": "#C00000",
 		"backgroundColor": "#FFFFFF"
 	},
+  "subPackages": [
+    {
+      "root": "subpkg",
+      "pages": [
+            {
+              "path": "goods_detail/goods_detail",
+              "style": {
+                "navigationBarTitleText": "商品详情"
+              }
+            },
+            {
+              "path": "goods_list/goods_list",
+              "style": {
+                "navigationBarTitleText": "商品列表"
+              }
+            }
+          ]
+        }
+          ],
   "tabBar": {
     "selectedColor":"#00ffff",
     "list": [
