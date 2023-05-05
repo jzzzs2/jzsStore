@@ -43,7 +43,7 @@
         }
           ],
   "tabBar": {
-    "selectedColor":"#00ffff",
+    "selectedColor":"#FFB6C1",
     "list": [
        {
          "pagePath":"pages/home/home",
