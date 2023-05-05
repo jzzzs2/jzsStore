@@ -1,19 +1,26 @@
 {
 	"pages": [{
             "path" : "pages/home/home",
-            "style" : {}
+            "style" : {
+            }
         }
         ,{
             "path" : "pages/cate/cate",
-            "style" : {}
+            "style" : {
+              "navigationBarTitleText": "商品分类"
+            }
         }
         ,{
             "path" : "pages/cart/cart",
-            "style" : {}
+            "style" : {
+              "navigationBarTitleText": "购物车"
+            }
         }
         ,{
             "path" : "pages/my/my",
-            "style" : {}
+            "style" : {
+              "navigationBarTitleText": "我的"
+            }
         }
     ],
     
@@ -38,8 +45,15 @@
               "style": {
                 "navigationBarTitleText": "商品列表"
               }
+            },
+            {
+                "path" : "mySearch/mySearch",
+                "style" : {
+                      "navigationBarTitleText": "搜索",
+                      "enablePullDownRefresh": false
+                    }
             }
-          ]
+            ]
         }
           ],
   "tabBar": {

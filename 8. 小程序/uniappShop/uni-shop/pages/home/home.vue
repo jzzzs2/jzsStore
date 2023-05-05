@@ -1,5 +1,8 @@
 <template>
   <view>
+    <view class="search-top">
+      <my-search :radius="100" bgc="#eee"></my-search>
+    </view>
     <view class="swiper-wrap">
       <swiper class="swiper-list" :indicator-dots="true" :autoplay="true" :interval="2000" :duration="1000"
         circular="true" indicator-active-color="#ffffff">
@@ -135,4 +138,8 @@
       display: flex
       flex-wrap: wrap
       justify-content: space-around
+  .search-top
+    position: sticky
+    top: 0
+    z-index: 999
 </style>

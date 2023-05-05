@@ -1,6 +1,7 @@
 <template>
+  <view>
+  <my-search></my-search>
 	<view class="cate-wrap">
-    
 		<scroll-view class="cate-one-wrap" scroll-y :style="{height: uH + 'px'}">
 		  <view class="cate-one-item" v-for="(item,idx) in cateList" :key="idx" :class="active===idx?'active':''" @click="changeCate(idx)">{{item.cat_name}}</view>
 		</scroll-view>
@@ -18,6 +19,7 @@
       </view>
     </scroll-view>
 	</view>
+  </view>
 </template>
 
 <script>
@@ -33,7 +35,8 @@
 		},
     onLoad(options) {
       const info = uni.getSystemInfoSync()
-      this.uH = info.windowHeight
+      console.log(info.windowHeight,"height")
+      this.uH = info.windowHeight - 45
       //获取分类数据
       this.getAllCate()
       //获取初级二级分类
@@ -69,13 +72,16 @@
     display: flex
     .cate-one-wrap
       width: 160rpx
+      background-color: #ffcede
       .cate-one-item
         position: relative
+        color: #333
         line-height: 80rpx
         font-size: 24rpx
         text-align: center
-        border-bottom: 1rpx solid #cecece
         &.active
+          background-color: #ffffff
+          color: #00ddfe
           &::before
             position: absolute
             content: " "
