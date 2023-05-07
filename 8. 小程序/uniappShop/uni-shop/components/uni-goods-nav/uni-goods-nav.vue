@@ -205,7 +205,7 @@
  */
 		padding: 0 4px;
 		line-height: 15px;
-		color: #ffffff;
+		color: #fff;
 		text-align: center;
 		font-size: 12px;
 		background-color: #ff0000;
