@@ -3,7 +3,7 @@
     <view class="swiper-wrap" v-if="goodInfo.goods_id">
       <swiper :indicator-dots="true" :autoplay="true" :interval="3000" :duration="1000" :circular="true">
         <swiper-item v-for="(item,idx) in goodInfo.pics" :key="idx">
-            <image :src="item.pics_big" mode=""></image>
+            <image :src="item.pics_big" mode="" @click="preview(idx)"></image>
         </swiper-item>
       </swiper>
     </view>
@@ -33,9 +33,12 @@
 </template>
 
 <script>
+  
+  import {mapState,mapMutations,mapGetters} from "vuex"
   export default {
     data() {
       return {
+        
         goodInfo: {},
         options: [{
         			icon: 'shop',
@@ -45,7 +48,7 @@
         		}, {
         			icon: 'cart',
         			text: '购物车',
-        			info: 2,
+        			info: 0,
               infoBackgroundColor:'#007aff',
               infoColor:"#00cccc"
         		}],
@@ -62,10 +65,56 @@
         	    ]
       };
     },
+    watch: {
+      cartCount: {
+        handler(newValue) {
+          console.log("执行监听")
+          this.options.find(item=> {
+            return item.text === "购物车"
+          }).info = newValue
+        },
+        immediate: true
+      }
+    },
+    computed: {
+      ...mapGetters("cart",["cartCount"]),
+      ...mapState("cart",["cartList"])
+    },
     onLoad(options) {
       this.getGoodInfo(options.goods_id)
     },
     methods: {
+      ...mapMutations("cart",["addCart","addCartCountById"]),
+      buttonClick (e) {
+        // console.log(e,"eee")
+        if (e.content.text === "加入购物车") {
+          //{ goods_id, goods_name, goods_price, goods_count, goods_small_logo, goods_state }
+          console.log(this.goodInfo,"info")
+          const isExist = this.cartList.find(item => {
+            return item.goods_id === this.goodInfo.goods_id
+          })
+          if (!isExist) {
+            console.log("商品不存在进行添加")
+            const goods = {
+              goods_id: this.goodInfo.goods_id,
+              goods_name: this.goodInfo.goods_name,
+              goods_price: this.goodInfo.goods_price,
+              goods_count: 1,
+              goods_small_logo: this.goodInfo.goods_small_logo,
+              goods_state: true
+            }
+            this.addCart(goods)
+            // this.saveCartList()
+            return
+          }
+          //将商品数量+1
+          console.log("商品数量+1")
+          this.addCartCountById(this.goodInfo.goods_id)
+          // this.saveCartList()
+      }},
+      // saveCartList () {
+      //   uni.setStorageSync("cart",JSON.stringify(this.cartList))
+      // },
       async getGoodInfo (goods_id) {
         let {data:res} = await uni.$http.get("/api/public/v1/goods/detail",{goods_id})
         if(res.meta.status!==200) return uni.$showMessage()
@@ -79,6 +128,14 @@
             url: "/pages/cart/cart"
           })
         }
+      },
+      preview(idx) {
+        uni.previewImage({
+          current: idx,
+          urls: this.goodInfo.pics.map(item => {
+            return item.pics_big_url
+          })
+        })
       }
     }
   }

@@ -46,7 +46,9 @@
 </template>
 
 <script>
+import cart from "@/mixin/cartCount.js"
   export default {
+    mixins: [cart],
     data() {
       return {
         swiperList: [],

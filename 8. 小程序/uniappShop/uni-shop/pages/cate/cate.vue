@@ -23,7 +23,9 @@
 </template>
 
 <script>
+	import cart from "@/mixin/cartCount.js"
 	export default {
+	  mixins: [cart],
 		data() {
 			return {
 				uH: 0,
@@ -68,6 +70,7 @@
 </script>
 
 <style lang="stylus">
+ 
   .cate-wrap
     display: flex
     .cate-one-wrap
