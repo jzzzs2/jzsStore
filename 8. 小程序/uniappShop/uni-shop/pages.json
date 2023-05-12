@@ -57,6 +57,24 @@
                       "enablePullDownRefresh": false
                     }
             }
+                ,{
+                    "path" : "goods_visited/goods_visited",
+                    "style" :                                                                                    
+                {
+                    // "navigationBarTitleText": "我的足迹",
+                    "enablePullDownRefresh": false
+                }
+                
+                }
+                ,{
+                    "path" : "goods_star/goods_star",
+                    "style" :                                                                                    
+                {
+                    // "navigationBarTitleText": "我的收藏",
+                    "enablePullDownRefresh": false
+                }
+                
+                }
             ]
         }
           ],

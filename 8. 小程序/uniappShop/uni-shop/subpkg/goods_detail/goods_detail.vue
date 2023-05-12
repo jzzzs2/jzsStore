@@ -16,8 +16,8 @@
           {{goodInfo.goods_name}}
         </view>
         <view class="good-info-store">
-          <uni-icons type="star" size="16" color="#cecece"></uni-icons>
-          <text>收藏</text>
+          <uni-icons type="star" size="16" color="#cecece"  :color="isStar?'cyan':'black'"></uni-icons>
+          <text @click="storage" >收藏</text>
         </view>
       </view>
       <view class="good-info-package">
@@ -78,13 +78,40 @@
     },
     computed: {
       ...mapGetters("cart",["cartCount"]),
-      ...mapState("cart",["cartList"])
+      ...mapState("cart",["cartList"]),
+      ...mapState("foot",["storeGoods"]),
+      isStar() {
+        return this.storeGoods.indexOf(this.goodInfo.goods_id) !== -1
+      }
     },
     onLoad(options) {
       this.getGoodInfo(options.goods_id)
     },
     methods: {
+      storage() {
+        console.log(this.goodInfo,"xxxxx")
+        this.addGoodStar(this.goodInfo.goods_id)
+      },
+      addVisited(obj) {
+        const good = {...obj,date: this.formatDate()}
+        this.addGoodVisited(good)
+      },
+      toDouble (num) {
+        return String(num)[1] && String(num) || '0' + num;
+      },
+      formatDate(date = new Date(), format = "yyyy-mm-dd") {
+        let regMap = {
+          'y': date.getFullYear(),
+          'm': this.toDouble(date.getMonth() + 1),
+          'd': this.toDouble(date.getDate())
+        }
+        //逻辑(正则替换 对应位置替换对应值) 数据(日期验证字符 对应值) 分离
+        return Object.entries(regMap).reduce((acc, [reg, value]) => {
+          return acc.replace(new RegExp(`${reg}+`, 'gi'), value);
+        }, format);
+      },
       ...mapMutations("cart",["addCart","addCartCountById"]),
+      ...mapMutations("foot",["addGoodVisited","addGoodStar"]),
       buttonClick (e) {
         // console.log(e,"eee")
         if (e.content.text === "加入购物车") {
@@ -119,7 +146,9 @@
         let {data:res} = await uni.$http.get("/api/public/v1/goods/detail",{goods_id})
         if(res.meta.status!==200) return uni.$showMessage()
         res.message.goods_introduce = res.message.goods_introduce.replace(/<img /g,"<img style='vertical-align:middle'").replace(/webp/g,"jpg")
+        // console.log(res.message,"message")
         this.goodInfo = res.message
+        this.addVisited(res.message)
       },
       naviToCart (e) {
         console.log(e,"e")
@@ -175,5 +204,6 @@
     position: fixed
     bottom: 0
     width: 100%
-
+.star
+  color: cyan
 </style>

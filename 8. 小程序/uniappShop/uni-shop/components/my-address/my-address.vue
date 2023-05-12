@@ -41,11 +41,21 @@
     methods: {
       ...mapMutations("address",["updateAddress"]),
       async getUserInfo() {
-        let [err,message] = await uni.chooseAddress().catch(err=>err)
-        if (message.errMsg === "chooseAddress:ok") {
-          // this.address = message
-          this.updateAddress(message)
-        }
+        uni.showModal({
+          title: "权限",
+          content: "是否同意获取地址",
+          success: async (res) => {
+              console.log(res,"resx")
+              if(res.confirm) {
+                  let [err,message] = await uni.chooseAddress().catch(err=>err)
+                  if (message.errMsg === "chooseAddress:ok") {
+                    // this.address = message
+                    this.updateAddress(message)
+                  }
+              }
+          }
+        })
+        
         // console.log(this.address,"xxx")
       }
     }
