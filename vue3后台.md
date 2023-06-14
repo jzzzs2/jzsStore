@@ -101,6 +101,7 @@ try {
 }catch(err) {
 	调用组件提示信息,err.message
 }
+Promise.reject(new Error("fail")) 执行会抛错,如果没有捕获会中断程序.
 ```
 
 ## ref的函数使用 实际应用
@@ -133,3 +134,4 @@ cateStoreObj.$reset()
 
 
 
+sss
