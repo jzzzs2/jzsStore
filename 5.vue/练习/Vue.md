@@ -11,129 +11,134 @@
 >订阅者: sub,内部有根据vm中数据修改node节点数据的方法
 >发布者:pub,内部有保存对应订阅者的数组,还有调用所有订阅者更新的方法
 >1)vm对象对参数容器内部进行解析,对vue框架规定的特殊数据绑定语法进行解析(比如{{}}和v-model),解析时创建订阅对象,从vm中获取数据进行渲染,并进行订阅,在defineProperty的get方法中进行订阅者存储,当通过有v-model属性的input标签修改vm中数据或者直接修改vm数据时,触发defineProperty的set方法中进行发布,对所有订阅者执行更新操作,获取最新的vm中数据.
+>
+>更新总结1:
+>vue2 会给data里的每个属性创建一个发布者对象,通过Object.defineProperty对每一个属性的获取和修改进行劫持,在初次解析组件模板时,会识别出特殊数据绑定语法,生成一个订阅者对象,并渲染绑定值,渲染取值操作被get捕获,将订阅者对象存储到发布者对象的订阅者数组属性中. 当修改数据时,会被set捕获,由发布者对象对它的订阅者数组进行循环更新操作.
+>更新总结2:
+>vue实例初始化时,会给data里的每个属性,创建一个发布者对象, 然后会对组件模板进行解析,解析到特殊数据绑定语法时,会把创建一个相关信息的订阅者对象,内部获取vue管理属性渲染dom, 获取操作被object.defineProperty()的get方法截获,订阅者对象被push到相应的发布者对象的订阅者数组属性中,当data属性被修改时,会被set方法截获.该属性的发布者对象会通知所有订阅者进行更新操作.
 >```
 >
 >
 >
 >```
-> //发布者和监听者
->    let Publisher = class Publisher {
->      constructor(attr) {
->        this.attr = attr
->        this.subs = []
->      }
->      pub() {
->        for (let i = 0; i < this.subs.length; i++) {
->          this.subs[i].update()
->        }
->      }
->    }
->    let Subscriber = class Subscriber {
->      constructor(node, attr, vm) {
->        this.node = node
->        this.attr = attr
->        this.vm = vm
->        Publisher.target = this
->        this.get()
->      }
->      get() {
->        this.update()
->        Publisher.target = null
->      }
->      update() {
->        this.node.nodeValue = this.vm[this.attr]
->        this.node.value = this.vm[this.attr]
->      }
->    }
->    //1.转接函数
->    function propertyTransplant(target, data) {
->      Object.entries(data).map(([key, value]) => {
->        target[key] = value
->      })
->    }
->    //2.解析指代标识为仓库数据并对一些元素进行事件绑定
->    function compile(el, vm) {
->      let nodes = document.querySelector(el).childNodes
->      //input标签
->      for (let i = 0; i < nodes.length; i++) {
->        let node = nodes[i]
->        if (node.nodeType == 1) {
->          console.log("TYPE 1");
->          let attributes = node.attributes
->          console.log(attributes, "Attr");
->          if ("v-model" in attributes) {
->            console.log("你是有v-model的元素");
->            let key = node.getAttribute("v-model")
->            //初次赋值
->            node.value = vm[key]
->            //进行绑定
->            node.addEventListener("input", function (e) {
->              console.log("修改仓库");
->              vm[key] = this.value
->            })
->            //TODI 订阅者创建
->            new Subscriber(node,key,vm)
->          }
->        }
->        //文字
->        if (node.nodeType == 3) {
->          console.log("TYPE 3");
->          let regExp = /\{\{(.+)\}\}/
->          if (regExp.test(node.nodeValue)) {
->            let key = node.nodeValue.match(regExp)[1]
->            console.log(key, "key");
->            node.nodeValue = vm[key]
->            //toDo 订阅者创建
->            new Subscriber(node,key,vm)
->          }
->        }
->      }
->    }
->    //对vm中的数据进行监听
->    function watchAttr(data, vm) {
->      let keys = Object.keys(data)
->      console.log(keys, "keys");
->      for (let i = 0; i < keys.length; i++) {
->        let value = data[keys[i]]
->        let publisher = new Publisher()
->        console.log(keys[i], "curr key", value);
->        Object.defineProperty(vm, keys[i], {
->          get() {
->            if (Publisher.target) {
->              console.log("进行订阅");
->              publisher.subs.push(Publisher.target)
->            }
->            return value
->          },
->          set(val) {
->            if (val == value) {
->              return
->            }
->            value = val
->            //toDo 发布消息
->            publisher.pub()
->          }
->        })
->      }
->    }
+>//发布者和监听者
+>let Publisher = class Publisher {
+> constructor(attr) {
+>   this.attr = attr
+>   this.subs = []
+> }
+> pub() {
+>   for (let i = 0; i < this.subs.length; i++) {
+>     this.subs[i].update()
+>   }
+> }
+>}
+>let Subscriber = class Subscriber {
+> constructor(node, attr, vm) {
+>   this.node = node
+>   this.attr = attr
+>   this.vm = vm
+>   Publisher.target = this
+>   this.get()
+> }
+> get() {
+>   this.update()
+>   Publisher.target = null
+> }
+> update() {
+>   this.node.nodeValue = this.vm[this.attr]
+>   this.node.value = this.vm[this.attr]
+> }
+>}
+>//1.转接函数
+>function propertyTransplant(target, data) {
+> Object.entries(data).map(([key, value]) => {
+>   target[key] = value
+> })
+>}
+>//2.解析指代标识为仓库数据并对一些元素进行事件绑定
+>function compile(el, vm) {
+> let nodes = document.querySelector(el).childNodes
+> //input标签
+> for (let i = 0; i < nodes.length; i++) {
+>   let node = nodes[i]
+>   if (node.nodeType == 1) {
+>     console.log("TYPE 1");
+>     let attributes = node.attributes
+>     console.log(attributes, "Attr");
+>     if ("v-model" in attributes) {
+>       console.log("你是有v-model的元素");
+>       let key = node.getAttribute("v-model")
+>       //初次赋值
+>       node.value = vm[key]
+>       //进行绑定
+>       node.addEventListener("input", function (e) {
+>         console.log("修改仓库");
+>         vm[key] = this.value
+>       })
+>       //TODI 订阅者创建
+>       new Subscriber(node,key,vm)
+>     }
+>   }
+>   //文字
+>   if (node.nodeType == 3) {
+>     console.log("TYPE 3");
+>     let regExp = /\{\{(.+)\}\}/
+>     if (regExp.test(node.nodeValue)) {
+>       let key = node.nodeValue.match(regExp)[1]
+>       console.log(key, "key");
+>       node.nodeValue = vm[key]
+>       //toDo 订阅者创建
+>       new Subscriber(node,key,vm)
+>     }
+>   }
+> }
+>}
+>//对vm中的数据进行监听
+>function watchAttr(data, vm) {
+> let keys = Object.keys(data)
+> console.log(keys, "keys");
+> for (let i = 0; i < keys.length; i++) {
+>   let value = data[keys[i]]
+>   let publisher = new Publisher()
+>   console.log(keys[i], "curr key", value);
+>   Object.defineProperty(vm, keys[i], {
+>     get() {
+>       if (Publisher.target) {
+>         console.log("进行订阅");
+>         publisher.subs.push(Publisher.target)
+>       }
+>       return value
+>     },
+>     set(val) {
+>       if (val == value) {
+>         return
+>       }
+>       value = val
+>       //toDo 发布消息
+>       publisher.pub()
+>     }
+>   })
+> }
+>}
 >
->    //3.对vue对象上的数据进行监听
->    class Vue {
->      constructor({ el, data }) {
->        this.el = el
->        propertyTransplant(this, data)
->        watchAttr(data, this)
->        compile(el, this)
->        // this.init()
->        
->      }
->    }
->    let app = new Vue({
->      el: "#app",
->      data: {
->        name: "jzs"
->      }
->    })
+>//3.对vue对象上的数据进行监听
+>class Vue {
+> constructor({ el, data }) {
+>   this.el = el
+>   propertyTransplant(this, data)
+>   watchAttr(data, this)
+>   compile(el, this)
+>   // this.init()
+>   
+> }
+>}
+>let app = new Vue({
+> el: "#app",
+> data: {
+>   name: "jzs"
+> }
+>})
 >```
 >
 

@@ -1,0 +1,11 @@
+{
+  "emmet.triggerExpansionOnTab": true,
+  "emmet.showAbbreviationSuggestions": true,
+  "emmet.includeLanguages": {
+    // jsx的提示
+    "javascript": "javascriptreact",
+    "vue-html": "html",
+    "vue": "html",
+    "wxml": "html"
+  },
+}

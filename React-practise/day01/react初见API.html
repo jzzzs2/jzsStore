@@ -1,0 +1,40 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2023-07-06 15:00:38
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2023-07-06 19:50:09
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>hello react</title>
+</head>
+<body>
+  <div id="test"></div>
+  <!-- React 核心库 -->
+  <script src='https://unpkg.com/react@18.0.0/umd/react.development.js'></script>
+  <!-- //React DOM渲染库 -->
+  <script src='https://unpkg.com/react-dom@18.0.0/umd/react-dom.development.js'></script>
+  <!-- //babel 识别转义JSX语法 -->
+  <script src='https://unpkg.com/babel-standalone@6/babel.min.js'></script>
+  <script type="text/babel">
+    let container = ReactDOM.createRoot(document.querySelector("#test"))
+    const html = <li>123</li>
+    let btn = React.createElement("button",{
+      className: "jzs",
+      onClick: () => {
+        // alert("test")
+        container.render(html)
+      }
+      // type: "button"
+    },"我是一个按钮")
+    container.render(btn)
+    container.render(html)
+    container.render(html)
+  </script>
+</body>
+</html>

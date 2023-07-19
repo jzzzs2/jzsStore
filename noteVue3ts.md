@@ -424,6 +424,8 @@ function increment() {
 
 ```
 1.v-if和v-for同时使用的时候,v-if优先级更高,所以v-if无法使用v-for中的item或者idx等其他变量
+
+vue3 v-if比v-for优先级高,vue2 v-for比v-if优先级高
 ```
 
 ## 模板引用

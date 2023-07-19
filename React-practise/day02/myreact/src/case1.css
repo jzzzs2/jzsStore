@@ -1,0 +1,25 @@
+.case {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid red;
+}
+.title {
+  display: flex;
+}
+.tag {
+  padding: 10px;
+  margin: 6px;
+  border: 1px solid #ccc;
+}
+.select {
+  display: flex;
+  /* border: 1px solid green; */
+}
+.active {
+  background-color: skyblue;
+}
+.sp {
+  margin: 4px;
+  color: #ccc;
+}

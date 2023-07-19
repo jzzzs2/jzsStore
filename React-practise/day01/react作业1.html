@@ -1,0 +1,81 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2023-07-06 17:39:26
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2023-07-07 11:49:40
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>jsx 列表 渲染</title>
+  <style>
+    #app {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .test {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 400px;
+      height: 400px;
+    }
+
+    .title {
+      height: 100px;
+      line-height: 100px;
+      font-weight: 700;
+      font-size: 30px;
+    }
+    .item {
+      display: flex;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app"></div>
+  <!-- React 核心库 -->
+  <script src='https://unpkg.com/react@18.0.0/umd/react.development.js'></script>
+  <!-- //React DOM渲染库 -->
+  <script src='https://unpkg.com/react-dom@18.0.0/umd/react-dom.development.js'></script>
+  <!-- //babel 识别转义JSX语法 -->
+  <script src='https://unpkg.com/babel-standalone@6/babel.min.js'></script>
+  <script type="text/babel">
+    let app = ReactDOM.createRoot(document.querySelector("#app"))
+    const list = ['HTML5', 'CSS3', 'ECMAScript', 'Webpack', 'Babel', 'Stylus', 'Template', 'DOM', 'Ajax', 'Node', 'Vue', 'React', 'Mongodb']
+    const COLORS = ['#69D2E7', '#A7DBD8', '#E0E4CC', '#F38630', '#FA6900', '#FF4E50', '#F9D423'];
+    let randomIdx = () => {
+      return parseInt(Math.random() * COLORS.length)
+    }
+    let styleArr = list.map(() => {
+      return {
+        backgroundColor: COLORS[randomIdx()],
+        lineHeight: "30px",
+        height: "30px",
+        margin: "10px",
+        padding: "10px",
+        color: "white",
+        borderRadius: "6px"
+      }
+    })
+    let title = <div className="test">
+      <div className="title">
+        Skills
+      </div>
+      <div className="item">
+        {list.map((item,idx) => <div style={styleArr[idx]}>{item}</div>)}
+      </div>
+    </div>
+    // 
+    app.render(title)
+  </script>
+</body>
+
+</html>

@@ -74,6 +74,9 @@ git remote 查看引入的远程仓库
 git push 远程仓库名称 [本地分支名称:远程仓库分支名称 || 本地分支名称(如果远程仓库分支名称和本地仓库分支名称相同)]
 绑定本地分支和远程分支: git push --set-upstream 远程仓库名 本地仓库分支:远程仓库分支 之后只需要git push即可推送代码
 查看本地分支和远程分支绑定关系: git branch -vv
+
+远程仓库名称例子:
+git remote add origin https://github.com/你的GitHub用户名/你的仓库名.git
 ```
 
 ## Clone + Pull(fetch + merge ) 冲突问题
@@ -90,5 +93,14 @@ git push 远程仓库名称 [本地分支名称:远程仓库分支名称 || 本�
 
 + push前先pull
 
-## 
+## 本地获取公钥
+
+```
+ssh-keygen -t rsa -C "2803290705@qq.com"
+
+查看公钥
+cat id_rsa.pub
+```
+
+
 

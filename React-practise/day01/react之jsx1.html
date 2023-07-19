@@ -1,0 +1,89 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2023-07-06 17:39:26
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2023-07-06 20:29:06
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>jsx</title>
+  <style>
+    .show233 {
+      color: red;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app"></div>
+  <!-- React 核心库 -->
+  <script src='https://unpkg.com/react@18.0.0/umd/react.development.js'></script>
+  <!-- //React DOM渲染库 -->
+  <script src='https://unpkg.com/react-dom@18.0.0/umd/react-dom.development.js'></script>
+  <!-- //babel 识别转义JSX语法 -->
+  <script src='https://unpkg.com/babel-standalone@6/babel.min.js'></script>
+  <script type="text/babel">
+    // let page = React.createElement("p",null,"我是段落1")
+    let app = ReactDOM.createRoot(document.querySelector("#app"))
+    // let li1 = React.createElement("li",null,"li1")
+    // let li2 = React.createElement("li",null,"li2")
+    // let li3 = React.createElement("li",null,"li3")
+    // let ul = React.createElement("ul",{
+    //   className: "test",
+    //   onClick: () => console.log("click")
+    // },li1,li2,li3)
+    // app.render(page)
+    // let finalXD = "keainie"
+    // let finalXD = undefined
+    // let finalXD = null
+    // let finalXD = true
+    let finalXD = false
+    let food = "noodle"
+    let isExist = true
+    let fnc = () => {
+      return "testResult"
+    }
+    // let isExist = false
+    let r1 = "a"
+    let r2 = "b"
+    let a = "2"
+
+    const test =
+      <ul className="test" onClick={() => { alert("keainie") }}>
+        <li>{false}</li>
+        <li>{true}</li>
+        <li>{undefined}</li>
+        <li>{null}</li>
+        <li>{finalXD}</li>
+        <li>{food}</li>
+        <li>{isExist ? r1 : r2}</li>
+        <li className="test">{isExist && "result"}</li>
+        <li style={{ color: "red" }}>{fnc()}</li>
+        <li disabled={false}>{9 + 11}</li>
+        <li>{a.toString()[1] && a || "0" + a}</li>
+      </ul>
+      // </ul>
+      // <p>{123}</p>
+    // </>
+    // let have = ""
+    // let have = "22"
+    let have = false
+    // app.render(test)
+    // let btn = <button disabled={isExist}>test</button>
+    // let btn = <button disabled={false}>test</button>
+    // let btn = <button hidden={false}>test</button>
+    // let btn = <button hidden={true}>test</button>
+    // let btn = <button className={have?'show':''}>test</button>
+    let name = "show"
+    let btn = <button className={`wrap${have && 'show' || ''}`}>test</button>
+    app.render(btn)
+  </script>
+</body>
+
+</html>

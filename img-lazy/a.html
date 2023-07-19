@@ -1,0 +1,70 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2023-06-30 11:10:40
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2023-07-01 17:16:26
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/style.css" rel="stylesheet">
+    <style>
+      .box {
+        width: 200px;
+        height: 100px;
+        background-color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <button>click</button>
+    <div class="box"></div>
+    <script>
+      let a = function () {
+        console.log("2222")
+      }
+      let c = a;
+      a = function () {
+        console.log("33333")
+      }
+      console.log(c)
+      // console.log(typeof a)
+      // console.log(a instanceof Object)
+      // console.log(a instanceof Function)
+      // let c = a
+      // c()
+      // function b (name) {
+      //   this.name = name
+      //   console.log("eat easily")
+      // }
+      // b.prototype.test = function () {
+      //   console.log(test,"test")
+      // }
+      // console.dir(new b("jzs"),"b") 
+      // console.log(typeof a,"a")
+      // console.dir(new Object())
+      // let box = document.querySelector(".box")
+      // box.style.width = "800px"
+      // console.log(box.style.width)
+      // let btn = document.querySelector("button")
+      // btn.addEventListener("click",() => {
+      //   console.log("我是交互队列")
+      // })
+      // setTimeout(() => {
+      //   console.log("延时队列")
+      // },0)
+      // let timer = Date.now()
+      // // console.log(timer,"timer")
+      // while (Date.now() - timer < 3000) {
+      //   // console.log("hhhhhhhh",Date.now())
+      // }
+      // let func = new Function("a")
+      // console.dir(func,"func")
+    </script>
+  </body>
+</html>

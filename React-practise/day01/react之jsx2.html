@@ -1,0 +1,82 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2023-07-06 17:39:26
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2023-07-06 18:26:52
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>jsx 列表 渲染</title>
+</head>
+
+<body>
+  <div id="app"></div>
+  <!-- React 核心库 -->
+  <script src='https://unpkg.com/react@18.0.0/umd/react.development.js'></script>
+  <!-- //React DOM渲染库 -->
+  <script src='https://unpkg.com/react-dom@18.0.0/umd/react-dom.development.js'></script>
+  <!-- //babel 识别转义JSX语法 -->
+  <script src='https://unpkg.com/babel-standalone@6/babel.min.js'></script>
+  <script type="text/babel">
+    // let page = React.createElement("p",null,"我是段落1")
+    let app = ReactDOM.createRoot(document.querySelector("#app"))
+    // let li1 = React.createElement("li",null,"li1")
+    // let li2 = React.createElement("li",null,"li2")
+    // let li3 = React.createElement("li",null,"li3")
+    // let ul = React.createElement("ul",{
+    //   className: "test",
+    //   onClick: () => console.log("click")
+    // },li1,li2,li3)
+    // app.render(page)
+    // let finalXD = "keainie"
+    // let finalXD = undefined
+    // let finalXD = null
+    // let finalXD = true
+    let finalXD = false
+    let food = "noodle"
+    let isExist = true
+    // let isExist = false
+    let fnc = () => {
+      return "testResult"
+    }
+    let arr = [
+      <li stlye={{color: "red"}}>1</li>,
+      <li stlye={{color: "green"}}>2</li>,
+      <li stlye={{color: "yellow"}}>3</li>
+    ]
+    let arr1 = [
+      {id: 1,name: "jzs"},
+      {id: 2,name: "zjc"},
+      {id: 3,name: "keainie"},
+      {id: 3,name: undefined},
+    ]
+    // let isExist = false
+    // const test =
+    //   <ul className="test" onClick={() => { alert("keainie") }}>
+    //     {arr1.map(item => <li stlye={{color: "red"}} key={item.id}>{item.name}</li>)}
+    //   </ul>
+      // <p>{123}</p>
+    // </>
+    //三目 短路运算 函数(if)
+    // let isExist = true
+    // const condition = isExist ? <div>is Exist</div> : <div>not Exist</div>
+    // const condition = isExist && <div>Exist</div>
+    let testFnc = (test = false) => {
+      if (test) {
+        return <div>success</div>
+      }
+      return false
+    }
+    // app.render(test)
+    // app.render(condition)
+    app.render(testFnc(true))
+  </script>
+</body>
+
+</html>
