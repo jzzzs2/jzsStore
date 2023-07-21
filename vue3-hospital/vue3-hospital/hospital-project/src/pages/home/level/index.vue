@@ -4,7 +4,7 @@
  * @Author: sueRimn
  * @Date: 2023-07-18 20:05:40
  * @LastEditors: sueRimn
- * @LastEditTime: 2023-07-18 20:21:25
+ * @LastEditTime: 2023-07-21 15:25:58
 -->
 <!--
  * @Descripttion: 
@@ -32,6 +32,20 @@
 </template>
 
 <script lang='ts' setup>
+import { reqLevelList } from '@/api/api';
+import { onMounted, ref } from 'vue';
+import {areaAndLevelRes,AreaAndLevelOne} from "@/api/type.ts"
+let levelList = ref<AreaAndLevelOne[]>([])
+onMounted(() => {
+  getLevelList()
+})
+let getLevelList = async () => {
+  let result :areaAndLevelRes= await reqLevelList()
+  if (result.code == 200) {
+    console.log(result,"result");
+    // levelList.value = 
+  }
+}
 </script>
 <style scoped lang='scss'>
 .level {

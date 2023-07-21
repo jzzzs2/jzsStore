@@ -4,7 +4,7 @@
  * @Author: sueRimn
  * @Date: 2023-07-18 18:56:03
  * @LastEditors: sueRimn
- * @LastEditTime: 2023-07-18 19:27:01
+ * @LastEditTime: 2023-07-21 14:03:39
 -->
 <template>
  <div class="bottom">
@@ -30,6 +30,7 @@
   align-items: center;
   width: 1200px;
   height: 50px;
+  margin-top: 20px;
   color: #666;
   font-size: 14px;
   background-color: #ccc;

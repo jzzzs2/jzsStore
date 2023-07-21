@@ -4,7 +4,7 @@
  * @Author: sueRimn
  * @Date: 2023-07-18 19:21:42
  * @LastEditors: sueRimn
- * @LastEditTime: 2023-07-19 20:56:14
+ * @LastEditTime: 2023-07-21 14:53:38
 -->
 <template>
   <div class="content">
@@ -37,12 +37,13 @@ import Area from "./area/index.vue"
 import Hos from "./hos/index.vue"
 import { onMounted, ref } from "vue"
 import {reqHospitalList} from "@/api/api"
+import {HospitalList,Content} from "@/pages/home/type.ts"
 let pageNum = ref(1)
 let limit = ref(6)
 let total = ref(10)
-let hospitalList = ref<any>([])
+let hospitalList = ref<Content[]>([])
 let getCurrentHospital = async (page = 1,limit = 6) => {
-  let result :any = await reqHospitalList(page,limit)
+  let result :HospitalList = await reqHospitalList(page,limit)
   if (result.code == 200) {
     hospitalList.value = result.data.content
     total.value = result.data.totalElements
