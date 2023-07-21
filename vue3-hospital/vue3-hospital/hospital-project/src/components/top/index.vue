@@ -4,7 +4,7 @@
  * @Author: sueRimn
  * @Date: 2023-07-17 17:51:33
  * @LastEditors: sueRimn
- * @LastEditTime: 2023-07-17 18:21:25
+ * @LastEditTime: 2023-07-19 21:04:06
 -->
 <template>
  <div class="nav-title">
@@ -31,6 +31,7 @@
   width: 1200px;
   height: 70px;
   border-bottom: 1px solid #ccc;
+  background-color: #fff;
   .left {
     display: flex;
     align-items: center;
