@@ -1,0 +1,47 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2023-07-23 14:15:32
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2023-07-23 17:56:56
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>async await使用</title>
+</head>
+<body>
+  <script>
+    // async函数内部的Promise变为reject状态,整个async函数都会中断,并且reject内容会被async函数回调获取.
+    // async function test () {
+    //   try {
+    //     await Promise.reject("fail")  
+    //   } catch (error) {
+        
+    //   }
+    //   console.log("123");
+    //   await Promise.resolve("haoye")
+    //   return "123"
+    // }
+    // test().then(res => {
+    //   console.log(res,"res");
+    // }).catch(err => {
+    //   console.log(err,"err");
+    // })
+    // async 实现原理
+    let fnc = async function () {
+      await Promise.resolve("222")
+      await Promise.resolve("111")
+      await Promise.resolve("wuwuwu")
+    }
+    fnc().then(res => {
+      console.log(res,"res");
+    }).catch(err => {
+      console.log(err,"err");
+    })
+  </script>
+</body>
+</html>

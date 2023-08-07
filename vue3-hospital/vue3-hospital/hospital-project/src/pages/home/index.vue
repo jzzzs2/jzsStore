@@ -4,7 +4,7 @@
  * @Author: sueRimn
  * @Date: 2023-07-18 19:21:42
  * @LastEditors: sueRimn
- * @LastEditTime: 2023-07-21 14:53:38
+ * @LastEditTime: 2023-07-24 22:26:11
 -->
 <template>
   <div class="content">
@@ -13,8 +13,8 @@
     <div class="hospital">
       <el-row>
         <el-col :span="20">
-          <Level></Level>
-          <Area></Area>
+          <Level @typeHandler="typeHandler"></Level>
+          <Area @areaHandler="areaHandler"></Area>
           <div class="hospital-list">
             <Hos v-for="item in hospitalList" :key="item.id" class="m10"  :hosInfo="item"></Hos>
           </div>
@@ -37,26 +37,37 @@ import Area from "./area/index.vue"
 import Hos from "./hos/index.vue"
 import { onMounted, ref } from "vue"
 import {reqHospitalList} from "@/api/api"
-import {HospitalList,Content} from "@/pages/home/type.ts"
+import {HospitalList,Content} from "@/api/type.ts"
 let pageNum = ref(1)
 let limit = ref(6)
 let total = ref(10)
 let hospitalList = ref<Content[]>([])
-let getCurrentHospital = async (page = 1,limit = 6) => {
-  let result :HospitalList = await reqHospitalList(page,limit)
+// 地区代码
+let areaCode = ref("")
+// 医院类型
+let areaType = ref("")
+// 改变地区参数和等级参数
+let areaHandler = (area :any) => {
+  areaCode.value = area
+}
+let typeHandler = (type :any) => {
+  areaType.value = type
+}
+let getCurrentHospital = async (page = 1,limit = 6,areaCode = "",areaType = "") => {
+  let result :HospitalList = await reqHospitalList(page,limit,areaCode,areaType)
   if (result.code == 200) {
     hospitalList.value = result.data.content
     total.value = result.data.totalElements
   }
 }
 let sizeChange = () => {
-  getCurrentHospital(pageNum.value,limit.value)
+  getCurrentHospital(pageNum.value,limit.value,areaCode.value,areaType.value)
 }
 let pageChange = () => {
-  getCurrentHospital(pageNum.value,limit.value)
+  getCurrentHospital(pageNum.value,limit.value,areaCode.value,areaType.value)
 }
 onMounted(() => {
-  getCurrentHospital(pageNum.value,limit.value)
+  getCurrentHospital(pageNum.value,limit.value,areaCode.value,areaType.value)
 })
 
 </script>

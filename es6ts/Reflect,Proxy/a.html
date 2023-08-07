@@ -1,0 +1,49 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2023-07-24 15:47:31
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2023-07-24 16:16:54
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reflect Proxy</title>
+</head>
+<body>
+  <script>
+    //操作代理对象 
+    // let obj = {
+    //   name: "jzs",
+    //   age: 22
+    // }
+    // let dlObj = new Proxy(obj,{
+    //   get: (target,key) => {
+    //     console.log("Get");
+    //     return 222
+    //   },
+    //   set: (target,key,value) => {
+    //     console.log("Set");
+    //     target[key] = value
+    //     return "haohaohao"
+    //   }
+    // })
+    // console.log(dlObj.name,obj);
+    // dlObj.age = "wuwu"
+    // console.log(dlObj,obj);
+    // Reflect
+    // let obj = {
+    //   name: "jzs",
+    //   age: 22
+    // }
+    // console.log("name" in obj);
+    // console.log(Reflect.has(obj,"age"));
+    // console.log(Reflect.has(obj,"addr"));
+    // console.log(Reflect.deleteProperty(obj,"age"));
+    // console.log(obj,"obj");
+  </script>
+</body>
+</html>

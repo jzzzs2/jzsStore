@@ -1,0 +1,162 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2023-07-24 14:29:15
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2023-07-28 19:56:05
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>promise</title>
+  <style>
+    .box {
+      width: 200px;
+      height: 200px;
+      background: url("./mk.png") no-repeat;
+      background-size: cover;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box"></div>
+  <!-- <img src="./" alt="" srcset=""> -->
+  
+  <!-- <script src="https://unpkg.com/axios/dist/axios.min.js"></script> -->
+  <script>
+    //当三个promise都成功 , 返回一个成功数据数组回调
+    // Promise.all([Promise.resolve("first"),Promise.resolve("second"),Promise.resolve("third")]).then(res => {
+    //   console.log(res,"res");
+    // }).catch(err => {
+    //   console.log(err,"err");
+    // })
+    // Promise.all([Promise.resolve("first"),Promise.reject("fail").catch(err => {
+    //   console.log(err, "fail inner");
+    // }),Promise.reject("third").catch(err=> {
+    //   console.log(err,"err inner");
+    // })]).then(res => {
+    //   console.log(res,"res");
+    // }).catch(err => {
+    //   console.log(err,"err outer");
+    // })
+    // Promise.race([
+    //   new Promise((resolve, reject) => {
+    //     setTimeout(() => {
+    //       resolve("keainie")
+    //     },3000)
+    //   }),
+    //   new Promise((resolve, reject) => {
+    //     setTimeout(() => {
+    //       reject("fail")
+    //     },2000)
+    //   })
+    // ]).then(res => {
+    //   console.log(res,"res");
+    // }).catch(err => {
+    //   console.log(err,"err");
+    // })
+    //当所有Promise都完成时,执行回调,返回数组信息对象,顺序和之前传入Promise顺序一样
+    // Promise.allSettled([new Promise((resolved, reject) => {
+    //   setTimeout(() => {
+    //     resolved("haoye")
+    //   }, 5000)
+    // }),
+    // new Promise((resolve, reject) => {
+    //   setTimeout(() => {
+    //     reject("fail")
+    //   },2000)
+    // })
+    // ]).then(res => {
+    //   console.log(res,"res");
+    // })
+    // Promise.any([Promise.reject("222"),Promise.reject("fail1"),Promise.reject("fail2")]).then(res => {
+    //   console.log(res,"res");
+    // }).catch(err => {
+    //   console.log(err,"err");
+    // })
+    // new Promise((resolve,reject) => {
+    //   resolve("111")
+    // }).then(res => {
+    //   console.log(res,"res1");
+    // })
+    // Promise.resolve("222").then(function (res) {
+    //   console.log(res,"res2");
+    // });
+
+    // console.log('one');
+    // Promise.all([Promise.resolve("fail"),Promise.resolve("ok"),Promise.resolve("222")]).then(res => {
+    //   console.log(res,"res");
+    // }).catch(err => {
+    //   console.log(err,"err");
+    // })
+    // Promise.race([Promise.reject("fail"),Promise.resolve("ok"),Promise.resolve("222")]).then(res => {
+    //   console.log(res,"res");
+    // }).catch(err => {
+    //   console.log(err,"err");
+    // })
+    // Promise.allSettled([new Promise((resolve,reject) => {
+    //   setTimeout(()=> {
+    //     resolve("ok222")
+    //   }, 5000)
+    // }),
+    // new Promise((resolve,reject) => {
+    //   setTimeout(()=> {
+    //     resolve("ok")
+    //   }, 1000)
+    // }),
+    // new Promise((resolve,reject) => {
+    //   setTimeout(()=> {
+    //     reject("fail")
+    //   }, 4000)
+    // })
+    // ]).then(res => {
+    //   console.log(res,"res");
+    // }).catch(err => {
+    //   console.log(err,"err");
+    // })
+    // Promise.any([new Promise((resolve,reject) => {
+    //   setTimeout(()=> {
+    //     console.log("11111");
+    //     // resolve("ok222")
+    //     reject("ok222")
+    //   }, 1000)
+    // }),
+    // new Promise((resolve,reject) => {
+    //   setTimeout(()=> {
+    //     console.log("22222");
+    //     reject("ok")
+    //   }, 2000)
+    // }),
+    // new Promise((resolve,reject) => {
+    //   setTimeout(()=> {
+    //     console.log("33333");
+    //     reject("fail")
+    //   }, 4000)
+    // })
+    // ]).then(res => {
+    //   console.log(res,"res");
+    // }).catch(err => {
+    //   console.log(err,"err");
+    // })
+    // async function test() {
+    //   // try {
+    //     let a = await Promise.reject("fail")
+    //     let b = await Promise.resolve("222")
+    //     console.log(a);
+    //     console.log(b);
+    //   // } catch (error) {
+    //   //   console.log(error,"error");
+    //   // }
+
+    // }
+    // let result = test()
+    // console.log(result,"result");
+  </script>
+</body>
+
+</html>

@@ -4,11 +4,11 @@
  * @Author: sueRimn
  * @Date: 2023-07-28 15:14:42
  * @LastEditors: sueRimn
- * @LastEditTime: 2023-07-28 16:09:08
+ * @LastEditTime: 2023-08-04 19:41:51
 -->
 <template>
   <div class="nav">
-    <div class="content">
+    <div class="content" v-if="false">
       <div class="goods">我的订单</div>
       <span class="gap"></span>
       <div class="user">用户中心</div>
@@ -23,10 +23,24 @@
         关于我们
       </div>
     </div>
+    <div class="content" v-else>
+      <div class="goods" @click="$router.push('/login')">去登录</div>
+      <span class="gap"></span>
+      <span class="gap"></span>
+      <div class="help">
+        帮助中心
+      </div>
+      <span class="gap"></span>
+      <div class="our">
+        关于我们
+      </div>
+    </div>
   </div>
 </template>
 
 <script setup>
+import {useRouter} from "vue-router"
+let $router = useRouter()
 </script>
 <style scoped lang='scss'>
 .nav {
@@ -43,6 +57,9 @@
     align-items: center;
     color: rgb(143,142,143);
     font-size: 12px;
+    .goods {
+      cursor: pointer;
+    }
     .gap {
       padding: 0px 16px;
       &::after {

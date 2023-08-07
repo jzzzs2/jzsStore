@@ -1,0 +1,160 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2023-07-22 15:30:06
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2023-07-22 19:39:37
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>iterator</title>
+</head>
+
+<body>
+  <div class="test">1</div>
+  <div class="test">2</div>
+  <div class="test">3</div>
+  <script>
+    // 1模拟遍历器对象
+    // function testIterator(arr) {
+    //   var idx = 0
+    //   return {
+    //     next: function () {
+    //       if (idx <= arr.length - 1) {
+    //         return {
+    //           value: arr[idx++],
+    //           done: false
+    //         }
+    //       }
+    //       return {
+    //         value: arr[idx],
+    //         done: true
+    //       }
+    //     }
+    //   }
+    // }
+
+    // let arr = [1, 2, 3, 4]
+    // let fnc = testIterator(arr)
+    // console.log(fnc,"fnc");
+    // for (let i = 0; i <= arr.length; i++) {
+    //   console.log(i,"i");
+    //   console.log(fnc.next());
+    // }
+    // 
+    // 2默认iterator接口 保存在Symbol.iterator属性上 有next属性
+    // console.log([1,2,3]);
+    // console.log([1,2,3][Symbol.iterator]);
+    // let arr = [4, 8, 99]
+    // let fnc = arr[Symbol.iterator]()
+    // console.log(fnc.next());
+    // console.log(fnc.next());
+    // console.log(fnc.next());
+    // console.log(fnc.next());
+    // fnc.next()
+    //3. 原生数据结构实现Iterator arr set map nodeList str argumnents
+    // let arr1 = [2,3,4,6]
+    // let map = new Map()
+    // let set = new Set([9,10,11])
+    // let str = "abc12345"
+    // function test(a,b,c) {
+    //   console.log(arguments,"args");
+    // }
+    // console.log(arr1,"arr");
+    // console.log(map,"map");
+    // console.log(set,"set");
+    // console.dir(str);
+    // test(1,5,2)
+    // console.log(document.querySelectorAll(".test"));
+    // 4. 原生对象不能通过for of遍历
+    // let obj = {
+    //   name: "jzs",
+    //   age: 22
+    // }
+    // for (value of obj) {
+    //   console.log(obj,"obj");
+    // }
+    // var someString = "hi";
+    // typeof someString[Symbol.iterator]
+    // // "function"
+    // var iterator = someString[Symbol.iterator]();
+    // console.log(iterator.next());
+    // console.log(iterator.next());
+    // console.log(iterator.next());
+    // var str = new String("hi");
+
+    // let test2 = [...str] // ["h", "i"]
+
+    // console.log(test2,"test2");
+    // str[Symbol.iterator] = function () {
+    //   return {
+    //     next: function () {
+    //       if (this._first) {
+    //         this._first = false;
+    //         return { value: "bye", done: false };
+    //       } else {
+    //         return { done: true,value: "test" };
+    //       }
+    //     },
+    //     _first: true
+    //   };
+    // };
+
+    // let test = [...str] // ["bye"]
+    // console.log(test,"test");
+    // console.log(str,"str");
+    // const arr = ['red', 'green', 'blue'];
+    // for (let v of arr) {
+    //   console.log(v); // red green blue
+    // }
+    // const obj = {};
+    // obj[Symbol.iterator] = arr[Symbol.iterator].bind(arr);
+    // for (let v of obj) {
+    //   console.log(v); // red green blue
+    // }
+    // const arr = ["r", "g", "b"]
+    // for (item of arr) {
+    //   console.log(item,"color");
+    // }
+    // const obj = {}
+    // obj[Symbol.iterator] = arr[Symbol.iterator].bind(arr)
+    // for (item of obj) {
+    //   console.log(item,"item");
+    // }
+    // let arr = [3, 5, 7];
+    // arr.foo = 'hello';
+    // for (let i in arr) {
+    //   console.log(i); // "0", "1", "2", "foo"
+    // }
+    // for (let i of arr) {
+    //   console.log(i); //  "3", "5", "7"
+    // }
+    // console.log(arr,"arr");
+    // let arr = ["name","age","233"]
+    // let obj = {
+    //   name: "1",
+    //   age: 22
+    // }
+    let arr = [1,2,3]
+    // arr.test = "test123"
+    for(key in arr) {
+      console.log(typeof key,"key");
+    }
+
+    // for(key in obj) {
+    //   console.log(key,"key");
+    // }
+    // arr.forEach(item => {
+    //   if (item == 1) {
+    //     break;
+    //   }
+    // })
+  </script>
+</body>
+
+</html>

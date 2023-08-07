@@ -4,7 +4,7 @@
  * @Author: sueRimn
  * @Date: 2023-07-18 18:56:03
  * @LastEditors: sueRimn
- * @LastEditTime: 2023-07-21 16:55:39
+ * @LastEditTime: 2023-07-24 19:46:01
  */
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
@@ -20,7 +20,8 @@ export default defineConfig({
   server: {
     proxy: {
       '/api': {
-        target: 'http://syt.atguigu.cn',
+        // target: 'http://syt.atguigu.cn',
+        target: 'http://127.0.0.1:4523/m1/1347722-0-default',
         // target: 'http://syt.atguigu.cn',
         changeOrigin: true,
         // rewrite: (path) => path.replace(/^\/api/, 'api')

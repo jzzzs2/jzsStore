@@ -13,8 +13,8 @@ enum API {
   levelList = "/cmn/dict/findByDictCode/hostype",
   areaList = "/cmn/dict/findByDictCode/Beijin"
 }
-export let reqHospitalList = (page :number,limit :number) => {
-  return request.get<any,HospitalList>(`${API["hospitalList"]}${page}/${limit}`)
+export let reqHospitalList = (page :number,limit :number,areaCode :string,areaType :string) => {
+  return request.get<any,HospitalList>(`${API["hospitalList"]}${page}/${limit}?hostype=${areaType}&districtCode=${areaCode}`)
 }
 export let reqLevelList = () =>  {
   return request.get<any,areaAndLevelRes>(`${API["levelList"]}`)
