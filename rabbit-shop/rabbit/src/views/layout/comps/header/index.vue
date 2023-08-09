@@ -4,7 +4,7 @@
  * @Author: sueRimn
  * @Date: 2023-07-28 15:15:06
  * @LastEditors: sueRimn
- * @LastEditTime: 2023-08-01 14:30:34
+ * @LastEditTime: 2023-08-07 16:38:24
 -->
 <!--
  * @Descripttion: 
@@ -32,7 +32,7 @@
         </template>
       </el-input>
       <el-icon :size="22">
-        <ShoppingCart />
+        <Cart></Cart>
       </el-icon>
     </div>
 
@@ -41,6 +41,7 @@
 
 <script setup>
 // import { onMounted, ref } from 'vue';
+import Cart from "./Cart.vue"
 import cateStoreFnc from "@/stores/category"
 // import {reqCategory} from "@/api/layout.js"
 // 所有分类的数据存放

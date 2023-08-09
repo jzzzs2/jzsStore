@@ -1,8 +1,11 @@
 <script setup>
 import HotList from "./components/HotList.vue"
-import {onMounted,ref} from "vue"
-import {reqGoodDetail} from "@/api/secCategory.js"
-import {useRoute} from "vue-router"
+import { onMounted, ref } from "vue"
+import { reqGoodDetail } from "@/api/secCategory.js"
+import { useRoute } from "vue-router"
+import { ElMessage } from "element-plus";
+import useCartStore from "@/stores/cartList.js"
+let cartStore = useCartStore()
 let $route = useRoute()
 // 商品详情数据
 let goodDetail = ref({})
@@ -11,17 +14,55 @@ onMounted(() => {
 })
 let getGoodDetail = async (id) => {
   let result = await reqGoodDetail(id)
-  console.log(result,"result");
+  console.log(result, "result");
   if (result.code == 1) {
-    
+
     goodDetail.value = result.result
-    console.log(goodDetail.value.mainPictures,"xxx");
+    console.log(goodDetail.value.mainPictures, "xxx");
   }
 }
+//
+let goodSpec = ref({})
 //选择商品信息回调emit
 let chooseSkuInfo = (info) => {
-  console.log(info,"info");
+  goodSpec.value = info
+  // console.log(Object.keys(info),"info");
 }
+//加入购物车回调
+let addCart = () => {
+  if (goodSpec.value.skuId) {
+    //调用action 执行加入购物车操作
+    // console.log(goodSpec.value, "goodSpec", goodDetail.value);
+    cartStore.addGood({
+      id: goodDetail.value.id,
+      name: goodDetail.value.name,
+      picture: goodDetail.value.mainPictures[0],
+      price: goodDetail.value.price,
+      count: num.value,
+      skuId: goodSpec.value.skuId,
+      attrsText: goodSpec.value.specsText,
+      selected: true
+    })
+    /*
+     id:
+     name:
+     picture:
+     price:
+     count:
+     skuId:
+     attrsText:
+     selected: 
+    */
+  } else {
+    //提示用户
+    ElMessage({
+      type: "warning",
+      message: "请先选择商品规格"
+    })
+  }
+}
+//商品数量
+let num = ref(1)
 </script>
 
 <template>
@@ -30,9 +71,11 @@ let chooseSkuInfo = (info) => {
       <div class="bread-container">
         <el-breadcrumb separator=">">
           <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
-          <el-breadcrumb-item :to="{ path: `/category/${goodDetail.categories?.[1].id}` }">{{ goodDetail.categories?.[1].name }}
+          <el-breadcrumb-item :to="{ path: `/category/${goodDetail.categories?.[1].id}` }">{{
+            goodDetail.categories?.[1].name }}
           </el-breadcrumb-item>
-          <el-breadcrumb-item :to="{ path: `/category/sub/${goodDetail.categories?.[0].id}` }">{{ goodDetail.categories?.[0].name }}
+          <el-breadcrumb-item :to="{ path: `/category/sub/${goodDetail.categories?.[0].id}` }">{{
+            goodDetail.categories?.[0].name }}
           </el-breadcrumb-item>
         </el-breadcrumb>
       </div>
@@ -92,12 +135,12 @@ let chooseSkuInfo = (info) => {
                 </dl>
               </div>
               <!-- sku组件 -->
-              <XtxSkuInfo @change="chooseSkuInfo" :goods="{specs:goodDetail.specs,skus:goodDetail.skus}"></XtxSkuInfo>
+              <XtxSkuInfo @change="chooseSkuInfo" :goods="{ specs: goodDetail.specs, skus: goodDetail.skus }"></XtxSkuInfo>
               <!-- 数据组件 -->
-
+              <el-input-number v-model="num" :min="1" />
               <!-- 按钮组件 -->
               <div>
-                <el-button size="large" class="btn">
+                <el-button size="large" class="btn" @click="addCart">
                   加入购物车
                 </el-button>
               </div>

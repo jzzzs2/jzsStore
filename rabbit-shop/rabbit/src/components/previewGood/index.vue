@@ -4,10 +4,10 @@
  * @Author: sueRimn
  * @Date: 2023-08-03 16:04:23
  * @LastEditors: sueRimn
- * @LastEditTime: 2023-08-03 16:51:23
+ * @LastEditTime: 2023-08-07 16:11:41
 -->
 <script setup>
-import {ref, watch} from "vue"
+import { ref, watch } from "vue"
 import { useMouseInElement } from "@vueuse/core"
 // 图片列表
 defineProps({
@@ -24,35 +24,38 @@ let changeImage = (idx) => {
 // 获取父元素
 let target = ref(null)
 // 获取鼠标相对于元素位置
-let {elementX,elementY,isOutside} = useMouseInElement(target)
+let { elementX, elementY, isOutside } = useMouseInElement(target)
 // 蒙版层的绝对定位坐标
 let left = ref(0)
 let top = ref(0)
 // 放大镜大图移动
 let offsetX = ref(0)
 let offsetY = ref(0)
-watch([elementX,elementY],() => {
-  console.log("处理");
-  //有效范围处理
-  if (elementX.value >= 100 && elementX.value <= 300) {
-    left.value = elementX.value - 100
+watch([elementX, elementY], () => {
+  if (!isOutside) {
+    console.log("处理");
+    //有效范围处理
+    if (elementX.value >= 100 && elementX.value <= 300) {
+      left.value = elementX.value - 100
+    }
+    if (elementY.value >= 100 && elementY.value <= 300) {
+      top.value = elementY.value - 100
+    }
+    //边界范围处理
+    if (elementX.value < 100) {
+      left.value = 0
+    }
+    if (elementX.value > 300) {
+      left.value = 200
+    }
+    if (elementY.value > 300) {
+      top.value = 200
+    }
+    //放大图片距离赋值
+    offsetX.value = -2 * left.value
+    offsetY.value = -2 * top.value
   }
-  if (elementY.value >= 100 && elementY.value <= 300) {
-    top.value = elementY.value - 100
-  }
-  //边界范围处理
-  if (elementX.value < 100) {
-    left.value = 0
-  }
-  if (elementX.value > 300) {
-    left.value = 200
-  }
-  if (elementY.value > 300) {
-    top.value = 200
-  }
-  //放大图片距离赋值
-  offsetX.value = -2 * left.value
-  offsetY.value = -2 * top.value
+
 })
 </script>
 
@@ -67,7 +70,7 @@ watch([elementX,elementY],() => {
     </div>
     <!-- 小图列表 -->
     <ul class="small">
-      <li v-for="(img, i) in imageList" :key="i" @mouseenter="changeImage(i)" :class="{active: imgIdx==i}">
+      <li v-for="(img, i) in imageList" :key="i" @mouseenter="changeImage(i)" :class="{ active: imgIdx == i }">
         <img :src="img" alt="" />
       </li>
     </ul>

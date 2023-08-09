@@ -1,13 +1,15 @@
 <script setup>
-import {reqLogin} from "@/api/login"
+// import {reqLogin} from "@/api/login"
 import {ref} from "vue"
-import {useRouter} from "vue-router"
-import { ElMessage } from 'element-plus'
-import 'element-plus/theme-chalk/el-message.css'
-let $router = useRouter()
+import useUserStore from "@/stores/user.js"
+let userStore = useUserStore()
+// import {useRouter} from "vue-router"
+// import { ElMessage } from 'element-plus'
+// import 'element-plus/theme-chalk/el-message.css'
+// let $router = useRouter()
 let loginParams = ref({
-  account: "",
-  password: "",
+  account: "xiaotuxian001",
+  password: "123",
   agree: true
 })
 let rules = ref({
@@ -49,14 +51,16 @@ let formEle = ref(null)
 let loginHandle = async () => {
   let {password,account} = loginParams.value
   await formEle.value.validate()
+  userStore.loginOperate({password,account})
   // 正确的话再执行发送请求 如果请求成功 进行跳转 否则在响应拦截器中提示消息
-  let result = await reqLogin({password,account})
-  // console.log(result,"result");
-  ElMessage({
-    message: "登录成功",
-    type: "success"
-  })
-  $router.replace("/")
+  // 仓库发送action
+  // let result = await reqLogin({password,account})
+  // // console.log(result,"result");
+  // ElMessage({
+  //   message: "登录成功",
+  //   type: "success"
+  // })
+  // $router.replace("/")
   // "account": "xiaotuxian001",
     // "password": "123456"
 }

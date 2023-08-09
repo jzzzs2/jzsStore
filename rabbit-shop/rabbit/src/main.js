@@ -24,7 +24,11 @@ import * as ElementPlusIconsVue from '@element-plus/icons-vue'
 for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
   app.component(key, component)
 }
-app.use(createPinia())
+//使用pinia持久化插件
+import piniaPluginPersistedstate from 'pinia-plugin-persistedstate'
+let pinia = createPinia()
+pinia.use(piniaPluginPersistedstate)
+app.use(pinia)
 app.use(regis)
 app.use(router)
 app.use(imgLazy)

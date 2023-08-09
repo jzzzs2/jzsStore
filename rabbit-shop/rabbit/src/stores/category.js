@@ -14,7 +14,7 @@ export default defineStore("category", {
       cateList: []
     }
   },
-  getters: () => {
+  getters: {
 
   },
   actions: {

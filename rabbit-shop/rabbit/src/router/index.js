@@ -4,7 +4,7 @@
  * @Author: sueRimn
  * @Date: 2023-07-28 14:01:43
  * @LastEditors: sueRimn
- * @LastEditTime: 2023-08-02 16:00:54
+ * @LastEditTime: 2023-08-09 16:38:49
  */
 import { createRouter, createWebHistory } from 'vue-router'
 const router = createRouter({
@@ -29,6 +29,22 @@ const router = createRouter({
         {
           path: "detail/:id",
           component: () => import("@/views/detail/index.vue")
+        },
+        {
+          path: "cartlist",
+          component: () => import("@/views/cartlist/index.vue")
+        },
+        {
+          path: "checkout",
+          component: () => import("@/views/checkout/index.vue")
+        },
+        {
+          path: "pay",
+          component: () => import("@/views/pay/index.vue")
+        },
+        {
+          path: "paycallback",
+          component: () => import("@/views/paycb/index.vue")
         }
       ]
     },
